@@ -13,10 +13,18 @@ config_version=5
 config/name="Castlevania-Remake"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
+[display]
+
+window/size/viewport_width=256
+window/size/viewport_height=240
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
