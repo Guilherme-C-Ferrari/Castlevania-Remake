@@ -20,6 +20,15 @@ window/size/viewport_height=240
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
+[file_customization]
+
+folder_colors={
+"res://Assets/": "orange",
+"res://Audio/": "green",
+"res://Scenes/": "purple",
+"res://Scripts/": "blue"
+}
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
