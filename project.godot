@@ -12,6 +12,7 @@ config_version=5
 
 config/name="Castlevania-Remake"
 config/features=PackedStringArray("4.6", "Forward Plus")
+config/icon="uid://b10eyif3e1eab"
 
 [display]
 
