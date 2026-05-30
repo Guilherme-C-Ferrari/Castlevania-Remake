@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1clmh8y1daxk"
+path="res://.godot/imported/21. SFX - Hearts Added to Score.mp3-bc336d99fb2be730bc08b2128fb4ba6f.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/21. SFX - Hearts Added to Score.mp3"
+dest_files=["res://.godot/imported/21. SFX - Hearts Added to Score.mp3-bc336d99fb2be730bc08b2128fb4ba6f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

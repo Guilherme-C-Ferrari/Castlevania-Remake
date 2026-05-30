@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cshkqx5g6r7t1"
+path="res://.godot/imported/33. SFX - Break Wall.mp3-b077d737530329a5274e197e29f07ce5.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/33. SFX - Break Wall.mp3"
+dest_files=["res://.godot/imported/33. SFX - Break Wall.mp3-b077d737530329a5274e197e29f07ce5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2oito2tcgsbh"
+path="res://.godot/imported/29. SFX - Enemy Hit 1.mp3-c8d4e0b275e387c300ecdf7e05d25115.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/29. SFX - Enemy Hit 1.mp3"
+dest_files=["res://.godot/imported/29. SFX - Enemy Hit 1.mp3-c8d4e0b275e387c300ecdf7e05d25115.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

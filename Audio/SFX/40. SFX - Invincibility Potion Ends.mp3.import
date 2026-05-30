@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dcffug7myvtkc"
+path="res://.godot/imported/40. SFX - Invincibility Potion Ends.mp3-dc02b5aa0cae4974132c3e08fc7a83dc.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/40. SFX - Invincibility Potion Ends.mp3"
+dest_files=["res://.godot/imported/40. SFX - Invincibility Potion Ends.mp3-dc02b5aa0cae4974132c3e08fc7a83dc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dl6fonuteh724"
+path="res://.godot/imported/28. SFX - Fish Man Enters Water.mp3-36f426a928ce9763f9cbe1d731218504.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/28. SFX - Fish Man Enters Water.mp3"
+dest_files=["res://.godot/imported/28. SFX - Fish Man Enters Water.mp3-36f426a928ce9763f9cbe1d731218504.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

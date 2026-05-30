@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwwygewtpqvn1"
+path="res://.godot/imported/18. SFX - Drum.mp3-3ace06293e6a13a0f9fc52c5f6c34768.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/18. SFX - Drum.mp3"
+dest_files=["res://.godot/imported/18. SFX - Drum.mp3-3ace06293e6a13a0f9fc52c5f6c34768.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

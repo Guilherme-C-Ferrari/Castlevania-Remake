@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1x36h5p0hjvy"
+path="res://.godot/imported/25. SFX - Whip - Axe 1.mp3-29566b5c9d8200fc3b924a99e2918b2d.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/25. SFX - Whip - Axe 1.mp3"
+dest_files=["res://.godot/imported/25. SFX - Whip - Axe 1.mp3-29566b5c9d8200fc3b924a99e2918b2d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

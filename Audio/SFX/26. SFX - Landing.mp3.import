@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://da4q8crvufkm6"
+path="res://.godot/imported/26. SFX - Landing.mp3-ab13d5363c3ca7f1946d73939ee1b283.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/26. SFX - Landing.mp3"
+dest_files=["res://.godot/imported/26. SFX - Landing.mp3-ab13d5363c3ca7f1946d73939ee1b283.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

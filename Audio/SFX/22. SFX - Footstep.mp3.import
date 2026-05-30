@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cqcc4byoexdbq"
+path="res://.godot/imported/22. SFX - Footstep.mp3-b40fd99384a05a5070de34e72a8feb0a.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/22. SFX - Footstep.mp3"
+dest_files=["res://.godot/imported/22. SFX - Footstep.mp3-b40fd99384a05a5070de34e72a8feb0a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

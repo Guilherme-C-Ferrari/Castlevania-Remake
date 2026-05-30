@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c076neud58ut1"
+path="res://.godot/imported/45. SFX - Secrt Item.mp3-7559b33080a7713b23b63f6e6e6ce9a7.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/45. SFX - Secrt Item.mp3"
+dest_files=["res://.godot/imported/45. SFX - Secrt Item.mp3-7559b33080a7713b23b63f6e6e6ce9a7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

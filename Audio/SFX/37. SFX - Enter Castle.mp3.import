@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dr48wti68t6ax"
+path="res://.godot/imported/37. SFX - Enter Castle.mp3-0573fa3398f540dc28962e9408451f90.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/37. SFX - Enter Castle.mp3"
+dest_files=["res://.godot/imported/37. SFX - Enter Castle.mp3-0573fa3398f540dc28962e9408451f90.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
