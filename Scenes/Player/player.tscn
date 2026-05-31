@@ -1,6 +1,71 @@
 [gd_scene format=3 uid="uid://dk2hca0p446lk"]
 
 [ext_resource type="Texture2D" uid="uid://ddoai07jg5dys" path="res://Assets/SpriteSheets/Player/simon-belmont-sheet3.png" id="1_5kotj"]
+[ext_resource type="Script" uid="uid://bpnoonnu12gp2" path="res://Scripts/Player/player.gd" id="1_te8s0"]
+[ext_resource type="Script" uid="uid://cxx0ogu5osmal" path="res://Scripts/Player/player_animated_sprite.gd" id="3_xpcdj"]
+
+[sub_resource type="Animation" id="Animation_mtuoh"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_htcer"]
+resource_name = "idle"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSpritePlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_idle"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_dd0ac"]
+resource_name = "jump"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSpritePlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_jump"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_0u5uq"]
+resource_name = "walk"
+length = 0.4
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSpritePlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_walk"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jlvik"]
+_data = {
+&"RESET": SubResource("Animation_mtuoh"),
+&"idle": SubResource("Animation_htcer"),
+&"jump": SubResource("Animation_dd0ac"),
+&"walk": SubResource("Animation_0u5uq")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5kotj"]
 atlas = ExtResource("1_5kotj")
@@ -197,7 +262,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_2o4rg")
 }],
 "loop": true,
-"name": &"descend_stairs",
+"name": &"descending_stairs",
 "speed": 5.0
 }, {
 "frames": [{
@@ -247,12 +312,23 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="Player" type="Node2D" unique_id=2036421342]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvj7d"]
+radius = 5.0
+height = 26.0
 
-[node name="Player_Sprite" type="AnimatedSprite2D" parent="." unique_id=2030226470]
+[node name="Player" type="CharacterBody2D" unique_id=603095742 groups=["player"]]
+script = ExtResource("1_te8s0")
+JUMP_VELOCITY = -280.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1440742978]
+libraries/ = SubResource("AnimationLibrary_jlvik")
+
+[node name="AnimatedSpritePlayer" type="AnimatedSprite2D" parent="." unique_id=2030226470]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_sbrq6")
-animation = &"ascending_stairs"
+animation = &"idle"
+script = ExtResource("3_xpcdj")
 
-[node name="Whip_Sprite" type="Sprite2D" parent="." unique_id=1482708434]
-position = Vector2(0, -16)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=319422761]
+position = Vector2(0, -13)
+shape = SubResource("CapsuleShape2D_uvj7d")
