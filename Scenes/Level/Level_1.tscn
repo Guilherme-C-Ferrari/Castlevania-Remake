@@ -1,7 +1,16 @@
 [gd_scene format=3 uid="uid://c5gs8koxst3jx"]
 
-[ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Level/player.tscn" id="1_tkng7"]
+[ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="1_tkng7"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tkng7"]
 
 [node name="Level1" type="Node2D" unique_id=1778734806]
 
 [node name="Player" parent="." unique_id=2036421342 instance=ExtResource("1_tkng7")]
+position = Vector2(119, 85)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=804223028]
+position = Vector2(121, 217)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1833029964]
+shape = SubResource("WorldBoundaryShape2D_tkng7")
