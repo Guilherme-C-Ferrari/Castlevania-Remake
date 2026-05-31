@@ -20,18 +20,20 @@ func _physics_process(delta: float) -> void:
 	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		print(get_gravity() )
+		velocity += get_gravity()  * delta
 
 	# Handle jump.
 	if is_jumping and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
-	if moving > 0.0:
-		velocity.x = moving * SPEED
-	elif moving < 0.0:
-		velocity.x = moving * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	if !is_jumping and is_on_floor():
+		if moving > 0.0:
+			velocity.x = moving * SPEED
+		elif moving < 0.0:
+			velocity.x = moving * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
 

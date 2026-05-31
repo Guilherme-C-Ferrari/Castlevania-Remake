@@ -316,8 +316,9 @@ animations = [{
 radius = 5.0
 height = 26.0
 
-[node name="Player" type="CharacterBody2D" unique_id=603095742]
+[node name="Player" type="CharacterBody2D" unique_id=603095742 groups=["player"]]
 script = ExtResource("1_te8s0")
+JUMP_VELOCITY = -280.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1440742978]
 libraries/ = SubResource("AnimationLibrary_jlvik")
