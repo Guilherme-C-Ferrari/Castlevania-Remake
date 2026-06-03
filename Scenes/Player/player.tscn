@@ -10,6 +10,9 @@ animation = &"duck"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mtuoh"]
 animation = &"idle"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dd0ac"]
+animation = &"jump"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_htcer"]
 animation = &"walk"
 
@@ -24,15 +27,53 @@ advance_expression = "is_walking == true"
 advance_mode = 2
 advance_expression = "!is_walking"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0u5uq"]
+advance_mode = 2
+advance_expression = "is_ducking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jlvik"]
+advance_mode = 2
+advance_expression = "!is_ducking and is_wakling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gk6dx"]
+advance_mode = 2
+advance_expression = "!is_ducking and !is_walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jhyir"]
+advance_mode = 2
+advance_expression = "is_ducking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_74mp2"]
+advance_mode = 2
+advance_expression = "is_jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oikmp"]
+advance_mode = 2
+advance_expression = "is_jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_06tpx"]
+advance_mode = 2
+advance_expression = "is_jumping and is_walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7g0yx"]
+advance_mode = 2
+advance_expression = "is_jumping and !is_walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dey5f"]
+advance_mode = 2
+advance_expression = "!is_jumping and is_ducking"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xpcdj"]
 states/duck/node = SubResource("AnimationNodeAnimation_xpcdj")
-states/duck/position = Vector2(451, 184)
+states/duck/position = Vector2(380, 287)
 states/idle/node = SubResource("AnimationNodeAnimation_mtuoh")
-states/idle/position = Vector2(458, -67)
+states/idle/position = Vector2(380, -67)
+states/jump/node = SubResource("AnimationNodeAnimation_dd0ac")
+states/jump/position = Vector2(722, -60)
 states/walk/node = SubResource("AnimationNodeAnimation_htcer")
-states/walk/position = Vector2(623, 60)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_dd0ac"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_xpcdj"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_mtuoh")]
-graph_offset = Vector2(27, -161)
+states/walk/position = Vector2(722, 287)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_dd0ac"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_xpcdj"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_mtuoh"), "walk", "duck", SubResource("AnimationNodeStateMachineTransition_0u5uq"), "duck", "walk", SubResource("AnimationNodeStateMachineTransition_jlvik"), "duck", "idle", SubResource("AnimationNodeStateMachineTransition_gk6dx"), "idle", "duck", SubResource("AnimationNodeStateMachineTransition_jhyir"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_74mp2"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_oikmp"), "jump", "walk", SubResource("AnimationNodeStateMachineTransition_06tpx"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_7g0yx"), "jump", "duck", SubResource("AnimationNodeStateMachineTransition_dey5f")]
+graph_offset = Vector2(-252, -257)
 
 [sub_resource type="Animation" id="Animation_mtuoh"]
 length = 0.001
@@ -399,6 +440,8 @@ collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_te8s0")
 JUMP_VELOCITY = -280.0
+is_walking = true
+is_ducking = true
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1512812419]
 tree_root = SubResource("AnimationNodeStateMachine_xpcdj")
