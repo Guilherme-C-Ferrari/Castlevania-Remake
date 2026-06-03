@@ -4,8 +4,55 @@
 [ext_resource type="Script" uid="uid://bpnoonnu12gp2" path="res://Scripts/Player/player.gd" id="1_te8s0"]
 [ext_resource type="Script" uid="uid://cxx0ogu5osmal" path="res://Scripts/Player/player_animated_sprite.gd" id="3_xpcdj"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xpcdj"]
+animation = &"duck"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mtuoh"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_htcer"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dd0ac"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xpcdj"]
+advance_mode = 2
+advance_expression = "is_walking == true"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mtuoh"]
+advance_mode = 2
+advance_expression = "!is_walking"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xpcdj"]
+states/duck/node = SubResource("AnimationNodeAnimation_xpcdj")
+states/duck/position = Vector2(451, 184)
+states/idle/node = SubResource("AnimationNodeAnimation_mtuoh")
+states/idle/position = Vector2(458, -67)
+states/walk/node = SubResource("AnimationNodeAnimation_htcer")
+states/walk/position = Vector2(623, 60)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_dd0ac"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_xpcdj"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_mtuoh")]
+graph_offset = Vector2(27, -161)
+
 [sub_resource type="Animation" id="Animation_mtuoh"]
 length = 0.001
+
+[sub_resource type="Animation" id="Animation_xpcdj"]
+resource_name = "duck"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSpritePlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_duck"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_htcer"]
 resource_name = "idle"
@@ -21,6 +68,23 @@ tracks/0/keys = {
 "values": [{
 "args": [],
 "method": &"play_idle"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_jlvik"]
+resource_name = "idle_attack"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSpritePlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_attack"
 }]
 }
 
@@ -62,7 +126,9 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jlvik"]
 _data = {
 &"RESET": SubResource("Animation_mtuoh"),
+&"duck": SubResource("Animation_xpcdj"),
 &"idle": SubResource("Animation_htcer"),
+&"idle_attack": SubResource("Animation_jlvik"),
 &"jump": SubResource("Animation_dd0ac"),
 &"walk": SubResource("Animation_0u5uq")
 }
@@ -142,6 +208,10 @@ region = Rect2(0, 320, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2o4rg"]
 atlas = ExtResource("1_5kotj")
 region = Rect2(32, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpcdj"]
+atlas = ExtResource("1_5kotj")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wn78v"]
 atlas = ExtResource("1_5kotj")
@@ -267,6 +337,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_xpcdj")
+}],
+"loop": true,
+"name": &"duck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_wn78v")
 }],
 "loop": true,
@@ -298,7 +376,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_qc7da")
 }, {
 "duration": 1.0,
@@ -317,8 +395,15 @@ radius = 5.0
 height = 26.0
 
 [node name="Player" type="CharacterBody2D" unique_id=603095742 groups=["player"]]
+collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_te8s0")
 JUMP_VELOCITY = -280.0
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1512812419]
+tree_root = SubResource("AnimationNodeStateMachine_xpcdj")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1440742978]
 libraries/ = SubResource("AnimationLibrary_jlvik")
@@ -326,7 +411,7 @@ libraries/ = SubResource("AnimationLibrary_jlvik")
 [node name="AnimatedSpritePlayer" type="AnimatedSprite2D" parent="." unique_id=2030226470]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_sbrq6")
-animation = &"idle"
+animation = &"attack"
 script = ExtResource("3_xpcdj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=319422761]
