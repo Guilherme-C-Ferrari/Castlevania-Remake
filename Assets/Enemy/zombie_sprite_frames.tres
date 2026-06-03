@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://ckk8buant6bfa"]
+
+[ext_resource type="Texture2D" uid="uid://hjevh3prj6nn" path="res://Assets/SpriteSheets/Enemy.png" id="1_4sux4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg38q"]
+atlas = ExtResource("1_4sux4")
+region = Rect2(1, 28, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knpbc"]
+atlas = ExtResource("1_4sux4")
+region = Rect2(18, 28, 16, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg38q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knpbc")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
