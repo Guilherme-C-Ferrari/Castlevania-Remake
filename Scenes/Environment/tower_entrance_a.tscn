@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ch0c1qcij0hrl"]
+
+[ext_resource type="TileSet" uid="uid://2nyh816hk1t1" path="res://Assets/Map/level_2_tile_set.tres" id="1_lbcbw"]
+[ext_resource type="Texture2D" uid="uid://d0isnxc6qfirh" path="res://Assets/Map/NES - Castlevania - Stages - Level 2_ Main Hall.png" id="2_6r400"]
+[ext_resource type="Texture2D" uid="uid://duhg8sinqq8bp" path="res://Assets/SpriteSheets/Items.png" id="3_jk25d"]
+
+[node name="Tower Entrance A" type="Node2D" unique_id=74547287]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2140058940]
+position = Vector2(0, 16)
+tile_set = ExtResource("1_lbcbw")
+
+[node name="NesCastlevaniaStagesLevel2MainHall" type="Sprite2D" parent="." unique_id=940882655]
+position = Vector2(-773, -171.5)
+texture = ExtResource("2_6r400")
+
+[node name="Items" type="Sprite2D" parent="." unique_id=1818993687]
+position = Vector2(-59, 304)
+texture = ExtResource("3_jk25d")
