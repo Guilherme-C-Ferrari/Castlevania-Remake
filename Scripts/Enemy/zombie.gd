@@ -1,5 +1,9 @@
 extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@export var walk_direction: Vector2
+
+func _ready() -> void:
+	$FSM/MoveLinear.walk_direction = walk_direction
 
 func _physics_process(delta: float) -> void:
 	var move_direction = velocity.normalized()

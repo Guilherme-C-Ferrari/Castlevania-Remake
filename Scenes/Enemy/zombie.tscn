@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://x55yl2iijlg7"]
 
-[ext_resource type="Script" uid="uid://ce2gbxq7biuip" path="res://Scripts/Enemy/zombie.gd" id="1_glgje"]
+[ext_resource type="Script" uid="uid://ce2gbxq7biuip" path="res://Scripts/Enemy/Zombie.gd" id="1_glgje"]
 [ext_resource type="SpriteFrames" uid="uid://ckk8buant6bfa" path="res://Assets/Enemy/zombie_sprite_frames.tres" id="1_m874j"]
 [ext_resource type="Script" uid="uid://bgbp6l5x3f6op" path="res://Scripts/FSM/FSM.gd" id="2_uepkm"]
 [ext_resource type="Script" uid="uid://bhxirgtj4aqsn" path="res://Scripts/FSM/MoveLinear.gd" id="3_glgje"]
@@ -39,4 +39,3 @@ initial_state = NodePath("MoveLinear")
 [node name="MoveLinear" type="Node" parent="FSM" unique_id=889207838 node_paths=PackedStringArray("character")]
 script = ExtResource("3_glgje")
 character = NodePath("../..")
-walk_direction = Vector2(-1, 0)
