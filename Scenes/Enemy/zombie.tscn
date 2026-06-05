@@ -36,6 +36,7 @@ shape = SubResource("CapsuleShape2D_glgje")
 script = ExtResource("2_uepkm")
 initial_state = NodePath("MoveLinear")
 
-[node name="MoveLinear" type="Node" parent="FSM" unique_id=889207838 node_paths=PackedStringArray("character")]
+[node name="MoveLinear" type="Node" parent="FSM" unique_id=889207838 node_paths=PackedStringArray("character", "animated_sprite")]
 script = ExtResource("3_glgje")
 character = NodePath("../..")
+animated_sprite = NodePath("../../AnimatedSprite2D")
