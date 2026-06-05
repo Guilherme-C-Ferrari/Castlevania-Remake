@@ -40,6 +40,10 @@ folder_colors={
 "res://Scripts/": "blue"
 }
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 ascend_stair={
