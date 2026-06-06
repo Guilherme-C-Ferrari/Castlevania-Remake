@@ -21,6 +21,7 @@ script = ExtResource("1_glgje")
 sprite_frames = ExtResource("1_m874j")
 animation = &"walk"
 autoplay = "walk"
+frame_progress = 0.24884464
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1791133929]
 shape = SubResource("CapsuleShape2D_tw8i7")
