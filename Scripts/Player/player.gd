@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var animated_sprite_player: AnimatedSprite2D = $AnimatedSpritePlayer
+@onready var visual: Node2D = $Visual
+
 
 var jump_pressed := false
 var move_pressed := 0
@@ -47,10 +48,10 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity()  * delta
 
 	# Handle jump.
-	if is_jumping and is_on_floor() and !is_ducking:
+	if is_jumping and is_on_floor() and !is_ducking and !is_attacking:
 		velocity.y = JUMP_VELOCITY
 	
-	if !is_jumping and is_on_floor() and !is_ducking:
+	if !is_jumping and is_on_floor() and !is_ducking and !is_attacking:
 		if moving > 0.0:
 			velocity.x = moving * SPEED
 		elif moving < 0.0:
@@ -59,6 +60,8 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 	elif is_ducking:
 		velocity.x = 0
+	elif is_attacking and !is_jumping:
+		velocity.x = 0
 
 	move_and_slide()
 
@@ -66,24 +69,15 @@ func player_animation_control():
 	move_animation()
 	jump_animation()
 	duck_animation()
-
-func get_inputs():
-
-	jump_pressed = Input.is_action_just_pressed("jump")
-	move_pressed = Input.get_axis("move_left", "move_right")
-	duck_pressed = Input.is_action_pressed("descend_stair")
-	descend_pressed = Input.is_action_pressed("descend_stair")
-	ascend_pressed = Input.is_action_pressed("ascend_stair")
+	attack_animation()
 	
-	attack_pressed = Input.is_action_just_pressed("attack")
-
 func move_animation():
-	if move_pressed != 0 and is_on_floor():
+	if move_pressed != 0 and is_on_floor() and !is_attacking:
 		is_walking = true
 		if move_pressed == 1:
-			animated_sprite_player.flip_h = true
+			visual.scale = Vector2(-1, visual.scale.y)
 		else:
-			animated_sprite_player.flip_h = false
+			visual.scale = Vector2(1, visual.scale.y)
 	else:
 		is_walking = false
 	
@@ -108,8 +102,21 @@ func duck_animation():
 	if duck_pressed and is_on_floor():
 		is_ducking = true
 		is_walking = false
+		
+func attack_animation():
+	if attack_pressed:
+		is_attacking = true
 
 
+func get_inputs():
+	jump_pressed = Input.is_action_just_pressed("jump")
+	move_pressed = Input.get_axis("move_left", "move_right")
+	duck_pressed = Input.is_action_pressed("descend_stair")
+	descend_pressed = Input.is_action_pressed("descend_stair")
+	ascend_pressed = Input.is_action_pressed("ascend_stair")
+	attack_pressed = Input.is_action_just_pressed("attack")
+func finish_attack_anim():
+	is_attacking = false
 	
 	
 	
