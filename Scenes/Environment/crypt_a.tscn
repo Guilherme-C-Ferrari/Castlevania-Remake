@@ -6,8 +6,9 @@
 [node name="Crypt A" type="Node2D" unique_id=703174525]
 
 [node name="NesCastlevaniaStagesLevel1Entrance" type="Sprite2D" parent="." unique_id=1011626843]
-visible = false
-position = Vector2(-514.5, 242.5)
+modulate = Color(0, 0, 0, 1)
+position = Vector2(256, 120)
+scale = Vector2(0.14647251, 0.60965294)
 texture = ExtResource("1_27i2k")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=695115024]

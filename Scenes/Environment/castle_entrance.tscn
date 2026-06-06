@@ -6,8 +6,9 @@
 [node name="Castle Entrance" type="Node2D" unique_id=1700689788]
 
 [node name="NesCastlevaniaStagesLevel1Entrance" type="Sprite2D" parent="." unique_id=673281755]
-visible = false
-position = Vector2(1799.5, 242.5)
+modulate = Color(0, 0, 0, 1)
+position = Vector2(383.50003, 120.999985)
+scale = Vector2(0.2157734, 0.6082725)
 texture = ExtResource("1_c8uyk")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=434853622]
