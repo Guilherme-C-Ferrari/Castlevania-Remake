@@ -32,6 +32,10 @@ func play_ascending_stairs():
 func play_death():
 	if animation != "death":
 		play("death")
+		
+func play_duck():
+	if animation != "duck":
+		play("duck")
 	
 func play_attack_duck():
 	if animation != "attack_duck":
