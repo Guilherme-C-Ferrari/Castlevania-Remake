@@ -10,10 +10,15 @@ extends CharacterBody2D
 signal player_damaged(damage: int)
 
 func _ready() -> void:
-	$FSM/MoveLinear.move_speed = move_speed
-	$FSM/MoveLinear.walk_direction = walk_direction
-	hit_box.body_entered.connect(_on_player_damaged.bind)
+	hit_box.body_entered.connect(_on_player_damaged)
 
-func _on_player_damaged() -> void:
-	print("a")
+func _on_player_damaged(_body: Node2D) -> void:
 	player_damaged.emit(damage)
+
+func on_receive_damage(amount: int) -> void:
+	hp -= amount
+	if hp <= 0:
+		die()
+
+func die() -> void:
+	queue_free()
