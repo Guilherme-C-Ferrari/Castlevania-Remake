@@ -15,6 +15,10 @@ run/main_scene="uid://c5gs8koxst3jx"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://b10eyif3e1eab"
 
+[audio]
+
+buses/default_bus_layout="uid://b472naenmbv7x"
+
 [autoload]
 
 AudioManager="*uid://d373te4dm335i"
@@ -88,9 +92,10 @@ attack={
 [physics]
 
 3d/physics_engine="Jolt Physics"
-2d/default_gravity=900.0
+2d/default_gravity=880.0
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+2d/default_gravity=900.0
