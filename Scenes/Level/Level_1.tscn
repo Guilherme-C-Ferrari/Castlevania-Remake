@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c5gs8koxst3jx"]
 
 [ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="1_tkng7"]
+[ext_resource type="PackedScene" uid="uid://x55yl2iijlg7" path="res://Scenes/Enemy/zombie.tscn" id="2_gu3vr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tkng7"]
 
@@ -8,9 +9,15 @@
 
 [node name="Player" parent="." unique_id=2036421342 instance=ExtResource("1_tkng7")]
 position = Vector2(119, 85)
+collision_layer = 2
+collision_mask = 9
+
+[node name="Zombie" parent="." unique_id=1764050821 instance=ExtResource("2_gu3vr")]
+position = Vector2(202, 70)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=804223028]
 position = Vector2(121, 217)
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1833029964]
 shape = SubResource("WorldBoundaryShape2D_tkng7")

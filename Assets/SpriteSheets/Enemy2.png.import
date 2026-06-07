@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1u7ns1ybj5ke"
-path="res://.godot/imported/place_holder.png-391972d5913011282f26309676c08ff4.ctex"
+uid="uid://swhkrkvjo3lx"
+path="res://.godot/imported/Enemy2.png-4d81b2692cb3e0e14066c469084c2cb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Enemy/place_holder.png"
-dest_files=["res://.godot/imported/place_holder.png-391972d5913011282f26309676c08ff4.ctex"]
+source_file="res://Assets/SpriteSheets/Enemy2.png"
+dest_files=["res://.godot/imported/Enemy2.png-4d81b2692cb3e0e14066c469084c2cb5.ctex"]
 
 [params]
 

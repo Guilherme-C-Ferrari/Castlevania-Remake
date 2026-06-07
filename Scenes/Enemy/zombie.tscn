@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://x55yl2iijlg7"]
+
+[ext_resource type="Script" uid="uid://ce2gbxq7biuip" path="res://Scripts/Enemy/ZombieEnemy.gd" id="1_glgje"]
+[ext_resource type="SpriteFrames" uid="uid://ckk8buant6bfa" path="res://Assets/Enemy/zombie_sprite_frames.tres" id="1_m874j"]
+[ext_resource type="Script" uid="uid://bgbp6l5x3f6op" path="res://Scripts/FSM/FSM.gd" id="2_uepkm"]
+[ext_resource type="Script" uid="uid://bhxirgtj4aqsn" path="res://Scripts/FSM/MoveLinear.gd" id="3_glgje"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tw8i7"]
+radius = 8.0
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_glgje"]
+radius = 5.0
+height = 22.0
+
+[node name="Zombie" type="CharacterBody2D" unique_id=1764050821]
+collision_layer = 4
+script = ExtResource("1_glgje")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=182214419]
+sprite_frames = ExtResource("1_m874j")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.24884464
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1791133929]
+shape = SubResource("CapsuleShape2D_tw8i7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1574679382]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1748842767]
+shape = SubResource("CapsuleShape2D_glgje")
+
+[node name="FSM" type="Node" parent="." unique_id=2138918797 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_uepkm")
+initial_state = NodePath("MoveLinear")
+
+[node name="MoveLinear" type="Node" parent="FSM" unique_id=889207838]
+script = ExtResource("3_glgje")
