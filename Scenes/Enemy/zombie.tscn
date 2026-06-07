@@ -10,8 +10,8 @@ radius = 8.0
 height = 32.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_glgje"]
-radius = 8.0
-height = 32.0
+radius = 5.0
+height = 22.0
 
 [node name="Zombie" type="CharacterBody2D" unique_id=1764050821]
 collision_layer = 4
