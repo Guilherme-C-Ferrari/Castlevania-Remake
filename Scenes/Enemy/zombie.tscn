@@ -13,7 +13,7 @@ height = 32.0
 radius = 5.0
 height = 22.0
 
-[node name="Zombie" type="CharacterBody2D" unique_id=1764050821]
+[node name="Zombie" type="CharacterBody2D" unique_id=1764050821 groups=["Enemy"]]
 collision_layer = 4
 script = ExtResource("1_glgje")
 
@@ -25,6 +25,7 @@ frame_progress = 0.24884464
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1791133929]
 shape = SubResource("CapsuleShape2D_tw8i7")
+debug_color = Color(0.52973795, 0.4170685, 0.9923797, 0.41960785)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1574679382]
 collision_layer = 4

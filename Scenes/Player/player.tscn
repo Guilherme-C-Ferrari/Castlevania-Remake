@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://bpnoonnu12gp2" path="res://Scripts/Player/player.gd" id="1_te8s0"]
 [ext_resource type="Texture2D" uid="uid://deoi3pb2v1v1" path="res://Assets/SpriteSheets/Player/Sprite-0001.png" id="2_htcer"]
 [ext_resource type="Script" uid="uid://cxx0ogu5osmal" path="res://Scripts/Player/player_animated_sprite.gd" id="3_xpcdj"]
+[ext_resource type="Script" uid="uid://dkjd1x5l6uqt0" path="res://Scripts/Player/player_audio.gd" id="5_htcer"]
+[ext_resource type="Script" uid="uid://baub81nhac81g" path="res://Scripts/Player/player_combat_controll.gd" id="6_dd0ac"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0u5uq"]
 animation = &"ascend_attack"
@@ -211,6 +213,42 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player_Combat_Controller:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Player_Combat_Controller/Wip_Attack_Area/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Player_Combat_Controller/Wip_Attack_Area:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_gk6dx"]
 resource_name = "ascend_attack"
@@ -295,6 +333,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_xpcdj"]
 resource_name = "duck"
+length = 0.1
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -312,7 +351,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_oikmp"]
 resource_name = "duck_attack"
-length = 0.6
+length = 0.4
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -334,12 +373,98 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.6),
+"times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"finish_attack_anim"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/wip/Animated_Wip:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(3, -5), Vector2(3, -13), Vector2(-33, -21)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visual/wip/Animated_Wip:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visual/wip/Animated_Wip:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Player_Combat_Controller:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Player_Combat_Controller/Wip_Attack_Area/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Player_Audio_Controller")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_wip_attack_sfx"
+}]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Player_Combat_Controller/Wip_Attack_Area:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 6)]
 }
 
 [sub_resource type="Animation" id="Animation_06tpx"]
@@ -416,7 +541,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_jlvik"]
 resource_name = "idle_attack"
-length = 0.6
+length = 0.4
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -438,7 +563,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.6),
+"times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -452,7 +577,7 @@ tracks/2/path = NodePath("Visual/wip/Animated_Wip:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
+"times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [Vector2(3, -11), Vector2(3, -19), Vector2(-33, -27)]
@@ -464,7 +589,7 @@ tracks/3/path = NodePath("Visual/wip/Animated_Wip:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.20484932, 0.40171745),
+"times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
@@ -476,10 +601,48 @@ tracks/4/path = NodePath("Visual/wip/Animated_Wip:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.6),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Player_Combat_Controller:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Player_Combat_Controller/Wip_Attack_Area/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Player_Audio_Controller")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_wip_attack_sfx"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_dd0ac"]
@@ -532,6 +695,10 @@ _data = {
 &"jump": SubResource("Animation_dd0ac"),
 &"walk": SubResource("Animation_0u5uq")
 }
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvj7d"]
+radius = 5.0
+height = 26.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0u5uq"]
 atlas = ExtResource("2_htcer")
@@ -699,7 +866,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -741,7 +908,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_duck",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -826,15 +993,15 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvj7d"]
-radius = 5.0
-height = 26.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dd0ac"]
+size = Vector2(40, 8)
 
 [node name="Player" type="CharacterBody2D" unique_id=603095742 groups=["player"]]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_te8s0")
-JUMP_VELOCITY = -280.0
+SPEED = 58.0
+JUMP_VELOCITY = -260.0
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1512812419]
 tree_root = SubResource("AnimationNodeStateMachine_xpcdj")
@@ -843,6 +1010,10 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1440742978]
 libraries/ = SubResource("AnimationLibrary_jlvik")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=319422761]
+position = Vector2(0, -13)
+shape = SubResource("CapsuleShape2D_uvj7d")
 
 [node name="Visual" type="Node2D" parent="." unique_id=67609913]
 
@@ -857,10 +1028,27 @@ frame = 1
 [node name="AnimatedSpritePlayer" type="AnimatedSprite2D" parent="Visual" unique_id=2030226470]
 position = Vector2(-1, -16)
 sprite_frames = SubResource("SpriteFrames_sbrq6")
-animation = &"attack"
+animation = &"attack_duck"
 frame = 2
 script = ExtResource("3_xpcdj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=319422761]
-position = Vector2(0, -13)
-shape = SubResource("CapsuleShape2D_uvj7d")
+[node name="Player_Combat_Controller" type="Node2D" parent="." unique_id=1461058121]
+visible = false
+script = ExtResource("6_dd0ac")
+
+[node name="Wip_Attack_Area" type="Area2D" parent="Player_Combat_Controller" unique_id=757302545]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Combat_Controller/Wip_Attack_Area" unique_id=1972264191]
+light_mask = 4
+visibility_layer = 4
+position = Vector2(-33, -18)
+shape = SubResource("RectangleShape2D_dd0ac")
+disabled = true
+debug_color = Color(0.807501, 0.002292949, 0.9928482, 0.41960785)
+
+[node name="Player_Audio_Controller" type="Node" parent="." unique_id=1288602742]
+script = ExtResource("5_htcer")
+
+[connection signal="body_entered" from="Player_Combat_Controller/Wip_Attack_Area" to="Player_Combat_Controller" method="wip_apply_damage"]

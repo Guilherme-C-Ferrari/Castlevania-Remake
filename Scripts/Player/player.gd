@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var player_combat_controller: Node2D = $Player_Combat_Controller
 @onready var visual: Node2D = $Visual
 
 
@@ -76,8 +77,11 @@ func move_animation():
 		is_walking = true
 		if move_pressed == 1:
 			visual.scale = Vector2(-1, visual.scale.y)
+			player_combat_controller.scale = Vector2(-1, visual.scale.y)
+			
 		else:
 			visual.scale = Vector2(1, visual.scale.y)
+			player_combat_controller.scale = Vector2(1, visual.scale.y)
 	else:
 		is_walking = false
 	
