@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var hp: int = 2
+@export var hp: int = 1
 @export var experience: int = 100
 @export var damage: int = 2
 @export var walk_direction: Vector2
