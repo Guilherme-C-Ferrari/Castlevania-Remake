@@ -9,19 +9,21 @@
 size = Vector2(16, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fxup"]
-size = Vector2(12, 21)
+size = Vector2(12, 20)
 
 [node name="Zombie" type="CharacterBody2D" unique_id=1764050821 groups=["Enemy"]]
 collision_layer = 4
 script = ExtResource("1_glgje")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=182214419]
+position = Vector2(0, -16)
 sprite_frames = ExtResource("1_m874j")
 animation = &"walk"
 autoplay = "walk"
 frame_progress = 0.24884464
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1791133929]
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_glgje")
 debug_color = Color(0.52973795, 0.4170685, 0.9923797, 0.41960785)
 
@@ -30,7 +32,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1748842767]
-position = Vector2(0, -0.5)
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_6fxup")
 
 [node name="FSM" type="Node" parent="." unique_id=2138918797 node_paths=PackedStringArray("initial_state")]
