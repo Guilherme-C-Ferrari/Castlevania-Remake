@@ -20,8 +20,7 @@ script = ExtResource("1_qoev0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1127915176]
 position = Vector2(-4.7683716e-07, -8)
 sprite_frames = ExtResource("2_w81a4")
-animation = &"Idle"
-frame_progress = 0.95120555
+animation = &"Idle_2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=156248965]
 position = Vector2(0, -8)
@@ -33,8 +32,9 @@ shape = SubResource("RectangleShape2D_i053w")
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_uf1ff")
 
-[node name="FSM" type="Node" parent="." unique_id=263250809]
+[node name="FSM" type="Node" parent="." unique_id=263250809 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_5e5hg")
+initial_state = NodePath("Idling")
 metadata/_custom_type_script = "uid://bgbp6l5x3f6op"
 
 [node name="MovingLinear" type="Node" parent="FSM" unique_id=1510532220]
