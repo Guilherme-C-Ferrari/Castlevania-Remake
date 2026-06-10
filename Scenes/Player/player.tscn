@@ -155,7 +155,7 @@ advance_expression = "!is_attacking"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xpcdj"]
 states/Attack_State/node = SubResource("AnimationNodeStateMachine_rqdc0")
-states/Attack_State/position = Vector2(113, 127)
+states/Attack_State/position = Vector2(137, 125)
 states/End/position = Vector2(1105, -67)
 states/Start/position = Vector2(13, -67)
 states/dead/node = SubResource("AnimationNodeAnimation_qr1w5")
@@ -173,7 +173,7 @@ states/jump/position = Vector2(774, -67)
 states/walk/node = SubResource("AnimationNodeAnimation_htcer")
 states/walk/position = Vector2(774, 325)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_dd0ac"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_xpcdj"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_mtuoh"), "walk", "duck", SubResource("AnimationNodeStateMachineTransition_0u5uq"), "duck", "walk", SubResource("AnimationNodeStateMachineTransition_jlvik"), "duck", "idle", SubResource("AnimationNodeStateMachineTransition_gk6dx"), "idle", "duck", SubResource("AnimationNodeStateMachineTransition_jhyir"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_74mp2"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_oikmp"), "jump", "walk", SubResource("AnimationNodeStateMachineTransition_06tpx"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_7g0yx"), "jump", "duck", SubResource("AnimationNodeStateMachineTransition_dey5f"), "duck", "Attack_State", SubResource("AnimationNodeStateMachineTransition_htcer"), "walk", "Attack_State", SubResource("AnimationNodeStateMachineTransition_rqdc0"), "jump", "Attack_State", SubResource("AnimationNodeStateMachineTransition_qr1w5"), "idle", "Attack_State", SubResource("AnimationNodeStateMachineTransition_ythyg"), "Attack_State", "idle", SubResource("AnimationNodeStateMachineTransition_bmb2s")]
-graph_offset = Vector2(-211, -155)
+graph_offset = Vector2(53, -183)
 
 [sub_resource type="Animation" id="Animation_mtuoh"]
 length = 0.001
@@ -244,6 +244,18 @@ tracks/5/path = NodePath("Player_Combat_Controller/Wip_Attack_Area:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Visual/AnimatedSpritePlayer:offset")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -647,6 +659,8 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_dd0ac"]
 resource_name = "jump"
+length = 0.8814326
+step = 0.033
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -654,12 +668,24 @@ tracks/0/path = NodePath("Visual/AnimatedSpritePlayer")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.03),
+"times": PackedFloat32Array(0.033),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"play_jump"
 }]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/AnimatedSpritePlayer:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.033, 0.533),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -7), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_0u5uq"]
@@ -825,6 +851,10 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("1_5kotj")
 region = Rect2(0, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd0ac"]
+atlas = ExtResource("1_5kotj")
+region = Rect2(96, 32, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_qc7da"]
 atlas = ExtResource("1_5kotj")
 region = Rect2(96, 32, 32, 32)
@@ -970,10 +1000,13 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8hut8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd0ac")
 }],
 "loop": false,
 "name": &"jump",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1028,8 +1061,7 @@ frame = 1
 [node name="AnimatedSpritePlayer" type="AnimatedSprite2D" parent="Visual" unique_id=2030226470]
 position = Vector2(-1, -16)
 sprite_frames = SubResource("SpriteFrames_sbrq6")
-animation = &"attack_duck"
-frame = 2
+animation = &"jump"
 script = ExtResource("3_xpcdj")
 
 [node name="Player_Combat_Controller" type="Node2D" parent="." unique_id=1461058121]
@@ -1050,5 +1082,8 @@ debug_color = Color(0.807501, 0.002292949, 0.9928482, 0.41960785)
 
 [node name="Player_Audio_Controller" type="Node" parent="." unique_id=1288602742]
 script = ExtResource("5_htcer")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=405870553]
+offset = Vector2(0, -100)
 
 [connection signal="body_entered" from="Player_Combat_Controller/Wip_Attack_Area" to="Player_Combat_Controller" method="wip_apply_damage"]
