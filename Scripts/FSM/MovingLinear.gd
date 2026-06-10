@@ -1,5 +1,5 @@
 extends State
-class_name MoveLinear
+class_name MovingLinear
 
 @onready var character: CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D

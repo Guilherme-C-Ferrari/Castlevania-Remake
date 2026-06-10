@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://0rluao1s7tgh"]
+
+[ext_resource type="Script" uid="uid://7givfnnnut0l" path="res://Scripts/Enemy/BlackPantherEnemy.gd" id="1_qoev0"]
+[ext_resource type="SpriteFrames" uid="uid://daugvvvbb5sc6" path="res://Assets/Enemy/black_panther_sprite_frames.tres" id="2_w81a4"]
+[ext_resource type="Script" uid="uid://bgbp6l5x3f6op" path="res://Scripts/FSM/FSM.gd" id="3_5e5hg"]
+[ext_resource type="Script" uid="uid://bhxirgtj4aqsn" path="res://Scripts/FSM/MovingLinear.gd" id="4_w81a4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i053w"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uf1ff"]
+size = Vector2(32, 16)
+
+[node name="BlackPanther" type="CharacterBody2D" unique_id=939574547]
+script = ExtResource("1_qoev0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1127915176]
+position = Vector2(-4.7683716e-07, -8)
+sprite_frames = ExtResource("2_w81a4")
+animation = &"Idle"
+frame_progress = 0.95120555
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=156248965]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_i053w")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=593133927]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=52162509]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_uf1ff")
+
+[node name="FSM" type="Node" parent="." unique_id=263250809]
+script = ExtResource("3_5e5hg")
+metadata/_custom_type_script = "uid://bgbp6l5x3f6op"
+
+[node name="MovingLinear" type="Node" parent="FSM" unique_id=1510532220]
+script = ExtResource("4_w81a4")
+metadata/_custom_type_script = "uid://bhxirgtj4aqsn"
+
+[node name="Idling" type="Node" parent="FSM" unique_id=813049637]
+
+[node name="Jumping" type="Node" parent="FSM" unique_id=510226193]
+
+[node name="Following" type="Node" parent="FSM" unique_id=1206022887]

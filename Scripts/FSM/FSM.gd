@@ -1,4 +1,5 @@
 extends Node
+class_name FSM
 
 @export var initial_state: State
 var states: Dictionary = {}
