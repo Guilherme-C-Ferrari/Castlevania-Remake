@@ -1084,6 +1084,5 @@ debug_color = Color(0.807501, 0.002292949, 0.9928482, 0.41960785)
 script = ExtResource("5_htcer")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=405870553]
-offset = Vector2(0, -100)
 
 [connection signal="body_entered" from="Player_Combat_Controller/Wip_Attack_Area" to="Player_Combat_Controller" method="wip_apply_damage"]
