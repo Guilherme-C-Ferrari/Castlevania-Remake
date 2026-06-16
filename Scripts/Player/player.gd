@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var playback = animation_tree.get("parameters/playback")
 @onready var player_combat_controller: Node2D = $Player_Combat_Controller
 @onready var visual: Node2D = $Visual
 
@@ -108,7 +110,7 @@ func duck_animation():
 		is_walking = false
 		
 func attack_animation():
-	if attack_pressed:
+	if attack_pressed and playback.get_current_node() != "Attack_State":
 		is_attacking = true
 
 
