@@ -14,7 +14,8 @@ size = Vector2(32, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uf1ff"]
 size = Vector2(32, 16)
 
-[node name="BlackPanther" type="CharacterBody2D" unique_id=939574547]
+[node name="BlackPanther" type="CharacterBody2D" unique_id=939574547 groups=["enemy"]]
+collision_layer = 4
 script = ExtResource("1_qoev0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1127915176]
