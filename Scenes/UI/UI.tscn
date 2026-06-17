@@ -1,0 +1,293 @@
+[gd_scene format=3 uid="uid://ce4kksle0ku3l"]
+
+[ext_resource type="Script" uid="uid://by2rn1nmjo107" path="res://Scenes/UI/UI.gd" id="1_7tgkj"]
+[ext_resource type="FontFile" uid="uid://bk431songejc3" path="res://Assets/UI/nintendo-nes-font.ttf" id="1_oqha6"]
+[ext_resource type="Texture2D" uid="uid://bk4t1juc17def" path="res://Assets/UI/health_empty.png" id="2_7tgkj"]
+[ext_resource type="Texture2D" uid="uid://ddq3cpsc3hoxs" path="res://Assets/UI/health_player.png" id="3_jevvu"]
+[ext_resource type="Texture2D" uid="uid://d4hqvn48brdii" path="res://Assets/UI/health_enemy.png" id="4_w8wei"]
+[ext_resource type="Texture2D" uid="uid://8mv5ek6wvmll" path="res://Assets/UI/misc.png" id="5_8wlyu"]
+
+[sub_resource type="FontVariation" id="FontVariation_wgwte"]
+base_font = ExtResource("1_oqha6")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltkt0"]
+atlas = ExtResource("5_8wlyu")
+region = Rect2(57, 40, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgwte"]
+atlas = ExtResource("5_8wlyu")
+region = Rect2(170, 188, 8, 8)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=648665156]
+
+[node name="UI" type="Control" parent="." unique_id=384570523 groups=["UI"]]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7tgkj")
+
+[node name="Score" type="Control" parent="UI" unique_id=2005932481]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Score_label" type="Label" parent="UI/Score" unique_id=1989484822]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 10.0
+offset_right = 97.0
+offset_bottom = 18.0
+theme_override_fonts/font = SubResource("FontVariation_wgwte")
+theme_override_font_sizes/font_size = 8
+text = "SCORE-"
+
+[node name="Score_points" type="Label" parent="UI/Score" unique_id=1296606315]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 10.0
+offset_right = 97.0
+offset_bottom = 18.0
+theme_override_fonts/font = SubResource("FontVariation_wgwte")
+theme_override_font_sizes/font_size = 8
+text = "000000"
+
+[node name="Player" type="Control" parent="UI" unique_id=112087931]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player_label" type="Label" parent="UI/Player" unique_id=1181284585]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 20.0
+offset_right = 49.0
+offset_bottom = 28.0
+theme_override_fonts/font = SubResource("FontVariation_wgwte")
+theme_override_font_sizes/font_size = 8
+text = "PLAYER"
+
+[node name="Player_health_empty" type="TextureRect" parent="UI/Player" unique_id=1495598580]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 20.0
+offset_right = 135.0
+offset_bottom = 60.0
+texture = ExtResource("2_7tgkj")
+stretch_mode = 2
+
+[node name="Player_health_count" type="TextureProgressBar" parent="UI/Player" unique_id=677543551]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 20.0
+offset_right = 136.0
+offset_bottom = 60.0
+max_value = 16.0
+value = 16.0
+texture_progress = ExtResource("3_jevvu")
+
+[node name="Enemy" type="Control" parent="UI" unique_id=881729285]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Enemy_label" type="Label" parent="UI/Enemy" unique_id=1198755644]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 30.0
+offset_right = 50.0
+offset_bottom = 38.0
+theme_override_fonts/font = SubResource("FontVariation_wgwte")
+theme_override_font_sizes/font_size = 8
+text = "ENEMY"
+
+[node name="Enemy_health_empty" type="TextureRect" parent="UI/Enemy" unique_id=1208522489]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 29.0
+offset_right = 135.0
+offset_bottom = 69.0
+texture = ExtResource("2_7tgkj")
+stretch_mode = 2
+
+[node name="Enemy_health_count" type="TextureProgressBar" parent="UI/Enemy" unique_id=792279558]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 29.0
+offset_right = 136.0
+offset_bottom = 69.0
+max_value = 16.0
+value = 16.0
+texture_progress = ExtResource("4_w8wei")
+
+[node name="Time" type="Control" parent="UI" unique_id=1629167117]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Time_label" type="Label" parent="UI/Time" unique_id=691626120]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 10.0
+offset_right = 137.0
+offset_bottom = 18.0
+theme_override_fonts/font = SubResource("FontVariation_wgwte")
+theme_override_font_sizes/font_size = 8
+text = "TIME"
+
+[node name="Time_seconds" type="Label" parent="UI/Time" unique_id=1126546642]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 10.0
+offset_right = 177.0
+offset_bottom = 18.0
+theme_override_fonts/font = SubResource("FontVariation_wgwte")
+theme_override_font_sizes/font_size = 8
+text = "0000"
+
+[node name="Stage" type="Control" parent="UI" unique_id=792697503]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Stage_label" type="Label" parent="UI/Stage" unique_id=633400126]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 10.0
+offset_right = 225.0
+offset_bottom = 18.0
+theme_override_fonts/font = SubResource("FontVariation_wgwte")
+theme_override_font_sizes/font_size = 8
+text = "STAGE"
+
+[node name="Stage_level" type="Label" parent="UI/Stage" unique_id=447509646]
+layout_mode = 0
+offset_left = 233.0
+offset_top = 10.0
+offset_right = 265.0
+offset_bottom = 18.0
+theme_override_fonts/font = SubResource("FontVariation_wgwte")
+theme_override_font_sizes/font_size = 8
+text = "00"
+
+[node name="Power" type="Control" parent="UI" unique_id=73190123]
+anchors_preset = 0
+offset_left = 128.0
+offset_top = 19.0
+offset_right = 160.0
+offset_bottom = 46.0
+
+[node name="ColorRect" type="ColorRect" parent="UI/Power" unique_id=853656419]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 2.0
+grow_vertical = 2
+color = Color(0.84313726, 0.1882353, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="UI/Power" unique_id=8821900]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+color = Color(0.84313726, 0.1882353, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="UI/Power" unique_id=136490780]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.84313726, 0.1882353, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="UI/Power" unique_id=1846324395]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.84313726, 0.1882353, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="UI/Power" unique_id=1634156872]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.5
+offset_top = -7.5
+offset_right = 7.5
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_ltkt0")
+stretch_mode = 2
+
+[node name="Hearts" type="Control" parent="UI" unique_id=1224019372]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/Hearts" unique_id=1873879892]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 19.0
+offset_right = 175.0
+offset_bottom = 27.0
+texture = SubResource("AtlasTexture_wgwte")
+stretch_mode = 2
+
+[node name="Heart_label" type="Label" parent="UI/Hearts" unique_id=1423648408]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 19.0
+offset_right = 184.0
+offset_bottom = 27.0
+theme_override_fonts/font = SubResource("FontVariation_wgwte")
+theme_override_font_sizes/font_size = 8
+text = "-"
+
+[node name="Heart_count" type="Label" parent="UI/Hearts" unique_id=1801046932]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 20.0
+offset_right = 201.0
+offset_bottom = 28.0
+theme_override_fonts/font = SubResource("FontVariation_wgwte")
+theme_override_font_sizes/font_size = 8
+text = "00"
+
+[node name="Player_lifes" type="Control" parent="UI" unique_id=626776169]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 8.0
+
+[node name="Player_lifes_label" type="Label" parent="UI/Player_lifes" unique_id=1302077641]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 29.0
+offset_right = 184.0
+offset_bottom = 37.0
+theme_override_fonts/font = SubResource("FontVariation_wgwte")
+theme_override_font_sizes/font_size = 8
+text = "P-"
+
+[node name="Player_lifes_count" type="Label" parent="UI/Player_lifes" unique_id=808502409]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 30.0
+offset_right = 201.0
+offset_bottom = 38.0
+theme_override_fonts/font = SubResource("FontVariation_wgwte")
+theme_override_font_sizes/font_size = 8
+text = "00"
