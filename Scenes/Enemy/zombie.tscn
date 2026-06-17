@@ -3,40 +3,39 @@
 [ext_resource type="Script" uid="uid://ce2gbxq7biuip" path="res://Scripts/Enemy/ZombieEnemy.gd" id="1_glgje"]
 [ext_resource type="SpriteFrames" uid="uid://ckk8buant6bfa" path="res://Assets/Enemy/zombie_sprite_frames.tres" id="1_m874j"]
 [ext_resource type="Script" uid="uid://bgbp6l5x3f6op" path="res://Scripts/FSM/FSM.gd" id="2_uepkm"]
-[ext_resource type="Script" uid="uid://bhxirgtj4aqsn" path="res://Scripts/FSM/MoveLinear.gd" id="3_glgje"]
+[ext_resource type="Script" uid="uid://bhxirgtj4aqsn" path="res://Scripts/FSM/MovingLinear.gd" id="3_glgje"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tw8i7"]
-radius = 8.0
-height = 32.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glgje"]
+size = Vector2(16, 32)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_glgje"]
-radius = 5.0
-height = 22.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fxup"]
+size = Vector2(12, 20)
 
-[node name="Zombie" type="CharacterBody2D" unique_id=1764050821 groups=["Enemy"]]
+[node name="Zombie" type="CharacterBody2D" unique_id=1764050821 groups=["enemy"]]
 collision_layer = 4
 script = ExtResource("1_glgje")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=182214419]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=182214419 groups=["enemy"]]
+position = Vector2(0, -16)
 sprite_frames = ExtResource("1_m874j")
-animation = &"walk"
-autoplay = "walk"
-frame_progress = 0.24884464
+animation = &"Moving"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1791133929]
-shape = SubResource("CapsuleShape2D_tw8i7")
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_glgje")
 debug_color = Color(0.52973795, 0.4170685, 0.9923797, 0.41960785)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1574679382]
+[node name="HitBox" type="Area2D" parent="." unique_id=1574679382]
+position = Vector2(0, -16)
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1748842767]
-shape = SubResource("CapsuleShape2D_glgje")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1748842767]
+shape = SubResource("RectangleShape2D_6fxup")
 
 [node name="FSM" type="Node" parent="." unique_id=2138918797 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_uepkm")
-initial_state = NodePath("MoveLinear")
+initial_state = NodePath("MovingLinear")
 
-[node name="MoveLinear" type="Node" parent="FSM" unique_id=889207838]
+[node name="MovingLinear" type="Node" parent="FSM" unique_id=889207838]
 script = ExtResource("3_glgje")
