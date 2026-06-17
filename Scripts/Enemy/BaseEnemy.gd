@@ -16,8 +16,7 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	# verify_despawn()
-	if walk_direction == 0.0:
-		update_direction()
+	update_direction()
 	
 func verify_despawn() -> void:
 	var camera = get_viewport().get_camera_2d()
