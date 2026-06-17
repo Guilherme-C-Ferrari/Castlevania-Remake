@@ -1,12 +1,12 @@
 extends CharacterBody2D
 class_name BaseEnemy
 
-@export var hp: int = 1
-@export var experience: int = 100
-@export var damage: int = 2
+@export var hp: int
+@export var experience: int
+@export var damage: int
 @export var walk_direction: Vector2
-@export var move_speed: float = 75
-@onready var hit_box: Area2D = $Area2D
+@export var move_speed: float
+@onready var hit_box: Area2D
 
 signal player_damaged(damage: int)
 

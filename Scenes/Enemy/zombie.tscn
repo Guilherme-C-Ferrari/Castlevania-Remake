@@ -27,12 +27,12 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_glgje")
 debug_color = Color(0.52973795, 0.4170685, 0.9923797, 0.41960785)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1574679382]
+[node name="HitBox" type="Area2D" parent="." unique_id=1574679382]
 position = Vector2(0, -16)
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1748842767]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1748842767]
 shape = SubResource("RectangleShape2D_6fxup")
 
 [node name="FSM" type="Node" parent="." unique_id=2138918797 node_paths=PackedStringArray("initial_state")]
