@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://0rluao1s7tgh"]
+
+[ext_resource type="Script" uid="uid://7givfnnnut0l" path="res://Scripts/Enemy/BlackPantherEnemy.gd" id="1_qoev0"]
+[ext_resource type="SpriteFrames" uid="uid://daugvvvbb5sc6" path="res://Assets/Enemy/black_panther_sprite_frames.tres" id="2_w81a4"]
+[ext_resource type="Script" uid="uid://bgbp6l5x3f6op" path="res://Scripts/FSM/FSM.gd" id="3_5e5hg"]
+[ext_resource type="Script" uid="uid://bhxirgtj4aqsn" path="res://Scripts/FSM/MovingLinear.gd" id="4_w81a4"]
+[ext_resource type="Script" uid="uid://1ww04605ngb1" path="res://Scripts/FSM/Idling.gd" id="5_uf1ff"]
+[ext_resource type="Script" uid="uid://c7h3apardfuwc" path="res://Scripts/FSM/Jumping.gd" id="6_vjveg"]
+[ext_resource type="Script" uid="uid://bpd3lmv6o7ffn" path="res://Scripts/FSM/Following.gd" id="7_7brjv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i053w"]
+size = Vector2(32, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uf1ff"]
+size = Vector2(32, 16)
+
+[node name="BlackPanther" type="CharacterBody2D" unique_id=939574547 groups=["enemy"]]
+collision_layer = 4
+script = ExtResource("1_qoev0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1127915176]
+position = Vector2(-4.7683716e-07, -8)
+sprite_frames = ExtResource("2_w81a4")
+animation = &"Idling"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=156248965]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_i053w")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=593133927]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=52162509]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_uf1ff")
+
+[node name="FSM" type="Node" parent="." unique_id=1355568350 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_5e5hg")
+initial_state = NodePath("Idling")
+
+[node name="MovingLinear" type="Node" parent="FSM" unique_id=1719168739]
+script = ExtResource("4_w81a4")
+
+[node name="Idling" type="Node" parent="FSM" unique_id=2040802206]
+script = ExtResource("5_uf1ff")
+
+[node name="Jumping" type="Node" parent="FSM" unique_id=1036528014]
+script = ExtResource("6_vjveg")
+
+[node name="Following" type="Node" parent="FSM" unique_id=506594901]
+script = ExtResource("7_7brjv")
