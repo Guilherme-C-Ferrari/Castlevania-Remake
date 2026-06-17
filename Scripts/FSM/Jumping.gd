@@ -15,4 +15,4 @@ func physics_update(_delta: float) -> void:
 
 func jump() -> void:
 	if character:
-		character.velocity.y = -100.0
+		character.velocity.y = -250.0
