@@ -18,9 +18,7 @@ script = ExtResource("1_glgje")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=182214419]
 position = Vector2(0, -16)
 sprite_frames = ExtResource("1_m874j")
-animation = &"walk"
-autoplay = "walk"
-frame_progress = 0.81160724
+animation = &"Moving"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1791133929]
 position = Vector2(0, -16)

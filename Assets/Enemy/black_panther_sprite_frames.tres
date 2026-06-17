@@ -25,7 +25,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_u886g")
 }],
 "loop": true,
-"name": &"Idle",
+"name": &"Idling",
 "speed": 5.0
 }, {
 "frames": [{
@@ -47,6 +47,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_myqbo")
 }],
 "loop": true,
-"name": &"Running",
+"name": &"Moving",
 "speed": 7.0
 }]

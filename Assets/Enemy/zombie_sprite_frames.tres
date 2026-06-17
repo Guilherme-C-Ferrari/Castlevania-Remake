@@ -20,6 +20,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_knpbc")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"Moving",
 "speed": 5.0
 }]
