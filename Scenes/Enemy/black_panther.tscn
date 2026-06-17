@@ -33,8 +33,9 @@ shape = SubResource("RectangleShape2D_i053w")
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_uf1ff")
 
-[node name="FSM" type="Node" parent="." unique_id=1355568350]
+[node name="FSM" type="Node" parent="." unique_id=1355568350 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_5e5hg")
+initial_state = NodePath("Idling")
 
 [node name="MovingLinear" type="Node" parent="FSM" unique_id=1719168739]
 script = ExtResource("4_w81a4")

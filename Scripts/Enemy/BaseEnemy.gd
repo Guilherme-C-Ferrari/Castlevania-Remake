@@ -4,7 +4,7 @@ class_name BaseEnemy
 @export var hp: int
 @export var experience: int
 @export var damage: int
-@export var walk_direction: Vector2
+@export var walk_direction: float
 @export var move_speed: float
 @onready var hit_box: Area2D
 @onready var already_shown: bool = false
@@ -14,8 +14,10 @@ signal player_damaged(damage: int)
 func _ready() -> void:
 	hit_box.body_entered.connect(_on_player_damaged)
 
-func _physics_process(delta: float) -> void:
-	verify_despawn()
+func _physics_process(_delta: float) -> void:
+	# verify_despawn()
+	if walk_direction == 0.0:
+		update_direction()
 	
 func verify_despawn() -> void:
 	var camera = get_viewport().get_camera_2d()
@@ -28,6 +30,12 @@ func verify_despawn() -> void:
 	
 	if abs(global_position.x - camera_center.x) > max_distance:
 		queue_free()
+
+func update_direction() -> void:
+	if velocity.x > 0.0:
+		walk_direction = 1.0
+	elif velocity.x < 0.0:
+		walk_direction = -1.0
 
 func _on_player_damaged(_body: Node2D) -> void:
 	player_damaged.emit(damage)

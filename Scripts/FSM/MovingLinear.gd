@@ -8,7 +8,7 @@ func enter() -> void:
 
 func physics_update(_delta: float) -> void:
 	if character.is_on_floor():
-		character.velocity = character.walk_direction * character.move_speed
+		character.velocity.x = character.walk_direction * character.move_speed
 	else:
 		character.velocity += character.get_gravity() * _delta
 	handle_animation()
