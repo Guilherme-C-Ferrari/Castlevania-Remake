@@ -14,15 +14,15 @@ func add_score(score: int):
 func set_player_health(new_player_health: int):
 	ui.set_player_health(new_player_health)
 	
-func remove_player_health(damage_life: int):
-	var current_health := ui.remove_player_health(damage_life)
+func remove_player_health(damage_health: int):
+	var current_health := ui.remove_player_health(damage_health)
 	
 	if current_health <= 0:
 		#PLAYER MORRE
 		print("PLAYER MORRE")
 
-func add_player_health(damage_life: int):
-	ui.add_player_health(damage_life)
+func add_player_health(damage_health: int):
+	ui.add_player_health(damage_health)
 
 func set_inital_time(new_time: int):
 	ui.set_time(new_time)
