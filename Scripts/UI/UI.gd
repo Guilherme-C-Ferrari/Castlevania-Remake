@@ -47,6 +47,7 @@ func add_player_health(heal_health: int):
 	player_health_count.value = clampi(player_health_count.value + heal_health, 0, 16)
 	
 func remove_player_health(damage_health: int) -> int:
+	print("plauer damage")
 	player_health_count.value = clampi(player_health_count.value - damage_health, 0, 16)
 	return player_health_count.value
 	

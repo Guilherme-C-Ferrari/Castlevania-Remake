@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dkjd1x5l6uqt0" path="res://Scripts/Player/player_audio.gd" id="5_htcer"]
 [ext_resource type="Script" uid="uid://baub81nhac81g" path="res://Scripts/Player/player_combat_controll.gd" id="6_dd0ac"]
 [ext_resource type="Script" uid="uid://c2mgfx6bs1pq8" path="res://Scripts/Player/player_camera.gd" id="7_0u5uq"]
+[ext_resource type="Script" uid="uid://mo2du715g41t" path="res://Scripts/Player/player_stats_controller.gd" id="7_jlvik"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0u5uq"]
 animation = &"ascend_attack"
@@ -1083,6 +1084,9 @@ debug_color = Color(0.807501, 0.002292949, 0.9928482, 0.41960785)
 
 [node name="Player_Audio_Controller" type="Node" parent="." unique_id=1288602742]
 script = ExtResource("5_htcer")
+
+[node name="Player_Stats_Controller" type="Node" parent="." unique_id=139867622]
+script = ExtResource("7_jlvik")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=405870553]
 script = ExtResource("7_0u5uq")
