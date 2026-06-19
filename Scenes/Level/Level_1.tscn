@@ -16,7 +16,7 @@ position = Vector2(119, 203)
 position = Vector2(162, 120)
 
 [node name="BlackPanther" parent="." unique_id=939574547 instance=ExtResource("4_i0ulf")]
-position = Vector2(572, 225)
+position = Vector2(571, 223)
 
 [node name="BlackPanther2" parent="." unique_id=796803420 instance=ExtResource("4_i0ulf")]
-position = Vector2(814, 129)
+position = Vector2(813, 127)
