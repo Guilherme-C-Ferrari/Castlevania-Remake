@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://c5gs8koxst3jx"]
+
+[ext_resource type="PackedScene" uid="uid://cmi1aqwbcev8b" path="res://Scenes/Environment/castle_entrance.tscn" id="1_a8k43"]
+[ext_resource type="Script" uid="uid://moekbe3qocby" path="res://Scripts/Environment/level_1_1.gd" id="1_ko26w"]
+[ext_resource type="PackedScene" uid="uid://cw68qtlqoctd4" path="res://Scenes/Level/level_1_2.tscn" id="2_ko26w"]
+[ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="3_6khmb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kd1p2"]
+size = Vector2(24, 1)
+
+[sub_resource type="Animation" id="Animation_a8k43"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(620, 208)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:is_walking")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_6khmb"]
+resource_name = "entering_castle"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(676, 208), Vector2(696, 208), Vector2(719, 208)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Castle Entrance/Wall in Front of Player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"move_to_center_of_castle_entrance"
+}, {
+"args": [],
+"method": &"move_to_right_of_castle_entrance"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player:is_walking")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6khmb"]
+_data = {
+&"RESET": SubResource("Animation_a8k43"),
+&"entering_castle": SubResource("Animation_6khmb")
+}
+
+[node name="Level1_1" type="Node2D" unique_id=1778734806]
+script = ExtResource("1_ko26w")
+next_scene = ExtResource("2_ko26w")
+
+[node name="Castle Entrance" parent="." unique_id=1700689788 instance=ExtResource("1_a8k43")]
+
+[node name="Area2D" type="Area2D" parent="Castle Entrance" unique_id=1395542202]
+position = Vector2(695, 208)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Castle Entrance/Area2D" unique_id=1932921459]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_kd1p2")
+
+[node name="Player" parent="." unique_id=2036421342 instance=ExtResource("3_6khmb")]
+position = Vector2(620, 208)
+is_walking = true
+
+[node name="ChangeSceneAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1441896571]
+libraries/ = SubResource("AnimationLibrary_6khmb")
+
+[connection signal="body_entered" from="Castle Entrance/Area2D" to="." method="_on_area_2d_2_body_entered"]
+
+[editable path="Castle Entrance"]
