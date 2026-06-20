@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cw68qtlqoctd4"]
+
+[ext_resource type="PackedScene" uid="uid://jd5cy5hp8kel" path="res://Scenes/Environment/entrance_hall.tscn" id="1_bhvdk"]
+[ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="2_dwasc"]
+
+[node name="Level_1_2" type="Node2D" unique_id=1800594450]
+
+[node name="Entrance Hall" parent="." unique_id=97999581 instance=ExtResource("1_bhvdk")]
+
+[node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
+position = Vector2(49, 220)
