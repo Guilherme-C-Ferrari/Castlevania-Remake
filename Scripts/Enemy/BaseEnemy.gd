@@ -9,8 +9,6 @@ class_name BaseEnemy
 @onready var hit_box: Area2D
 @onready var already_shown: bool = false
 
-signal player_damaged(damage: int)
-
 func _ready() -> void:
 	hit_box.body_entered.connect(_on_player_damaged)
 
@@ -37,7 +35,13 @@ func update_direction() -> void:
 		walk_direction = -1.0
 
 func _on_player_damaged(_body: Node2D) -> void:
-	player_damaged.emit(damage)
+	var player = get_tree().get_first_node_in_group("player")
+	if player == _body:
+		var stats_controller = player.get_node("Player_Stats_Controller")
+		stats_controller.receive_damage(damage)
+	else:
+		print("Player not found")
+	
 
 func on_receive_damage(amount: int) -> void:
 	hp -= amount
