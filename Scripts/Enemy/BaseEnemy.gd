@@ -54,7 +54,7 @@ func on_receive_damage(amount: int) -> void:
 
 func spawn_explosion() -> void:
 	var fire_explosion = fire_explosion.instantiate()
-	fire_explosion.global_position = global_position
+	fire_explosion.global_position = sprite.global_position
 	get_parent().add_child(fire_explosion)
 
 func die() -> void:
