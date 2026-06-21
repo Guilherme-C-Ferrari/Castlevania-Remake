@@ -112,9 +112,6 @@ func duck_animation():
 func attack_animation():
 	if attack_pressed and playback.get_current_node() != "Attack_State":
 		is_attacking = true
-		
-		var ui = get_tree().get_first_node_in_group("UI")
-		ui.add_score(1)
 
 
 func get_inputs():

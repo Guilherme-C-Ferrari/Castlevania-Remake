@@ -15,6 +15,9 @@ position = Vector2(119, 203)
 [node name="Zombie" parent="." unique_id=1764050821 instance=ExtResource("3_abnss")]
 position = Vector2(162, 120)
 
+[node name="Zombie2" parent="." unique_id=885724489 instance=ExtResource("3_abnss")]
+position = Vector2(191, 117)
+
 [node name="BlackPanther" parent="." unique_id=939574547 instance=ExtResource("4_i0ulf")]
 position = Vector2(707, 158)
 

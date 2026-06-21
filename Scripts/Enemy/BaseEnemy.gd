@@ -49,4 +49,6 @@ func on_receive_damage(amount: int) -> void:
 		die()
 
 func die() -> void:
+	var ui = get_tree().get_first_node_in_group("UI")
+	ui.add_score(experience)
 	queue_free()
