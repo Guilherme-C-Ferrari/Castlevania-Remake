@@ -7,5 +7,3 @@ func _ready() -> void:
 	experience = 200
 	damage = 2
 	move_speed = 75
-	hit_box = $HitBox
-	hit_box.body_entered.connect(_on_player_damaged)

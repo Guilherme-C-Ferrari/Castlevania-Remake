@@ -6,7 +6,7 @@ class_name BaseEnemy
 @export var damage: int
 @export var walk_direction: float
 @export var move_speed: float
-@onready var hit_box: Area2D
+@onready var hit_box: Area2D = $HitBox
 @onready var already_shown: bool = false
 
 func _ready() -> void:
@@ -50,5 +50,8 @@ func on_receive_damage(amount: int) -> void:
 
 func die() -> void:
 	var ui = get_tree().get_first_node_in_group("UI")
+	
+	
+	
 	ui.add_score(experience)
 	queue_free()
