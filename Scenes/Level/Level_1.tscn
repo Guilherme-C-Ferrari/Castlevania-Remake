@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="1_tkng7"]
 [ext_resource type="PackedScene" uid="uid://x55yl2iijlg7" path="res://Scenes/Enemy/zombie.tscn" id="3_abnss"]
 [ext_resource type="PackedScene" uid="uid://0rluao1s7tgh" path="res://Scenes/Enemy/black_panther.tscn" id="4_i0ulf"]
+[ext_resource type="PackedScene" uid="uid://0sogs21qxibf" path="res://Scenes/Enemy/base_spawner.tscn" id="5_wgwte"]
 
 [node name="Level1" type="Node2D" unique_id=1778734806]
 
@@ -12,20 +13,17 @@
 [node name="Player" parent="." unique_id=2036421342 instance=ExtResource("1_tkng7")]
 position = Vector2(119, 203)
 
-[node name="Zombie" parent="." unique_id=1764050821 instance=ExtResource("3_abnss")]
-position = Vector2(162, 120)
+[node name="BaseSpawner" parent="." unique_id=1538398917 instance=ExtResource("5_wgwte")]
+position = Vector2(284, 195)
+enemy_to_spawn = ExtResource("3_abnss")
+max_qty_to_spawn = 1
 
-[node name="Zombie2" parent="." unique_id=885724489 instance=ExtResource("3_abnss")]
-position = Vector2(191, 117)
+[node name="BaseSpawner1" parent="." unique_id=1284308464 instance=ExtResource("5_wgwte")]
+position = Vector2(709, 149)
+enemy_to_spawn = ExtResource("4_i0ulf")
+max_qty_to_spawn = 1
 
-[node name="Zombie3" parent="." unique_id=914063799 instance=ExtResource("3_abnss")]
-position = Vector2(48, 118)
-
-[node name="Zombie4" parent="." unique_id=1954559316 instance=ExtResource("3_abnss")]
-position = Vector2(76, 117)
-
-[node name="BlackPanther" parent="." unique_id=939574547 instance=ExtResource("4_i0ulf")]
-position = Vector2(707, 158)
-
-[node name="BlackPanther2" parent="." unique_id=796803420 instance=ExtResource("4_i0ulf")]
-position = Vector2(813, 127)
+[node name="BaseSpawner2" parent="." unique_id=132115986 instance=ExtResource("5_wgwte")]
+position = Vector2(820, 117)
+enemy_to_spawn = ExtResource("4_i0ulf")
+max_qty_to_spawn = 1
