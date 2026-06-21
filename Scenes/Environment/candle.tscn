@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://en6qwvm702j4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ghxxo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghxxo"]
+
+[node name="Candle" type="Node2D" unique_id=600995265 groups=["structure"]]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=410257651]
+sprite_frames = SubResource("SpriteFrames_ghxxo")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1316764674]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=357768250]
+shape = SubResource("RectangleShape2D_ghxxo")
