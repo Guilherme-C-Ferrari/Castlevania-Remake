@@ -53,9 +53,9 @@ func on_receive_damage(amount: int) -> void:
 		die()
 
 func spawn_explosion() -> void:
-	var fire_explosion = fire_explosion.instantiate()
-	fire_explosion.global_position = sprite.global_position
-	get_parent().add_child(fire_explosion)
+	var explosion = fire_explosion.instantiate()
+	explosion.global_position = sprite.global_position
+	get_parent().add_child(explosion)
 
 func die() -> void:
 	var ui = get_tree().get_first_node_in_group("UI")
