@@ -25,6 +25,12 @@ func spawn_mob() -> void:
 	if not enemy_to_spawn:
 		return
 	var enemy = enemy_to_spawn.instantiate()
+	
 	enemy.global_position = global_position
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		var direction = sign(player.global_position.x - global_position.x)
+		enemy.walk_direction = direction
+	
 	get_parent().add_child(enemy)
 	spawned_enemies.append(enemy)
