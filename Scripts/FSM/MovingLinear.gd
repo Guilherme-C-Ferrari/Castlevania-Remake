@@ -8,6 +8,8 @@ func enter() -> void:
 
 func physics_update(_delta: float) -> void:
 	if character.is_on_floor():
+		if character.is_on_wall():
+			character.walk_direction *= -1
 		character.velocity.x = character.walk_direction * character.move_speed
 	else:
 		character.velocity += character.get_gravity() * _delta
