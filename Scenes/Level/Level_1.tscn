@@ -31,3 +31,6 @@ max_qty_to_spawn = 1
 
 [node name="Candle" parent="." unique_id=600995265 instance=ExtResource("6_328i5")]
 position = Vector2(47, 197)
+
+[node name="Zombie" parent="." unique_id=1764050821 instance=ExtResource("3_abnss")]
+position = Vector2(141, 224)
