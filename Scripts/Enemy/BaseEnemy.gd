@@ -17,7 +17,7 @@ func _ready() -> void:
 	hit_box.body_entered.connect(_on_player_damaged)
 
 func _physics_process(_delta: float) -> void:
-	# verify_despawn()
+	verify_despawn()
 	update_direction()
 	
 func verify_despawn() -> void:

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://x55yl2iijlg7" path="res://Scenes/Enemy/zombie.tscn" id="3_abnss"]
 [ext_resource type="PackedScene" uid="uid://0rluao1s7tgh" path="res://Scenes/Enemy/black_panther.tscn" id="4_i0ulf"]
 [ext_resource type="PackedScene" uid="uid://0sogs21qxibf" path="res://Scenes/Enemy/base_spawner.tscn" id="5_wgwte"]
+[ext_resource type="PackedScene" uid="uid://en6qwvm702j4" path="res://Scenes/Environment/candle.tscn" id="6_328i5"]
 
 [node name="Level1" type="Node2D" unique_id=1778734806]
 
@@ -27,3 +28,6 @@ max_qty_to_spawn = 1
 position = Vector2(820, 117)
 enemy_to_spawn = ExtResource("4_i0ulf")
 max_qty_to_spawn = 1
+
+[node name="Candle" parent="." unique_id=600995265 instance=ExtResource("6_328i5")]
+position = Vector2(47, 197)
