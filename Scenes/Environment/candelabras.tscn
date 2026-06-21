@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dl5w1tmn7xbr1"]
+
+[ext_resource type="Texture2D" uid="uid://caitlan7aa20t" path="res://Assets/SpriteSheets/Items.png" id="1_12scv"]
+[ext_resource type="Script" uid="uid://qpygvyw2tl4h" path="res://Scripts/Environment/Candelabras.gd" id="1_u5na4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5na4"]
+atlas = ExtResource("1_12scv")
+region = Rect2(175, 1, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvpg2"]
+atlas = ExtResource("1_12scv")
+region = Rect2(192, 1, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jykk1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5na4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvpg2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsfnn"]
+size = Vector2(16, 32)
+
+[node name="Candelabras" type="StaticBody2D" unique_id=1858446978 groups=["structure"]]
+collision_layer = 4
+script = ExtResource("1_u5na4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1833262739]
+sprite_frames = SubResource("SpriteFrames_jykk1")
+autoplay = "default"
+
+[node name="HitBox" type="CollisionShape2D" parent="." unique_id=259667772 groups=["structure"]]
+shape = SubResource("RectangleShape2D_lsfnn")

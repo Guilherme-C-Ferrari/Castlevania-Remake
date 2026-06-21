@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://0rluao1s7tgh" path="res://Scenes/Enemy/black_panther.tscn" id="4_i0ulf"]
 [ext_resource type="PackedScene" uid="uid://0sogs21qxibf" path="res://Scenes/Enemy/base_spawner.tscn" id="5_wgwte"]
 [ext_resource type="PackedScene" uid="uid://en6qwvm702j4" path="res://Scenes/Environment/candle.tscn" id="6_328i5"]
+[ext_resource type="PackedScene" uid="uid://dl5w1tmn7xbr1" path="res://Scenes/Environment/candelabras.tscn" id="7_ltkt0"]
 
 [node name="Level1" type="Node2D" unique_id=1778734806]
 
@@ -34,3 +35,6 @@ position = Vector2(47, 197)
 
 [node name="Zombie" parent="." unique_id=1764050821 instance=ExtResource("3_abnss")]
 position = Vector2(141, 224)
+
+[node name="Candelabras" parent="." unique_id=1858446978 instance=ExtResource("7_ltkt0")]
+position = Vector2(187, 208)
