@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dr11pb4ufl2"]
+
+[ext_resource type="Texture2D" uid="uid://jmxuikrw0yj6" path="res://Assets/SpriteSheets/enemies-2.png" id="1_j4agh"]
+[ext_resource type="Script" uid="uid://d2gx3t8o7lm1l" path="res://Scripts/Effect/FireExplosion.gd" id="1_u6x7k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6x7k"]
+atlas = ExtResource("1_j4agh")
+region = Rect2(151, 213, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4aigx"]
+atlas = ExtResource("1_j4agh")
+region = Rect2(135, 213, 8, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x14tl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6x7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4aigx")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bru8"]
+atlas = ExtResource("1_j4agh")
+region = Rect2(151, 213, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edd8o"]
+atlas = ExtResource("1_j4agh")
+region = Rect2(163, 213, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oj53d"]
+atlas = ExtResource("1_j4agh")
+region = Rect2(177, 213, 8, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rq6ej"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bru8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edd8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oj53d")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FireExplosion" type="Node2D" unique_id=1048516655]
+script = ExtResource("1_u6x7k")
+
+[node name="FireStar" type="AnimatedSprite2D" parent="." unique_id=660641248]
+position = Vector2(-3, -6)
+sprite_frames = SubResource("SpriteFrames_x14tl")
+frame_progress = 0.26532233
+
+[node name="FireBall" type="AnimatedSprite2D" parent="." unique_id=360149971]
+position = Vector2(2, -1)
+sprite_frames = SubResource("SpriteFrames_rq6ej")

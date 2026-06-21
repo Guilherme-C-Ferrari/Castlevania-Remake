@@ -6,14 +6,18 @@ class_name BaseEnemy
 @export var damage: int
 @export var walk_direction: float
 @export var move_speed: float
-@onready var hit_box: Area2D
+
 @onready var already_shown: bool = false
+@onready var hit_box: Area2D = $HitBox
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+const fire_explosion = preload("res://Scenes/Effect/fire_explosion.tscn")
 
 func _ready() -> void:
 	hit_box.body_entered.connect(_on_player_damaged)
 
 func _physics_process(_delta: float) -> void:
-	# verify_despawn()
+	verify_despawn()
 	update_direction()
 	
 func verify_despawn() -> void:
@@ -48,5 +52,17 @@ func on_receive_damage(amount: int) -> void:
 	if hp <= 0:
 		die()
 
+func spawn_explosion() -> void:
+	var explosion = fire_explosion.instantiate()
+	explosion.global_position = sprite.global_position
+	get_parent().add_child(explosion)
+
 func die() -> void:
+	var ui = get_tree().get_first_node_in_group("UI")
+	
+	sprite.set_deferred("visible", false)
+	hit_box.get_child(0).set_deferred("disabled", true)
+	ui.add_score(experience)
+	spawn_explosion()
+	
 	queue_free()

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://en6qwvm702j4"]
+
+[ext_resource type="Script" uid="uid://cayvqwbv2bq2p" path="res://Scripts/Environment/Candle.gd" id="1_nxw7k"]
+[ext_resource type="Texture2D" uid="uid://caitlan7aa20t" path="res://Assets/SpriteSheets/Items.png" id="2_usg1g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ofoy"]
+atlas = ExtResource("2_usg1g")
+region = Rect2(157, 1, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fybvx"]
+atlas = ExtResource("2_usg1g")
+region = Rect2(166, 1, 8, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ghxxo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ofoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fybvx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghxxo"]
+size = Vector2(8, 16)
+
+[node name="Candle" type="StaticBody2D" unique_id=1931845017 groups=["structure"]]
+light_mask = 4
+visibility_layer = 2
+collision_layer = 4
+script = ExtResource("1_nxw7k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=410257651]
+sprite_frames = SubResource("SpriteFrames_ghxxo")
+autoplay = "default"
+
+[node name="HitBox" type="CollisionShape2D" parent="." unique_id=357768250]
+shape = SubResource("RectangleShape2D_ghxxo")
