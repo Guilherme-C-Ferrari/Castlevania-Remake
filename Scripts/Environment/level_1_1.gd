@@ -6,15 +6,14 @@ extends Node2D
 @onready var change_scene_animation_player: AnimationPlayer = $ChangeSceneAnimationPlayer
 @onready var area_2d: Area2D = $"Castle Entrance/Area2D"
 
-# Essa funcao sera usada para impedir o jogador de poder se mover e alterar o timescale do animationplayer para que a animacao seja baseada na
-# velocidade e posicao do personagem no inicio e nao por duracao da animacao
 func move_to_center_of_castle_entrance():
-	print(player.visual.scale)
+	change_scene_animation_player.speed_scale = 24 / abs(player.position.x - area_2d.position.x)
+	
 	if player.position.x > area_2d.position.x and player.visual.scale.x != 1:
 		player.animated_sprite_player.flip_h = true
 
 func move_to_right_of_castle_entrance():
-	print(player.visual.scale)
+	change_scene_animation_player.speed_scale = 1
 	if player.animated_sprite_player.flip_h:
 		player.animated_sprite_player.flip_h = false
 	if player.visual.scale.x == 1:
