@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ddoai07jg5dys" path="res://Assets/SpriteSheets/Player/simon-belmont-sheet3.png" id="1_5kotj"]
 [ext_resource type="Script" uid="uid://bpnoonnu12gp2" path="res://Scripts/Player/player.gd" id="1_te8s0"]
+[ext_resource type="Material" uid="uid://be7po518l0752" path="res://Shaders/change_color.tres" id="2_gk6dx"]
 [ext_resource type="Texture2D" uid="uid://deoi3pb2v1v1" path="res://Assets/SpriteSheets/Player/Sprite-0001.png" id="2_htcer"]
 [ext_resource type="Script" uid="uid://cxx0ogu5osmal" path="res://Scripts/Player/player_animated_sprite.gd" id="3_xpcdj"]
 [ext_resource type="Script" uid="uid://dkjd1x5l6uqt0" path="res://Scripts/Player/player_audio.gd" id="5_htcer"]
@@ -728,32 +729,84 @@ _data = {
 radius = 5.0
 height = 26.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0u5uq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhyir"]
 atlas = ExtResource("2_htcer")
-region = Rect2(40, 0, 40, 24)
+region = Rect2(40, 96, 40, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jlvik"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_74mp2"]
 atlas = ExtResource("2_htcer")
-region = Rect2(80, 0, 40, 24)
+region = Rect2(80, 96, 40, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oikmp"]
+atlas = ExtResource("2_htcer")
+region = Rect2(120, 96, 40, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06tpx"]
+atlas = ExtResource("2_htcer")
+region = Rect2(40, 48, 40, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g0yx"]
+atlas = ExtResource("2_htcer")
+region = Rect2(80, 48, 40, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dey5f"]
+atlas = ExtResource("2_htcer")
+region = Rect2(120, 48, 40, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gk6dx"]
 atlas = ExtResource("2_htcer")
-region = Rect2(120, 0, 40, 24)
+region = Rect2(40, 72, 40, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5xpd"]
+atlas = ExtResource("2_htcer")
+region = Rect2(80, 72, 40, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ks1b7"]
+atlas = ExtResource("2_htcer")
+region = Rect2(120, 72, 40, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jhyir"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0u5uq")
+"texture": SubResource("AtlasTexture_jhyir")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jlvik")
+"texture": SubResource("AtlasTexture_74mp2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gk6dx")
+"texture": SubResource("AtlasTexture_oikmp")
 }],
 "loop": true,
-"name": &"default",
+"name": &"lvl1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06tpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g0yx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dey5f")
+}],
+"loop": true,
+"name": &"lvl2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk6dx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5xpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ks1b7")
+}],
+"loop": true,
+"name": &"lvl3",
 "speed": 5.0
 }]
 
@@ -1057,8 +1110,10 @@ z_index = 3
 
 [node name="Animated_Wip" type="AnimatedSprite2D" parent="Visual/wip" unique_id=1678111718]
 visible = false
+material = ExtResource("2_gk6dx")
 position = Vector2(3, -19)
 sprite_frames = SubResource("SpriteFrames_jhyir")
+animation = &"lvl3"
 frame = 1
 
 [node name="AnimatedSpritePlayer" type="AnimatedSprite2D" parent="Visual" unique_id=2030226470]

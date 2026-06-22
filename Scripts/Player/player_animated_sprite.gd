@@ -1,4 +1,6 @@
 extends AnimatedSprite2D
+@onready var wip_collision: CollisionShape2D = $"../../Player_Combat_Controller/Wip_Attack_Area/CollisionShape2D"
+@onready var animated_wip: AnimatedSprite2D = $"../wip/Animated_Wip"
 
 
 func play_walk():
@@ -52,3 +54,24 @@ func play_attack_ascending_stair():
 func play_attack():
 	if animation != "attack":
 		play("attack")
+		
+	var wip_level = Ui.get_player_wip_level()
+	
+	if wip_level == 3:
+		animated_wip.animation = "lvl3"
+		wip_collision.position = Vector2(-33, wip_collision.position.y)
+		wip_collision.shape.set_size(Vector2(40,8))
+		return
+	
+	elif wip_level == 2:
+		animated_wip.animation = "lvl2"
+		wip_collision.position = Vector2(-25, wip_collision.position.y)
+		wip_collision.shape.set_size(Vector2(22,8))
+		return
+		
+	elif wip_level == 1:
+		animated_wip.animation = "lvl1"
+		wip_collision.position = Vector2(-25, wip_collision.position.y)
+		wip_collision.shape.set_size(Vector2(22,8))
+		return
+		

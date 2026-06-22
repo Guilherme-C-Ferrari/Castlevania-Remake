@@ -14,6 +14,7 @@ var duck_pressed := false
 var ascend_pressed := false
 var descend_pressed := false
 var attack_pressed := false
+var upgrade_wip := false
 
 var moving := 0.0
 
@@ -44,6 +45,7 @@ var moving := 0.0
 func _physics_process(delta: float) -> void:
 	get_inputs()
 	player_animation_control()
+	debug_tool()
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -119,6 +121,11 @@ func get_inputs():
 		descend_pressed = Input.is_action_pressed("descend_stair")
 		ascend_pressed = Input.is_action_pressed("ascend_stair")
 		attack_pressed = Input.is_action_just_pressed("attack")
+		upgrade_wip = Input.is_action_just_pressed("upgrade")
 
 func finish_attack_anim():
 	is_attacking = false
+	
+func debug_tool():
+	if upgrade_wip:
+		Ui.upgrade_wip_level()
