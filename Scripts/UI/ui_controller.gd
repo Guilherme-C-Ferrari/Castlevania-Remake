@@ -1,6 +1,7 @@
 extends CanvasLayer 
 
 var timer_enable := false
+var wip_level := 1
 @onready var ui: UI = $UI_Controller/UI
 
 func _ready() -> void:
@@ -56,3 +57,19 @@ func remove_player_life(damage_life: int):
 	if current_lifes <= 0:
 		#MOSTRAR TELA DE GAME OVER
 		print("GAME OVER")
+
+func get_player_wip_level() -> int:
+	return wip_level
+	
+func upgrade_wip_level():
+	
+	if wip_level == 3:
+		return
+	
+	wip_level += 1
+	
+func downgrade_wip_level():
+	if wip_level == 1:
+		return
+	
+	wip_level -= 1

@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var player_combat_controller: Node2D = $Player_Combat_Controller
 @onready var visual: Node2D = $Visual
 @onready var animated_sprite_player: AnimatedSprite2D = $Visual/AnimatedSpritePlayer
-
+@onready var collision := $CollisionShape2D
 
 var jump_pressed := false
 var move_pressed := 0
@@ -14,8 +14,14 @@ var duck_pressed := false
 var ascend_pressed := false
 var descend_pressed := false
 var attack_pressed := false
+var upgrade_wip := false
 
 var moving := 0.0
+
+
+var hurt_timer := 0.0
+var knockback_velocity := Vector2.ZERO
+var invincible := false
 
 #Public Player Vars
 #----------------------------------------------------------
@@ -23,6 +29,15 @@ var moving := 0.0
 @export_group("Stats")
 @export var SPEED = 100.0
 @export var JUMP_VELOCITY = -300.0
+
+#----------------------------------------------------------
+@export_group("Hurt")
+@export var HURT_TIME := 0.2
+@export var KNOCKBACK_FORCE := 220.0
+@export var INVINCIBILITY_TIME := 1.0
+@export var HURT_GRAVITY := 0.2
+@export var HURT_HEIGHT := -120
+
 #----------------------------------------------------------
 @export_group("Animation Triggers")
 @export_subgroup("Movements")
@@ -41,9 +56,31 @@ var moving := 0.0
 @export var is_ascending := false
 @export var is_descending := false
 #----------------------------------------------------------
+
+
 func _physics_process(delta: float) -> void:
+	
+	if Engine.get_physics_frames() < 15: 
+		return
+		
 	get_inputs()
 	player_animation_control()
+	debug_tool()
+	
+	if is_hurt:
+		hurt_timer -= delta
+		
+		velocity.x = knockback_velocity.x
+		velocity.y += get_gravity().y * HURT_GRAVITY * delta
+		
+		move_and_slide()
+		
+		if hurt_timer <= 0:
+			is_hurt = false
+			player_can_control = true
+			knockback_velocity = Vector2.ZERO
+		
+		return
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -111,6 +148,48 @@ func attack_animation():
 	if attack_pressed and playback.get_current_node() != "Attack_State":
 		is_attacking = true
 
+func take_hit(enemy_facing: Vector2):
+	if is_dead or invincible:
+		return
+	
+	is_hurt = true
+	player_can_control = false
+	hurt_timer = HURT_TIME
+	
+	var dir = enemy_facing.normalized()
+	knockback_velocity = Vector2(
+		dir.x * KNOCKBACK_FORCE,
+		HURT_HEIGHT
+	)
+	
+	is_attacking = false
+	is_jumping = false
+	is_ducking = false
+	is_walking = false
+	moving = 0
+	velocity = knockback_velocity
+	
+	start_invincibility()
+
+func start_invincibility() -> void:
+	invincible = true
+	
+	set_collision_layer_value(2, false)
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(visual, "modulate:a", 0.3, 0.15)
+	
+	await get_tree().create_timer(INVINCIBILITY_TIME).timeout
+	
+	end_invincibility()
+	
+func end_invincibility() -> void:
+	invincible = false
+
+	set_collision_layer_value(2, true)
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(visual, "modulate:a", 1.0, 0.15)
 func get_inputs():
 	if player_can_control:
 		jump_pressed = Input.is_action_just_pressed("jump")
@@ -119,6 +198,11 @@ func get_inputs():
 		descend_pressed = Input.is_action_pressed("descend_stair")
 		ascend_pressed = Input.is_action_pressed("ascend_stair")
 		attack_pressed = Input.is_action_just_pressed("attack")
+		upgrade_wip = Input.is_action_just_pressed("upgrade")
 
 func finish_attack_anim():
 	is_attacking = false
+	
+func debug_tool():
+	if upgrade_wip:
+		Ui.upgrade_wip_level()
