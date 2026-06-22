@@ -16,6 +16,7 @@ collision_layer = 4
 script = ExtResource("1_glgje")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=182214419 groups=["enemy"]]
+z_index = 2
 position = Vector2(0, -16)
 sprite_frames = ExtResource("1_m874j")
 animation = &"Moving"

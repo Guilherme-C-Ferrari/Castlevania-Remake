@@ -1,8 +1,7 @@
-extends Control
+extends CanvasLayer 
 
 var timer_enable := false
-
-@onready var ui: UI = $UI
+@onready var ui: UI = $UI_Controller/UI
 
 func _ready() -> void:
 	set_inital_time(300)
@@ -15,7 +14,7 @@ func set_player_health(new_player_health: int):
 	ui.set_player_health(new_player_health)
 	
 func remove_player_health(damage_health: int):
-	var current_health := ui.remove_player_health(damage_health)
+	var current_health = ui.remove_player_health(damage_health)
 	
 	if current_health <= 0:
 		#PLAYER MORRE
@@ -52,7 +51,7 @@ func set_player_life(new_player_life: int):
 	ui.set_player_life(new_player_life)
 	
 func remove_player_life(damage_life: int):
-	var current_lifes := ui.remove_player_life(damage_life)
+	var current_lifes = ui.remove_player_life(damage_life)
 	
 	if current_lifes <= 0:
 		#MOSTRAR TELA DE GAME OVER

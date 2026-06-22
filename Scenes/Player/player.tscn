@@ -1051,6 +1051,7 @@ position = Vector2(0, -13)
 shape = SubResource("CapsuleShape2D_uvj7d")
 
 [node name="Visual" type="Node2D" parent="." unique_id=67609913]
+z_index = 3
 
 [node name="wip" type="Node2D" parent="Visual" unique_id=1052949939]
 

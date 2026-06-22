@@ -58,11 +58,10 @@ func spawn_explosion() -> void:
 	get_parent().add_child(explosion)
 
 func die() -> void:
-	var ui = get_tree().get_first_node_in_group("UI")
 	
 	sprite.set_deferred("visible", false)
 	hit_box.get_child(0).set_deferred("disabled", true)
-	ui.add_score(experience)
+	Ui.add_score(experience)
 	spawn_explosion()
 	
 	queue_free()

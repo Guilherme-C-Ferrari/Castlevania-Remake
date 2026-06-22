@@ -58,10 +58,12 @@ animations = [{
 script = ExtResource("1_u6x7k")
 
 [node name="FireStar" type="AnimatedSprite2D" parent="." unique_id=660641248]
+z_index = 1
 position = Vector2(-3, -6)
 sprite_frames = SubResource("SpriteFrames_x14tl")
 frame_progress = 0.26532233
 
 [node name="FireBall" type="AnimatedSprite2D" parent="." unique_id=360149971]
+z_index = 1
 position = Vector2(2, -1)
 sprite_frames = SubResource("SpriteFrames_rq6ej")

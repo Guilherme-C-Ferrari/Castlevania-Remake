@@ -1,10 +1,18 @@
 extends Node2D
 
 @export var next_scene := preload("uid://jd5cy5hp8kel")
+@export var stage := 00
+const SFX_ENTER_CASTLE = preload("uid://dr48wti68t6ax")
 
 @onready var player: CharacterBody2D = $Player
 @onready var change_scene_animation_player: AnimationPlayer = $ChangeSceneAnimationPlayer
 @onready var area_2d: Area2D = $"Castle Entrance/Area2D"
+
+
+
+func _ready() -> void:
+	AudioManager.play_current_music()
+	Ui.set_stage(stage)
 
 func move_to_center_of_castle_entrance():
 	change_scene_animation_player.speed_scale = 24 / abs(player.position.x - area_2d.position.x)
@@ -18,6 +26,8 @@ func move_to_right_of_castle_entrance():
 		player.animated_sprite_player.flip_h = false
 	if player.visual.scale.x == 1:
 		player.animated_sprite_player.flip_h = true
+		
+	AudioManager.play_sound_effect(SFX_ENTER_CASTLE, "SFX", -10)
 
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
