@@ -58,7 +58,6 @@ func spawn_explosion() -> void:
 	get_parent().add_child(explosion)
 
 func die() -> void:
-	
 	sprite.set_deferred("visible", false)
 	hit_box.get_child(0).set_deferred("disabled", true)
 	Ui.add_score(experience)

@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://jd5cy5hp8kel" path="res://Scenes/Environment/Tilemap/entrance_hall.tscn" id="1_bhvdk"]
 [ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="2_dwasc"]
 [ext_resource type="PackedScene" uid="uid://en6qwvm702j4" path="res://Scenes/Environment/candle.tscn" id="3_lgm3a"]
-[ext_resource type="PackedScene" uid="uid://dl5w1tmn7xbr1" path="res://Scenes/Environment/candelabras.tscn" id="4_n05sx"]
 [ext_resource type="PackedScene" uid="uid://0sogs21qxibf" path="res://Scenes/Enemy/base_spawner.tscn" id="5_mveps"]
 [ext_resource type="PackedScene" uid="uid://0rluao1s7tgh" path="res://Scenes/Enemy/black_panther.tscn" id="6_mveps"]
 
@@ -17,10 +16,19 @@ position = Vector2(49, 220)
 [node name="Candle" parent="." unique_id=1931845017 instance=ExtResource("3_lgm3a")]
 position = Vector2(206, 195)
 
-[node name="Candelabras" parent="." unique_id=1858446978 instance=ExtResource("4_n05sx")]
-position = Vector2(248, 208)
+[node name="Enemies" type="Node2D" parent="." unique_id=118376410]
 
-[node name="BaseSpawner" parent="." unique_id=1538398917 instance=ExtResource("5_mveps")]
-position = Vector2(709, 151)
+[node name="PantheraSpawner1" parent="Enemies" unique_id=1538398917 instance=ExtResource("5_mveps")]
+position = Vector2(699, 151)
+enemy_to_spawn = ExtResource("6_mveps")
+max_qty_to_spawn = 1
+
+[node name="PantheraSpawner2" parent="Enemies" unique_id=1232103897 instance=ExtResource("5_mveps")]
+position = Vector2(888, 119)
+enemy_to_spawn = ExtResource("6_mveps")
+max_qty_to_spawn = 1
+
+[node name="PantheraSpawner3" parent="Enemies" unique_id=342871842 instance=ExtResource("5_mveps")]
+position = Vector2(955, 150)
 enemy_to_spawn = ExtResource("6_mveps")
 max_qty_to_spawn = 1

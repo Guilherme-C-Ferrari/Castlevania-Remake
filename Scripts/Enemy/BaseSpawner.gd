@@ -17,7 +17,7 @@ func verify_spawn() -> void:
 		return
 	var camera_center = camera.get_screen_center_position()
 	var screen_width = get_viewport_rect().size.x
-	var spawn_distance = (screen_width / 2.0) + 20
+	var spawn_distance = (screen_width / 2.0) + 50
 	if abs(global_position.x - camera_center.x) > spawn_distance:
 		spawn_mob()
 
