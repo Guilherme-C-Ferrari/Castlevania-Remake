@@ -43,9 +43,3 @@ position = Vector2(150, 200)
 zone_size = Vector2(550, 50)
 enemy_to_spawn = ExtResource("7_cbet1")
 max_qty_to_spawn = 3
-
-[node name="LongSpawner2" parent="Enemies" unique_id=630635956 instance=ExtResource("6_cbet1")]
-position = Vector2(1330, 200)
-zone_size = Vector2(400, 50)
-enemy_to_spawn = ExtResource("7_cbet1")
-max_qty_to_spawn = 3
