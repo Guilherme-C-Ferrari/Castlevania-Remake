@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://0rluao1s7tgh" path="res://Scenes/Enemy/black_panther.tscn" id="6_mveps"]
 [ext_resource type="PackedScene" uid="uid://x55yl2iijlg7" path="res://Scenes/Enemy/zombie.tscn" id="7_cbet1"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbet1"]
+size = Vector2(20, 191)
+
 [node name="Level_1_2" type="Node2D" unique_id=1800594450]
 
 [node name="Entrance Hall" parent="." unique_id=97999581 instance=ExtResource("1_bhvdk")]
@@ -17,9 +20,6 @@ position = Vector2(50, 220)
 HURT_TIME = 0.4
 KNOCKBACK_FORCE = 65.0
 INVINCIBILITY_TIME = 1.5
-
-[node name="Candle" parent="." unique_id=1931845017 instance=ExtResource("3_lgm3a")]
-position = Vector2(206, 195)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=118376410]
 
@@ -49,3 +49,81 @@ position = Vector2(1320, 200)
 zone_size = Vector2(410, 50)
 enemy_to_spawn = ExtResource("7_cbet1")
 max_qty_to_spawn = 3
+
+[node name="Environment_Items" type="Node2D" parent="." unique_id=325030421]
+
+[node name="Candle" parent="Environment_Items" unique_id=1931845017 instance=ExtResource("3_lgm3a")]
+position = Vector2(32, 201)
+
+[node name="Candle2" parent="Environment_Items" unique_id=522151862 instance=ExtResource("3_lgm3a")]
+position = Vector2(96, 169)
+
+[node name="Candle3" parent="Environment_Items" unique_id=1585488045 instance=ExtResource("3_lgm3a")]
+position = Vector2(160, 201)
+
+[node name="Candle4" parent="Environment_Items" unique_id=1053918736 instance=ExtResource("3_lgm3a")]
+position = Vector2(224, 169)
+
+[node name="Candle5" parent="Environment_Items" unique_id=370715910 instance=ExtResource("3_lgm3a")]
+position = Vector2(288, 201)
+
+[node name="Candle6" parent="Environment_Items" unique_id=2091190045 instance=ExtResource("3_lgm3a")]
+position = Vector2(352, 169)
+
+[node name="Candle7" parent="Environment_Items" unique_id=1356788252 instance=ExtResource("3_lgm3a")]
+position = Vector2(415, 201)
+
+[node name="Candle8" parent="Environment_Items" unique_id=1710577721 instance=ExtResource("3_lgm3a")]
+position = Vector2(479, 169)
+
+[node name="Candle9" parent="Environment_Items" unique_id=1635955589 instance=ExtResource("3_lgm3a")]
+position = Vector2(543, 201)
+
+[node name="Candle10" parent="Environment_Items" unique_id=912757490 instance=ExtResource("3_lgm3a")]
+position = Vector2(607, 169)
+
+[node name="Candle11" parent="Environment_Items" unique_id=1508183335 instance=ExtResource("3_lgm3a")]
+position = Vector2(671, 105)
+
+[node name="Candle12" parent="Environment_Items" unique_id=77240178 instance=ExtResource("3_lgm3a")]
+position = Vector2(735, 201)
+
+[node name="Candle13" parent="Environment_Items" unique_id=786023743 instance=ExtResource("3_lgm3a")]
+position = Vector2(863, 105)
+
+[node name="Candle14" parent="Environment_Items" unique_id=852446907 instance=ExtResource("3_lgm3a")]
+position = Vector2(927, 201)
+
+[node name="Candle15" parent="Environment_Items" unique_id=1646608137 instance=ExtResource("3_lgm3a")]
+position = Vector2(991, 105)
+
+[node name="Candle16" parent="Environment_Items" unique_id=1297514962 instance=ExtResource("3_lgm3a")]
+position = Vector2(1055, 201)
+
+[node name="Candle17" parent="Environment_Items" unique_id=98773581 instance=ExtResource("3_lgm3a")]
+position = Vector2(1119, 201)
+
+[node name="Candle18" parent="Environment_Items" unique_id=479966574 instance=ExtResource("3_lgm3a")]
+position = Vector2(1183, 201)
+
+[node name="Candle19" parent="Environment_Items" unique_id=19501108 instance=ExtResource("3_lgm3a")]
+position = Vector2(1247, 201)
+
+[node name="Candle20" parent="Environment_Items" unique_id=1065263091 instance=ExtResource("3_lgm3a")]
+position = Vector2(1311, 201)
+
+[node name="Candle21" parent="Environment_Items" unique_id=1880173144 instance=ExtResource("3_lgm3a")]
+position = Vector2(1375, 169)
+
+[node name="Candle22" parent="Environment_Items" unique_id=1805932497 instance=ExtResource("3_lgm3a")]
+position = Vector2(1439, 105)
+
+[node name="Candle23" parent="Environment_Items" unique_id=1293897660 instance=ExtResource("3_lgm3a")]
+position = Vector2(1503, 72)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=874454033]
+position = Vector2(-8, 144)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1601040844]
+shape = SubResource("RectangleShape2D_cbet1")

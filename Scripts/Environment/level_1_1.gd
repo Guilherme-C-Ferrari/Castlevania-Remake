@@ -17,6 +17,9 @@ func _ready() -> void:
 func move_to_center_of_castle_entrance():
 	change_scene_animation_player.speed_scale = 24 / abs(player.position.x - area_2d.position.x)
 	
+	if player.position.x < area_2d.position.x and player.visual.scale.x == 1:
+		player.animated_sprite_player.flip_h = true
+
 	if player.position.x > area_2d.position.x and player.visual.scale.x != 1:
 		player.animated_sprite_player.flip_h = true
 

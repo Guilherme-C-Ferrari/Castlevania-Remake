@@ -120,19 +120,25 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_kd1p2")
 
 [node name="Environment_Items" type="Node2D" parent="." unique_id=1319513084]
+position = Vector2(-1, 0)
 
 [node name="Candelabras" parent="Environment_Items" unique_id=1858446978 instance=ExtResource("5_6khmb")]
 position = Vector2(100, 193)
 
 [node name="Candelabras2" parent="Environment_Items" unique_id=715110596 instance=ExtResource("5_6khmb")]
-position = Vector2(233, 193)
+position = Vector2(224, 193)
 
 [node name="Candelabras3" parent="Environment_Items" unique_id=161307871 instance=ExtResource("5_6khmb")]
-position = Vector2(356, 193)
+position = Vector2(351, 193)
+
+[node name="Candelabras4" parent="Environment_Items" unique_id=1021252341 instance=ExtResource("5_6khmb")]
+position = Vector2(480, 193)
+
+[node name="Candelabras5" parent="Environment_Items" unique_id=558773086 instance=ExtResource("5_6khmb")]
+position = Vector2(607, 193)
 
 [node name="Player" parent="." unique_id=2036421342 instance=ExtResource("3_6khmb")]
 position = Vector2(52, 208)
-is_walking = true
 
 [connection signal="body_entered" from="Castle Entrance/Area2D" to="." method="_on_area_2d_2_body_entered"]
 
