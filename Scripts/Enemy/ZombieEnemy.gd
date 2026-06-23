@@ -5,4 +5,4 @@ func _ready() -> void:
 	hp = 1
 	experience = 100
 	damage = 2
-	move_speed = 75
+	move_speed = 65

@@ -12,5 +12,5 @@ script = ExtResource("1_ld7lk")
 shape = SubResource("RectangleShape2D_ei8q6")
 
 [node name="Timer" type="Timer" parent="." unique_id=1567742226]
-wait_time = 3.0
+wait_time = 6.0
 autostart = true
