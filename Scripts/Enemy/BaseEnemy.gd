@@ -42,7 +42,7 @@ func _on_player_damaged(_body: Node2D) -> void:
 	var player = get_tree().get_first_node_in_group("player")
 	if player == _body:
 		var stats_controller = player.get_node("Player_Stats_Controller")
-		stats_controller.receive_damage(damage)
+		stats_controller.receive_damage(damage, walk_direction)
 	else:
 		print("Player not found")
 	

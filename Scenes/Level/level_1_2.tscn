@@ -11,7 +11,10 @@
 [node name="Entrance Hall" parent="." unique_id=97999581 instance=ExtResource("1_bhvdk")]
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
-position = Vector2(49, 220)
+position = Vector2(475, 219)
+HURT_TIME = 0.4
+KNOCKBACK_FORCE = 65.0
+INVINCIBILITY_TIME = 1.5
 
 [node name="Candle" parent="." unique_id=1931845017 instance=ExtResource("3_lgm3a")]
 position = Vector2(206, 195)

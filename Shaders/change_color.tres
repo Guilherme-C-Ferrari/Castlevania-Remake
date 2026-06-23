@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://be7po518l0752"]
+
+[ext_resource type="Shader" uid="uid://c67d20rkl2dx4" path="res://Shaders/change_color.gdshader" id="1_c1jsw"]
+[ext_resource type="Texture2D" uid="uid://l33tqf8hkavk" path="res://Assets/SpriteSheets/Player/paleta.png" id="2_vmwnb"]
+
+[resource]
+shader = ExtResource("1_c1jsw")
+shader_parameter/palette_texture = ExtResource("2_vmwnb")
+shader_parameter/speed = 16
+shader_parameter/threshold = 0.1

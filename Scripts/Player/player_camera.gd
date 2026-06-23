@@ -9,13 +9,11 @@ func _ready() -> void:
 
 func update_camera_limits():
 	var nodes = get_tree().get_nodes_in_group("tilemap")
-	print(nodes)
 	if nodes.size() > 0:
 		
 		tile_map = nodes[0] as TileMapLayer
 		 # 1. Pega o retângulo com as bordas do tilemap
 		var map_rect: Rect2 = tile_map.get_used_rect()
-		print("TileMap size: "+ str(map_rect))
 		# 2. Pega o tamanho de cada tile individual
 		var tile_size: Vector2 = tile_map.tile_set.tile_size
 	
@@ -25,9 +23,5 @@ func update_camera_limits():
 		limit_right = int(map_rect.position.x + map_rect.size.x) * int(tile_size.x)
 		limit_bottom = y_offset + int(map_rect.position.y + map_rect.size.y) * int(tile_size.y)
 		
-		print(limit_left)
-		print(limit_top)
-		print(limit_right)
-		print(limit_bottom)
 	else:
 		print("No tilemap found to update camera limits")
