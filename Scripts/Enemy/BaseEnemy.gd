@@ -29,7 +29,7 @@ func verify_despawn() -> void:
 	var screen_width = get_viewport().get_visible_rect().size.x
 	var max_distance = (screen_width / 2.0) + 100
 	
-	if abs(global_position.x - camera_center.x) > max_distance:
+	if (abs(global_position.x - camera_center.x) > max_distance) or (abs(global_position.y - camera_center.y) > max_distance):
 		queue_free()
 
 func update_direction() -> void:
@@ -58,7 +58,6 @@ func spawn_explosion() -> void:
 	get_parent().add_child(explosion)
 
 func die() -> void:
-	
 	sprite.set_deferred("visible", false)
 	hit_box.get_child(0).set_deferred("disabled", true)
 	Ui.add_score(experience)

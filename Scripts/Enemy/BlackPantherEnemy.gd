@@ -1,6 +1,6 @@
 extends BaseEnemy
 
-@export var detection_range : float = 150.0
+@export var detection_range : float = 120.0
 
 func _ready() -> void:
 	super()
