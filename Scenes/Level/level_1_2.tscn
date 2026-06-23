@@ -4,14 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="2_dwasc"]
 [ext_resource type="PackedScene" uid="uid://en6qwvm702j4" path="res://Scenes/Environment/candle.tscn" id="3_lgm3a"]
 [ext_resource type="PackedScene" uid="uid://0sogs21qxibf" path="res://Scenes/Enemy/base_spawner.tscn" id="5_mveps"]
+[ext_resource type="PackedScene" uid="uid://dcgpj3vm2ibxb" path="res://Scenes/Enemy/long_spawner.tscn" id="6_cbet1"]
 [ext_resource type="PackedScene" uid="uid://0rluao1s7tgh" path="res://Scenes/Enemy/black_panther.tscn" id="6_mveps"]
+[ext_resource type="PackedScene" uid="uid://x55yl2iijlg7" path="res://Scenes/Enemy/zombie.tscn" id="7_cbet1"]
 
 [node name="Level_1_2" type="Node2D" unique_id=1800594450]
 
 [node name="Entrance Hall" parent="." unique_id=97999581 instance=ExtResource("1_bhvdk")]
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
-position = Vector2(475, 219)
+position = Vector2(50, 220)
 HURT_TIME = 0.4
 KNOCKBACK_FORCE = 65.0
 INVINCIBILITY_TIME = 1.5
@@ -35,3 +37,15 @@ max_qty_to_spawn = 1
 position = Vector2(955, 150)
 enemy_to_spawn = ExtResource("6_mveps")
 max_qty_to_spawn = 1
+
+[node name="LongSpawner1" parent="Enemies" unique_id=1987307375 instance=ExtResource("6_cbet1")]
+position = Vector2(150, 200)
+zone_size = Vector2(550, 50)
+enemy_to_spawn = ExtResource("7_cbet1")
+max_qty_to_spawn = 3
+
+[node name="LongSpawner2" parent="Enemies" unique_id=630635956 instance=ExtResource("6_cbet1")]
+position = Vector2(1330, 200)
+zone_size = Vector2(400, 50)
+enemy_to_spawn = ExtResource("7_cbet1")
+max_qty_to_spawn = 3

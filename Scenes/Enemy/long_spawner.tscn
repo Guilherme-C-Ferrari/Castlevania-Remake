@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dcgpj3vm2ibxb"]
+
+[ext_resource type="Script" uid="uid://ddwl6feo53laq" path="res://Scripts/Enemy/LongSpawner.gd" id="1_ld7lk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ei8q6"]
+
+[node name="LongSpawner" type="Area2D" unique_id=1987307375]
+script = ExtResource("1_ld7lk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=853329886]
+shape = SubResource("RectangleShape2D_ei8q6")
+
+[node name="Timer" type="Timer" parent="." unique_id=1567742226]
+wait_time = 3.0
+autostart = true
