@@ -1,4 +1,8 @@
 extends AnimatedSprite2D
+
+const LIFE_LOST = preload("uid://b8qm1kciev6a6")
+
+
 @onready var wip_collision: CollisionShape2D = $"../../Player_Combat_Controller/Wip_Attack_Area/CollisionShape2D"
 @onready var animated_wip: AnimatedSprite2D = $"../wip/Animated_Wip"
 
@@ -34,6 +38,9 @@ func play_ascending_stairs():
 func play_death():
 	if animation != "death":
 		play("death")
+		
+	AudioManager.stop_music()
+	AudioManager.play_sound_effect(LIFE_LOST, "SFX", -5)
 		
 func play_duck():
 	if animation != "duck":

@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var collision := $CollisionShape2D
 
 var jump_pressed := false
-var move_pressed := 0
+var move_pressed := 0.0
 var duck_pressed := false
 var ascend_pressed := false
 var descend_pressed := false
@@ -59,7 +59,6 @@ var invincible := false
 
 
 func _physics_process(delta: float) -> void:
-	
 	if Engine.get_physics_frames() < 15: 
 		return
 		
@@ -75,10 +74,15 @@ func _physics_process(delta: float) -> void:
 		
 		move_and_slide()
 		
-		if hurt_timer <= 0:
+		if hurt_timer <= 0 and is_on_floor():
 			is_hurt = false
 			player_can_control = true
 			knockback_velocity = Vector2.ZERO
+			
+			if !is_dead:
+				start_invincibility()
+			else:
+				player_can_control = false
 		
 		return
 	
@@ -149,7 +153,7 @@ func attack_animation():
 		is_attacking = true
 
 func take_hit(enemy_facing: Vector2):
-	if is_dead or invincible:
+	if invincible:
 		return
 	
 	is_hurt = true
@@ -162,6 +166,13 @@ func take_hit(enemy_facing: Vector2):
 		HURT_HEIGHT
 	)
 	
+	if enemy_facing.x == 1:
+		visual.scale = Vector2(1, visual.scale.y)
+		player_combat_controller.scale = Vector2(-1, visual.scale.y)
+	else:
+		visual.scale = Vector2(-1, visual.scale.y)
+		player_combat_controller.scale = Vector2(1, visual.scale.y)
+	
 	is_attacking = false
 	is_jumping = false
 	is_ducking = false
@@ -169,7 +180,7 @@ func take_hit(enemy_facing: Vector2):
 	moving = 0
 	velocity = knockback_velocity
 	
-	start_invincibility()
+	set_collision_layer_value(2, false)
 
 func start_invincibility() -> void:
 	invincible = true
@@ -190,6 +201,7 @@ func end_invincibility() -> void:
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(visual, "modulate:a", 1.0, 0.15)
+
 func get_inputs():
 	if player_can_control:
 		jump_pressed = Input.is_action_just_pressed("jump")
@@ -203,6 +215,9 @@ func get_inputs():
 func finish_attack_anim():
 	is_attacking = false
 	
+func death():
+	is_dead = true
+	pass
 func debug_tool():
 	if upgrade_wip:
 		Ui.upgrade_wip_level()

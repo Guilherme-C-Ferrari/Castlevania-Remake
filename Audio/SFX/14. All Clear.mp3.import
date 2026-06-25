@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://da4je48a8h2uc"
+path="res://.godot/imported/14. All Clear.mp3-0a2e2d79d3d6ccd64875343fb5c0d786.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/14. All Clear.mp3"
+dest_files=["res://.godot/imported/14. All Clear.mp3-0a2e2d79d3d6ccd64875343fb5c0d786.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -29,6 +29,9 @@ func _on_music_finished() -> void:
 		current_music_index = 0
 
 	play_current_music()
+	
+func stop_music():
+	bgm_streamer.stop()
 
 #Cria um SFX com diferentes configurações
 func play_sound_effect(stream: AudioStream, bus: String = "Master", volume_db: float = 0.0, pitch_min: float = 0.90, pitch_max: float = 1.05) -> void:
