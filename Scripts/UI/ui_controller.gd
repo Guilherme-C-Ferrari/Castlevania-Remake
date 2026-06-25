@@ -6,6 +6,7 @@ var wip_level := 1
 
 func _ready() -> void:
 	set_inital_time(300)
+	set_player_life(3)
 	run_timer()
 
 func add_score(score: int):
@@ -18,8 +19,8 @@ func remove_player_health(damage_health: int):
 	var current_health = ui.remove_player_health(damage_health)
 	
 	if current_health <= 0:
-		#PLAYER MORRE
-		print("PLAYER MORRE")
+		var player = get_tree().get_first_node_in_group("player")
+		player.death()
 
 func add_player_health(damage_health: int):
 	ui.add_player_health(damage_health)
@@ -55,8 +56,9 @@ func remove_player_life(damage_life: int):
 	var current_lifes = ui.remove_player_life(damage_life)
 	
 	if current_lifes <= 0:
-		#MOSTRAR TELA DE GAME OVER
 		print("GAME OVER")
+	else:
+		print("Level respawn")
 
 func get_player_wip_level() -> int:
 	return wip_level

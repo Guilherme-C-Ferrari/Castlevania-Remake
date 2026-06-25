@@ -158,7 +158,7 @@ advance_expression = "!is_attacking"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ur3l4"]
 advance_mode = 2
-advance_expression = "is_hurt == true"
+advance_expression = "is_hurt"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2ahak"]
 advance_mode = 2
@@ -176,27 +176,35 @@ advance_expression = "is_hurt == true"
 advance_mode = 2
 advance_expression = "is_hurt == false"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2jnj1"]
+advance_mode = 2
+advance_expression = "!is_dead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1agin"]
+advance_mode = 2
+advance_expression = "!is_hurt and is_dead"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xpcdj"]
 states/Attack_State/node = SubResource("AnimationNodeStateMachine_rqdc0")
-states/Attack_State/position = Vector2(137, 125)
-states/End/position = Vector2(1105, -67)
-states/Start/position = Vector2(13, -67)
+states/Attack_State/position = Vector2(-206, -16)
+states/End/position = Vector2(1647, -73)
+states/Start/position = Vector2(-144, -610)
 states/dead/node = SubResource("AnimationNodeAnimation_qr1w5")
-states/dead/position = Vector2(981, 23)
+states/dead/position = Vector2(1266, -73)
 states/duck/node = SubResource("AnimationNodeAnimation_xpcdj")
-states/duck/position = Vector2(289, 325)
+states/duck/position = Vector2(203, 325)
 states/fall/node = SubResource("AnimationNodeAnimation_ythyg")
-states/fall/position = Vector2(981, 85)
+states/fall/position = Vector2(1537, 125)
 states/hurt/node = SubResource("AnimationNodeAnimation_bmb2s")
-states/hurt/position = Vector2(531, -240)
+states/hurt/position = Vector2(652, -176)
 states/idle/node = SubResource("AnimationNodeAnimation_mtuoh")
-states/idle/position = Vector2(289, -67)
+states/idle/position = Vector2(203, -414)
 states/jump/node = SubResource("AnimationNodeAnimation_dd0ac")
-states/jump/position = Vector2(774, -67)
+states/jump/position = Vector2(1138, -414)
 states/walk/node = SubResource("AnimationNodeAnimation_htcer")
-states/walk/position = Vector2(774, 325)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_dd0ac"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_xpcdj"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_mtuoh"), "walk", "duck", SubResource("AnimationNodeStateMachineTransition_0u5uq"), "duck", "walk", SubResource("AnimationNodeStateMachineTransition_jlvik"), "duck", "idle", SubResource("AnimationNodeStateMachineTransition_gk6dx"), "idle", "duck", SubResource("AnimationNodeStateMachineTransition_jhyir"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_74mp2"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_oikmp"), "jump", "walk", SubResource("AnimationNodeStateMachineTransition_06tpx"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_7g0yx"), "jump", "duck", SubResource("AnimationNodeStateMachineTransition_dey5f"), "duck", "Attack_State", SubResource("AnimationNodeStateMachineTransition_htcer"), "walk", "Attack_State", SubResource("AnimationNodeStateMachineTransition_rqdc0"), "jump", "Attack_State", SubResource("AnimationNodeStateMachineTransition_qr1w5"), "idle", "Attack_State", SubResource("AnimationNodeStateMachineTransition_ythyg"), "Attack_State", "idle", SubResource("AnimationNodeStateMachineTransition_bmb2s"), "idle", "hurt", SubResource("AnimationNodeStateMachineTransition_ur3l4"), "jump", "hurt", SubResource("AnimationNodeStateMachineTransition_2ahak"), "walk", "hurt", SubResource("AnimationNodeStateMachineTransition_rukb4"), "duck", "hurt", SubResource("AnimationNodeStateMachineTransition_4no11"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_fcwna")]
-graph_offset = Vector2(-153, -273)
+states/walk/position = Vector2(1138, 325)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_dd0ac"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_xpcdj"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_mtuoh"), "walk", "duck", SubResource("AnimationNodeStateMachineTransition_0u5uq"), "duck", "walk", SubResource("AnimationNodeStateMachineTransition_jlvik"), "duck", "idle", SubResource("AnimationNodeStateMachineTransition_gk6dx"), "idle", "duck", SubResource("AnimationNodeStateMachineTransition_jhyir"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_74mp2"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_oikmp"), "jump", "walk", SubResource("AnimationNodeStateMachineTransition_06tpx"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_7g0yx"), "jump", "duck", SubResource("AnimationNodeStateMachineTransition_dey5f"), "duck", "Attack_State", SubResource("AnimationNodeStateMachineTransition_htcer"), "walk", "Attack_State", SubResource("AnimationNodeStateMachineTransition_rqdc0"), "jump", "Attack_State", SubResource("AnimationNodeStateMachineTransition_qr1w5"), "idle", "Attack_State", SubResource("AnimationNodeStateMachineTransition_ythyg"), "Attack_State", "idle", SubResource("AnimationNodeStateMachineTransition_bmb2s"), "idle", "hurt", SubResource("AnimationNodeStateMachineTransition_ur3l4"), "jump", "hurt", SubResource("AnimationNodeStateMachineTransition_2ahak"), "walk", "hurt", SubResource("AnimationNodeStateMachineTransition_rukb4"), "duck", "hurt", SubResource("AnimationNodeStateMachineTransition_4no11"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_fcwna"), "dead", "End", SubResource("AnimationNodeStateMachineTransition_2jnj1"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_1agin")]
+graph_offset = Vector2(-153, -569)
 
 [sub_resource type="Animation" id="Animation_mtuoh"]
 length = 0.001
@@ -319,6 +327,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_jhyir"]
 resource_name = "dead"
+length = 2.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -331,6 +340,20 @@ tracks/0/keys = {
 "values": [{
 "args": [],
 "method": &"play_death"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player_Stats_Controller")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"remove_player_life"
 }]
 }
 
@@ -518,7 +541,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_7g0yx"]
 resource_name = "hurt"
-length = 0.5
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
