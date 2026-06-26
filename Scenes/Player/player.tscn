@@ -292,6 +292,30 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CollisionShape2D:shape:height")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [26.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CollisionShape2D:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -13)]
+}
 
 [sub_resource type="Animation" id="Animation_gk6dx"]
 resource_name = "ascend_attack"
@@ -391,7 +415,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_xpcdj"]
 resource_name = "duck"
-length = 0.1
+length = 3.0333333
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -405,6 +429,30 @@ tracks/0/keys = {
 "args": [],
 "method": &"play_duck"
 }]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:shape:height")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [19.15]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -9.5)]
 }
 
 [sub_resource type="Animation" id="Animation_oikmp"]
@@ -523,6 +571,30 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 6)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CollisionShape2D:shape:height")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [19.15]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CollisionShape2D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -9.5)]
 }
 
 [sub_resource type="Animation" id="Animation_06tpx"]
@@ -1133,8 +1205,8 @@ collision_mask = 9
 script = ExtResource("1_te8s0")
 SPEED = 58.0
 JUMP_VELOCITY = -260.0
-KNOCKBACK_FORCE = 200.0
-INVINCIBILITY_TIME = 2.0
+HURT_TIME = 0.4
+KNOCKBACK_FORCE = 65.0
 HURT_GRAVITY = 0.4
 is_walking = true
 
@@ -1172,6 +1244,7 @@ script = ExtResource("3_xpcdj")
 
 [node name="Player_Combat_Controller" type="Node2D" parent="." unique_id=1461058121]
 visible = false
+scale = Vector2(-1, 1)
 script = ExtResource("6_dd0ac")
 
 [node name="Wip_Attack_Area" type="Area2D" parent="Player_Combat_Controller" unique_id=757302545]

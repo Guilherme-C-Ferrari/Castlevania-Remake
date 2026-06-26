@@ -218,6 +218,11 @@ func finish_attack_anim():
 func death():
 	is_dead = true
 	pass
+	
+func set_state_ascend():
+	pass
+	
+
 func debug_tool():
 	if upgrade_wip:
 		Ui.upgrade_wip_level()
