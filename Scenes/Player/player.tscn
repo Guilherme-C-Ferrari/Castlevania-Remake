@@ -5,9 +5,13 @@
 [ext_resource type="Material" uid="uid://be7po518l0752" path="res://Shaders/change_color.tres" id="2_gk6dx"]
 [ext_resource type="Texture2D" uid="uid://deoi3pb2v1v1" path="res://Assets/SpriteSheets/Player/Sprite-0001.png" id="2_htcer"]
 [ext_resource type="Script" uid="uid://cxx0ogu5osmal" path="res://Scripts/Player/player_animated_sprite.gd" id="3_xpcdj"]
+[ext_resource type="Script" uid="uid://dpd3jja2iqyr" path="res://Scenes/Player/player_input_controller.gd" id="4_jhyir"]
+[ext_resource type="Script" uid="uid://cfih6ncqigjrs" path="res://Scenes/Player/player_animation_controller.gd" id="5_74mp2"]
 [ext_resource type="Script" uid="uid://dkjd1x5l6uqt0" path="res://Scripts/Player/player_audio.gd" id="5_htcer"]
+[ext_resource type="Script" uid="uid://bgesq1s5eatc" path="res://Scenes/Player/player_hurt_controller.gd" id="5_oikmp"]
 [ext_resource type="Script" uid="uid://baub81nhac81g" path="res://Scripts/Player/player_combat_controll.gd" id="6_dd0ac"]
 [ext_resource type="Script" uid="uid://c2mgfx6bs1pq8" path="res://Scripts/Player/player_camera.gd" id="7_0u5uq"]
+[ext_resource type="Script" uid="uid://bdiq0v1gv8ofg" path="res://Scenes/Player/player_stair_controller.gd" id="7_06tpx"]
 [ext_resource type="Script" uid="uid://mo2du715g41t" path="res://Scripts/Player/player_stats_controller.gd" id="7_jlvik"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0u5uq"]
@@ -1205,10 +1209,25 @@ collision_mask = 9
 script = ExtResource("1_te8s0")
 SPEED = 58.0
 JUMP_VELOCITY = -260.0
-HURT_TIME = 0.4
-KNOCKBACK_FORCE = 65.0
-HURT_GRAVITY = 0.4
 is_walking = true
+
+[node name="Player_Audio_Controller" type="Node" parent="." unique_id=1288602742]
+script = ExtResource("5_htcer")
+
+[node name="Player_Stats_Controller" type="Node" parent="." unique_id=139867622]
+script = ExtResource("7_jlvik")
+
+[node name="Player_Input_Controller" type="Node" parent="." unique_id=1189738067]
+script = ExtResource("4_jhyir")
+
+[node name="Player_Hurt_Controller" type="Node" parent="." unique_id=1808871480]
+script = ExtResource("5_oikmp")
+
+[node name="Player_Animation_Controller" type="Node" parent="." unique_id=2019127100]
+script = ExtResource("5_74mp2")
+
+[node name="Player_Stair_Controller" type="Node" parent="." unique_id=414036846]
+script = ExtResource("7_06tpx")
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1512812419]
 tree_root = SubResource("AnimationNodeStateMachine_xpcdj")
@@ -1258,12 +1277,6 @@ position = Vector2(-33, -18)
 shape = SubResource("RectangleShape2D_dd0ac")
 disabled = true
 debug_color = Color(0.807501, 0.002292949, 0.9928482, 0.41960785)
-
-[node name="Player_Audio_Controller" type="Node" parent="." unique_id=1288602742]
-script = ExtResource("5_htcer")
-
-[node name="Player_Stats_Controller" type="Node" parent="." unique_id=139867622]
-script = ExtResource("7_jlvik")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=405870553]
 script = ExtResource("7_0u5uq")
