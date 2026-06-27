@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var player_stair_controller: Node = $Player_Stair_Controller
 @onready var player_animation_controller: Node = $Player_Animation_Controller
 @onready var player_hurt_controller: Node = $Player_Hurt_Controller
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -58,6 +59,10 @@ func _physics_process(delta: float) -> void:
 		
 	player_animation_controller.player_animation_control()
 	debug_tool()
+	
+	if player_stair_controller.handle_stairs(delta):
+		return
+
 	movement(delta)
 	
 

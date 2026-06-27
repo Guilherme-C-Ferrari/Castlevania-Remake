@@ -1258,7 +1258,7 @@ frame = 1
 [node name="AnimatedSpritePlayer" type="AnimatedSprite2D" parent="Visual" unique_id=2030226470]
 position = Vector2(-1, -16)
 sprite_frames = SubResource("SpriteFrames_sbrq6")
-animation = &"walk"
+animation = &"ascending_stairs"
 script = ExtResource("3_xpcdj")
 
 [node name="Player_Combat_Controller" type="Node2D" parent="." unique_id=1461058121]

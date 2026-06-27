@@ -13,17 +13,20 @@
 size = Vector2(20, 191)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_frmym"]
-size = Vector2(29, 3)
+size = Vector2(21, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gwho"]
-size = Vector2(15, 3)
+size = Vector2(15.75, 3)
+
+[sub_resource type="Curve2D" id="Curve2D_u5iy2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, -9, 0, 0, 0, 0, 13, -17, 0, 0, 0, 0, 21, -25, 0, 0, 0, 0, 29, -33, 0, 0, 0, 0, 37, -41, 0, 0, 0, 0, 45, -49, 0, 0, 0, 0, 53, -57, 0, 0, 0, 0, 61, -65, 0, 0, 0, 0, 65, -65)
+}
+point_count = 10
 
 [node name="Level_1_2" type="Node2D" unique_id=1800594450]
 
 [node name="Entrance Hall" parent="." unique_id=97999581 instance=ExtResource("1_bhvdk")]
-
-[node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
-position = Vector2(50, 220)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=118376410]
 
@@ -133,22 +136,40 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_cbet1")
 
 [node name="Stair" type="Node2D" parent="." unique_id=131688124]
-position = Vector2(613, 224)
+position = Vector2(624, 224)
 script = ExtResource("8_u5iy2")
 
 [node name="Up_Area" type="Area2D" parent="Stair" unique_id=57362488]
-position = Vector2(5, -1)
+collision_layer = 16
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stair/Up_Area" unique_id=937523503]
+position = Vector2(-1.5, -1)
 shape = SubResource("RectangleShape2D_frmym")
 debug_color = Color(0.5568628, 0.56078434, 0, 0.7882353)
 
 [node name="Down_Area" type="Area2D" parent="Stair" unique_id=650056975]
-position = Vector2(83, -66)
+position = Vector2(73, -65)
+collision_layer = 16
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stair/Down_Area" unique_id=604696899]
+position = Vector2(0.125, 0)
 shape = SubResource("RectangleShape2D_8gwho")
 debug_color = Color(0.5568628, 0.56078434, 0, 0.7882353)
+
+[node name="Path2D" type="Path2D" parent="Stair" unique_id=19364938]
+curve = SubResource("Curve2D_u5iy2")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Stair/Path2D" unique_id=1026177914]
+position = Vector2(12.927403, -16.927404)
+rotation = -1.0636978
+progress = 21.503069
+rotates = false
+loop = false
+
+[node name="Player" parent="Stair/Path2D/PathFollow2D" unique_id=603095742 instance=ExtResource("2_dwasc")]
+rotation = 1.0636978
 
 [connection signal="body_entered" from="Stair/Up_Area" to="Stair" method="_on_up_area_body_entered"]
 [connection signal="body_exited" from="Stair/Up_Area" to="Stair" method="_on_up_area_body_exited"]
