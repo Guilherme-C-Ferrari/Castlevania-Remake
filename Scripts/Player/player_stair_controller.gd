@@ -159,8 +159,13 @@ func apply_facing_fix():
 	player.player_combat_controller.scale.x = player.visual.scale.x
 
 
-func check_input():
+func check_input() -> bool:
 	player_input_direction = ""
+	if is_using_stair:
+		return true
+	
+	return false
+	
 func not_using_stair():
 	player_input_direction = ""
 	is_walking_to_stair = false

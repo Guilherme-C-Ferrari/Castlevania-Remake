@@ -23,7 +23,13 @@ func get_inputs():
 func handle_stairs_input(player):
 	var stair_controller = player.player_stair_controller
 	
-	stair_controller.check_input()
+	var is_using_stair = stair_controller.check_input()
+	
+	if is_using_stair:
+		if Input.is_action_just_pressed("move_right"):
+			stair_controller.use_stair(STAIR_UP)
+		elif Input.is_action_just_pressed("move_left"):
+			stair_controller.use_stair(STAIR_DOWN)	
 	if player.ascend_pressed:
 		stair_controller.use_stair(STAIR_UP)
 	elif player.descend_pressed:
