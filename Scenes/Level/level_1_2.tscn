@@ -135,6 +135,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1601040844]
 shape = SubResource("RectangleShape2D_cbet1")
 
+[node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
+position = Vector2(636.9274, 207.0726)
+
 [node name="Stair" type="Node2D" parent="." unique_id=131688124]
 position = Vector2(624, 224)
 script = ExtResource("8_u5iy2")
@@ -160,16 +163,6 @@ debug_color = Color(0.5568628, 0.56078434, 0, 0.7882353)
 
 [node name="Path2D" type="Path2D" parent="Stair" unique_id=19364938]
 curve = SubResource("Curve2D_u5iy2")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Stair/Path2D" unique_id=1026177914]
-position = Vector2(12.927403, -16.927404)
-rotation = -1.0636978
-progress = 21.503069
-rotates = false
-loop = false
-
-[node name="Player" parent="Stair/Path2D/PathFollow2D" unique_id=603095742 instance=ExtResource("2_dwasc")]
-rotation = 1.0636978
 
 [connection signal="body_entered" from="Stair/Up_Area" to="Stair" method="_on_up_area_body_entered"]
 [connection signal="body_exited" from="Stair/Up_Area" to="Stair" method="_on_up_area_body_exited"]

@@ -22,10 +22,12 @@ var target_point := -1
 # movimento até entrada da escada
 var target_position := Vector2.ZERO
 
-var is_on_stair := false
-var is_using_stair := false
+var is_on_stair_area := false
+var is_walking_to_stair := false
+var is_using_stair := false 
 
 var stair_mode := ""
+var player_input_direction = ""
 
 
 func enter_stair(
@@ -41,40 +43,56 @@ func enter_stair(
 
 	target_position = area_position
 
-	is_on_stair = true
+	is_on_stair_area = true
+	is_walking_to_stair = false
 	is_using_stair = false
 
 	current_point = -1
 	target_point = -1
+	
+	print(stair.get_step_count())
+	print(stair.get_step_position(0))
 
 
 func exit_stair() -> void:
-	current_stair = null
+	#current_stair = null
 
-	is_on_stair = false
-	is_using_stair = false
+	is_on_stair_area = false
+	is_walking_to_stair = false
+	#is_using_stair = false
 
-	current_point = -1
-	target_point = -1
+	#current_point = -1
+	#target_point = -1
 
 	player.player_can_control = true
 
 
-func use_stair(stair_direction: String) -> void:
-	if !is_on_stair:
+func use_stair(input_direction: String) -> void:
+	
+	player_input_direction = input_direction
+	if !is_on_stair_area:
 		return
 
-	if stair_mode != stair_direction:
+	if stair_mode != input_direction:
 		return
-
-	is_using_stair = true
-	player.player_can_control = false
+	
+	if !is_using_stair:
+		is_walking_to_stair = true
+		player.player_can_control = false
 
 
 func handle_stairs(delta: float) -> bool:
-	if !is_using_stair:
+	if !is_walking_to_stair and !is_using_stair:
 		return false
 
+	if is_walking_to_stair:
+		walk_to_stair(delta)
+	else:
+		using_stair(delta)
+	return true
+
+func walk_to_stair(delta: float):
+	print("chamando")
 	player.is_walking = true
 	player.velocity = Vector2.ZERO
 
@@ -93,9 +111,11 @@ func handle_stairs(delta: float) -> bool:
 
 		player.global_position = target_position
 
-		is_using_stair = false
+		
+		is_on_stair_area = false
+		is_walking_to_stair = false
+		is_using_stair = true
 
-		# chegou na base da escada -> prepara próxima fase
 		current_point = get_start_point_index()
 
 		player.player_can_control = true
@@ -103,9 +123,26 @@ func handle_stairs(delta: float) -> bool:
 
 		apply_facing_fix()
 
-	return true
-
-
+func using_stair(delta: float):
+	print("Usando a escada:" + str(current_point))
+	
+	var step_position = current_stair.get_step_position(current_point)
+	player.global_position = player.global_position.move_toward(
+		current_stair.get_step_position(current_point),
+		58.0 * delta
+	)
+	
+	if player.global_position.distance_to(step_position) <= 1.0:
+		print("CHEGOU NO STEP: " + str(current_point))
+		
+		if player_input_direction == STAIR_UP:
+			current_point += 1
+		elif player_input_direction == STAIR_DOWN:
+			current_point -= 1
+		else:
+			pass
+		
+	
 func get_start_point_index() -> int:
 	if stair_mode == STAIR_UP:
 		return 0
@@ -122,6 +159,10 @@ func apply_facing_fix():
 	player.player_combat_controller.scale.x = player.visual.scale.x
 
 
+func check_input():
+	player_input_direction = ""
 func not_using_stair():
+	player_input_direction = ""
+	is_walking_to_stair = false
 	is_using_stair = false
 	player.player_can_control = true
