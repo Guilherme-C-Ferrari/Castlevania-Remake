@@ -25,14 +25,14 @@ func handle_stairs_input(player):
 	
 	var is_using_stair = stair_controller.check_input()
 	
-	if is_using_stair:
-		if Input.is_action_just_pressed("move_right"):
-			stair_controller.use_stair(STAIR_UP)
-		elif Input.is_action_just_pressed("move_left"):
-			stair_controller.use_stair(STAIR_DOWN)	
-	if player.ascend_pressed:
+	if player.ascend_pressed and (stair_controller.is_on_stair_area or stair_controller.is_using_stair or player.is_ascending):
 		stair_controller.use_stair(STAIR_UP)
-	elif player.descend_pressed:
+	elif player.descend_pressed and (stair_controller.is_on_stair_area or stair_controller.is_using_stair or player.is_ascending):
 		stair_controller.use_stair(STAIR_DOWN)
+	elif is_using_stair:
+		if Input.is_action_pressed("move_right"):
+			stair_controller.use_stair(STAIR_UP)
+		elif Input.is_action_pressed("move_left"):
+			stair_controller.use_stair(STAIR_DOWN)	
 	elif stair_controller.is_on_stair_area:
 		stair_controller.not_using_stair()

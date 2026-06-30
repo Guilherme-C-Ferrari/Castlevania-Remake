@@ -25,11 +25,9 @@ func take_hit(enemy_facing: Vector2):
 	)
 	
 	if enemy_facing.x == 1:
-		player.visual.scale = Vector2(1, player.visual.scale.y)
-		player.player_combat_controller.scale = Vector2(-1, player.visual.scale.y)
+		player.turn_player("LEFT")
 	else:
-		player.visual.scale = Vector2(-1, player.visual.scale.y)
-		player.player_combat_controller.scale = Vector2(1, player.visual.scale.y)
+		player.turn_player("RIGHT")
 	
 	player.is_attacking = false
 	player.is_jumping = false

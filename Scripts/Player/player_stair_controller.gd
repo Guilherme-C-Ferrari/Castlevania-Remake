@@ -9,6 +9,7 @@ enum StairSide {
 
 const STAIR_UP := "up"
 const STAIR_DOWN := "down"
+const stair_speed := 50
 
 @export var stair_side: StairSide = StairSide.RIGHT
 
@@ -61,14 +62,11 @@ func exit_stair() -> void:
 	is_walking_to_stair = false
 	#is_using_stair = false
 
-	#current_point = -1
-	#target_point = -1
-
 	player.player_can_control = true
 
 
 func use_stair(input_direction: String) -> void:
-	
+	player.is_moving_on_stair = true
 	player_input_direction = input_direction
 	if !is_on_stair_area:
 		return
@@ -124,23 +122,30 @@ func walk_to_stair(delta: float):
 		apply_facing_fix()
 
 func using_stair(delta: float):
-	print("Usando a escada:" + str(current_point))
+	#print("Usando a escada:" + str(current_point))
 	
 	var step_position = current_stair.get_step_position(current_point)
 	player.global_position = player.global_position.move_toward(
 		current_stair.get_step_position(current_point),
-		58.0 * delta
+		stair_speed * delta
 	)
 	
 	if player.global_position.distance_to(step_position) <= 1.0:
-		print("CHEGOU NO STEP: " + str(current_point))
+		#print("CHEGOU NO STEP: " + str(current_point))
+		player.is_moving_on_stair = false
+		if !player.is_attacking:
+			if player_input_direction == STAIR_UP:
+				player.is_ascending = true
+				player.is_descending = false
+				stair_mode = STAIR_UP
+				current_point += 1
+			elif player_input_direction == STAIR_DOWN:
+				player.is_ascending = false
+				player.is_descending = true
+				stair_mode = STAIR_DOWN
+				current_point -= 1
 		
-		if player_input_direction == STAIR_UP:
-			current_point += 1
-		elif player_input_direction == STAIR_DOWN:
-			current_point -= 1
-		else:
-			pass
+		apply_facing_fix()
 		
 	
 func get_start_point_index() -> int:
@@ -152,18 +157,22 @@ func get_start_point_index() -> int:
 
 func apply_facing_fix():
 	if stair_side == StairSide.RIGHT:
-		player.visual.scale.x = -1 if stair_mode == STAIR_UP else 1
+		player.turn_player("RIGHT") if stair_mode == STAIR_UP else player.turn_player("LEFT")
 	else:
-		player.visual.scale.x = 1 if stair_mode == STAIR_UP else -1
-
-	player.player_combat_controller.scale.x = player.visual.scale.x
+		player.turn_player("LEFT") if stair_mode == STAIR_UP else player.turn_player("RIGHT")
 
 
+#SUBIR - DIREITA = direita
+#DESCER - DIREITA = esquerda
+#SUBIR - ESQUERDA = esquerda
+#DESCER - ESQUERDA = direita
 func check_input() -> bool:
 	player_input_direction = ""
 	if is_using_stair:
 		return true
 	
+	player.is_ascending = false
+	player.is_descending = false
 	return false
 	
 func not_using_stair():
@@ -171,3 +180,6 @@ func not_using_stair():
 	is_walking_to_stair = false
 	is_using_stair = false
 	player.player_can_control = true
+	player.is_ascending = false
+	player.is_descending = false
+	player.is_moving_on_stair = false

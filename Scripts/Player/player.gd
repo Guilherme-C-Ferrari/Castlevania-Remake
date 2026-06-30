@@ -50,6 +50,7 @@ var invincible := false
 @export var is_hurt := false
 @export var is_ascending := false
 @export var is_descending := false
+@export var is_moving_on_stair := false
 #----------------------------------------------------------
 
 
@@ -121,9 +122,14 @@ func death():
 	is_dead = true
 	pass
 	
-func set_state_ascend():
-	pass
-	
+func turn_player(facing_side: String):
+	if facing_side == "RIGHT":
+		visual.scale = Vector2(-1, visual.scale.y)
+		player_combat_controller.scale = Vector2(-1, visual.scale.y)
+	elif facing_side == "LEFT":
+		visual.scale = Vector2(1, visual.scale.y)
+		player_combat_controller.scale = Vector2(1, visual.scale.y)
+
 
 func debug_tool():
 	if upgrade_wip:

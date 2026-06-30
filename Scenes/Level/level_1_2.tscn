@@ -152,12 +152,12 @@ shape = SubResource("RectangleShape2D_frmym")
 debug_color = Color(0.5568628, 0.56078434, 0, 0.7882353)
 
 [node name="Down_Area" type="Area2D" parent="Stair" unique_id=650056975]
-position = Vector2(73, -65)
+position = Vector2(67, -65)
 collision_layer = 16
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stair/Down_Area" unique_id=604696899]
-position = Vector2(0.125, 0)
+position = Vector2(6, 0)
 shape = SubResource("RectangleShape2D_8gwho")
 debug_color = Color(0.5568628, 0.56078434, 0, 0.7882353)
 
