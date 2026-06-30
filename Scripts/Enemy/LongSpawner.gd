@@ -1,15 +1,18 @@
+@tool
 extends BaseSpawner
 
-@export var zone_size: Vector2 = Vector2(400, 100)
-@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var collision_shape: CollisionShape2D
 @onready var timer: Timer = $Timer
+@export var zone_size: Vector2:
+	set(value):
+		zone_size = value
+		collision_shape = $CollisionShape2D
+		collision_shape.shape = collision_shape.shape.duplicate()
+		collision_shape.shape.size = value
 var player_inside: bool = false
 var is_spawning: bool = false
 
 func _ready() -> void:
-	if collision_shape and collision_shape.shape is RectangleShape2D:
-		collision_shape.shape = collision_shape.shape.duplicate()
-		collision_shape.shape.size = zone_size
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 	timer.timeout.connect(verify_spawn)
