@@ -7,22 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dcgpj3vm2ibxb" path="res://Scenes/Enemy/long_spawner.tscn" id="6_cbet1"]
 [ext_resource type="PackedScene" uid="uid://0rluao1s7tgh" path="res://Scenes/Enemy/black_panther.tscn" id="6_mveps"]
 [ext_resource type="PackedScene" uid="uid://x55yl2iijlg7" path="res://Scenes/Enemy/zombie.tscn" id="7_cbet1"]
-[ext_resource type="Script" uid="uid://5f0xopkixfdo" path="res://Scripts/Environment/stair.gd" id="8_u5iy2"]
+[ext_resource type="PackedScene" uid="uid://d1ltye8i6fbue" path="res://Scenes/Environment/stair.tscn" id="8_u5iy2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbet1"]
 size = Vector2(20, 191)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_frmym"]
-size = Vector2(21, 3)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gwho"]
-size = Vector2(15.75, 3)
-
-[sub_resource type="Curve2D" id="Curve2D_u5iy2"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, -9, 0, 0, 0, 0, 13, -17, 0, 0, 0, 0, 21, -25, 0, 0, 0, 0, 29, -33, 0, 0, 0, 0, 37, -41, 0, 0, 0, 0, 45, -49, 0, 0, 0, 0, 53, -57, 0, 0, 0, 0, 65, -65)
-}
-point_count = 9
 
 [node name="Level_1_2" type="Node2D" unique_id=1800594450]
 
@@ -138,33 +126,17 @@ shape = SubResource("RectangleShape2D_cbet1")
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
 position = Vector2(636.9274, 207.0726)
 
-[node name="Stair" type="Node2D" parent="." unique_id=131688124]
+[node name="Stair2" parent="." unique_id=1621566809 instance=ExtResource("8_u5iy2")]
+position = Vector2(721, 160)
+step_count = 4
+up_area_size = Vector2(21.91, 3.64)
+up_area_offset_x = 2.715
+down_area_size = Vector2(19.465, 4.23)
+down_area_offset_x = 9.675
+
+[node name="Stair" parent="." unique_id=321336001 instance=ExtResource("8_u5iy2")]
 position = Vector2(624, 224)
-script = ExtResource("8_u5iy2")
-
-[node name="Up_Area" type="Area2D" parent="Stair" unique_id=57362488]
-collision_layer = 16
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stair/Up_Area" unique_id=937523503]
-position = Vector2(-1.5, -1)
-shape = SubResource("RectangleShape2D_frmym")
-debug_color = Color(0.5568628, 0.56078434, 0, 0.7882353)
-
-[node name="Down_Area" type="Area2D" parent="Stair" unique_id=650056975]
-position = Vector2(67, -65)
-collision_layer = 16
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stair/Down_Area" unique_id=604696899]
-position = Vector2(6, 0)
-shape = SubResource("RectangleShape2D_8gwho")
-debug_color = Color(0.5568628, 0.56078434, 0, 0.7882353)
-
-[node name="Path2D" type="Path2D" parent="Stair" unique_id=19364938]
-curve = SubResource("Curve2D_u5iy2")
-
-[connection signal="body_entered" from="Stair/Up_Area" to="Stair" method="_on_up_area_body_entered"]
-[connection signal="body_exited" from="Stair/Up_Area" to="Stair" method="_on_up_area_body_exited"]
-[connection signal="body_entered" from="Stair/Down_Area" to="Stair" method="_on_down_area_body_entered"]
-[connection signal="body_exited" from="Stair/Down_Area" to="Stair" method="_on_down_area_body_exited"]
+up_area_size = Vector2(28.225, 4.185)
+up_area_offset_x = 2.125
+down_area_size = Vector2(16.4, 3.48)
+down_area_offset_x = 8.265

@@ -13,14 +13,11 @@ const stair_speed := 50
 
 @export var stair_side: StairSide = StairSide.RIGHT
 
-# referência da escada atual
 var current_stair: Stair = null
 
-# pontos da escada (futuro uso)
 var current_point := -1
 var target_point := -1
 
-# movimento até entrada da escada
 var target_position := Vector2.ZERO
 
 var is_on_stair_area := false
@@ -55,12 +52,13 @@ func enter_stair(
 	print(stair.get_step_position(0))
 
 
-func exit_stair() -> void:
-	#current_stair = null
+func exit_stair(stair: Stair) -> void:
+	# Só desliga o estado se a escada da qual o player saiu for a escada atual dele
+	if current_stair != stair:
+		return
 
 	is_on_stair_area = false
 	is_walking_to_stair = false
-	#is_using_stair = false
 
 	player.player_can_control = true
 
@@ -109,7 +107,6 @@ func walk_to_stair(delta: float):
 
 		player.global_position = target_position
 
-		
 		is_on_stair_area = false
 		is_walking_to_stair = false
 		is_using_stair = true
@@ -122,8 +119,6 @@ func walk_to_stair(delta: float):
 		apply_facing_fix()
 
 func using_stair(delta: float):
-	#print("Usando a escada:" + str(current_point))
-	
 	var step_position = current_stair.get_step_position(current_point)
 	player.global_position = player.global_position.move_toward(
 		current_stair.get_step_position(current_point),
@@ -131,7 +126,6 @@ func using_stair(delta: float):
 	)
 	
 	if player.global_position.distance_to(step_position) <= 1.0:
-		#print("CHEGOU NO STEP: " + str(current_point))
 		player.is_moving_on_stair = false
 		if !player.is_attacking:
 			if player_input_direction == STAIR_UP:
@@ -162,10 +156,6 @@ func apply_facing_fix():
 		player.turn_player("LEFT") if stair_mode == STAIR_UP else player.turn_player("RIGHT")
 
 
-#SUBIR - DIREITA = direita
-#DESCER - DIREITA = esquerda
-#SUBIR - ESQUERDA = esquerda
-#DESCER - ESQUERDA = direita
 func check_input() -> bool:
 	player_input_direction = ""
 	if is_using_stair:
