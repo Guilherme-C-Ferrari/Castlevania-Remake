@@ -3,6 +3,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cawqyvv2mql0b" path="res://Assets/Enemy/bat_sprite_frames.tres" id="1_cdyt7"]
 [ext_resource type="Script" uid="uid://crewqyi88bxo7" path="res://Scripts/Enemy/Bat.gd" id="1_t2ajo"]
 [ext_resource type="Script" uid="uid://bgbp6l5x3f6op" path="res://Scripts/FSM/FSM.gd" id="3_m21ue"]
+[ext_resource type="Script" uid="uid://fbmwnoau76wy" path="res://Scripts/FSM/FlyingZigueZague.gd" id="4_akjst"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xvw0"]
 
@@ -13,9 +14,10 @@ light_mask = 4
 script = ExtResource("1_t2ajo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=20817626]
+z_index = 2
 sprite_frames = ExtResource("1_cdyt7")
 animation = &"Moving"
-frame_progress = 0.74367696
+frame_progress = 0.20986742
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=146631915]
 shape = SubResource("RectangleShape2D_8xvw0")
@@ -29,3 +31,6 @@ shape = SubResource("RectangleShape2D_cdyt7")
 
 [node name="FSM" type="Node" parent="." unique_id=1767768489]
 script = ExtResource("3_m21ue")
+
+[node name="FlyingZigueZague" type="Node" parent="FSM" unique_id=1415210941]
+script = ExtResource("4_akjst")
