@@ -1,0 +1,47 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cawqyvv2mql0b"]
+
+[ext_resource type="Texture2D" uid="uid://nsntwr47yshg" path="res://Assets/SpriteSheets/Enemy.png" id="1_ei1vp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bk57"]
+atlas = ExtResource("1_ei1vp")
+region = Rect2(289, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei1vp"]
+atlas = ExtResource("1_ei1vp")
+region = Rect2(329, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0uy32"]
+atlas = ExtResource("1_ei1vp")
+region = Rect2(369, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgoel"]
+atlas = ExtResource("1_ei1vp")
+region = Rect2(409, 48, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bk57")
+}],
+"loop": true,
+"name": &"Idling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ei1vp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0uy32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgoel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0uy32")
+}],
+"loop": true,
+"name": &"Moving",
+"speed": 6.0
+}]

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://djg58n57cliqs"]
+
+[ext_resource type="SpriteFrames" uid="uid://cawqyvv2mql0b" path="res://Assets/Enemy/bat_sprite_frames.tres" id="1_cdyt7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xvw0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdyt7"]
+
+[node name="Bat" type="CharacterBody2D" unique_id=253270751]
+light_mask = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=20817626]
+sprite_frames = ExtResource("1_cdyt7")
+animation = &"Moving"
+frame_progress = 0.4087972
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=146631915]
+visible = false
+shape = SubResource("RectangleShape2D_8xvw0")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2095949549]
+visible = false
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=23388831]
+shape = SubResource("RectangleShape2D_cdyt7")
+
+[node name="FSM" type="Node" parent="." unique_id=1767768489]
