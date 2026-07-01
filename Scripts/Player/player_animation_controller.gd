@@ -56,10 +56,8 @@ func stair_animation():
 	if player.is_moving_on_stair and !player.is_attacking:
 		player.animated_sprite_player.play()
 	else:
-		if player.is_attacking:
+		if player.is_attacking or player.animated_sprite_player.animation == "attack_ascending_stairs" or player.animated_sprite_player.animation == "attack_descending_stairs":
 			pass
-		else:	
+		else:
 			player.animated_sprite_player.frame = 0
 			player.animated_sprite_player.pause()
-		
-		
