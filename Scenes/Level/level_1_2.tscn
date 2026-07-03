@@ -124,7 +124,7 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_cbet1")
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
-position = Vector2(636.9274, 207.0726)
+position = Vector2(1212, 221)
 
 [node name="Stair2" parent="." unique_id=1621566809 instance=ExtResource("8_u5iy2")]
 position = Vector2(721, 160)
@@ -140,3 +140,19 @@ up_area_size = Vector2(28.225, 4.185)
 up_area_offset_x = 2.125
 down_area_size = Vector2(16.4, 3.48)
 down_area_offset_x = 8.265
+
+[node name="Stair3" parent="." unique_id=198849783 instance=ExtResource("8_u5iy2")]
+position = Vector2(944, 160)
+stair_side = 0
+step_count = 4
+up_area_size = Vector2(28.925, 2.755)
+up_area_offset_x = 1.92
+down_area_size = Vector2(24.02, 4.345)
+down_area_offset_x = -13.185
+
+[node name="Stair4" parent="." unique_id=189099078 instance=ExtResource("8_u5iy2")]
+position = Vector2(1296, 225)
+step_count = 12
+up_area_size = Vector2(30.68, 3.98)
+down_area_size = Vector2(20.385, 4.5)
+down_area_offset_x = 11.78

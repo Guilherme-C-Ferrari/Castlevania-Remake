@@ -47,10 +47,6 @@ func enter_stair(
 
 	current_point = -1
 	target_point = -1
-	
-	print(stair.get_step_count())
-	print(stair.get_step_position(0))
-
 
 func exit_stair(stair: Stair) -> void:
 	# Só desliga o estado se a escada da qual o player saiu for a escada atual dele
@@ -61,6 +57,7 @@ func exit_stair(stair: Stair) -> void:
 	is_walking_to_stair = false
 
 	player.player_can_control = true
+	player.velocity = Vector2.ZERO
 
 
 func use_stair(input_direction: String) -> void:
@@ -88,7 +85,6 @@ func handle_stairs(delta: float) -> bool:
 	return true
 
 func walk_to_stair(delta: float):
-	print("chamando")
 	player.is_walking = true
 	player.velocity = Vector2.ZERO
 
@@ -119,6 +115,7 @@ func walk_to_stair(delta: float):
 		apply_facing_fix()
 
 func using_stair(delta: float):
+	player.velocity = Vector2.ZERO
 	var step_position = current_stair.get_step_position(current_point)
 	player.global_position = player.global_position.move_toward(
 		current_stair.get_step_position(current_point),
