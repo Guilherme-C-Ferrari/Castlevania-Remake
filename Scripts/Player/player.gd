@@ -62,6 +62,12 @@ func _physics_process(delta: float) -> void:
 	debug_tool()
 	
 	if player_stair_controller.handle_stairs(delta):
+		if is_hurt:
+				is_hurt = false
+				if !is_dead:
+					player_hurt_controller.start_invincibility()
+				else:
+					player_can_control = false
 		return
 
 	movement(delta)
@@ -69,6 +75,7 @@ func _physics_process(delta: float) -> void:
 
 func movement(delta):
 	if is_hurt:
+
 		hurt_timer -= delta
 		
 		velocity.x = knockback_velocity.x
