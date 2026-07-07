@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dcgpj3vm2ibxb" path="res://Scenes/Enemy/long_spawner.tscn" id="6_cbet1"]
 [ext_resource type="PackedScene" uid="uid://0rluao1s7tgh" path="res://Scenes/Enemy/black_panther.tscn" id="6_mveps"]
 [ext_resource type="PackedScene" uid="uid://x55yl2iijlg7" path="res://Scenes/Enemy/zombie.tscn" id="7_cbet1"]
+[ext_resource type="PackedScene" uid="uid://d1ltye8i6fbue" path="res://Scenes/Environment/stair.tscn" id="8_u5iy2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbet1"]
 size = Vector2(20, 191)
@@ -14,12 +15,6 @@ size = Vector2(20, 191)
 [node name="Level_1_2" type="Node2D" unique_id=1800594450]
 
 [node name="Entrance Hall" parent="." unique_id=97999581 instance=ExtResource("1_bhvdk")]
-
-[node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
-position = Vector2(50, 220)
-HURT_TIME = 0.4
-KNOCKBACK_FORCE = 65.0
-INVINCIBILITY_TIME = 1.5
 
 [node name="Enemies" type="Node2D" parent="." unique_id=118376410]
 
@@ -127,3 +122,37 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1601040844]
 shape = SubResource("RectangleShape2D_cbet1")
+
+[node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
+position = Vector2(1212, 221)
+
+[node name="Stair2" parent="." unique_id=1621566809 instance=ExtResource("8_u5iy2")]
+position = Vector2(721, 160)
+step_count = 4
+up_area_size = Vector2(21.91, 3.64)
+up_area_offset_x = 2.715
+down_area_size = Vector2(19.465, 4.23)
+down_area_offset_x = 9.675
+
+[node name="Stair" parent="." unique_id=321336001 instance=ExtResource("8_u5iy2")]
+position = Vector2(624, 224)
+up_area_size = Vector2(28.225, 4.185)
+up_area_offset_x = 2.125
+down_area_size = Vector2(16.4, 3.48)
+down_area_offset_x = 8.265
+
+[node name="Stair3" parent="." unique_id=198849783 instance=ExtResource("8_u5iy2")]
+position = Vector2(944, 160)
+stair_side = 0
+step_count = 4
+up_area_size = Vector2(28.925, 2.755)
+up_area_offset_x = 1.92
+down_area_size = Vector2(24.02, 4.345)
+down_area_offset_x = -13.185
+
+[node name="Stair4" parent="." unique_id=189099078 instance=ExtResource("8_u5iy2")]
+position = Vector2(1296, 225)
+step_count = 12
+up_area_size = Vector2(30.68, 3.98)
+down_area_size = Vector2(20.385, 4.5)
+down_area_offset_x = 11.78
