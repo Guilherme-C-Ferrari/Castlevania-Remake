@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://bp83wjkgu0oii"]
+
+[ext_resource type="Script" uid="uid://b1rlianwkonhs" path="res://Scripts/Items/Weapons/Resource/weapon.gd" id="1_q7cy8"]
+[ext_resource type="Texture2D" uid="uid://8mv5ek6wvmll" path="res://Assets/UI/misc.png" id="2_vf6i3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqo03"]
+atlas = ExtResource("2_vf6i3")
+region = Rect2(115, 4, 16, 9)
+
+[resource]
+script = ExtResource("1_q7cy8")
+name = "Dagger"
+heart_cost = 1
+sprite = SubResource("AtlasTexture_qqo03")
+metadata/_custom_type_script = "uid://b1rlianwkonhs"

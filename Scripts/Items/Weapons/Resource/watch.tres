@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://dwp8khpxhbrph"]
+
+[ext_resource type="Script" uid="uid://b1rlianwkonhs" path="res://Scripts/Items/Weapons/Resource/weapon.gd" id="1_gjc6q"]
+[ext_resource type="Texture2D" uid="uid://8mv5ek6wvmll" path="res://Assets/UI/misc.png" id="2_4i6cf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yvum"]
+atlas = ExtResource("2_4i6cf")
+region = Rect2(57, 40, 15, 16)
+
+[resource]
+script = ExtResource("1_gjc6q")
+name = "Stop Watch"
+heart_cost = 5
+sprite = SubResource("AtlasTexture_4yvum")
+metadata/_custom_type_script = "uid://b1rlianwkonhs"

@@ -199,6 +199,13 @@ shape = SubResource("RectangleShape2D_i0wd8")
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
 position = Vector2(1456, 128)
 
+[node name="Stair" parent="." unique_id=321336001 instance=ExtResource("8_u5iy2")]
+position = Vector2(624, 224)
+up_area_size = Vector2(28.225, 4.185)
+up_area_offset_x = 2.125
+down_area_size = Vector2(16.4, 3.48)
+down_area_offset_x = 8.265
+
 [node name="Stair2" parent="." unique_id=1621566809 instance=ExtResource("8_u5iy2")]
 position = Vector2(721, 160)
 step_count = 4
@@ -206,13 +213,6 @@ up_area_size = Vector2(21.91, 3.64)
 up_area_offset_x = 2.715
 down_area_size = Vector2(19.465, 4.23)
 down_area_offset_x = 9.675
-
-[node name="Stair" parent="." unique_id=321336001 instance=ExtResource("8_u5iy2")]
-position = Vector2(624, 224)
-up_area_size = Vector2(28.225, 4.185)
-up_area_offset_x = 2.125
-down_area_size = Vector2(16.4, 3.48)
-down_area_offset_x = 8.265
 
 [node name="Stair3" parent="." unique_id=198849783 instance=ExtResource("8_u5iy2")]
 position = Vector2(944, 160)
