@@ -119,8 +119,7 @@ func using_stair(delta: float):
 	var step_position = current_stair.get_step_position(current_point)
 	player.global_position = player.global_position.move_toward(
 		current_stair.get_step_position(current_point),
-		stair_speed * delta
-	)
+		stair_speed * delta)
 	
 	if player.global_position.distance_to(step_position) <= 1.0:
 		player.is_moving_on_stair = false

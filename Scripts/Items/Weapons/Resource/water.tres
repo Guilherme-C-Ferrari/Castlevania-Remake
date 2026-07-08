@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://cf2lxep2be21b"]
+
+[ext_resource type="Script" uid="uid://b1rlianwkonhs" path="res://Scripts/Items/Weapons/Resource/weapon.gd" id="1_sau52"]
+[ext_resource type="Texture2D" uid="uid://8mv5ek6wvmll" path="res://Assets/UI/misc.png" id="2_virn3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r22cv"]
+atlas = ExtResource("2_virn3")
+region = Rect2(35, 40, 16, 16)
+
+[resource]
+script = ExtResource("1_sau52")
+name = "Holy Water"
+sprite = SubResource("AtlasTexture_r22cv")
+metadata/_custom_type_script = "uid://b1rlianwkonhs"
