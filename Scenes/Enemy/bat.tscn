@@ -19,10 +19,12 @@ script = ExtResource("1_t2ajo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=20817626]
 z_index = 2
+position = Vector2(0, -8)
 sprite_frames = ExtResource("1_cdyt7")
 animation = &"Moving"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=146631915]
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_8xvw0")
 
 [node name="HitBox" type="Area2D" parent="." unique_id=2095949549]
@@ -30,6 +32,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=23388831]
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_cdyt7")
 
 [node name="FSM" type="Node" parent="." unique_id=1767768489 node_paths=PackedStringArray("initial_state")]
