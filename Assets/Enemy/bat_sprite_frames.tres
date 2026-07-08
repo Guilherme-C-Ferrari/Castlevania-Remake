@@ -8,15 +8,15 @@ region = Rect2(289, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ei1vp"]
 atlas = ExtResource("1_ei1vp")
-region = Rect2(329, 48, 16, 16)
+region = Rect2(249, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0uy32"]
 atlas = ExtResource("1_ei1vp")
-region = Rect2(369, 48, 16, 16)
+region = Rect2(209, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wgoel"]
 atlas = ExtResource("1_ei1vp")
-region = Rect2(409, 48, 16, 16)
+region = Rect2(169, 48, 16, 16)
 
 [resource]
 animations = [{

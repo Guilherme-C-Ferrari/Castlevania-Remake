@@ -1,13 +1,17 @@
 extends EnemyState
 class_name FlyingZigueZague
 
+var time: float = 0.0
+
 func enter() -> void:
 	if animated_sprite:
 		if not animated_sprite.is_playing() or animated_sprite.animation != "Moving":
 			animated_sprite.play("Moving")
 
 func physics_update(_delta: float) -> void:
-	character.velocity.x = character.walk_direction * character.move_speed
+	time += _delta
+	character.velocity.x = character.move_speed * character.walking_direction
+	character.velocity.y = sin(time * character.flying_frequency) * character.flying_amplitude
 	handle_animation()
 	character.move_and_slide()
 
