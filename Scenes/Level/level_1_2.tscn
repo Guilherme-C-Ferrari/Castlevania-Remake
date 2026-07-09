@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://0rluao1s7tgh" path="res://Scenes/Enemy/black_panther.tscn" id="6_mveps"]
 [ext_resource type="PackedScene" uid="uid://x55yl2iijlg7" path="res://Scenes/Enemy/zombie.tscn" id="7_cbet1"]
 [ext_resource type="PackedScene" uid="uid://d1ltye8i6fbue" path="res://Scenes/Environment/stair.tscn" id="8_u5iy2"]
+[ext_resource type="PackedScene" uid="uid://7jkunyjdw7r2" path="res://Scenes/Environment/item_drop.tscn" id="9_n5qu7"]
+[ext_resource type="Resource" uid="uid://1x6tjxics52" path="res://Scripts/Items/Weapons/Resource/axe.tres" id="10_8gwho"]
 [ext_resource type="Texture2D" uid="uid://6rlrsd62o62m" path="res://Assets/SpriteSheets/Items-DoorSpriteRepositioned.png" id="11_kl0gm"]
 [ext_resource type="Texture2D" uid="uid://pldfv0mgf6sc" path="res://Assets/Map/NES - Castlevania - Stages - Level 1_ Entrance.png" id="12_i0wd8"]
 [ext_resource type="PackedScene" uid="uid://j2pvgo125jgq" path="res://Scenes/Player/fake_player.tscn" id="13_n0slp"]
