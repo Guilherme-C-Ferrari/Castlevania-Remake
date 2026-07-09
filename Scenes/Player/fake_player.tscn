@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://j2pvgo125jgq"]
+
+[ext_resource type="Texture2D" uid="uid://ddoai07jg5dys" path="res://Assets/SpriteSheets/Player/simon-belmont-sheet3.png" id="1_v2dsg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3x14"]
+atlas = ExtResource("1_v2dsg")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxgex"]
+atlas = ExtResource("1_v2dsg")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfdkm"]
+atlas = ExtResource("1_v2dsg")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a0hkl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3x14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxgex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfdkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxgex")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 8.0
+}]
+
+[node name="FakePlayer" type="AnimatedSprite2D" unique_id=963999390]
+sprite_frames = SubResource("SpriteFrames_a0hkl")
+animation = &"walking"
+autoplay = "walking"
+offset = Vector2(0, -16)

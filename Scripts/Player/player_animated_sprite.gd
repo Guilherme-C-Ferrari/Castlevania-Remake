@@ -55,8 +55,8 @@ func play_attack_descending_stairs():
 		play("attack_descending_stairs")
 	
 func play_attack_ascending_stair():
-	if animation != "attack_ascending_stai":
-		play("attack_ascending_stai")
+	if animation != "attack_ascending_stairs":
+		play("attack_ascending_stairs")
 	
 func play_attack():
 	if animation != "attack":

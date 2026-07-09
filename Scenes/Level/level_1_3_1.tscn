@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://binnrgn4csteq"]
+
+[ext_resource type="PackedScene" uid="uid://57jlklq2xwd4" path="res://Scenes/Environment/Tilemap/crypt_a.tscn" id="1_or8ao"]
+[ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="2_siwxa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_siwxa"]
+size = Vector2(24, 1)
+
+[node name="Level1_3_1" type="Node2D" unique_id=966762773]
+
+[node name="Crypt A" parent="." unique_id=703174525 instance=ExtResource("1_or8ao")]
+
+[node name="Player" parent="." unique_id=1035271437 instance=ExtResource("2_siwxa")]
+position = Vector2(38, 125)
+
+[node name="Area2D" type="Area2D" parent="Player" unique_id=1959639005]
+position = Vector2(-461, 0)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D" unique_id=475298225]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_siwxa")

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://caaru1k15oibo"]
+
+[ext_resource type="PackedScene" uid="uid://c658lcfjhyhxe" path="res://Scenes/Environment/Tilemap/bat_boss_room.tscn" id="1_0oybr"]
+
+[node name="Level1_4" type="Node2D" unique_id=835178012]
+
+[node name="Bat Boss Room" parent="." unique_id=2080491100 instance=ExtResource("1_0oybr")]
