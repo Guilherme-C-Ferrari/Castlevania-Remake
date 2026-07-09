@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://0rluao1s7tgh" path="res://Scenes/Enemy/black_panther.tscn" id="6_mveps"]
 [ext_resource type="PackedScene" uid="uid://x55yl2iijlg7" path="res://Scenes/Enemy/zombie.tscn" id="7_cbet1"]
 [ext_resource type="PackedScene" uid="uid://d1ltye8i6fbue" path="res://Scenes/Environment/stair.tscn" id="8_u5iy2"]
+[ext_resource type="PackedScene" uid="uid://7jkunyjdw7r2" path="res://Scenes/Environment/item_drop.tscn" id="9_n5qu7"]
+[ext_resource type="Resource" uid="uid://1x6tjxics52" path="res://Scripts/Items/Weapons/Resource/axe.tres" id="10_8gwho"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbet1"]
 size = Vector2(20, 191)
@@ -124,7 +126,7 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_cbet1")
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
-position = Vector2(1212, 221)
+position = Vector2(529, 221)
 
 [node name="Stair" parent="." unique_id=321336001 instance=ExtResource("8_u5iy2")]
 position = Vector2(624, 224)
@@ -157,4 +159,6 @@ up_area_size = Vector2(30.68, 3.98)
 down_area_size = Vector2(20.385, 4.5)
 down_area_offset_x = 11.78
 
-[node name="Node2D" type="Node2D" parent="." unique_id=2130367273]
+[node name="Item_drop" parent="." unique_id=754609819 instance=ExtResource("9_n5qu7")]
+position = Vector2(567, 202)
+item_resource = ExtResource("10_8gwho")
