@@ -18,5 +18,5 @@ func _physics_process(delta):
 	move_and_slide()
 
 func collect_area(_body: Node2D):
-	ItemController.item_collected(item_resource.name, item_resource.heart_cost, item_resource.item_type, item_resource.sprite)
+	ItemController.item_collected(item_resource.name, item_resource.heart_cost, item_resource.item_points, item_resource.item_type, item_resource.sprite)
 	self.queue_free()
