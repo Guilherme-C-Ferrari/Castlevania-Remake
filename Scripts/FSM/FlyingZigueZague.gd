@@ -10,8 +10,9 @@ func enter() -> void:
 
 func physics_update(_delta: float) -> void:
 	time += _delta
-	character.velocity.x = character.move_speed * character.walking_direction
+	character.velocity.x = character.move_speed * character.walk_direction
 	character.velocity.y = sin(time * character.flying_frequency) * character.flying_amplitude
+	# character.velocity.y = cos(time * character.flying_frequency) * character.flying_amplitude
 	handle_animation()
 	character.move_and_slide()
 

@@ -2,7 +2,7 @@ extends BaseEnemy
 
 @export var detection_range : float = 300.0
 @export var flying_frequency : float = 5.0
-@export var flying_amplitude: float = 75.0
+@export var flying_amplitude: float = 40.0
 
 func _ready() -> void:
 	super()

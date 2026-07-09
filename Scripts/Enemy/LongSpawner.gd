@@ -1,5 +1,6 @@
 @tool
 extends BaseSpawner
+class_name LongSpawner
 
 @onready var collision_shape: CollisionShape2D
 @onready var timer: Timer = $Timer
@@ -33,7 +34,7 @@ func verify_spawn() -> void:
 	var min_spawn_x = global_position.x - (zone_size.x / 2.0)
 	var max_spawn_x = global_position.x + (zone_size.x / 2.0)
 	
-	for i in range(3-spawned_enemies.size()):
+	for i in range(max_qty_to_spawn-spawned_enemies.size()):
 		while(true):
 			var spawn_x = randf_range(min_spawn_x, max_spawn_x)
 			if abs(spawn_x - camera_center.x) > (half_screen + 50.0) and abs(spawn_x - camera_center.x) < (half_screen + 70.0):
