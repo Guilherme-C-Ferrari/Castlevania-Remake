@@ -13,4 +13,5 @@ name = "bag_700"
 item_points = 700
 item_type = 2
 sprite = SubResource("AtlasTexture_udave")
+collision_size = Vector2(16, 14)
 metadata/_custom_type_script = "uid://b1rlianwkonhs"

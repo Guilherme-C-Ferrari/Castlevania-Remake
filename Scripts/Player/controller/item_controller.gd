@@ -7,11 +7,13 @@ const BONUS_SFX = preload("uid://cxy2yireb4m80")
 var heart_controller: Heart_Controller
 var special_controller: Special_Controller
 var point_controller: Point_Controller
+var heal_controller: Heal_Controller
 
 func _ready() -> void:
 	heart_controller = Heart_Controller.new()
 	special_controller = Special_Controller.new()
 	point_controller = Point_Controller.new()
+	heal_controller = Heal_Controller.new()
 
 func item_collected(name: String, heart_cost: int, points: int, item_type: Weapon.Type_Item, item_sprite: Texture, item_global_position: Vector2):
 	
@@ -36,6 +38,9 @@ func item_collected(name: String, heart_cost: int, points: int, item_type: Weapo
 	#HEAL
 	elif Weapon.Type_Item.HEAL == item_type:
 		AudioManager.play_sound_effect(WEAPON_OBTAINED_SFX, "SFX", -12)
+		
+		if heal_controller:
+			heal_controller.heal_collected(points)
 		
 	#SPECIAL
 	elif Weapon.Type_Item.SPECIAL == item_type:

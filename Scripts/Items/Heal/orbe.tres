@@ -11,6 +11,7 @@ region = Rect2(129, 22, 14, 16)
 script = ExtResource("1_gkn0g")
 name = "orbe"
 heart_cost = 0
+item_points = 100
 item_type = 3
 sprite = SubResource("AtlasTexture_ncnq2")
 metadata/_custom_type_script = "uid://b1rlianwkonhs"
