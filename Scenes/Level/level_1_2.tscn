@@ -7,9 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://dcgpj3vm2ibxb" path="res://Scenes/Enemy/long_spawner.tscn" id="6_cbet1"]
 [ext_resource type="PackedScene" uid="uid://0rluao1s7tgh" path="res://Scenes/Enemy/black_panther.tscn" id="6_mveps"]
 [ext_resource type="PackedScene" uid="uid://x55yl2iijlg7" path="res://Scenes/Enemy/zombie.tscn" id="7_cbet1"]
+[ext_resource type="Resource" uid="uid://b5vfffjn5wy6i" path="res://Scripts/Items/Point/bag_400.tres" id="7_n5qu7"]
+[ext_resource type="Resource" uid="uid://cf2lxep2be21b" path="res://Scripts/Items/Weapons/water.tres" id="8_i0wd8"]
 [ext_resource type="PackedScene" uid="uid://d1ltye8i6fbue" path="res://Scenes/Environment/stair.tscn" id="8_u5iy2"]
-[ext_resource type="PackedScene" uid="uid://7jkunyjdw7r2" path="res://Scenes/Environment/item_drop.tscn" id="9_n5qu7"]
-[ext_resource type="Resource" uid="uid://1x6tjxics52" path="res://Scripts/Items/Weapons/Resource/axe.tres" id="10_8gwho"]
+[ext_resource type="Resource" uid="uid://bevo8cr5cwqr3" path="res://Scripts/Items/Point/bag_700.tres" id="9_n0slp"]
+[ext_resource type="Resource" uid="uid://duyygndubvyr6" path="res://Scripts/Items/Special/cruz.tres" id="10_x8sa7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbet1"]
 size = Vector2(20, 191)
@@ -51,6 +53,7 @@ max_qty_to_spawn = 3
 
 [node name="Candle" parent="Environment_Items" unique_id=1931845017 instance=ExtResource("3_lgm3a")]
 position = Vector2(32, 201)
+item_1 = ExtResource("7_n5qu7")
 
 [node name="Candle2" parent="Environment_Items" unique_id=522151862 instance=ExtResource("3_lgm3a")]
 position = Vector2(96, 169)
@@ -82,14 +85,20 @@ position = Vector2(607, 169)
 [node name="Candle11" parent="Environment_Items" unique_id=1508183335 instance=ExtResource("3_lgm3a")]
 position = Vector2(671, 105)
 
+[node name="Candle24" parent="Environment_Items" unique_id=584030340 instance=ExtResource("3_lgm3a")]
+position = Vector2(799, 65)
+item_1 = ExtResource("8_i0wd8")
+
 [node name="Candle12" parent="Environment_Items" unique_id=77240178 instance=ExtResource("3_lgm3a")]
 position = Vector2(735, 201)
+item_1 = ExtResource("9_n0slp")
 
 [node name="Candle13" parent="Environment_Items" unique_id=786023743 instance=ExtResource("3_lgm3a")]
 position = Vector2(863, 105)
 
 [node name="Candle14" parent="Environment_Items" unique_id=852446907 instance=ExtResource("3_lgm3a")]
 position = Vector2(927, 201)
+item_1 = ExtResource("9_n0slp")
 
 [node name="Candle15" parent="Environment_Items" unique_id=1646608137 instance=ExtResource("3_lgm3a")]
 position = Vector2(991, 105)
@@ -117,6 +126,7 @@ position = Vector2(1439, 105)
 
 [node name="Candle23" parent="Environment_Items" unique_id=1293897660 instance=ExtResource("3_lgm3a")]
 position = Vector2(1503, 72)
+item_1 = ExtResource("10_x8sa7")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=874454033]
 position = Vector2(-8, 144)
@@ -126,7 +136,7 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_cbet1")
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
-position = Vector2(529, 221)
+position = Vector2(508, 220)
 
 [node name="Stair" parent="." unique_id=321336001 instance=ExtResource("8_u5iy2")]
 position = Vector2(624, 224)
@@ -158,7 +168,3 @@ step_count = 12
 up_area_size = Vector2(30.68, 3.98)
 down_area_size = Vector2(20.385, 4.5)
 down_area_offset_x = 11.78
-
-[node name="Item_drop" parent="." unique_id=754609819 instance=ExtResource("9_n5qu7")]
-position = Vector2(567, 202)
-item_resource = ExtResource("10_8gwho")
