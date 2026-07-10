@@ -9,8 +9,10 @@
 script = ExtResource("1_siwxa")
 
 [node name="Crypt A" parent="." unique_id=703174525 instance=ExtResource("1_or8ao")]
+position = Vector2(1526, 0)
 
 [node name="Environment_Items" type="Node2D" parent="." unique_id=1172010037]
+position = Vector2(1526, 0)
 
 [node name="Candle" parent="Environment_Items" unique_id=1931845017 instance=ExtResource("3_n03o8")]
 position = Vector2(95, 105)
@@ -37,6 +39,6 @@ position = Vector2(416, 73)
 position = Vector2(480, 105)
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("4_duhgd")]
-position = Vector2(48, 128)
+position = Vector2(1574, 128)
 
 [editable path="Crypt A"]

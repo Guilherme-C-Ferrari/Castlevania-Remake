@@ -22,13 +22,20 @@ func _physics_process(_delta: float) -> void:
 	if can_follow_player:
 		self.position = current_player_node.position
 
+func increase_camera_limit_right(amount: float):
+	limit_right += amount
+
 func update_camera_limits(new_tilemap: TileMapLayer):
 	# 1. Pega o retângulo com as bordas do tilemap
 	var map_rect: Rect2 = new_tilemap.get_used_rect()
 	# 2. Pega o tamanho de cada tile individual
 	var tile_size: Vector2 = new_tilemap.tile_set.tile_size
 	# 3. Define os limites da câmera
-	limit_left = int(map_rect.position.x * tile_size.x)
+	limit_left = int((map_rect.position.x) * tile_size.x + new_tilemap.global_position.x)
 	limit_top = y_offset + int(map_rect.position.y * tile_size.y)
-	limit_right = int(map_rect.position.x + map_rect.size.x) * int(tile_size.x)
+	limit_right = int(map_rect.position.x + map_rect.size.x) * int(tile_size.x) + int(new_tilemap.global_position.x)
 	limit_bottom = y_offset + int(map_rect.position.y + map_rect.size.y) * int(tile_size.y)
+	print("L" + str(limit_left))
+	print("T" + str(limit_top))
+	print("R" + str(limit_right))
+	print("B" + str(limit_bottom))

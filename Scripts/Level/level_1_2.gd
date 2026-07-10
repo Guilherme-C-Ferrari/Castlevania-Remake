@@ -29,9 +29,9 @@ func play_close_door_animation():
 	await animated_sprite_door.animation_finished
 	animated_sprite_door.hide()
 
-func move_camera_to_right_first(amount: float):
+func move_camera_to_right(amount: float):
 	var tween = create_tween()
-	tween.tween_property(camera_reference, "offset", (camera_reference.offset + Vector2(amount, 0)), 2)
+	tween.tween_property(camera_reference, "position", (camera_reference.position + Vector2(amount, 0)), 2)
 
 #camera ta flickando qnd troca a scene, resolver
 #criar script base_level pra n repetir codigo
@@ -39,11 +39,13 @@ func _on_next_level_trigger_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		#despawna level
 		player.player_can_control = false
+		camera_reference.can_follow_player = false
 		player.hide()
 		fake_player.stop()
 		fake_player.position = player.position
 		fake_player.show()
-		move_camera_to_right_first(128)
+		camera_reference.increase_camera_limit_right(256)
+		move_camera_to_right(128)
 		await get_tree().create_timer(2.0).timeout
 		animated_sprite_door.show()
 		animated_sprite_door.play("open")
@@ -57,6 +59,6 @@ func _on_next_level_trigger_body_entered(body: Node2D) -> void:
 		await animated_sprite_door.animation_finished
 		animated_sprite_door.hide()
 		await get_tree().create_timer(0.3).timeout
-		move_camera_to_right_first(128)
+		move_camera_to_right(128)
 		await get_tree().create_timer(2.0).timeout
 		SignalManager.next_level_reached.emit(next_level)

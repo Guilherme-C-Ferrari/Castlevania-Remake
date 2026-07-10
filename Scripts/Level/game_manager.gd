@@ -40,6 +40,7 @@ func change_current_level(new_scene):
 	var new_current_level = new_scene.instantiate(PackedScene.GEN_EDIT_STATE_MAIN_INHERITED)
 	camera.offset = Vector2(0,0)
 	add_child(new_current_level)
+	camera.can_follow_player = true
 	current_level = new_current_level
 
 func send_camera_reference():
