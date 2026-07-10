@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cy3mnrqvurbcc"]
 
 [ext_resource type="SpriteFrames" uid="uid://8ccrljuib0mg" path="res://Assets/Enemy/fishman_sprite_frames.tres" id="1_1ely3"]
-[ext_resource type="Script" uid="uid://cnklvqdjim7t1" path="res://Scripts/Enemy/Fishman.gd" id="1_bbrmk"]
+[ext_resource type="Script" uid="uid://cnklvqdjim7t1" path="res://Scripts/Enemy/FishmanEnemy.gd" id="1_bbrmk"]
 [ext_resource type="Script" uid="uid://bgbp6l5x3f6op" path="res://Scripts/FSM/FSM.gd" id="2_bbrmk"]
 [ext_resource type="Script" uid="uid://c7h3apardfuwc" path="res://Scripts/FSM/Jumping.gd" id="4_sqjah"]
 [ext_resource type="Script" uid="uid://1ww04605ngb1" path="res://Scripts/FSM/Idling.gd" id="5_th4iw"]

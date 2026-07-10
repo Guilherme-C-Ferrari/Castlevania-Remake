@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://djg58n57cliqs"]
 
 [ext_resource type="SpriteFrames" uid="uid://cawqyvv2mql0b" path="res://Assets/Enemy/bat_sprite_frames.tres" id="1_cdyt7"]
-[ext_resource type="Script" uid="uid://crewqyi88bxo7" path="res://Scripts/Enemy/Bat.gd" id="1_t2ajo"]
+[ext_resource type="Script" uid="uid://crewqyi88bxo7" path="res://Scripts/Enemy/BatEnemy.gd" id="1_t2ajo"]
 [ext_resource type="Script" uid="uid://bgbp6l5x3f6op" path="res://Scripts/FSM/FSM.gd" id="3_m21ue"]
 [ext_resource type="Script" uid="uid://fbmwnoau76wy" path="res://Scripts/FSM/FlyingZigueZague.gd" id="4_akjst"]
 
