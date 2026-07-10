@@ -7,6 +7,10 @@ const WEAPON_OBTAINED_SFX = preload("uid://clswbxpktn0qf")
 func special_collected(name: String):
 	if name == "wip_upgrade":
 		upgrade_wip()
+	elif name == "cruz":
+		cruz_effect()
+	elif name == "jarro":
+		jarro_effect()
 		
 func upgrade_wip():
 	AudioManager.play_sound_effect(WEAPON_OBTAINED_SFX, "SFX", -12)
@@ -30,3 +34,8 @@ func upgrade_wip():
 			
 		tree.paused = false
 	
+func cruz_effect():
+	pass
+
+func jarro_effect():
+	pass
