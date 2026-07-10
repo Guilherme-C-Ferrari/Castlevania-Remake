@@ -136,7 +136,7 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_cbet1")
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
-position = Vector2(508, 220)
+position = Vector2(716, 218)
 
 [node name="Stair" parent="." unique_id=321336001 instance=ExtResource("8_u5iy2")]
 position = Vector2(624, 224)

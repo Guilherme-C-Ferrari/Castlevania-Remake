@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://qxalx7oayn35"]
+
+[ext_resource type="Texture2D" uid="uid://bo02o7brpu1ku" path="res://Assets/Items/1000.tres" id="1_cvcdc"]
+
+[node name="PointsEffect" type="CPUParticles2D" unique_id=1755041770]
+z_index = 10
+emitting = false
+amount = 1
+texture = ExtResource("1_cvcdc")
+lifetime = 1.7
+one_shot = true
+gravity = Vector2(0, -3)

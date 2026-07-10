@@ -24,6 +24,8 @@ func set_time(new_time: int):
 	
 func decrease_time(decrease_time: int) -> int:
 	var current_time = int(time_seconds.text)
+	if current_time <= 0:
+		return current_time
 	time_seconds.text = str(current_time - decrease_time).pad_zeros(4)
 	return current_time - decrease_time
 
