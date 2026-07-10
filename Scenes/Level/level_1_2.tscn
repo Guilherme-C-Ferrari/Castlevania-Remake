@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://x55yl2iijlg7" path="res://Scenes/Enemy/zombie.tscn" id="7_cbet1"]
 [ext_resource type="Resource" uid="uid://b5vfffjn5wy6i" path="res://Scripts/Items/Point/bag_400.tres" id="7_n5qu7"]
 [ext_resource type="Resource" uid="uid://cf2lxep2be21b" path="res://Scripts/Items/Weapons/water.tres" id="8_i0wd8"]
+[ext_resource type="Resource" uid="uid://fsppf8up1imo" path="res://Scripts/Items/Heal/chicken.tres" id="8_kl0gm"]
 [ext_resource type="PackedScene" uid="uid://d1ltye8i6fbue" path="res://Scenes/Environment/stair.tscn" id="8_u5iy2"]
 [ext_resource type="Resource" uid="uid://bevo8cr5cwqr3" path="res://Scripts/Items/Point/bag_700.tres" id="9_n0slp"]
 [ext_resource type="Resource" uid="uid://duyygndubvyr6" path="res://Scripts/Items/Special/cruz.tres" id="10_x8sa7"]
@@ -78,6 +79,7 @@ position = Vector2(479, 169)
 
 [node name="Candle9" parent="Environment_Items" unique_id=1635955589 instance=ExtResource("3_lgm3a")]
 position = Vector2(543, 201)
+item_1 = ExtResource("8_kl0gm")
 
 [node name="Candle10" parent="Environment_Items" unique_id=912757490 instance=ExtResource("3_lgm3a")]
 position = Vector2(607, 169)

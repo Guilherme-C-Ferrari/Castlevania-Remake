@@ -22,8 +22,10 @@ func remove_player_health(damage_health: int):
 		var player = get_tree().get_first_node_in_group("player")
 		player.death()
 
-func add_player_health(damage_health: int):
-	ui.add_player_health(damage_health)
+func add_player_health(heal_health: int):
+	for i in range(heal_health):
+		ui.add_player_health(1)
+		await get_tree().create_timer(0.2).timeout
 
 func set_inital_time(new_time: int):
 	ui.set_time(new_time)

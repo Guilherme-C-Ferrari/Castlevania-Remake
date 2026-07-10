@@ -46,7 +46,7 @@ folder_colors={
 "res://Audio/": "green",
 "res://Scenes/": "purple",
 "res://Scripts/": "blue",
-"res://Scripts/Items/Heal/": "red",
+"res://Scripts/Items/Heal/": "blue",
 "res://Scripts/Items/Hearts/": "blue",
 "res://Scripts/Items/Point/": "blue",
 "res://Scripts/Items/Special/": "red",

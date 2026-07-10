@@ -2,8 +2,10 @@ extends CharacterBody2D
 
 @export var item_resource : Weapon
 @onready var item_sprite: Sprite2D = $Item_Sprite
+@onready var collision: CollisionShape2D = $collision
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
 
 var tempo: float = 0.0
 var velocidade_onda: float = 8.0 
@@ -11,7 +13,7 @@ var amplitude_onda: float = 90.0
 
 func _ready() -> void:
 	item_sprite.texture = item_resource.sprite
-	
+	collision.shape.size = item_resource.collision_size
 	var lifespan_timer = get_tree().create_timer(5.0, false)
 	lifespan_timer.timeout.connect(func(): self.queue_free())
 
