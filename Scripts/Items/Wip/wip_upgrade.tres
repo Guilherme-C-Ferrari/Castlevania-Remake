@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://bm1pm16uvf2xc"]
+
+[ext_resource type="Script" uid="uid://b1rlianwkonhs" path="res://Scripts/Items/weapon.gd" id="1_dkuqq"]
+[ext_resource type="Texture2D" uid="uid://8mv5ek6wvmll" path="res://Assets/UI/misc.png" id="2_sdhp1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5kvu"]
+atlas = ExtResource("2_sdhp1")
+region = Rect2(74, 22, 16, 16)
+
+[resource]
+script = ExtResource("1_dkuqq")
+name = "wip_upgrade"
+item_type = 4
+sprite = SubResource("AtlasTexture_f5kvu")
+metadata/_custom_type_script = "uid://b1rlianwkonhs"

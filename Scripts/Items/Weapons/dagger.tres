@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://bp83wjkgu0oii"]
 
-[ext_resource type="Script" uid="uid://b1rlianwkonhs" path="res://Scripts/Items/Weapons/Resource/weapon.gd" id="1_q7cy8"]
+[ext_resource type="Script" uid="uid://b1rlianwkonhs" path="res://Scripts/Items/weapon.gd" id="1_q7cy8"]
 [ext_resource type="Texture2D" uid="uid://8mv5ek6wvmll" path="res://Assets/UI/misc.png" id="2_vf6i3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qqo03"]

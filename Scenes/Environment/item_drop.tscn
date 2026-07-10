@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7jkunyjdw7r2"]
 
-[ext_resource type="Script" uid="uid://c1l4r2gvtlix7" path="res://Scripts/Items/Weapons/item_drop.gd" id="1_dm8ql"]
+[ext_resource type="Script" uid="uid://c1l4r2gvtlix7" path="res://Scripts/Items/item_drop.gd" id="1_dm8ql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_frmym"]
 size = Vector2(16, 16)

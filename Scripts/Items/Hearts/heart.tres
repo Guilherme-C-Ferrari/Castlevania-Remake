@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://chuagtkrnyv38"]
+
+[ext_resource type="Script" uid="uid://b1rlianwkonhs" path="res://Scripts/Items/weapon.gd" id="1_t2fj5"]
+[ext_resource type="Texture2D" uid="uid://8mv5ek6wvmll" path="res://Assets/UI/misc.png" id="2_h62ed"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhx0v"]
+atlas = ExtResource("2_h62ed")
+region = Rect2(100, 88, 8, 8)
+
+[resource]
+script = ExtResource("1_t2fj5")
+name = "heart"
+item_points = 1
+item_type = 1
+sprite = SubResource("AtlasTexture_qhx0v")
+metadata/_custom_type_script = "uid://b1rlianwkonhs"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://duyygndubvyr6"]
+
+[ext_resource type="Script" uid="uid://b1rlianwkonhs" path="res://Scripts/Items/weapon.gd" id="1_gn2wr"]
+[ext_resource type="Texture2D" uid="uid://8mv5ek6wvmll" path="res://Assets/UI/misc.png" id="2_1trv3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytjb2"]
+atlas = ExtResource("2_1trv3")
+region = Rect2(107, 41, 16, 16)
+
+[resource]
+script = ExtResource("1_gn2wr")
+name = "cruz"
+heart_cost = 0
+item_type = 4
+sprite = SubResource("AtlasTexture_ytjb2")
+metadata/_custom_type_script = "uid://b1rlianwkonhs"
