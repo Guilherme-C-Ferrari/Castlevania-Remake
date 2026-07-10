@@ -7,7 +7,6 @@ class_name BaseEnemy
 @export var walk_direction: float
 @export var move_speed: float
 
-@onready var already_shown: bool = false
 @onready var hit_box: Area2D = $HitBox
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
