@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://caaru1k15oibo"]
+
+[ext_resource type="PackedScene" uid="uid://c658lcfjhyhxe" path="res://Scenes/Environment/Tilemap/bat_boss_room.tscn" id="1_0oybr"]
+[ext_resource type="Script" uid="uid://cvilywejbr68t" path="res://Scripts/Level/level_1_4.gd" id="1_wsogr"]
+[ext_resource type="PackedScene" uid="uid://en6qwvm702j4" path="res://Scenes/Environment/candle.tscn" id="3_yvkgm"]
+
+[node name="Level1_4" type="Node2D" unique_id=990172240]
+script = ExtResource("1_wsogr")
+
+[node name="Bat Boss Room" parent="." unique_id=2080491100 instance=ExtResource("1_0oybr")]
+
+[node name="Environment_Items" type="Node2D" parent="." unique_id=1083294588]
+
+[node name="Candle" parent="Environment_Items" unique_id=1931845017 instance=ExtResource("3_yvkgm")]
+position = Vector2(96, 105)
+
+[node name="Candle2" parent="Environment_Items" unique_id=2129619748 instance=ExtResource("3_yvkgm")]
+position = Vector2(160, 137)
+
+[node name="Candle3" parent="Environment_Items" unique_id=382937002 instance=ExtResource("3_yvkgm")]
+position = Vector2(225, 104)
+
+[node name="Candle4" parent="Environment_Items" unique_id=899004555 instance=ExtResource("3_yvkgm")]
+position = Vector2(31, 170)
+
+[node name="Candle5" parent="Environment_Items" unique_id=191887243 instance=ExtResource("3_yvkgm")]
+position = Vector2(288, 201)
+
+[node name="Candle6" parent="Environment_Items" unique_id=2044797713 instance=ExtResource("3_yvkgm")]
+position = Vector2(352, 169)
+
+[node name="Candle7" parent="Environment_Items" unique_id=121538734 instance=ExtResource("3_yvkgm")]
+position = Vector2(415, 201)
+
+[node name="Candle8" parent="Environment_Items" unique_id=1998346377 instance=ExtResource("3_yvkgm")]
+position = Vector2(479, 201)
+
+[node name="Candle9" parent="Environment_Items" unique_id=2086367460 instance=ExtResource("3_yvkgm")]
+position = Vector2(543, 170)
+
+[node name="Candle10" parent="Environment_Items" unique_id=2087316853 instance=ExtResource("3_yvkgm")]
+position = Vector2(607, 201)
+
+[node name="Candle11" parent="Environment_Items" unique_id=53340494 instance=ExtResource("3_yvkgm")]
+position = Vector2(671, 170)
+
+[node name="Candle12" parent="Environment_Items" unique_id=1515228144 instance=ExtResource("3_yvkgm")]
+position = Vector2(736, 170)

@@ -1,32 +1,21 @@
 [gd_scene format=3 uid="uid://c5gs8koxst3jx"]
 
 [ext_resource type="PackedScene" uid="uid://cmi1aqwbcev8b" path="res://Scenes/Environment/Tilemap/castle_entrance.tscn" id="1_a8k43"]
-[ext_resource type="Script" uid="uid://moekbe3qocby" path="res://Scripts/Environment/level_1_1.gd" id="1_ko26w"]
+[ext_resource type="Script" uid="uid://moekbe3qocby" path="res://Scripts/Level/level_1_1.gd" id="1_ko26w"]
 [ext_resource type="PackedScene" uid="uid://cw68qtlqoctd4" path="res://Scenes/Level/level_1_2.tscn" id="2_ko26w"]
 [ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="3_6khmb"]
 [ext_resource type="PackedScene" uid="uid://dl5w1tmn7xbr1" path="res://Scenes/Environment/candelabras.tscn" id="5_6khmb"]
+[ext_resource type="PackedScene" uid="uid://j2pvgo125jgq" path="res://Scenes/Player/fake_player.tscn" id="6_kd1p2"]
 
 [sub_resource type="Animation" id="Animation_a8k43"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Player:position")
+tracks/0/path = NodePath("Player:player_can_control")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(52, 208)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Player:is_walking")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -36,25 +25,13 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_6khmb"]
 resource_name = "entering_castle"
 length = 2.85
-tracks/0/type = "value"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Player:position")
+tracks/0/path = NodePath("Castle Entrance/Wall in Front of Player")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 2.85),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(676, 208), Vector2(696, 208), Vector2(719, 208)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Castle Entrance/Wall in Front of Player")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(1.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -62,34 +39,77 @@ tracks/1/keys = {
 "method": &"show"
 }]
 }
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.85),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
 "method": &"move_to_center_of_castle_entrance"
 }, {
 "args": [],
 "method": &"move_to_right_of_castle_entrance"
+}, {
+"args": [],
+"method": &"next_level_reached"
 }]
 }
-tracks/3/type = "value"
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FakePlayer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.85),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(676, 208), Vector2(696, 208), Vector2(719, 208)]
+}
+tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Player:is_walking")
+tracks/3/path = NodePath("Player")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Player:player_can_control")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FakePlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6khmb"]
@@ -103,8 +123,7 @@ size = Vector2(24, 1)
 
 [node name="Level1_1" type="Node2D" unique_id=1778734806]
 script = ExtResource("1_ko26w")
-next_scene = ExtResource("2_ko26w")
-stage = 1
+next_level = ExtResource("2_ko26w")
 
 [node name="ChangeSceneAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1441896571]
 libraries/ = SubResource("AnimationLibrary_6khmb")
@@ -138,7 +157,10 @@ position = Vector2(480, 193)
 position = Vector2(607, 193)
 
 [node name="Player" parent="." unique_id=2036421342 instance=ExtResource("3_6khmb")]
-position = Vector2(52, 208)
+position = Vector2(676, 208)
+
+[node name="FakePlayer" parent="." unique_id=1962101468 instance=ExtResource("6_kd1p2")]
+position = Vector2(676, 208)
 
 [connection signal="body_entered" from="Castle Entrance/Area2D" to="." method="_on_area_2d_2_body_entered"]
 

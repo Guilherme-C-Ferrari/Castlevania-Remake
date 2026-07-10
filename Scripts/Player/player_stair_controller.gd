@@ -40,7 +40,6 @@ func enter_stair(
 	stair_mode = stair_direction
 
 	target_position = area_position
-
 	is_on_stair_area = true
 	is_walking_to_stair = false
 	is_using_stair = false
@@ -52,7 +51,6 @@ func exit_stair(stair: Stair) -> void:
 	# Só desliga o estado se a escada da qual o player saiu for a escada atual dele
 	if current_stair != stair:
 		return
-
 	is_on_stair_area = false
 	is_walking_to_stair = false
 
@@ -102,7 +100,6 @@ func walk_to_stair(delta: float):
 	if player.global_position.distance_to(target_position) < 2.0:
 
 		player.global_position = target_position
-
 		is_on_stair_area = false
 		is_walking_to_stair = false
 		is_using_stair = true

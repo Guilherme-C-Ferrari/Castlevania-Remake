@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://d1spkvjd6hjvy"]
+
+[ext_resource type="PackedScene" uid="uid://db1gyc2cacplj" path="res://Scenes/Environment/Tilemap/crypt_b.tscn" id="1_qlhgm"]
+[ext_resource type="Script" uid="uid://bgs65io8d0esa" path="res://Scripts/Level/level_1_3_2.gd" id="1_uhvm3"]
+[ext_resource type="PackedScene" uid="uid://en6qwvm702j4" path="res://Scenes/Environment/candle.tscn" id="3_0x5ai"]
+
+[node name="Level1_3_2" type="Node2D" unique_id=1438322600]
+script = ExtResource("1_uhvm3")
+
+[node name="Crypt B" parent="." unique_id=1993736589 instance=ExtResource("1_qlhgm")]
+
+[node name="Player" parent="Crypt B" index="2" unique_id=603095742]
+position = Vector2(46, 55)
+
+[node name="Environment_Items" type="Node2D" parent="." unique_id=1342725609]
+
+[node name="Candle" parent="Environment_Items" unique_id=1931845017 instance=ExtResource("3_0x5ai")]
+position = Vector2(32, 89)
+
+[node name="Candle2" parent="Environment_Items" unique_id=1704320997 instance=ExtResource("3_0x5ai")]
+position = Vector2(96, 89)
+
+[node name="Candle3" parent="Environment_Items" unique_id=1256833173 instance=ExtResource("3_0x5ai")]
+position = Vector2(160, 89)
+
+[node name="Candle4" parent="Environment_Items" unique_id=1218739799 instance=ExtResource("3_0x5ai")]
+position = Vector2(224, 89)
+
+[node name="Candle5" parent="Environment_Items" unique_id=402764149 instance=ExtResource("3_0x5ai")]
+position = Vector2(288, 89)
+
+[node name="Candle6" parent="Environment_Items" unique_id=1715551525 instance=ExtResource("3_0x5ai")]
+position = Vector2(352, 89)
+
+[node name="Candle7" parent="Environment_Items" unique_id=523506450 instance=ExtResource("3_0x5ai")]
+position = Vector2(415, 89)
+
+[node name="Candle8" parent="Environment_Items" unique_id=957219808 instance=ExtResource("3_0x5ai")]
+position = Vector2(497, 89)
+
+[editable path="Crypt B"]

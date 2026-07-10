@@ -50,10 +50,14 @@ var player: CharacterBody2D = null
 
 func _ready() -> void:
 	_update_stair()
+	SignalManager.player_spawned.connect(update_player_reference)
 	
 	if not Engine.is_editor_hint():
 		player = get_tree().get_first_node_in_group("player")
 		_connect_signals_automatically()
+
+func update_player_reference(new_player: CharacterBody2D):
+	player = new_player
 
 func _connect_signals_automatically() -> void:
 	if up_area and not up_area.body_entered.is_connected(_on_up_area_body_entered):
