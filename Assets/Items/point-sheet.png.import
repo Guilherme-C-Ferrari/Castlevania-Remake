@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cculu2yb2urdf"
-path="res://.godot/imported/place_holder.png-f2ccb4aed0a96c5670227db05e285e72.ctex"
+uid="uid://cwdqo0hje6e0s"
+path="res://.godot/imported/point-sheet.png-10b9ef04d8c70b77f0b4feda835a45a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Items/place_holder.png"
-dest_files=["res://.godot/imported/place_holder.png-f2ccb4aed0a96c5670227db05e285e72.ctex"]
+source_file="res://Assets/Items/point-sheet.png"
+dest_files=["res://.godot/imported/point-sheet.png-10b9ef04d8c70b77f0b4feda835a45a5.ctex"]
 
 [params]
 

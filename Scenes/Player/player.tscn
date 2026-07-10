@@ -5,13 +5,14 @@
 [ext_resource type="Material" uid="uid://be7po518l0752" path="res://Shaders/change_color.tres" id="2_gk6dx"]
 [ext_resource type="Texture2D" uid="uid://deoi3pb2v1v1" path="res://Assets/SpriteSheets/Player/Sprite-0001.png" id="2_htcer"]
 [ext_resource type="Script" uid="uid://cxx0ogu5osmal" path="res://Scripts/Player/player_animated_sprite.gd" id="3_xpcdj"]
-[ext_resource type="Script" uid="uid://dpd3jja2iqyr" path="res://Scripts/Player/player_input_controller.gd" id="4_jhyir"]
-[ext_resource type="Script" uid="uid://cfih6ncqigjrs" path="res://Scripts/Player/player_animation_controller.gd" id="5_74mp2"]
+[ext_resource type="Script" uid="uid://dpd3jja2iqyr" path="res://Scripts/Player/controller/player_input_controller.gd" id="4_jhyir"]
+[ext_resource type="Script" uid="uid://cfih6ncqigjrs" path="res://Scripts/Player/controller/player_animation_controller.gd" id="5_74mp2"]
 [ext_resource type="Script" uid="uid://dkjd1x5l6uqt0" path="res://Scripts/Player/player_audio.gd" id="5_htcer"]
-[ext_resource type="Script" uid="uid://bgesq1s5eatc" path="res://Scripts/Player/player_hurt_controller.gd" id="5_oikmp"]
-[ext_resource type="Script" uid="uid://baub81nhac81g" path="res://Scripts/Player/player_combat_controll.gd" id="6_dd0ac"]
-[ext_resource type="Script" uid="uid://bdiq0v1gv8ofg" path="res://Scripts/Player/player_stair_controller.gd" id="7_06tpx"]
-[ext_resource type="Script" uid="uid://mo2du715g41t" path="res://Scripts/Player/player_stats_controller.gd" id="7_jlvik"]
+[ext_resource type="Script" uid="uid://bgesq1s5eatc" path="res://Scripts/Player/controller/player_hurt_controller.gd" id="5_oikmp"]
+[ext_resource type="Script" uid="uid://baub81nhac81g" path="res://Scripts/Player/controller/player_combat_controll.gd" id="6_dd0ac"]
+[ext_resource type="Script" uid="uid://c2mgfx6bs1pq8" path="res://Scripts/Player/player_camera.gd" id="7_0u5uq"]
+[ext_resource type="Script" uid="uid://bdiq0v1gv8ofg" path="res://Scripts/Player/controller/player_stair_controller.gd" id="7_06tpx"]
+[ext_resource type="Script" uid="uid://mo2du715g41t" path="res://Scripts/Player/controller/player_stats_controller.gd" id="7_jlvik"]
 [ext_resource type="Texture2D" uid="uid://b4k2k0ts4ugco" path="res://Assets/SpriteSheets/Player/simon-belmont-shee4.png" id="10_7g0yx"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0u5uq"]
@@ -1581,6 +1582,7 @@ animation = &"lvl3"
 frame = 1
 
 [node name="AnimatedSpritePlayer" type="AnimatedSprite2D" parent="Visual" unique_id=2030226470]
+process_mode = 1
 position = Vector2(-1, -16)
 sprite_frames = SubResource("SpriteFrames_sbrq6")
 animation = &"attack_descending_stairs"

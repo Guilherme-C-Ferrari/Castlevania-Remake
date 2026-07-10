@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://en6qwvm702j4"]
 
 [ext_resource type="Script" uid="uid://cayvqwbv2bq2p" path="res://Scripts/Environment/Candle.gd" id="1_nxw7k"]
+[ext_resource type="PackedScene" uid="uid://7jkunyjdw7r2" path="res://Scenes/Environment/item_drop.tscn" id="2_8ofoy"]
 [ext_resource type="Texture2D" uid="uid://caitlan7aa20t" path="res://Assets/SpriteSheets/Items.png" id="2_usg1g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ofoy"]
@@ -33,6 +34,7 @@ light_mask = 4
 visibility_layer = 2
 collision_layer = 4
 script = ExtResource("1_nxw7k")
+item_drop = ExtResource("2_8ofoy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=410257651]
 z_index = 1

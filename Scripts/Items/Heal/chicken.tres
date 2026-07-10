@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://fsppf8up1imo"]
+
+[ext_resource type="Script" uid="uid://b1rlianwkonhs" path="res://Scripts/Items/weapon.gd" id="1_s1l8h"]
+[ext_resource type="Texture2D" uid="uid://8mv5ek6wvmll" path="res://Assets/UI/misc.png" id="2_7dpoh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c84qk"]
+atlas = ExtResource("2_7dpoh")
+region = Rect2(92, 24, 16, 13)
+
+[resource]
+script = ExtResource("1_s1l8h")
+name = "chicken"
+heart_cost = 0
+item_points = 16
+item_type = 3
+sprite = SubResource("AtlasTexture_c84qk")
+collision_size = Vector2(16, 12)
+metadata/_custom_type_script = "uid://b1rlianwkonhs"

@@ -1,6 +1,7 @@
 extends Node
 
 @onready var player: CharacterBody2D = get_parent()
+const HURT_SFX = preload("uid://bebn7kqsv6y6g")
 
 #----------------------------------------------------------
 @export_category("HURT")
@@ -14,6 +15,7 @@ func take_hit(enemy_facing: Vector2):
 	if player.invincible:
 		return
 	
+	AudioManager.play_sound_effect(HURT_SFX, "SFX", -12)
 	player.is_hurt = true
 	player.player_can_control = false
 	player.hurt_timer = HURT_TIME

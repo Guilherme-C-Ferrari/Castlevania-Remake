@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://7jkunyjdw7r2"]
+
+[ext_resource type="Script" uid="uid://c1l4r2gvtlix7" path="res://Scripts/Items/item_drop.gd" id="1_dm8ql"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frmym"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gwho"]
+
+[node name="Item_drop" type="CharacterBody2D" unique_id=754609819]
+collision_layer = 16
+script = ExtResource("1_dm8ql")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=990101448]
+shape = SubResource("RectangleShape2D_frmym")
+
+[node name="Item_Sprite" type="Sprite2D" parent="." unique_id=2120844379]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1043098947]
+collision_layer = 16
+collision_mask = 2
+
+[node name="collision_area" type="CollisionShape2D" parent="Area2D" unique_id=1658105161]
+shape = SubResource("RectangleShape2D_8gwho")
+
+[connection signal="body_entered" from="Area2D" to="." method="collect_area"]

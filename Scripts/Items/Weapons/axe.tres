@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://1x6tjxics52"]
+
+[ext_resource type="Script" uid="uid://b1rlianwkonhs" path="res://Scripts/Items/weapon.gd" id="1_sg0wq"]
+[ext_resource type="Texture2D" uid="uid://8mv5ek6wvmll" path="res://Assets/UI/misc.png" id="2_vi1pk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5273q"]
+atlas = ExtResource("2_vi1pk")
+region = Rect2(96, 2, 15, 14)
+
+[resource]
+script = ExtResource("1_sg0wq")
+name = "axe"
+sprite = SubResource("AtlasTexture_5273q")
+metadata/_custom_type_script = "uid://b1rlianwkonhs"

@@ -48,14 +48,12 @@ func enter_stair(
 	target_point = -1
 
 func exit_stair(stair: Stair) -> void:
-	# Só desliga o estado se a escada da qual o player saiu for a escada atual dele
 	if current_stair != stair:
 		return
 	is_on_stair_area = false
 	is_walking_to_stair = false
 
 	player.player_can_control = true
-	player.velocity = Vector2.ZERO
 
 
 func use_stair(input_direction: String) -> void:
@@ -116,8 +114,7 @@ func using_stair(delta: float):
 	var step_position = current_stair.get_step_position(current_point)
 	player.global_position = player.global_position.move_toward(
 		current_stair.get_step_position(current_point),
-		stair_speed * delta
-	)
+		stair_speed * delta)
 	
 	if player.global_position.distance_to(step_position) <= 1.0:
 		player.is_moving_on_stair = false
