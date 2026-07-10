@@ -7,10 +7,10 @@ class_name BaseEnemy
 @export var walk_direction: float
 @export var move_speed: float
 
-@onready var already_shown: bool = false
 @onready var hit_box: Area2D = $HitBox
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+const enemy_destroyer = preload("res://Audio/SFX/32. SFX - Enemy - Candle Destroyer.mp3")
 const fire_explosion = preload("res://Scenes/Effect/fire_explosion.tscn")
 
 func _ready() -> void:
@@ -58,6 +58,7 @@ func spawn_explosion() -> void:
 	get_parent().add_child(explosion)
 
 func die() -> void:
+	AudioManager.play_sound_effect(enemy_destroyer, "SFX", -12, 0.85)
 	sprite.set_deferred("visible", false)
 	hit_box.get_child(0).set_deferred("disabled", true)
 	Ui.add_score(experience)

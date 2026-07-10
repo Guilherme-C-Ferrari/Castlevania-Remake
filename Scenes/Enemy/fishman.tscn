@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cy3mnrqvurbcc"]
+
+[ext_resource type="SpriteFrames" uid="uid://8ccrljuib0mg" path="res://Assets/Enemy/fishman_sprite_frames.tres" id="1_1ely3"]
+[ext_resource type="Script" uid="uid://cnklvqdjim7t1" path="res://Scripts/Enemy/FishmanEnemy.gd" id="1_bbrmk"]
+[ext_resource type="Script" uid="uid://bgbp6l5x3f6op" path="res://Scripts/FSM/FSM.gd" id="2_bbrmk"]
+[ext_resource type="Script" uid="uid://c7h3apardfuwc" path="res://Scripts/FSM/Jumping.gd" id="4_sqjah"]
+[ext_resource type="Script" uid="uid://1ww04605ngb1" path="res://Scripts/FSM/Idling.gd" id="5_th4iw"]
+[ext_resource type="Script" uid="uid://bpd3lmv6o7ffn" path="res://Scripts/FSM/Following.gd" id="6_5hfov"]
+[ext_resource type="Script" uid="uid://bhxirgtj4aqsn" path="res://Scripts/FSM/MovingLinear.gd" id="7_qtc4m"]
+[ext_resource type="Script" uid="uid://cm7odbqa1wft0" path="res://Scripts/FSM/Shooting.gd" id="8_u4rw1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kf8o3"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukeef"]
+size = Vector2(16, 32)
+
+[node name="Fishman" type="CharacterBody2D" unique_id=186111837 groups=["enemy"]]
+collision_layer = 4
+script = ExtResource("1_bbrmk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1742030354]
+z_index = 2
+position = Vector2(0, -16)
+sprite_frames = ExtResource("1_1ely3")
+animation = &"Shooting"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2014346225]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_kf8o3")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=994399914]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=349277065]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_ukeef")
+
+[node name="Timer" type="Timer" parent="." unique_id=1114781444]
+wait_time = 4.0
+
+[node name="FSM" type="Node" parent="." unique_id=547459997 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_bbrmk")
+initial_state = NodePath("Jumping")
+
+[node name="Jumping" type="Node" parent="FSM" unique_id=1454806614]
+script = ExtResource("4_sqjah")
+
+[node name="Idling" type="Node" parent="FSM" unique_id=1502048160]
+script = ExtResource("5_th4iw")
+
+[node name="Following" type="Node" parent="FSM" unique_id=1835357571]
+script = ExtResource("6_5hfov")
+
+[node name="MovingLinear" type="Node" parent="FSM" unique_id=1020778724]
+script = ExtResource("7_qtc4m")
+
+[node name="Shooting" type="Node" parent="FSM" unique_id=900407585]
+script = ExtResource("8_u4rw1")

@@ -1,15 +1,19 @@
+@tool
 extends BaseSpawner
+class_name LongSpawner
 
-@export var zone_size: Vector2 = Vector2(400, 100)
-@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var collision_shape: CollisionShape2D
 @onready var timer: Timer = $Timer
+@export var zone_size: Vector2:
+	set(value):
+		zone_size = value
+		collision_shape = $CollisionShape2D
+		collision_shape.shape = collision_shape.shape.duplicate()
+		collision_shape.shape.size = value
 var player_inside: bool = false
 var is_spawning: bool = false
 
 func _ready() -> void:
-	if collision_shape and collision_shape.shape is RectangleShape2D:
-		collision_shape.shape = collision_shape.shape.duplicate()
-		collision_shape.shape.size = zone_size
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 	timer.timeout.connect(verify_spawn)
@@ -30,7 +34,7 @@ func verify_spawn() -> void:
 	var min_spawn_x = global_position.x - (zone_size.x / 2.0)
 	var max_spawn_x = global_position.x + (zone_size.x / 2.0)
 	
-	for i in range(3-spawned_enemies.size()):
+	for i in range(max_qty_to_spawn-spawned_enemies.size()):
 		while(true):
 			var spawn_x = randf_range(min_spawn_x, max_spawn_x)
 			if abs(spawn_x - camera_center.x) > (half_screen + 50.0) and abs(spawn_x - camera_center.x) < (half_screen + 70.0):

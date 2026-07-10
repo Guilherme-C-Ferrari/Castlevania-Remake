@@ -1,0 +1,12 @@
+extends BaseEnemy
+
+@export var detection_range : float = 300.0
+@export var flying_frequency : float = 5.0
+@export var flying_amplitude: float = 40.0
+
+func _ready() -> void:
+	super()
+	hp = 1
+	experience = 200
+	damage = 2
+	move_speed = 75
