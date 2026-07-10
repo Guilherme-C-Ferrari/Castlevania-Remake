@@ -1,0 +1,10 @@
+extends EnemyState
+class_name Shooting
+
+func enter() -> void:
+	if animated_sprite:
+		if not animated_sprite.is_playing() or animated_sprite.animation != "Moving":
+			animated_sprite.play("Shooting")
+	print("Shooting")
+	await get_tree().create_timer(3.0).timeout
+	transitioned.emit("Following")

@@ -14,8 +14,11 @@ func physics_update(_delta: float) -> void:
 		return
 	
 	if not character.is_on_floor():
-		transitioned.emit(self, "Jumping")
-		return
+		if character.get("is_spawner_jumper"):
+			character.velocity += character.get_gravity() * _delta
+		else:
+			transitioned.emit(self, "Jumping")
+			return
 	
 	var direction_to_player
 	var dist_x = abs(player.global_position.x - character.global_position.x)

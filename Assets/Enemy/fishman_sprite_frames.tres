@@ -3,10 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://jmxuikrw0yj6" path="res://Assets/SpriteSheets/enemies-2.png" id="1_4cjcs"]
 [ext_resource type="Texture2D" uid="uid://nsntwr47yshg" path="res://Assets/SpriteSheets/Enemy.png" id="2_xw51g"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iipo3"]
-atlas = ExtResource("1_4cjcs")
-region = Rect2(17, 46, 16, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_2m1l7"]
 atlas = ExtResource("2_xw51g")
 region = Rect2(249, 0, 16, 32)
@@ -15,16 +11,12 @@ region = Rect2(249, 0, 16, 32)
 atlas = ExtResource("2_xw51g")
 region = Rect2(209, 0, 16, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_iipo3"]
+atlas = ExtResource("1_4cjcs")
+region = Rect2(17, 46, 16, 32)
+
 [resource]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iipo3")
-}],
-"loop": true,
-"name": &"Attacking",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2m1l7")
@@ -42,5 +34,13 @@ animations = [{
 }],
 "loop": true,
 "name": &"Moving",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iipo3")
+}],
+"loop": true,
+"name": &"Shooting",
 "speed": 5.0
 }]
