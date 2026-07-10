@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Castlevania-Remake"
-run/main_scene="uid://c5gs8koxst3jx"
+run/main_scene="uid://jtfpsakmwh2w"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://b10eyif3e1eab"
 
@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://b472naenmbv7x"
 
 AudioManager="*uid://d373te4dm335i"
 Ui="*uid://ce4kksle0ku3l"
+SignalManager="*uid://duo3pmms5tyuk"
 
 [display]
 

@@ -21,7 +21,6 @@ var upgrade_wip := false
 
 var moving := 0.0
 
-
 var hurt_timer := 0.0
 var knockback_velocity := Vector2.ZERO
 var invincible := false
@@ -53,6 +52,8 @@ var invincible := false
 @export var is_moving_on_stair := false
 #----------------------------------------------------------
 
+#func _ready() -> void:
+	#SignalManager.player_spawned.emit(self)
 
 func _physics_process(delta: float) -> void:
 	if Engine.get_physics_frames() < 15: 

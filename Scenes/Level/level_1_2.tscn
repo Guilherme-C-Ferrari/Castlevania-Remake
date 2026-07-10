@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cw68qtlqoctd4"]
 
 [ext_resource type="PackedScene" uid="uid://jd5cy5hp8kel" path="res://Scenes/Environment/Tilemap/entrance_hall.tscn" id="1_bhvdk"]
+[ext_resource type="Script" uid="uid://ytjpxq64ptrr" path="res://Scripts/Level/level_1_2.gd" id="1_frmym"]
+[ext_resource type="PackedScene" uid="uid://binnrgn4csteq" path="res://Scenes/Level/level_1_3_1.tscn" id="2_8gwho"]
 [ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="2_dwasc"]
 [ext_resource type="PackedScene" uid="uid://en6qwvm702j4" path="res://Scenes/Environment/candle.tscn" id="3_lgm3a"]
 [ext_resource type="PackedScene" uid="uid://0sogs21qxibf" path="res://Scenes/Enemy/base_spawner.tscn" id="5_mveps"]
@@ -13,6 +15,8 @@
 size = Vector2(20, 191)
 
 [node name="Level_1_2" type="Node2D" unique_id=1800594450]
+script = ExtResource("1_frmym")
+next_level = ExtResource("2_8gwho")
 
 [node name="Entrance Hall" parent="." unique_id=97999581 instance=ExtResource("1_bhvdk")]
 
@@ -124,7 +128,7 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_cbet1")
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
-position = Vector2(1212, 221)
+position = Vector2(48, 223)
 
 [node name="Stair2" parent="." unique_id=1621566809 instance=ExtResource("8_u5iy2")]
 position = Vector2(721, 160)
