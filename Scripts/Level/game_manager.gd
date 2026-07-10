@@ -21,6 +21,7 @@ func _ready() -> void:
 	SignalManager.next_level_reached.connect(change_current_level)
 	SignalManager.player_spawned.connect(update_player)
 	SignalManager.level_loaded.connect(update_tilemap)
+	SignalManager.request_camera_reference.connect(send_camera_reference)
 	# current_level inicial menu da pausa
 	# cutscene inicial
 	change_current_level(LEVEL_1_1)
@@ -37,5 +38,9 @@ func change_current_level(new_scene):
 	if current_level:
 		current_level.queue_free()
 	var new_current_level = new_scene.instantiate(PackedScene.GEN_EDIT_STATE_MAIN_INHERITED)
+	camera.offset = Vector2(0,0)
 	add_child(new_current_level)
 	current_level = new_current_level
+
+func send_camera_reference():
+	SignalManager.respond_camera_reference.emit(camera)

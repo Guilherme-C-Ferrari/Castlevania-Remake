@@ -57,7 +57,6 @@ func _ready() -> void:
 		_connect_signals_automatically()
 
 func update_player_reference(new_player: CharacterBody2D):
-	print(player)
 	player = new_player
 
 func _connect_signals_automatically() -> void:
@@ -135,11 +134,7 @@ func get_step_position(step: int) -> Vector2:
 	return path_2d.to_global(path_2d.curve.get_point_position(step))
 
 func _on_up_area_body_entered(body: Node2D) -> void:
-	print("entrou pra subir")
 	if Engine.is_editor_hint() or body != player:
-		print("deu return")
-		print(body)
-		print(player)
 		return
 
 	player.player_stair_controller.enter_stair(
@@ -150,11 +145,7 @@ func _on_up_area_body_entered(body: Node2D) -> void:
 	)
 
 func _on_up_area_body_exited(body: Node2D) -> void:
-	print("saiu pra subir")
 	if Engine.is_editor_hint() or body != player:
-		print("deu return")
-		print(body)
-		print(player)
 		return
 
 	player.player_stair_controller.exit_stair(self)

@@ -34,7 +34,6 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 		var key_id: int = anim.track_find_key(track_id, 0.0)
 		anim.track_set_key_value(track_id, key_id, player.position)
 		change_scene_animation_player.play("entering_castle")
-		change_scene_animation_player.play("entering_castle")
 
 func next_level_reached():
 	SignalManager.next_level_reached.emit(next_level)

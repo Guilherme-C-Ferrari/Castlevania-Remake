@@ -5,20 +5,77 @@
 [ext_resource type="PackedScene" uid="uid://binnrgn4csteq" path="res://Scenes/Level/level_1_3_1.tscn" id="2_8gwho"]
 [ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="2_dwasc"]
 [ext_resource type="PackedScene" uid="uid://en6qwvm702j4" path="res://Scenes/Environment/candle.tscn" id="3_lgm3a"]
+[ext_resource type="PackedScene" uid="uid://57jlklq2xwd4" path="res://Scenes/Environment/Tilemap/crypt_a.tscn" id="4_i0wd8"]
 [ext_resource type="PackedScene" uid="uid://0sogs21qxibf" path="res://Scenes/Enemy/base_spawner.tscn" id="5_mveps"]
 [ext_resource type="PackedScene" uid="uid://dcgpj3vm2ibxb" path="res://Scenes/Enemy/long_spawner.tscn" id="6_cbet1"]
 [ext_resource type="PackedScene" uid="uid://0rluao1s7tgh" path="res://Scenes/Enemy/black_panther.tscn" id="6_mveps"]
 [ext_resource type="PackedScene" uid="uid://x55yl2iijlg7" path="res://Scenes/Enemy/zombie.tscn" id="7_cbet1"]
 [ext_resource type="PackedScene" uid="uid://d1ltye8i6fbue" path="res://Scenes/Environment/stair.tscn" id="8_u5iy2"]
+[ext_resource type="Texture2D" uid="uid://6rlrsd62o62m" path="res://Assets/SpriteSheets/Items-DoorSpriteRepositioned.png" id="11_kl0gm"]
+[ext_resource type="Texture2D" uid="uid://pldfv0mgf6sc" path="res://Assets/Map/NES - Castlevania - Stages - Level 1_ Entrance.png" id="12_i0wd8"]
+[ext_resource type="PackedScene" uid="uid://j2pvgo125jgq" path="res://Scenes/Player/fake_player.tscn" id="13_n0slp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbet1"]
-size = Vector2(20, 191)
+size = Vector2(20, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuikv"]
+atlas = ExtResource("11_kl0gm")
+region = Rect2(226, 1, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6bni"]
+atlas = ExtResource("11_kl0gm")
+region = Rect2(226, 51, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7blij"]
+atlas = ExtResource("11_kl0gm")
+region = Rect2(226, 51, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mf442"]
+atlas = ExtResource("11_kl0gm")
+region = Rect2(226, 1, 24, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e413r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuikv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6bni")
+}],
+"loop": false,
+"name": &"close",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7blij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mf442")
+}],
+"loop": false,
+"name": &"open",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkrhj"]
+size = Vector2(12, 2)
 
 [node name="Level_1_2" type="Node2D" unique_id=1800594450]
 script = ExtResource("1_frmym")
 next_level = ExtResource("2_8gwho")
 
 [node name="Entrance Hall" parent="." unique_id=97999581 instance=ExtResource("1_bhvdk")]
+
+[node name="NesCastlevaniaStagesLevel1Entrance" parent="Entrance Hall" index="0" unique_id=728012115]
+position = Vector2(763, 116.99999)
+
+[node name="Fake Crypt A" parent="Entrance Hall" unique_id=703174525 instance=ExtResource("4_i0wd8")]
+position = Vector2(1536, 0)
+
+[node name="NesCastlevaniaStagesLevel1Entrance" parent="Entrance Hall/Fake Crypt A" index="0" unique_id=1011626843]
+position = Vector2(264, 117.00001)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=118376410]
 
@@ -127,8 +184,16 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1601040844]
 shape = SubResource("RectangleShape2D_cbet1")
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=259509355]
+position = Vector2(1537, 104)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1694287880]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_cbet1")
+
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
-position = Vector2(48, 223)
+position = Vector2(1456, 128)
 
 [node name="Stair2" parent="." unique_id=1621566809 instance=ExtResource("8_u5iy2")]
 position = Vector2(721, 160)
@@ -160,3 +225,37 @@ step_count = 12
 up_area_size = Vector2(30.68, 3.98)
 down_area_size = Vector2(20.385, 4.5)
 down_area_offset_x = 11.78
+
+[node name="AnimatedSprite Door" type="AnimatedSprite2D" parent="." unique_id=1968071129]
+visible = false
+z_index = 1
+position = Vector2(1542, 104)
+sprite_frames = SubResource("SpriteFrames_e413r")
+animation = &"open"
+frame = 1
+frame_progress = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite Door" unique_id=1792868529]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(-10.499986, 2.5331974e-06)
+scale = Vector2(0.002499336, 0.1216545)
+texture = ExtResource("12_i0wd8")
+
+[node name="FakePlayer" parent="." unique_id=1962101468 instance=ExtResource("13_n0slp")]
+z_index = 2
+
+[node name="Next Level Trigger" type="Area2D" parent="." unique_id=1352189077]
+position = Vector2(1528, 128)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Next Level Trigger" unique_id=1827326737]
+shape = SubResource("RectangleShape2D_xkrhj")
+
+[node name="Next Level Spawn Location" type="Marker2D" parent="." unique_id=503337312]
+position = Vector2(1584, 127)
+
+[connection signal="body_entered" from="Next Level Trigger" to="." method="_on_next_level_trigger_body_entered"]
+
+[editable path="Entrance Hall"]
+[editable path="Entrance Hall/Fake Crypt A"]
