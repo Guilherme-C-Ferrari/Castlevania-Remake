@@ -32,6 +32,8 @@ func be_destroyed() -> void:
 	sprite.set_deferred("visible", false)
 	hit_box.set_deferred("disabled", true)
 	spawn_explosion()
-	drop_item()
 	
+	await get_tree().create_timer(0.6).timeout
+	
+	drop_item()
 	queue_free()
