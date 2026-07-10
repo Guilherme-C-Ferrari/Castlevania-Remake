@@ -2,13 +2,16 @@ extends BaseEnemy
 
 func _ready() -> void:
 	super()
-	print("Criada")
 	hp = 1
 	experience = 100
-	damage = 2
+	if randf() < 0.75:
+		damage = 2
+	else:
+		damage = 4
 	move_speed = 35
 	if hit_box:
 		hit_box.body_entered.connect(_on_hitbox_body_entered)
+	print(global_position)
 
 func _physics_process(_delta: float) -> void:
 	super._physics_process(_delta)
