@@ -1,7 +1,7 @@
 extends Resource
 class_name Special_Controller
-const CHANGE_COLOR = preload("uid://be7po518l0752")
 
+const CHANGE_COLOR = preload("uid://be7po518l0752")
 const WEAPON_OBTAINED_SFX = preload("uid://clswbxpktn0qf")
 
 func special_collected(name: String):
