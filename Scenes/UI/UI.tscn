@@ -20,6 +20,7 @@ atlas = ExtResource("5_8wlyu")
 region = Rect2(170, 188, 8, 8)
 
 [node name="UI" type="CanvasLayer" unique_id=648665156]
+process_mode = 3
 script = ExtResource("1_jevvu")
 
 [node name="UI_Controller" type="Control" parent="." unique_id=1167741157]
