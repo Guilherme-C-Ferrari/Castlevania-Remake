@@ -16,7 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://j2pvgo125jgq" path="res://Scenes/Player/fake_player.tscn" id="13_n0slp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbet1"]
-size = Vector2(20, 47)
+size = Vector2(20, 121.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0wd8"]
+size = Vector2(10, 46)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xuikv"]
 atlas = ExtResource("11_kl0gm")
@@ -177,20 +180,21 @@ position = Vector2(1439, 105)
 [node name="Candle23" parent="Environment_Items" unique_id=1293897660 instance=ExtResource("3_lgm3a")]
 position = Vector2(1503, 72)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=874454033]
+[node name="Lateral Wall" type="StaticBody2D" parent="." unique_id=874454033]
 position = Vector2(-8, 144)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1601040844]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lateral Wall" unique_id=1601040844]
+position = Vector2(0, 37.25)
 shape = SubResource("RectangleShape2D_cbet1")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=259509355]
+[node name="Lateral Wall 2" type="StaticBody2D" parent="." unique_id=259509355]
 position = Vector2(1537, 104)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1694287880]
-position = Vector2(0, -1.5)
-shape = SubResource("RectangleShape2D_cbet1")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Lateral Wall 2" unique_id=1694287880]
+position = Vector2(-5, -1)
+shape = SubResource("RectangleShape2D_i0wd8")
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
 position = Vector2(1456, 128)
