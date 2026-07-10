@@ -1582,6 +1582,7 @@ animation = &"lvl3"
 frame = 1
 
 [node name="AnimatedSpritePlayer" type="AnimatedSprite2D" parent="Visual" unique_id=2030226470]
+process_mode = 1
 position = Vector2(-1, -16)
 sprite_frames = SubResource("SpriteFrames_sbrq6")
 animation = &"attack_descending_stairs"

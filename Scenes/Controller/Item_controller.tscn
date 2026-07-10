@@ -2,5 +2,6 @@
 
 [ext_resource type="Script" uid="uid://c2x6vwwglhq22" path="res://Scripts/Player/controller/item_controller.gd" id="1_0wuvn"]
 
-[node name="Node" type="Node" unique_id=298301538]
+[node name="Item_Controller" type="Node" unique_id=298301538]
+process_mode = 3
 script = ExtResource("1_0wuvn")
