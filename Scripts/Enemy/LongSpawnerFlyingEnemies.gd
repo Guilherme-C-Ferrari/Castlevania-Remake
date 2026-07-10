@@ -20,7 +20,7 @@ func verify_spawn() -> void:
 	for i in range(max_qty_to_spawn - spawned_enemies.size()):
 		var side = -1.0 if randf() < 0.5 else 1.0
 		var spawn_x = camera_center.x + (side * (half_screen + 50.0))
-		var spawn_y = player.global_position.y
+		var spawn_y = player.global_position.y - 15
 		spawn_flying_enemy_pos(spawn_x, spawn_y)
 		await get_tree().create_timer(0.5).timeout
 	is_spawning = false

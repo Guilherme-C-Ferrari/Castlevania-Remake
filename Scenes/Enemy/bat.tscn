@@ -11,7 +11,7 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdyt7"]
 size = Vector2(16, 16)
 
-[node name="Bat" type="CharacterBody2D" unique_id=253270751]
+[node name="Bat" type="CharacterBody2D" unique_id=253270751 groups=["enemy"]]
 light_mask = 4
 collision_layer = 4
 collision_mask = 0
