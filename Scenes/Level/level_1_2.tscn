@@ -146,7 +146,7 @@ position = Vector2(607, 169)
 position = Vector2(671, 105)
 
 [node name="Candle24" parent="Environment_Items" unique_id=584030340 instance=ExtResource("3_lgm3a")]
-position = Vector2(799, 65)
+position = Vector2(799, 74)
 item_1 = ExtResource("8_i0wd8")
 
 [node name="Candle12" parent="Environment_Items" unique_id=77240178 instance=ExtResource("3_lgm3a")]
