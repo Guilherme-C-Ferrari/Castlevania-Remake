@@ -1,15 +1,8 @@
 [gd_scene format=4 uid="uid://4axrw3lfvhpa"]
 
-[ext_resource type="Texture2D" uid="uid://d0isnxc6qfirh" path="res://Assets/Map/NES - Castlevania - Stages - Level 2_ Main Hall.png" id="1_d4odh"]
 [ext_resource type="TileSet" uid="uid://2nyh816hk1t1" path="res://Assets/Map/level_2_tile_set.tres" id="2_lmu2o"]
 
 [node name="Medusa Boss Room" type="Node2D" unique_id=890710705]
-
-[node name="NesCastlevaniaStagesLevel2MainHall" type="Sprite2D" parent="." unique_id=117528470]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(384.00003, 119.999985)
-scale = Vector2(0.3747573, 0.29575753)
-texture = ExtResource("1_d4odh")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2069334984]
 position = Vector2(0, 16)

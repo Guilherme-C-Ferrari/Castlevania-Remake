@@ -35,7 +35,21 @@ func upgrade_wip():
 		tree.paused = false
 	
 func cruz_effect():
-	pass
-
+	var enemies = Engine.get_main_loop().get_nodes_in_group("enemy")
+	for enemy in enemies:
+		if enemy.is_on_screen:
+			enemy.die()
+			
+	var color_black = true
+	var tree = Engine.get_main_loop()
+	for i in range(14):
+		if color_black:
+			RenderingServer.set_default_clear_color(Color.html("#FFFFFFFF"))
+			color_black = false
+		else:
+			RenderingServer.set_default_clear_color(Color.html("#000000FF"))
+			color_black = true
+		
+		await tree.create_timer(0.02, true).timeout
 func jarro_effect():
 	pass

@@ -1,15 +1,8 @@
 [gd_scene format=4 uid="uid://bibe2sbgr3tlv"]
 
-[ext_resource type="Texture2D" uid="uid://d0isnxc6qfirh" path="res://Assets/Map/NES - Castlevania - Stages - Level 2_ Main Hall.png" id="1_4ta0x"]
 [ext_resource type="TileSet" uid="uid://2nyh816hk1t1" path="res://Assets/Map/level_2_tile_set.tres" id="2_j2csx"]
 
 [node name="Tower Entrance B" type="Node2D" unique_id=1661848692]
-
-[node name="NesCastlevaniaStagesLevel2MainHall" type="Sprite2D" parent="." unique_id=1992962980]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(255.99998, 120.50001)
-scale = Vector2(0.25242722, 0.29696974)
-texture = ExtResource("1_4ta0x")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=332429400]
 position = Vector2(0, 16)
