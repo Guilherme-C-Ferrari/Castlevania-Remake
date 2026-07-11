@@ -9,6 +9,7 @@ class_name BaseEnemy
 
 @onready var hit_box: Area2D = $HitBox
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var is_on_screen: bool = false
 
 const enemy_destroyer = preload("res://Audio/SFX/32. SFX - Enemy - Candle Destroyer.mp3")
 const fire_explosion = preload("res://Scenes/Effect/fire_explosion.tscn")
@@ -29,6 +30,11 @@ func verify_despawn() -> void:
 	var screen_width = get_viewport().get_visible_rect().size.x
 	var max_distance = (screen_width / 2.0) + 100
 	
+	if (abs(global_position.x - camera_center.x) < screen_width/2):
+		is_on_screen = true
+	else:
+		is_on_screen = false
+	
 	if (abs(global_position.x - camera_center.x) > max_distance) or (abs(global_position.y - camera_center.y) > max_distance):
 		queue_free()
 
@@ -40,6 +46,7 @@ func update_direction() -> void:
 
 func _on_player_damaged(_body: Node2D) -> void:
 	var player = get_tree().get_first_node_in_group("player")
+	
 	if player == _body:
 		var stats_controller = player.get_node("Player_Stats_Controller")
 		stats_controller.receive_damage(damage, walk_direction)

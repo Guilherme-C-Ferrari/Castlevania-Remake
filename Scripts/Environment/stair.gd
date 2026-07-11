@@ -137,12 +137,15 @@ func _on_up_area_body_entered(body: Node2D) -> void:
 	if Engine.is_editor_hint() or body != player:
 		return
 
-	player.player_stair_controller.enter_stair(
-		self,
-		stair_side,
-		STAIR_UP,
-		up_area.global_position
-	)
+	while up_area.overlaps_body(player):
+		player.player_stair_controller.enter_stair(
+			self,
+			stair_side,
+			STAIR_UP,
+			up_area.global_position
+		)
+		await get_tree().create_timer(0.2).timeout
+
 
 func _on_up_area_body_exited(body: Node2D) -> void:
 	if Engine.is_editor_hint() or body != player:
@@ -154,12 +157,14 @@ func _on_down_area_body_entered(body: Node2D) -> void:
 	if Engine.is_editor_hint() or body != player:
 		return
 
-	player.player_stair_controller.enter_stair(
-		self,
-		stair_side,
-		STAIR_DOWN,
-		down_area.global_position
-	)
+	while down_area.overlaps_body(player):
+		player.player_stair_controller.enter_stair(
+			self,
+			stair_side,
+			STAIR_DOWN,
+			down_area.global_position
+		)
+		await get_tree().create_timer(0.2).timeout
 
 func _on_down_area_body_exited(body: Node2D) -> void:
 	if Engine.is_editor_hint() or body != player:

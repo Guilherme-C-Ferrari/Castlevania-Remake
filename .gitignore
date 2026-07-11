@@ -1,4 +1,43 @@
-# Godot 4+ specific ignores
+### Godot 4+ Specific ###
+# Pasta de importação automática e cache da engine (obrigatório)
 .godot/
-/android/
+
+# Exportações do Android e builds locais
+/[Aa]ndroid/
+
+# Arquivos temporários gerais
 *.tmp
+
+# Arquivos binários de exportação (opcional, mas recomendado)
+*.godot.zip
+*.apk
+*.aab
+*.exe
+*.linuxbsd
+*.apple
+*.wasm
+
+### JetBrains/IntelliJ IDEA ###
+# Configurações estritamente locais do usuário
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/**/aws.xml
+
+# Dados locais de banco de dados e UI
+.idea/**/dataSources/
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/uiDesigner.xml
+
+# Pastas de saída de compilação da IDE
+out/
+artifacts/
+
+# Se usar C# (Mono), ignore os binários do build dotNet
+.idea/.idea.*/
+bin/
+obj/
+.idea/

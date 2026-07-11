@@ -11,7 +11,6 @@ func _ready() -> void:
 	move_speed = 35
 	if hit_box:
 		hit_box.body_entered.connect(_on_hitbox_body_entered)
-	print(global_position)
 
 func _physics_process(_delta: float) -> void:
 	super._physics_process(_delta)

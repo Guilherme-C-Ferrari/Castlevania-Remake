@@ -34,7 +34,10 @@ func enter_stair(
 	stair_direction: String,
 	area_position: Vector2
 ) -> void:
-
+	
+	if is_using_stair or is_walking_to_stair:
+		return
+	
 	current_stair = stair
 	stair_side = stair_side_area
 	stair_mode = stair_direction
@@ -42,7 +45,6 @@ func enter_stair(
 	target_position = area_position
 	is_on_stair_area = true
 	is_walking_to_stair = false
-	is_using_stair = false
 
 	current_point = -1
 	target_point = -1
@@ -113,22 +115,35 @@ func using_stair(delta: float):
 	player.velocity = Vector2.ZERO
 	var step_position = current_stair.get_step_position(current_point)
 	player.global_position = player.global_position.move_toward(
-		current_stair.get_step_position(current_point),
-		stair_speed * delta)
+		step_position,
+		stair_speed * delta
+	)
 	
 	if player.global_position.distance_to(step_position) <= 1.0:
 		player.is_moving_on_stair = false
+		
 		if !player.is_attacking:
+			var next_point = current_point
+			if player_input_direction == STAIR_UP:
+				next_point += 1
+			elif player_input_direction == STAIR_DOWN:
+				next_point -= 1
+				
+			var total_steps = current_stair.get_step_count()
+			if next_point < 0 or next_point >= total_steps:
+				not_using_stair()
+				return
+				
 			if player_input_direction == STAIR_UP:
 				player.is_ascending = true
 				player.is_descending = false
 				stair_mode = STAIR_UP
-				current_point += 1
+				current_point = next_point
 			elif player_input_direction == STAIR_DOWN:
 				player.is_ascending = false
 				player.is_descending = true
 				stair_mode = STAIR_DOWN
-				current_point -= 1
+				current_point = next_point
 		
 		apply_facing_fix()
 		
