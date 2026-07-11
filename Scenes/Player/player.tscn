@@ -1584,7 +1584,7 @@ frame = 1
 process_mode = 1
 position = Vector2(-1, -16)
 sprite_frames = SubResource("SpriteFrames_sbrq6")
-animation = &"attack_descending_stairs"
+animation = &"attack"
 script = ExtResource("3_xpcdj")
 
 [node name="Player_Combat_Controller" type="Node2D" parent="." unique_id=1461058121]

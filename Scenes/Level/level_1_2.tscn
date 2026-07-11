@@ -235,8 +235,8 @@ down_area_offset_x = -13.185
 position = Vector2(1296, 225)
 step_count = 12
 up_area_size = Vector2(30.68, 3.98)
-down_area_size = Vector2(20.385, 4.5)
-down_area_offset_x = 11.78
+down_area_size = Vector2(20.39, 4.295)
+down_area_offset_x = 7.65
 
 [node name="AnimatedSprite Door" type="AnimatedSprite2D" parent="." unique_id=1968071129]
 visible = false
