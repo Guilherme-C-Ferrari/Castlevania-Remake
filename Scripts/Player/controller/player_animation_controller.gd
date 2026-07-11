@@ -2,6 +2,9 @@ extends Node
 
 @onready var player: CharacterBody2D = get_parent()
 
+const WHIP_SFX = preload("uid://b1x36h5p0hjvy")
+@onready var wip: Node2D = $"../Visual/wip"
+
 func player_animation_control():	
 	move_animation()
 	jump_animation()
@@ -46,7 +49,17 @@ func duck_animation():
 		player.is_walking = false
 
 func attack_animation():
+	if player.ascend_pressed and player.attack_pressed and Ui.can_use_weapon():
+		print("special")
+		wip.visible = false
+		Ui.use_weapon(player.global_position, player.visual.scale.x)
+		player.is_attacking = true
+		return
+	
 	if player.attack_pressed and player.playback.get_current_node() != "Attack_State":
+		print("WIP ATACK")
+		AudioManager.play_sound_effect(WHIP_SFX,"SFX", -13, 0.8, 1.07)
+		wip.visible = true
 		player.is_attacking = true
 		
 func stair_animation():

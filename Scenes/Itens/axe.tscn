@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bcd48f66fp52h"]
+
+[ext_resource type="Script" uid="uid://d0wdsqhoj3aqj" path="res://Scripts/Items/Weapons/axe.gd" id="1_byoj8"]
+[ext_resource type="Texture2D" uid="uid://8mv5ek6wvmll" path="res://Assets/UI/misc.png" id="2_1ny6v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4q5v7"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byoj8"]
+atlas = ExtResource("2_1ny6v")
+region = Rect2(96, 2, 15, 14)
+
+[node name="Axe" type="Area2D" unique_id=1100890236]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_byoj8")
+velocity_x = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=875531621]
+shape = SubResource("RectangleShape2D_4q5v7")
+
+[node name="Axe_sprite" type="Sprite2D" parent="." unique_id=16845210]
+z_index = 1
+texture = SubResource("AtlasTexture_byoj8")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=846608212]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="destroy_weapon"]

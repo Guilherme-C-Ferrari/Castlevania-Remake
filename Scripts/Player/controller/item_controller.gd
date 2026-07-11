@@ -8,18 +8,21 @@ var heart_controller: Heart_Controller
 var special_controller: Special_Controller
 var point_controller: Point_Controller
 var heal_controller: Heal_Controller
+var weapon_controller: Weapon_Controller
 
 func _ready() -> void:
 	heart_controller = Heart_Controller.new()
 	special_controller = Special_Controller.new()
 	point_controller = Point_Controller.new()
 	heal_controller = Heal_Controller.new()
+	weapon_controller = Weapon_Controller.new()
 
 func item_collected(name: String, heart_cost: int, points: int, item_type: Weapon.Type_Item, item_sprite: Texture, item_global_position: Vector2):
 	
 	#WEAPON
 	if Weapon.Type_Item.WEAPON == item_type:
 		AudioManager.play_sound_effect(WEAPON_OBTAINED_SFX, "SFX", -12)
+		weapon_controller.weapon_collected(name, heart_cost, item_sprite)
 	
 	#POINTS
 	elif Weapon.Type_Item.POINTS == item_type:

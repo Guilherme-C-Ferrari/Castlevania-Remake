@@ -11,6 +11,9 @@ class_name BaseEnemy
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var is_on_screen: bool = false
 
+var is_time_stopped: bool = false
+var saved_move_speed : float = 0.0
+
 const enemy_destroyer = preload("res://Audio/SFX/32. SFX - Enemy - Candle Destroyer.mp3")
 const fire_explosion = preload("res://Scenes/Effect/fire_explosion.tscn")
 
@@ -64,6 +67,26 @@ func spawn_explosion() -> void:
 	explosion.global_position = sprite.global_position
 	get_parent().add_child(explosion)
 
+
+func stop_time() -> void:
+	if is_time_stopped: 
+		return
+	is_time_stopped = true
+	saved_move_speed  = move_speed 
+	move_speed  = 0.0
+
+	if sprite:
+		sprite.pause()
+
+func resume_time() -> void:
+	if not is_time_stopped: 
+		return
+	is_time_stopped = false
+	move_speed = saved_move_speed
+	
+	if sprite:
+		sprite.play()
+		
 func die() -> void:
 	AudioManager.play_sound_effect(enemy_destroyer, "SFX", -12, 0.85)
 	sprite.set_deferred("visible", false)

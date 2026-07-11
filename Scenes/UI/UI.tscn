@@ -11,10 +11,6 @@
 [sub_resource type="FontVariation" id="FontVariation_wgwte"]
 base_font = ExtResource("1_oqha6")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ltkt0"]
-atlas = ExtResource("5_8wlyu")
-region = Rect2(57, 40, 15, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_wgwte"]
 atlas = ExtResource("5_8wlyu")
 region = Rect2(170, 188, 8, 8)
@@ -238,7 +234,6 @@ offset_right = 7.5
 offset_bottom = 8.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_ltkt0")
 stretch_mode = 2
 
 [node name="Hearts" type="Control" parent="UI_Controller/UI" unique_id=1224019372]
