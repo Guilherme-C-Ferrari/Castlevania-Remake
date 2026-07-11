@@ -52,8 +52,8 @@ var invincible := false
 @export var is_moving_on_stair := false
 #----------------------------------------------------------
 
-#func _ready() -> void:
-	#SignalManager.player_spawned.emit(self)
+func _ready() -> void:
+	SignalManager.player_spawned.emit(self)
 
 func _physics_process(delta: float) -> void:
 	if Engine.get_physics_frames() < 15: 

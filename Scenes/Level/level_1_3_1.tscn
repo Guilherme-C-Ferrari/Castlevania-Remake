@@ -9,7 +9,7 @@
 script = ExtResource("1_siwxa")
 
 [node name="Crypt A" parent="." unique_id=703174525 instance=ExtResource("1_or8ao")]
-position = Vector2(1526, 0)
+position = Vector2(1536, 0)
 
 [node name="Environment_Items" type="Node2D" parent="." unique_id=1172010037]
 position = Vector2(1526, 0)

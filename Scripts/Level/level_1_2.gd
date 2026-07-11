@@ -44,6 +44,9 @@ func _on_next_level_trigger_body_entered(body: Node2D) -> void:
 		fake_player.stop()
 		fake_player.position = player.position
 		fake_player.show()
+		var map_rect: Rect2 = tile_map_layer.get_used_rect()
+		var tile_size: Vector2 = tile_map_layer.tile_set.tile_size
+		camera_reference.position.x = int(map_rect.position.x + map_rect.size.x) * int(tile_size.x) + int(tile_map_layer.global_position.x) - 128
 		camera_reference.increase_camera_limit_right(256)
 		move_camera_to_right(128)
 		await get_tree().create_timer(2.0).timeout

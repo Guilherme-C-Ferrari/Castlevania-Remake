@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://dkjd1x5l6uqt0" path="res://Scripts/Player/player_audio.gd" id="5_htcer"]
 [ext_resource type="Script" uid="uid://bgesq1s5eatc" path="res://Scripts/Player/controller/player_hurt_controller.gd" id="5_oikmp"]
 [ext_resource type="Script" uid="uid://baub81nhac81g" path="res://Scripts/Player/controller/player_combat_controll.gd" id="6_dd0ac"]
-[ext_resource type="Script" uid="uid://c2mgfx6bs1pq8" path="res://Scripts/Player/player_camera.gd" id="7_0u5uq"]
 [ext_resource type="Script" uid="uid://bdiq0v1gv8ofg" path="res://Scripts/Player/controller/player_stair_controller.gd" id="7_06tpx"]
 [ext_resource type="Script" uid="uid://mo2du715g41t" path="res://Scripts/Player/controller/player_stats_controller.gd" id="7_jlvik"]
 [ext_resource type="Texture2D" uid="uid://b4k2k0ts4ugco" path="res://Assets/SpriteSheets/Player/simon-belmont-shee4.png" id="10_7g0yx"]
