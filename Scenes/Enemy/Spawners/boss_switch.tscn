@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dt8aak0pbbf1o"]
+
+[ext_resource type="Script" uid="uid://3p3dbb2t2epg" path="res://Scripts/Enemy/Spawners/BossSwitch.gd" id="1_juy2x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65b65"]
+
+[node name="BossSwitch" type="Area2D" unique_id=711457342]
+collision_mask = 3
+script = ExtResource("1_juy2x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2144019097]
+shape = SubResource("RectangleShape2D_65b65")

@@ -3,7 +3,7 @@ extends Area2D
 enum SwitchType { TURN_ON, TURN_OFF, TURN_ON_AND_OFF }
 @export var type: SwitchType = SwitchType.TURN_ON
 @export var single_use: bool = false
-@export var target_spawner: SpawnerWithSwitch
+@export var target_boss: BaseBoss
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -13,19 +13,15 @@ func _on_body_entered(body: Node2D) -> void:
 			activate_switch()
 
 func activate_switch() -> void:
-	if not target_spawner:
+	if not target_boss:
 		return
 	
 	match type:
 		SwitchType.TURN_ON:
-			target_spawner.turn_spawner_on()
-		SwitchType.TURN_OFF:
-			target_spawner.turn_spawner_off()
-		SwitchType.TURN_ON_AND_OFF:
-			if target_spawner.is_on:
-				target_spawner.turn_spawner_off()
-			else:
-				target_spawner.turn_spawner_on()
+			print("a")
+			target_boss.activate()
+		_:
+			pass
 	
 	if single_use:
 		queue_free()

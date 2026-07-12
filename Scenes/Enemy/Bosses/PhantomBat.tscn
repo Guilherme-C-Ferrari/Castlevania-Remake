@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://c746ob3ce3m48"]
+
+[ext_resource type="Script" uid="uid://fcq3h7nw5qtk" path="res://Scripts/Enemy/Bosses/PhantomBat.gd" id="1_d4i51"]
+[ext_resource type="Texture2D" uid="uid://nsntwr47yshg" path="res://Assets/SpriteSheets/Enemy.png" id="1_govpi"]
+[ext_resource type="Script" uid="uid://bgbp6l5x3f6op" path="res://Scripts/FSM/FSM.gd" id="3_0hplx"]
+[ext_resource type="Script" uid="uid://d13ixxexqpsjr" path="res://Scripts/FSM/BossStates/BossIdling.gd" id="4_b81xi"]
+[ext_resource type="Script" uid="uid://7tgdkv2h24d0" path="res://Scripts/FSM/BossStates/PhantomBatMenancing.gd" id="5_bqwb6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4i51"]
+atlas = ExtResource("1_govpi")
+region = Rect2(13, 364, 48, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b81xi"]
+atlas = ExtResource("1_govpi")
+region = Rect2(73, 364, 48, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqwb6"]
+atlas = ExtResource("1_govpi")
+region = Rect2(113, 364, 48, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pk5wt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4i51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b81xi")
+}],
+"loop": true,
+"name": &"Fighting",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqwb6")
+}],
+"loop": true,
+"name": &"Idling",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdyt7"]
+size = Vector2(48, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_govpi"]
+size = Vector2(36, 18)
+
+[node name="PhantomBat" type="CharacterBody2D" unique_id=253270751 groups=["enemy"]]
+light_mask = 4
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_d4i51")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=20817626]
+z_index = 2
+position = Vector2(0, -11)
+sprite_frames = SubResource("SpriteFrames_pk5wt")
+animation = &"Idling"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=23388831]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_cdyt7")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=2095949549]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=146631915]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_govpi")
+
+[node name="FSM" type="Node" parent="." unique_id=1767768489 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_0hplx")
+initial_state = NodePath("BossIdling")
+
+[node name="BossIdling" type="Node" parent="FSM" unique_id=172140505]
+script = ExtResource("4_b81xi")
+
+[node name="PhantomBatMenancing" type="Node" parent="FSM" unique_id=1592542740]
+script = ExtResource("5_bqwb6")
