@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cvse2hl3wqftc" path="res://Scenes/Enemy/Spawners/long_spawner_flying_enemies.tscn" id="3_1aj12"]
 [ext_resource type="PackedScene" uid="uid://en6qwvm702j4" path="res://Scenes/Environment/candle.tscn" id="3_n03o8"]
 [ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="4_duhgd"]
+[ext_resource type="PackedScene" uid="uid://djg58n57cliqs" path="res://Scenes/Enemy/bat.tscn" id="4_thuiw"]
 [ext_resource type="Resource" uid="uid://c6bh1ewaddwup" path="res://Scripts/Items/Hearts/big_heart.tres" id="5_v0oqf"]
 [ext_resource type="Resource" uid="uid://bevo8cr5cwqr3" path="res://Scripts/Items/Point/bag_700.tres" id="6_thuiw"]
 [ext_resource type="Resource" uid="uid://duyygndubvyr6" path="res://Scripts/Items/Special/cruz.tres" id="7_u50hj"]
@@ -20,6 +21,8 @@ script = ExtResource("1_siwxa")
 [node name="LongSpawnerFlyingEnemies" parent="Enemies" unique_id=1987307375 instance=ExtResource("3_1aj12")]
 position = Vector2(255, 120)
 zone_size = Vector2(500, 250)
+enemy_to_spawn = ExtResource("4_thuiw")
+max_qty_to_spawn = 1
 
 [node name="Environment_Items" type="Node2D" parent="." unique_id=1172010037]
 
