@@ -47,12 +47,12 @@ folder_colors={
 "res://Audio/": "green",
 "res://Scenes/": "purple",
 "res://Scripts/": "blue",
-"res://Scripts/Items/Heal/": "blue",
-"res://Scripts/Items/Hearts/": "blue",
-"res://Scripts/Items/Point/": "blue",
-"res://Scripts/Items/Special/": "red",
-"res://Scripts/Items/Weapons/": "red",
-"res://Scripts/Items/Wip/": "blue",
+"res://Scripts/Items/Heal/": "teal",
+"res://Scripts/Items/Hearts/": "teal",
+"res://Scripts/Items/Point/": "teal",
+"res://Scripts/Items/Special/": "teal",
+"res://Scripts/Items/Weapons/": "teal",
+"res://Scripts/Items/Wip/": "teal",
 "res://Shaders/": "yellow"
 }
 
@@ -105,6 +105,11 @@ upgrade={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":85,"key_label":0,"unicode":117,"location":0,"echo":false,"script":null)
 ]
 }
+Enter={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194309,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 
 [layer_names]
 
@@ -122,4 +127,5 @@ upgrade={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 2d/default_gravity=900.0

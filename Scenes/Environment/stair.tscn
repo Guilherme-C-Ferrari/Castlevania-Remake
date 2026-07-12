@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://5f0xopkixfdo" path="res://Scripts/Environment/stair.gd" id="1_nrv6m"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_frmym"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omtlo"]
 size = Vector2(38.58, 3.98)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gwho"]
-size = Vector2(20.39, 2.82)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlcqq"]
+size = Vector2(20.39, 4.23)
 
-[sub_resource type="Curve2D" id="Curve2D_omtlo"]
+[sub_resource type="Curve2D" id="Curve2D_yr4yv"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, -9, 0, 0, 0, 0, 13, -17, 0, 0, 0, 0, 21, -25, 0, 0, 0, 0, 29, -33, 0, 0, 0, 0, 37, -41, 0, 0, 0, 0, 45, -49, 0, 0, 0, 0, 53, -57, 0, 0, 0, 0, 65, -65)
 }
@@ -26,7 +26,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Up_Area" unique_id=1799173546]
 position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_frmym")
+shape = SubResource("RectangleShape2D_omtlo")
 debug_color = Color(0.5568628, 0.56078434, 0, 0.7882353)
 
 [node name="Down_Area" type="Area2D" parent="." unique_id=1490938390]
@@ -36,11 +36,11 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Down_Area" unique_id=1091530126]
 position = Vector2(10.225, 0)
-shape = SubResource("RectangleShape2D_8gwho")
+shape = SubResource("RectangleShape2D_hlcqq")
 debug_color = Color(0.5568628, 0.56078434, 0, 0.7882353)
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1805857519]
-curve = SubResource("Curve2D_omtlo")
+curve = SubResource("Curve2D_yr4yv")
 
 [connection signal="body_entered" from="Up_Area" to="." method="_on_up_area_body_entered"]
 [connection signal="body_exited" from="Up_Area" to="." method="_on_up_area_body_exited"]

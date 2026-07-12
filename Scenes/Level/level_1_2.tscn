@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://6rlrsd62o62m" path="res://Assets/SpriteSheets/Items-DoorSpriteRepositioned.png" id="11_kl0gm"]
 [ext_resource type="Texture2D" uid="uid://pldfv0mgf6sc" path="res://Assets/Map/NES - Castlevania - Stages - Level 1_ Entrance.png" id="12_i0wd8"]
 [ext_resource type="PackedScene" uid="uid://j2pvgo125jgq" path="res://Scenes/Player/fake_player.tscn" id="13_n0slp"]
+[ext_resource type="Resource" uid="uid://cuxgpw24vtha5" path="res://Scripts/Items/Special/multi_2.tres" id="14_1wig1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbet1"]
 size = Vector2(20, 121.5)
@@ -76,14 +77,8 @@ next_level = ExtResource("2_8gwho")
 
 [node name="Entrance Hall" parent="." unique_id=97999581 instance=ExtResource("1_bhvdk")]
 
-[node name="NesCastlevaniaStagesLevel1Entrance" parent="Entrance Hall" index="0" unique_id=728012115]
-position = Vector2(763, 116.99999)
-
 [node name="Fake Crypt A" parent="Entrance Hall" unique_id=703174525 instance=ExtResource("4_i0wd8")]
 position = Vector2(1536, 0)
-
-[node name="NesCastlevaniaStagesLevel1Entrance" parent="Entrance Hall/Fake Crypt A" index="0" unique_id=1011626843]
-position = Vector2(264, 117.00001)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=118376410]
 
@@ -152,7 +147,7 @@ position = Vector2(607, 169)
 position = Vector2(671, 105)
 
 [node name="Candle24" parent="Environment_Items" unique_id=584030340 instance=ExtResource("3_lgm3a")]
-position = Vector2(799, 65)
+position = Vector2(799, 74)
 item_1 = ExtResource("8_i0wd8")
 
 [node name="Candle12" parent="Environment_Items" unique_id=77240178 instance=ExtResource("3_lgm3a")]
@@ -189,6 +184,7 @@ position = Vector2(1375, 169)
 
 [node name="Candle22" parent="Environment_Items" unique_id=1805932497 instance=ExtResource("3_lgm3a")]
 position = Vector2(1439, 105)
+item_1 = ExtResource("14_1wig1")
 
 [node name="Candle23" parent="Environment_Items" unique_id=1293897660 instance=ExtResource("3_lgm3a")]
 position = Vector2(1503, 72)
@@ -211,7 +207,7 @@ position = Vector2(-5, -1)
 shape = SubResource("RectangleShape2D_i0wd8")
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
-position = Vector2(1456, 128)
+position = Vector2(67, 204)
 
 [node name="Stair" parent="." unique_id=321336001 instance=ExtResource("8_u5iy2")]
 position = Vector2(624, 224)
@@ -241,8 +237,8 @@ down_area_offset_x = -13.185
 position = Vector2(1296, 225)
 step_count = 12
 up_area_size = Vector2(30.68, 3.98)
-down_area_size = Vector2(20.385, 4.5)
-down_area_offset_x = 11.78
+down_area_size = Vector2(20.39, 4.295)
+down_area_offset_x = 7.65
 
 [node name="AnimatedSprite Door" type="AnimatedSprite2D" parent="." unique_id=1968071129]
 visible = false

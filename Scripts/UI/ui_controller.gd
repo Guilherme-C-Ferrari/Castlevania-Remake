@@ -1,8 +1,25 @@
 extends CanvasLayer 
 
-var timer_enable := false
-var wip_level := 1
 @onready var ui: UI = $UI_Controller/UI
+
+var timer_enable := false
+
+#PLAYER STATUS
+var wip_level := 1
+
+var current_weapon := ""
+var current_weapon_heart_cost := 0
+var weapon_in_use := 1
+
+#WEAPONS
+const DAGGER = preload("uid://gtefgqnoffuc")
+const DAGGER_SFX = preload("uid://fpbry8offwh6")
+
+const AXE = preload("uid://bcd48f66fp52h")
+const AXE_SFX = preload("uid://b1x36h5p0hjvy")
+
+const WATCH_SFX = preload("uid://dwrd6pbmrsc0e")
+
 
 func _ready() -> void:
 	set_inital_time(300)
@@ -77,3 +94,72 @@ func downgrade_wip_level():
 		return
 	
 	wip_level -= 1
+
+func set_current_weapon(name: String, heart_cost: int, weeapon_sprite: Texture):
+	ui.set_weapon_sprite(weeapon_sprite)
+	
+	current_weapon = name
+	current_weapon_heart_cost = heart_cost
+	
+func use_weapon(position: Vector2, direction_right: int):
+	if current_weapon == "" and weapon_in_use != 0:
+		return
+	
+	var player = get_tree().get_first_node_in_group("player")
+	
+	if ui.remove_extra_point(current_weapon_heart_cost):
+		weapon_in_use -= 1
+		if current_weapon == "axe":
+			
+			AudioManager.play_sound_effect(AXE_SFX, "SFX", -12)
+			
+			var axe = AXE.instantiate()
+			axe.global_position = Vector2(position.x, position.y - 16)
+			axe.scale.x = direction_right
+			get_tree().current_scene.add_child(axe)
+			
+		elif current_weapon == "dagger":
+			AudioManager.play_sound_effect(DAGGER_SFX, "SFX", -12)
+			
+			var dagger = DAGGER.instantiate()
+			dagger.global_position = Vector2(position.x, position.y - 16)
+			dagger.scale.x = direction_right
+			get_tree().current_scene.add_child(dagger)
+			
+		elif current_weapon == "watch":
+			AudioManager.stop_music()
+			AudioManager.play_sound_effect(WATCH_SFX, "SFX", -12)
+			var enemies = Engine.get_main_loop().get_nodes_in_group("enemy")
+			for enemy in enemies:
+					enemy.stop_time()
+					
+			await get_tree().create_timer(2.7).timeout
+			
+			var enemies_after = Engine.get_main_loop().get_nodes_in_group("enemy")
+			for enemy in enemies_after:
+					enemy.resume_time()
+					
+			weapon_in_use += 1
+			AudioManager.play_current_music()
+			
+		elif current_weapon == "water":
+			print("USE water")
+		
+	return
+	
+func enable_multi_item():
+	ui.multi_item_enable()
+	weapon_in_use = 2
+	
+func disable_multi_item():
+	ui.multi_item_disable()
+
+func add_weapon_usage():
+	weapon_in_use += 1
+	
+func can_use_weapon():
+	return current_weapon != "" and current_weapon_heart_cost <= ui.get_extra_point() and weapon_in_use != 0
+	
+func restart_status():
+	disable_multi_item()
+	wip_level = 1

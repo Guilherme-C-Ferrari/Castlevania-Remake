@@ -11,13 +11,13 @@
 [sub_resource type="FontVariation" id="FontVariation_wgwte"]
 base_font = ExtResource("1_oqha6")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ltkt0"]
-atlas = ExtResource("5_8wlyu")
-region = Rect2(57, 40, 15, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_wgwte"]
 atlas = ExtResource("5_8wlyu")
 region = Rect2(170, 188, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jevvu"]
+atlas = ExtResource("5_8wlyu")
+region = Rect2(76, 42, 14, 14)
 
 [node name="UI" type="CanvasLayer" unique_id=648665156]
 process_mode = 3
@@ -238,7 +238,6 @@ offset_right = 7.5
 offset_bottom = 8.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_ltkt0")
 stretch_mode = 2
 
 [node name="Hearts" type="Control" parent="UI_Controller/UI" unique_id=1224019372]
@@ -300,3 +299,17 @@ offset_bottom = 38.0
 theme_override_fonts/font = SubResource("FontVariation_wgwte")
 theme_override_font_sizes/font_size = 8
 text = "03"
+
+[node name="Multi_item" type="Control" parent="UI_Controller/UI" unique_id=1754197125]
+visible = false
+anchors_preset = 0
+offset_left = 209.0
+offset_top = 20.0
+offset_right = 223.0
+offset_bottom = 34.0
+
+[node name="TextureRect" type="TextureRect" parent="UI_Controller/UI/Multi_item" unique_id=1516745951]
+layout_mode = 0
+offset_right = 14.0
+offset_bottom = 14.0
+texture = SubResource("AtlasTexture_jevvu")

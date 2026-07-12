@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://j2pvgo125jgq"]
 
 [ext_resource type="Texture2D" uid="uid://ddoai07jg5dys" path="res://Assets/SpriteSheets/Player/simon-belmont-sheet3.png" id="1_v2dsg"]
+[ext_resource type="Texture2D" uid="uid://b4k2k0ts4ugco" path="res://Assets/SpriteSheets/Player/simon-belmont-shee4.png" id="2_n3x14"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vofxn"]
 atlas = ExtResource("1_v2dsg")
@@ -13,6 +14,10 @@ region = Rect2(160, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vv70"]
 atlas = ExtResource("1_v2dsg")
 region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxgex"]
+atlas = ExtResource("2_n3x14")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jnhho"]
 animations = [{
@@ -32,10 +37,19 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxgex")
+}],
+"loop": true,
+"name": &"intro",
+"speed": 5.0
 }]
 
 [node name="FakePlayer" type="AnimatedSprite2D" unique_id=1962101468]
 visible = false
 sprite_frames = SubResource("SpriteFrames_jnhho")
+animation = &"intro"
 autoplay = "default"
 offset = Vector2(0, -16)

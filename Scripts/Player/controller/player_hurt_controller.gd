@@ -11,6 +11,12 @@ const HURT_SFX = preload("uid://bebn7kqsv6y6g")
 @export var HURT_GRAVITY := 0.4
 @export var HURT_HEIGHT := -120
 
+func _ready() -> void:
+	SignalManager.player_spawned.connect(update_player_reference)
+
+func update_player_reference(new_player: CharacterBody2D):
+	player = new_player
+	
 func take_hit(enemy_facing: Vector2):
 	if player.invincible:
 		return

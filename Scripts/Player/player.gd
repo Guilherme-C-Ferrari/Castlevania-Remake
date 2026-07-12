@@ -73,7 +73,6 @@ func _physics_process(delta: float) -> void:
 
 	movement(delta)
 	
-
 func movement(delta):
 	if is_hurt:
 
@@ -117,8 +116,8 @@ func movement(delta):
 		velocity.x = 0
 
 	move_and_slide()
-	if attack_pressed and playback.get_current_node() != "Attack_State":
-		is_attacking = true
+	#if attack_pressed and playback.get_current_node() != "Attack_State":
+		#is_attacking = true
 	
 func take_hit(enemy_facing: Vector2):
 	player_hurt_controller.take_hit(enemy_facing)

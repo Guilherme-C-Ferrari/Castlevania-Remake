@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://db1gyc2cacplj" path="res://Scenes/Environment/Tilemap/crypt_b.tscn" id="1_qlhgm"]
 [ext_resource type="Script" uid="uid://bgs65io8d0esa" path="res://Scripts/Level/level_1_3_2.gd" id="1_uhvm3"]
 [ext_resource type="PackedScene" uid="uid://en6qwvm702j4" path="res://Scenes/Environment/candle.tscn" id="3_0x5ai"]
+[ext_resource type="Resource" uid="uid://bevo8cr5cwqr3" path="res://Scripts/Items/Point/bag_700.tres" id="4_q5gdv"]
+[ext_resource type="Resource" uid="uid://dwp8khpxhbrph" path="res://Scripts/Items/Weapons/watch.tres" id="5_anyyk"]
+[ext_resource type="Resource" uid="uid://c6bh1ewaddwup" path="res://Scripts/Items/Hearts/big_heart.tres" id="6_pi4of"]
 
 [node name="Level1_3_2" type="Node2D" unique_id=1438322600]
 script = ExtResource("1_uhvm3")
@@ -16,6 +19,7 @@ position = Vector2(46, 55)
 
 [node name="Candle" parent="Environment_Items" unique_id=1931845017 instance=ExtResource("3_0x5ai")]
 position = Vector2(32, 89)
+item_1 = ExtResource("4_q5gdv")
 
 [node name="Candle2" parent="Environment_Items" unique_id=1704320997 instance=ExtResource("3_0x5ai")]
 position = Vector2(96, 89)
@@ -25,9 +29,11 @@ position = Vector2(160, 89)
 
 [node name="Candle4" parent="Environment_Items" unique_id=1218739799 instance=ExtResource("3_0x5ai")]
 position = Vector2(224, 89)
+item_1 = ExtResource("4_q5gdv")
 
 [node name="Candle5" parent="Environment_Items" unique_id=402764149 instance=ExtResource("3_0x5ai")]
 position = Vector2(288, 89)
+item_1 = ExtResource("5_anyyk")
 
 [node name="Candle6" parent="Environment_Items" unique_id=1715551525 instance=ExtResource("3_0x5ai")]
 position = Vector2(352, 89)
@@ -37,5 +43,6 @@ position = Vector2(415, 89)
 
 [node name="Candle8" parent="Environment_Items" unique_id=957219808 instance=ExtResource("3_0x5ai")]
 position = Vector2(497, 89)
+item_1 = ExtResource("6_pi4of")
 
 [editable path="Crypt B"]

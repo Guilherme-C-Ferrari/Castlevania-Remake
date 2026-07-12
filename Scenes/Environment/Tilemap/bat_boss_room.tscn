@@ -1,15 +1,8 @@
 [gd_scene format=4 uid="uid://c658lcfjhyhxe"]
 
-[ext_resource type="Texture2D" uid="uid://pldfv0mgf6sc" path="res://Assets/Map/NES - Castlevania - Stages - Level 1_ Entrance.png" id="1_y85f8"]
 [ext_resource type="TileSet" uid="uid://itu5cca1i2ft" path="res://Assets/Map/level_1_tile_set.tres" id="2_01yy5"]
 
 [node name="Bat Boss Room" type="Node2D" unique_id=2080491100]
-
-[node name="NesCastlevaniaStagesLevel1Entrance" type="Sprite2D" parent="." unique_id=1075542987]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(383.5, 118.999985)
-scale = Vector2(0.21577339, 0.6034063)
-texture = ExtResource("1_y85f8")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=65366568]
 position = Vector2(0, 16)
