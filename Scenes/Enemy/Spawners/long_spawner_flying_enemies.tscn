@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cvse2hl3wqftc"]
 
-[ext_resource type="Script" uid="uid://ex4sfkruh568" path="res://Scripts/Enemy/LongSpawnerFlyingEnemies.gd" id="1_i1kmw"]
+[ext_resource type="Script" uid="uid://ex4sfkruh568" path="res://Scripts/Enemy/Spawners/LongSpawnerFlyingEnemies.gd" id="1_i1kmw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei8q6"]
 size = Vector2(200, 50)
