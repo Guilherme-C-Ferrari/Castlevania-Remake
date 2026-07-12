@@ -6,6 +6,7 @@ const SFX_ENTER_CASTLE = preload("uid://dr48wti68t6ax")
 @onready var area_2d: Area2D = $"Castle Entrance/Area2D"
 
 func _ready() -> void:
+	stage_value = 1
 	tile_map_layer = get_node("Castle Entrance/TileMapLayer")
 	AudioManager.play_current_music()
 	super()

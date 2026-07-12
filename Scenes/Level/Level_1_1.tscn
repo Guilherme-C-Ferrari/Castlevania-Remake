@@ -9,8 +9,6 @@
 [ext_resource type="Resource" uid="uid://bm1pm16uvf2xc" path="res://Scripts/Items/Wip/wip_upgrade.tres" id="6_2vv70"]
 [ext_resource type="PackedScene" uid="uid://j2pvgo125jgq" path="res://Scenes/Player/fake_player.tscn" id="6_kd1p2"]
 [ext_resource type="Resource" uid="uid://bp83wjkgu0oii" path="res://Scripts/Items/Weapons/dagger.tres" id="7_jnhho"]
-[ext_resource type="Texture2D" uid="uid://6rlrsd62o62m" path="res://Assets/SpriteSheets/Items-DoorSpriteRepositioned.png" id="10_x4o0v"]
-[ext_resource type="Texture2D" uid="uid://pldfv0mgf6sc" path="res://Assets/Map/NES - Castlevania - Stages - Level 1_ Entrance.png" id="11_xd6wh"]
 
 [sub_resource type="Animation" id="Animation_a8k43"]
 length = 0.001
@@ -126,50 +124,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kd1p2"]
 size = Vector2(24, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xuikv"]
-atlas = ExtResource("10_x4o0v")
-region = Rect2(226, 1, 24, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u6bni"]
-atlas = ExtResource("10_x4o0v")
-region = Rect2(226, 51, 24, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7blij"]
-atlas = ExtResource("10_x4o0v")
-region = Rect2(226, 51, 24, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mf442"]
-atlas = ExtResource("10_x4o0v")
-region = Rect2(226, 1, 24, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_d54a2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xuikv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u6bni")
-}],
-"loop": false,
-"name": &"close",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7blij")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mf442")
-}],
-"loop": false,
-"name": &"open",
-"speed": 3.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_swbf3"]
-size = Vector2(12, 2)
-
 [node name="Level1_1" type="Node2D" unique_id=1778734806]
 script = ExtResource("1_ko26w")
 next_level = ExtResource("2_ko26w")
@@ -215,29 +169,6 @@ position = Vector2(676, 208)
 
 [node name="FakePlayer" parent="." unique_id=1962101468 instance=ExtResource("6_kd1p2")]
 position = Vector2(676, 208)
-
-[node name="AnimatedSprite Door" type="AnimatedSprite2D" parent="." unique_id=1657156283]
-z_index = 1
-position = Vector2(330, -267)
-sprite_frames = SubResource("SpriteFrames_d54a2")
-animation = &"open"
-
-[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite Door" unique_id=2137026757]
-modulate = Color(0, 0, 0, 1)
-z_index = -1
-position = Vector2(-10.499986, 2.5331974e-06)
-scale = Vector2(0.002499336, 0.1216545)
-texture = ExtResource("11_xd6wh")
-
-[node name="Next Level Trigger" type="Area2D" parent="." unique_id=1175775115]
-position = Vector2(294, -257)
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Next Level Trigger" unique_id=1076460962]
-shape = SubResource("RectangleShape2D_swbf3")
-
-[node name="Next Level Spawn Location" type="Marker2D" parent="." unique_id=1140993815]
-position = Vector2(350, -258)
 
 [connection signal="body_entered" from="Castle Entrance/Area2D" to="." method="_on_area_2d_2_body_entered"]
 
