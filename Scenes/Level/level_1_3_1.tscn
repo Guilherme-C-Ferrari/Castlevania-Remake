@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://57jlklq2xwd4" path="res://Scenes/Environment/Tilemap/crypt_a.tscn" id="1_or8ao"]
 [ext_resource type="Script" uid="uid://ciwp0f6dhhplv" path="res://Scripts/Level/level_1_3_1.gd" id="1_siwxa"]
-[ext_resource type="PackedScene" uid="uid://cvse2hl3wqftc" path="res://Scenes/Enemy/long_spawner_flying_enemies.tscn" id="3_1aj12"]
+[ext_resource type="PackedScene" uid="uid://cvse2hl3wqftc" path="res://Scenes/Enemy/Spawners/long_spawner_flying_enemies.tscn" id="3_1aj12"]
 [ext_resource type="PackedScene" uid="uid://en6qwvm702j4" path="res://Scenes/Environment/candle.tscn" id="3_n03o8"]
 [ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="4_duhgd"]
 [ext_resource type="Resource" uid="uid://c6bh1ewaddwup" path="res://Scripts/Items/Hearts/big_heart.tres" id="5_v0oqf"]
