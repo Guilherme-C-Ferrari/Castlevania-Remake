@@ -25,7 +25,7 @@ func verify_spawn() -> void:
 	if is_spawning:
 		return
 	if not player_inside or spawned_enemies.size() >= max_qty_to_spawn:
-		return	
+		return
 	is_spawning = true
 	var camera = get_viewport().get_camera_2d()
 	if not camera: return

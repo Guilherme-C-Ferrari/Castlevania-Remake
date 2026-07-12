@@ -11,3 +11,6 @@ script = ExtResource("1_tr6ax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=853329886]
 shape = SubResource("RectangleShape2D_ei8q6")
+
+[node name="Timer" type="Timer" parent="." unique_id=393564596]
+wait_time = 2.0

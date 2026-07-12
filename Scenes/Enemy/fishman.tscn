@@ -38,7 +38,7 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_ukeef")
 
 [node name="Timer" type="Timer" parent="." unique_id=1114781444]
-wait_time = 4.0
+wait_time = 3.0
 
 [node name="FSM" type="Node" parent="." unique_id=547459997 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_bbrmk")

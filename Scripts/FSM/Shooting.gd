@@ -6,5 +6,5 @@ func enter() -> void:
 		if not animated_sprite.is_playing() or animated_sprite.animation != "Shooting":
 			animated_sprite.play("Shooting")
 	character.spawn_projectile()
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.5).timeout
 	transitioned.emit(self, "Following")
