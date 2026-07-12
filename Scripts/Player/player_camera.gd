@@ -18,6 +18,10 @@ func update_player_node(new_player):
 	current_player_node = new_player
 	can_follow_player = true
 
+func move_camera_to_right(amount: float):
+	var tween = create_tween()
+	tween.tween_property(self, "position", (self.position + Vector2(amount, 0)), 2)
+
 func _physics_process(_delta: float) -> void:
 	if can_follow_player:
 		self.position = current_player_node.position
