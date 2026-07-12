@@ -15,7 +15,6 @@
 script = ExtResource("1_siwxa")
 
 [node name="Crypt A" parent="." unique_id=703174525 instance=ExtResource("1_or8ao")]
-position = Vector2(1536, 0)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=240411905]
 
@@ -26,7 +25,6 @@ enemy_to_spawn = ExtResource("4_thuiw")
 max_qty_to_spawn = 1
 
 [node name="Environment_Items" type="Node2D" parent="." unique_id=1172010037]
-position = Vector2(1526, 0)
 
 [node name="Candle" parent="Environment_Items" unique_id=1931845017 instance=ExtResource("3_n03o8")]
 position = Vector2(95, 105)
@@ -57,10 +55,10 @@ item_1 = ExtResource("7_u50hj")
 position = Vector2(480, 105)
 
 [node name="Stair" parent="Environment_Items" unique_id=1621566809 instance=ExtResource("8_v0oqf")]
-position = Vector2(237, 224)
+position = Vector2(238, 224)
 stair_side = 0
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("4_duhgd")]
-position = Vector2(1584, 128)
+position = Vector2(43, 113)
 
 [editable path="Crypt A"]
