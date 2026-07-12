@@ -9,6 +9,8 @@ class_name UI
 @onready var heart_count: Label = $Hearts/Heart_count
 @onready var player_lifes_count: Label = $Player_lifes/Player_lifes_count
 @onready var weapon_sprite: TextureRect = $Power/TextureRect
+@onready var multi_item: Control = $Multi_item
+
 
 func _ready() -> void:
 	player_health_count.max_value = 16
@@ -70,3 +72,9 @@ func set_player_health(new_player_health: int):
 	
 func set_weapon_sprite(weapon_texture: Texture):
 	weapon_sprite.texture = weapon_texture
+
+func multi_item_enable():
+	multi_item.visible = true
+	
+func multi_item_disable():
+	multi_item.visible = false

@@ -24,6 +24,8 @@ func special_collected(name: String):
 		cruz_effect()
 	elif name == "jarro":
 		jarro_effect()
+	elif name == "multi_2":
+		multi()
 		
 func upgrade_wip():
 	AudioManager.play_sound_effect(WEAPON_OBTAINED_SFX, "SFX", -12)
@@ -106,3 +108,6 @@ func end_invincibility() -> void:
 	
 	var tween = player.get_tree().create_tween()
 	tween.tween_property(player.visual, "modulate:a", 1.0, 0.15)
+
+func multi():
+	Ui.enable_multi_item()

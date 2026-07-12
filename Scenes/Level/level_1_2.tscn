@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://6rlrsd62o62m" path="res://Assets/SpriteSheets/Items-DoorSpriteRepositioned.png" id="11_kl0gm"]
 [ext_resource type="Texture2D" uid="uid://pldfv0mgf6sc" path="res://Assets/Map/NES - Castlevania - Stages - Level 1_ Entrance.png" id="12_i0wd8"]
 [ext_resource type="PackedScene" uid="uid://j2pvgo125jgq" path="res://Scenes/Player/fake_player.tscn" id="13_n0slp"]
+[ext_resource type="Resource" uid="uid://cuxgpw24vtha5" path="res://Scripts/Items/Special/multi_2.tres" id="14_1wig1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbet1"]
 size = Vector2(20, 121.5)
@@ -183,6 +184,7 @@ position = Vector2(1375, 169)
 
 [node name="Candle22" parent="Environment_Items" unique_id=1805932497 instance=ExtResource("3_lgm3a")]
 position = Vector2(1439, 105)
+item_1 = ExtResource("14_1wig1")
 
 [node name="Candle23" parent="Environment_Items" unique_id=1293897660 instance=ExtResource("3_lgm3a")]
 position = Vector2(1503, 72)
