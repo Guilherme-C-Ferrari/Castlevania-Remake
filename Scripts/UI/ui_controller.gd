@@ -127,7 +127,6 @@ func use_weapon(position: Vector2, direction_right: int):
 			get_tree().current_scene.add_child(dagger)
 			
 		elif current_weapon == "watch":
-			print("USE watch")
 			AudioManager.stop_music()
 			AudioManager.play_sound_effect(WATCH_SFX, "SFX", -12)
 			var enemies = Engine.get_main_loop().get_nodes_in_group("enemy")
@@ -147,7 +146,13 @@ func use_weapon(position: Vector2, direction_right: int):
 			print("USE water")
 		
 	return
-
+	
+func enable_multi_item():
+	ui.multi_item_enable()
+	weapon_in_use = 2
+	
+func disable_multi_item():
+	ui.multi_item_disable()
 
 func add_weapon_usage():
 	weapon_in_use += 1
@@ -155,3 +160,6 @@ func add_weapon_usage():
 func can_use_weapon():
 	return current_weapon != "" and current_weapon_heart_cost <= ui.get_extra_point() and weapon_in_use != 0
 	
+func restart_status():
+	disable_multi_item()
+	wip_level = 1

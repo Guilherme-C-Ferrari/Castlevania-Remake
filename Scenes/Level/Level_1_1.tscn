@@ -147,22 +147,27 @@ position = Vector2(-1, 0)
 [node name="Candelabras" parent="Environment_Items" unique_id=1858446978 instance=ExtResource("5_6khmb")]
 position = Vector2(100, 193)
 item_1 = ExtResource("5_f05oy")
+can_drop_wip = false
 
 [node name="Candelabras2" parent="Environment_Items" unique_id=715110596 instance=ExtResource("5_6khmb")]
 position = Vector2(224, 193)
 item_1 = ExtResource("6_2vv70")
+can_drop_wip = false
 
 [node name="Candelabras3" parent="Environment_Items" unique_id=161307871 instance=ExtResource("5_6khmb")]
 position = Vector2(351, 193)
 item_1 = ExtResource("6_2vv70")
+can_drop_wip = false
 
 [node name="Candelabras4" parent="Environment_Items" unique_id=1021252341 instance=ExtResource("5_6khmb")]
 position = Vector2(480, 193)
 item_1 = ExtResource("5_f05oy")
+can_drop_wip = false
 
 [node name="Candelabras5" parent="Environment_Items" unique_id=558773086 instance=ExtResource("5_6khmb")]
 position = Vector2(607, 193)
 item_1 = ExtResource("7_jnhho")
+can_drop_wip = false
 
 [node name="Player" parent="." unique_id=2036421342 instance=ExtResource("3_6khmb")]
 position = Vector2(676, 208)

@@ -1,0 +1,362 @@
+[gd_scene format=3 uid="uid://dgcujtiiw3dfs"]
+
+[ext_resource type="Script" uid="uid://0o5ffwfx4sc4" path="res://Scenes/Level/end.gd" id="1_5bwa4"]
+[ext_resource type="Texture2D" uid="uid://d3saee0wukulc" path="res://Assets/SpriteSheets/Cutscenes.png" id="1_xh3c5"]
+[ext_resource type="PackedScene" uid="uid://j2pvgo125jgq" path="res://Scenes/Player/fake_player.tscn" id="2_j4ffv"]
+[ext_resource type="Texture2D" uid="uid://h6uvou76b7wk" path="res://Assets/SpriteSheets/bat_map.png" id="3_ayktj"]
+[ext_resource type="FontFile" uid="uid://bk431songejc3" path="res://Assets/UI/nintendo-nes-font.ttf" id="5_8fful"]
+
+[sub_resource type="Animation" id="Animation_ayktj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Map/Map:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(192.63, 122)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Map/FakePlayer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(265, 196)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Map/Dot:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Map/BAT:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Map:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Credits:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -161)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Credits:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_5bwa4"]
+resource_name = "end"
+length = 20.033333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Map/Map:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(448, 122), Vector2(192.63, 122)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Map/FakePlayer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.99, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-12, 196), Vector2(265, 196)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Map/Dot:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.99, 4.41, 4.81, 5.31, 5.71, 6.19, 6.59, 7.03, 7.4300003, 7.77, 8.17),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Map/BAT:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.98),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.9723833, 4.2, 4.4333334, 4.666667, 4.9, 5.1276164, 5.36095, 5.5942836, 5.8337474, 6.061364, 6.2946978, 6.5280313, 6.766667, 6.9942837, 7.2276173, 7.460951, 7.681116, 7.9087324, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"footstep_sfx"
+}, {
+"args": [],
+"method": &"footstep_sfx"
+}, {
+"args": [],
+"method": &"footstep_sfx"
+}, {
+"args": [],
+"method": &"footstep_sfx"
+}, {
+"args": [],
+"method": &"footstep_sfx"
+}, {
+"args": [],
+"method": &"footstep_sfx"
+}, {
+"args": [],
+"method": &"footstep_sfx"
+}, {
+"args": [],
+"method": &"footstep_sfx"
+}, {
+"args": [],
+"method": &"footstep_sfx"
+}, {
+"args": [],
+"method": &"footstep_sfx"
+}, {
+"args": [],
+"method": &"footstep_sfx"
+}, {
+"args": [],
+"method": &"footstep_sfx"
+}, {
+"args": [],
+"method": &"footstep_sfx"
+}, {
+"args": [],
+"method": &"footstep_sfx"
+}, {
+"args": [],
+"method": &"footstep_sfx"
+}, {
+"args": [],
+"method": &"footstep_sfx"
+}, {
+"args": [],
+"method": &"footstep_sfx"
+}, {
+"args": [],
+"method": &"footstep_sfx"
+}, {
+"args": [],
+"method": &"play_credits_music"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Map:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Credits:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(8, 12.552657, 14.992539, 20.033333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -161), Vector2(0, -161), Vector2(0, -400)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Credits:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 7.9960213),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8fful"]
+_data = {
+&"RESET": SubResource("Animation_ayktj"),
+&"end": SubResource("Animation_5bwa4")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4ffv"]
+atlas = ExtResource("1_xh3c5")
+region = Rect2(262, 808, 384, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bwa4"]
+atlas = ExtResource("3_ayktj")
+region = Rect2(1, 9, 6, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fful"]
+atlas = ExtResource("3_ayktj")
+region = Rect2(9, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i0gf"]
+atlas = ExtResource("3_ayktj")
+region = Rect2(26, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xkx83"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fful")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i0gf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="FontVariation" id="FontVariation_3i0gf"]
+base_font = ExtResource("5_8fful")
+
+[node name="End" type="Node2D" unique_id=1243013773]
+script = ExtResource("1_5bwa4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=323231814]
+libraries/ = SubResource("AnimationLibrary_8fful")
+autoplay = &"end"
+
+[node name="Map" type="Node2D" parent="." unique_id=1647238295]
+visible = false
+
+[node name="Map" type="Sprite2D" parent="Map" unique_id=3866336]
+position = Vector2(192.63, 122)
+texture = SubResource("AtlasTexture_j4ffv")
+
+[node name="FakePlayer" parent="Map" unique_id=1962101468 instance=ExtResource("2_j4ffv")]
+visible = true
+position = Vector2(265, 196)
+animation = &"default"
+
+[node name="Dot" type="Sprite2D" parent="Map" unique_id=1432988319]
+position = Vector2(153, 155)
+texture = SubResource("AtlasTexture_5bwa4")
+
+[node name="BAT" type="AnimatedSprite2D" parent="Map" unique_id=2022187315]
+visible = false
+position = Vector2(93, 125)
+sprite_frames = SubResource("SpriteFrames_xkx83")
+autoplay = "default"
+frame_progress = 0.98410964
+
+[node name="Credits" type="Node2D" parent="." unique_id=1963952816]
+visible = false
+position = Vector2(0, -161)
+
+[node name="Label" type="Label" parent="Credits" unique_id=2049059218]
+offset_top = 255.0
+offset_right = 256.0
+offset_bottom = 636.0
+theme_override_fonts/font = SubResource("FontVariation_3i0gf")
+theme_override_font_sizes/font_size = 8
+text = "REMAKE
+
+CASTLEVANIA NES
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Developed by:
+
+
+
+EDUARDO SPODE
+GUILHERME FERRARI
+VINICIUS SALIBA
+
+
+
+"
+horizontal_alignment = 1

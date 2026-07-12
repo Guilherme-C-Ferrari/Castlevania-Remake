@@ -16,6 +16,12 @@ func _ready() -> void:
 	#play_current_music()
 
 
+func change_current_music(music: AudioStream):
+	
+	bgm_streamer.stream = music
+	bgm_streamer.bus = "Music"
+	bgm_streamer.play()
+	
 #Da play na musica atual da lista, possibilitando uma fila de musicas
 func play_current_music() -> void:
 	bgm_streamer.stream = musics[current_music_index]
