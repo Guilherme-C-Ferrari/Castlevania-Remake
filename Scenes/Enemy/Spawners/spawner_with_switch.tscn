@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cqueq0nxvd24g"]
+
+[ext_resource type="Script" uid="uid://l0motgnoion5" path="res://Scripts/Enemy/Spawners/SpawnerWithSwitch.gd" id="1_tr6ax"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ei8q6"]
+size = Vector2(200, 50)
+
+[node name="SpawnerWithSwitch" type="Area2D" unique_id=1987307375]
+collision_mask = 3
+script = ExtResource("1_tr6ax")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=853329886]
+shape = SubResource("RectangleShape2D_ei8q6")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://0sogs21qxibf"]
 
-[ext_resource type="Script" uid="uid://k5lbcb178n0h" path="res://Scripts/Enemy/BaseSpawner.gd" id="1_t6cqg"]
+[ext_resource type="Script" uid="uid://k5lbcb178n0h" path="res://Scripts/Enemy/Spawners/BaseSpawner.gd" id="1_t6cqg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6tcv0"]
 
