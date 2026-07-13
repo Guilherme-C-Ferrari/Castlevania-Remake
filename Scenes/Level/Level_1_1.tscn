@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://c6bh1ewaddwup" path="res://Scripts/Items/Hearts/big_heart.tres" id="5_f05oy"]
 [ext_resource type="Resource" uid="uid://bm1pm16uvf2xc" path="res://Scripts/Items/Wip/wip_upgrade.tres" id="6_2vv70"]
 [ext_resource type="PackedScene" uid="uid://j2pvgo125jgq" path="res://Scenes/Player/fake_player.tscn" id="6_kd1p2"]
-[ext_resource type="Resource" uid="uid://bp83wjkgu0oii" path="res://Scripts/Items/Weapons/dagger.tres" id="7_jnhho"]
+[ext_resource type="Resource" uid="uid://bp83wjkgu0oii" path="res://Scripts/Items/Weapons/dagger.tres" id="7_2vv70"]
 
 [sub_resource type="Animation" id="Animation_a8k43"]
 length = 0.001
@@ -166,7 +166,7 @@ can_drop_wip = false
 
 [node name="Candelabras5" parent="Environment_Items" unique_id=558773086 instance=ExtResource("5_6khmb")]
 position = Vector2(607, 193)
-item_1 = ExtResource("7_jnhho")
+item_1 = ExtResource("7_2vv70")
 can_drop_wip = false
 
 [node name="Player" parent="." unique_id=2036421342 instance=ExtResource("3_6khmb")]

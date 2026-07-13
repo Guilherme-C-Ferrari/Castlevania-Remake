@@ -43,7 +43,7 @@ func item_collected(name: String, heart_cost: int, points: int, item_type: Weapo
 		AudioManager.play_sound_effect(WEAPON_OBTAINED_SFX, "SFX", -12)
 		
 		if heal_controller:
-			heal_controller.heal_collected(points)
+			heal_controller.heal_collected(name, points)
 		
 	#SPECIAL
 	elif Weapon.Type_Item.SPECIAL == item_type:
