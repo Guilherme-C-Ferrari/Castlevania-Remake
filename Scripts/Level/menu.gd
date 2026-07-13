@@ -1,5 +1,7 @@
 extends Node2D
 
+const LEVEL_1_1 = preload("uid://c5gs8koxst3jx")
+
 @onready var castle_anim: AnimatedSprite2D = $Menu_Screen/CastleAnim
 @onready var color_rect: ColorRect = $Menu_Screen/ColorRect
 
@@ -46,3 +48,4 @@ func play_intro():
 	
 func next_scene():
 	print("NEXT SCENE")
+	SignalManager.next_level_reached.emit(LEVEL_1_1)

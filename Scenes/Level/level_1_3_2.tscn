@@ -15,6 +15,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdr4j"]
 size = Vector2(510, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdr4j"]
+size = Vector2(9, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hemnd"]
+size = Vector2(9, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iodf3"]
+
 [node name="Level1_3_2" type="Node2D" unique_id=1438322600]
 script = ExtResource("1_uhvm3")
 
@@ -73,6 +81,42 @@ position = Vector2(256, 224)
 shape = SubResource("RectangleShape2D_kdr4j")
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("7_anyyk")]
-position = Vector2(61, 121)
+position = Vector2(69, 136)
+
+[node name="Walls" type="Node2D" parent="." unique_id=599581238]
+
+[node name="Lateral Wall" type="StaticBody2D" parent="Walls" unique_id=1755355231]
+position = Vector2(6, 104)
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Lateral Wall" unique_id=1577139668]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_kdr4j")
+
+[node name="Lateral Wall2" type="StaticBody2D" parent="Walls" unique_id=1545551239]
+position = Vector2(508, 115)
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Lateral Wall2" unique_id=1675742394]
+position = Vector2(-0.5, -3)
+shape = SubResource("RectangleShape2D_hemnd")
+
+[node name="Escada Transicao 1" type="Area2D" parent="." unique_id=911451033]
+position = Vector2(33, 42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Escada Transicao 1" unique_id=1396442476]
+shape = SubResource("RectangleShape2D_iodf3")
+
+[node name="Escada Transicao 2" type="Area2D" parent="." unique_id=1273587341]
+position = Vector2(353, 42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Escada Transicao 2" unique_id=1633715832]
+shape = SubResource("RectangleShape2D_iodf3")
+
+[node name="Spawn Escada 1" type="Marker2D" parent="." unique_id=709163934]
+position = Vector2(52, 62)
+
+[node name="Spawn Escada 2" type="Marker2D" parent="." unique_id=170251616]
+position = Vector2(372, 62)
 
 [editable path="Crypt B"]

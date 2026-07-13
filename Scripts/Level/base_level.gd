@@ -9,6 +9,9 @@ const SFX_DOOR = preload("uid://d00jyg5njqw4o")
 @onready var fake_player: AnimatedSprite2D = $FakePlayer
 @onready var tile_map_layer: TileMapLayer
 
+@onready var enemies: Node2D = $Enemies
+@onready var environment_items: Node2D = $Environment_Items
+
 var camera_reference: Camera2D
 var stage_value: int
 
@@ -22,3 +25,9 @@ func _ready() -> void:
 
 func update_camera_reference(new_camera_reference: Camera2D):
 	camera_reference = new_camera_reference
+
+func despawn_level():
+	if enemies:
+		enemies.queue_free()
+	if environment_items:
+		environment_items.queue_free()

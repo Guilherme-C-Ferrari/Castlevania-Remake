@@ -25,6 +25,7 @@ func move_to_right_of_castle_entrance():
 
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
+		despawn_level()
 		var anim: Animation = change_scene_animation_player.get_animation("entering_castle")
 		var track_id: int = anim.find_track("FakePlayer:position", Animation.TYPE_VALUE)
 		var key_id: int = anim.track_find_key(track_id, 0.0)

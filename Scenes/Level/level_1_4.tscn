@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c658lcfjhyhxe" path="res://Scenes/Environment/Tilemap/bat_boss_room.tscn" id="1_0oybr"]
 [ext_resource type="Script" uid="uid://cvilywejbr68t" path="res://Scripts/Level/level_1_4.gd" id="1_wsogr"]
+[ext_resource type="PackedScene" uid="uid://dgcujtiiw3dfs" path="res://Scenes/Level/end.tscn" id="2_s1bv0"]
 [ext_resource type="PackedScene" uid="uid://dcgpj3vm2ibxb" path="res://Scenes/Enemy/Spawners/long_spawner.tscn" id="3_6f6lr"]
 [ext_resource type="PackedScene" uid="uid://en6qwvm702j4" path="res://Scenes/Environment/candle.tscn" id="3_yvkgm"]
 [ext_resource type="PackedScene" uid="uid://x55yl2iijlg7" path="res://Scenes/Enemy/zombie.tscn" id="4_0v6kv"]
@@ -14,13 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="9_doosc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0j1ps"]
-size = Vector2(255, 9)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1bv0"]
-size = Vector2(7.25, 186.25)
+size = Vector2(14.5, 177)
 
 [node name="Level1_4" type="Node2D" unique_id=990172240]
 script = ExtResource("1_wsogr")
+next_level = ExtResource("2_s1bv0")
 
 [node name="Bat Boss Room" parent="." unique_id=2080491100 instance=ExtResource("1_0oybr")]
 
@@ -119,4 +118,24 @@ down_area_size = Vector2(16.385, 4.23)
 down_area_offset_x = -8.16
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("9_doosc")]
-position = Vector2(524, 197)
+position = Vector2(48, 128)
+
+[node name="Walls" type="Node2D" parent="." unique_id=2101165534]
+
+[node name="Lateral Wall" type="StaticBody2D" parent="Walls" unique_id=1633654482]
+position = Vector2(-5, 146)
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Lateral Wall" unique_id=882717360]
+position = Vector2(-2.25, -9.5)
+shape = SubResource("RectangleShape2D_0j1ps")
+
+[node name="Lateral Wall2" type="StaticBody2D" parent="Walls" unique_id=191360400]
+position = Vector2(769, 145)
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Lateral Wall2" unique_id=2005626683]
+position = Vector2(-2.25, -9.5)
+shape = SubResource("RectangleShape2D_0j1ps")
+
+[editable path="Bat Boss Room"]

@@ -124,6 +124,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kd1p2"]
 size = Vector2(24, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2vv70"]
+size = Vector2(10, 100)
+
 [node name="Level1_1" type="Node2D" unique_id=1778734806]
 script = ExtResource("1_ko26w")
 next_level = ExtResource("2_ko26w")
@@ -170,10 +173,26 @@ item_1 = ExtResource("7_2vv70")
 can_drop_wip = false
 
 [node name="Player" parent="." unique_id=2036421342 instance=ExtResource("3_6khmb")]
-position = Vector2(676, 208)
+position = Vector2(48, 208)
 
 [node name="FakePlayer" parent="." unique_id=1962101468 instance=ExtResource("6_kd1p2")]
 position = Vector2(676, 208)
+
+[node name="Walls" type="Node2D" parent="." unique_id=569324391]
+
+[node name="Lateral Wall" type="StaticBody2D" parent="Walls" unique_id=655428491]
+position = Vector2(-5, 157)
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Lateral Wall" unique_id=1442368253]
+shape = SubResource("RectangleShape2D_2vv70")
+
+[node name="Lateral Wall2" type="StaticBody2D" parent="Walls" unique_id=2131820247]
+position = Vector2(761, 158)
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Lateral Wall2" unique_id=1274214435]
+shape = SubResource("RectangleShape2D_2vv70")
 
 [connection signal="body_entered" from="Castle Entrance/Area2D" to="." method="_on_area_2d_2_body_entered"]
 

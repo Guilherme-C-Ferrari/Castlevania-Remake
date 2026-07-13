@@ -23,7 +23,7 @@ func move_camera_to_right(amount: float):
 	tween.tween_property(self, "position", (self.position + Vector2(amount, 0)), 2)
 
 func _physics_process(_delta: float) -> void:
-	if can_follow_player:
+	if current_player_node and can_follow_player:
 		self.position = current_player_node.position
 
 func increase_camera_limit_right(amount: float):
@@ -39,7 +39,3 @@ func update_camera_limits(new_tilemap: TileMapLayer):
 	limit_top = y_offset + int(map_rect.position.y * tile_size.y)
 	limit_right = int(map_rect.position.x + map_rect.size.x) * int(tile_size.x) + int(new_tilemap.global_position.x)
 	limit_bottom = y_offset + int(map_rect.position.y + map_rect.size.y) * int(tile_size.y)
-	print("L" + str(limit_left))
-	print("T" + str(limit_top))
-	print("R" + str(limit_right))
-	print("B" + str(limit_bottom))
