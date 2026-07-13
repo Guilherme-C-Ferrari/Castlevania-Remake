@@ -1545,7 +1545,7 @@ collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_te8s0")
 SPEED = 58.0
-JUMP_VELOCITY = -230.0
+JUMP_VELOCITY = -250.0
 is_walking = true
 
 [node name="Player_Audio_Controller" type="Node" parent="." unique_id=1288602742]
