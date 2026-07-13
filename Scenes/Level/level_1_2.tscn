@@ -21,12 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://j2pvgo125jgq" path="res://Scenes/Player/fake_player.tscn" id="13_n0slp"]
 [ext_resource type="Resource" uid="uid://cuxgpw24vtha5" path="res://Scripts/Items/Special/multi_2.tres" id="14_1wig1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbet1"]
-size = Vector2(20, 121.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0wd8"]
-size = Vector2(10, 46)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_xuikv"]
 atlas = ExtResource("11_kl0gm")
 region = Rect2(226, 1, 24, 48)
@@ -70,6 +64,15 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xkrhj"]
 size = Vector2(12, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbet1"]
+size = Vector2(20, 121.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0wd8"]
+size = Vector2(10, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wig1"]
+size = Vector2(8, 80)
 
 [node name="Level_1_2" type="Node2D" unique_id=1800594450]
 script = ExtResource("1_frmym")
@@ -190,24 +193,8 @@ item_1 = ExtResource("14_1wig1")
 position = Vector2(1503, 72)
 item_1 = ExtResource("10_x8sa7")
 
-[node name="Lateral Wall" type="StaticBody2D" parent="." unique_id=874454033]
-position = Vector2(-8, 144)
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lateral Wall" unique_id=1601040844]
-position = Vector2(0, 37.25)
-shape = SubResource("RectangleShape2D_cbet1")
-
-[node name="Lateral Wall 2" type="StaticBody2D" parent="." unique_id=259509355]
-position = Vector2(1537, 104)
-collision_mask = 2
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Lateral Wall 2" unique_id=1694287880]
-position = Vector2(-5, -1)
-shape = SubResource("RectangleShape2D_i0wd8")
-
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
-position = Vector2(67, 204)
+position = Vector2(1488, 116)
 
 [node name="Stair" parent="." unique_id=321336001 instance=ExtResource("8_u5iy2")]
 position = Vector2(624, 224)
@@ -268,6 +255,37 @@ shape = SubResource("RectangleShape2D_xkrhj")
 
 [node name="Next Level Spawn Location" type="Marker2D" parent="." unique_id=503337312]
 position = Vector2(1584, 127)
+
+[node name="Walls" type="Node2D" parent="." unique_id=1311576436]
+
+[node name="Lateral Wall" type="StaticBody2D" parent="Walls" unique_id=874454033]
+position = Vector2(-9, 163)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Lateral Wall" unique_id=1601040844]
+shape = SubResource("RectangleShape2D_cbet1")
+
+[node name="Lateral Wall 2" type="StaticBody2D" parent="Walls" unique_id=259509355]
+position = Vector2(1537, 104)
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Lateral Wall 2" unique_id=1694287880]
+position = Vector2(-5, -1)
+shape = SubResource("RectangleShape2D_i0wd8")
+
+[node name="Lateral Wall3" type="StaticBody2D" parent="Walls" unique_id=191206477]
+position = Vector2(1532, 184)
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Lateral Wall3" unique_id=901768532]
+shape = SubResource("RectangleShape2D_1wig1")
+
+[node name="Lateral Wall4" type="StaticBody2D" parent="Walls" unique_id=1322912769]
+position = Vector2(1532, 39)
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Lateral Wall4" unique_id=665107303]
+shape = SubResource("RectangleShape2D_1wig1")
 
 [connection signal="body_entered" from="Next Level Trigger" to="." method="_on_next_level_trigger_body_entered"]
 

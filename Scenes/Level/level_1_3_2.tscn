@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://d1spkvjd6hjvy"]
+[gd_scene format=3 uid="uid://d1spkvjd6hjvy"]
 
 [ext_resource type="PackedScene" uid="uid://db1gyc2cacplj" path="res://Scenes/Environment/Tilemap/crypt_b.tscn" id="1_qlhgm"]
 [ext_resource type="Script" uid="uid://bgs65io8d0esa" path="res://Scripts/Level/level_1_3_2.gd" id="1_uhvm3"]
@@ -11,13 +11,18 @@
 [ext_resource type="Resource" uid="uid://c6bh1ewaddwup" path="res://Scripts/Items/Hearts/big_heart.tres" id="6_pi4of"]
 [ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="7_anyyk"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdr4j"]
+size = Vector2(9, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hemnd"]
+size = Vector2(9, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iodf3"]
+
 [node name="Level1_3_2" type="Node2D" unique_id=1438322600]
 script = ExtResource("1_uhvm3")
 
 [node name="Crypt B" parent="." unique_id=1993736589 instance=ExtResource("1_qlhgm")]
-
-[node name="TileMapLayer" parent="Crypt B" index="0" unique_id=1408537291]
-tile_map_data = PackedByteArray("AAAAAP//AAADAAgAAAAAAAAAAAADAAgAAAABAP//AAADAAgAAAABAAAAAAADAAgAAAACAP//AAADAAgAAAACAAAAAAADAAgAAAADAP//AAADAAgAAAADAAAAAAADAAgAAAAEAP//AAADAAgAAAAEAAAAAAADAAgAAAAFAP//AAADAAgAAAAFAAAAAAADAAgAAAAGAP//AAADAAgAAAAGAAAAAAADAAgAAAAHAP//AAADAAgAAAAHAAAAAAADAAgAAAAIAP//AAADAAgAAAAIAAAAAAADAAgAAAAJAP//AAADAAgAAAAJAAAAAAADAAgAAAAKAP//AAADAAgAAAAKAAAAAAADAAgAAAALAP//AAADAAgAAAALAAAAAAADAAgAAAAMAP//AAADAAgAAAAMAAAAAAADAAgAAAANAP//AAADAAgAAAANAAAAAAADAAgAAAAOAP//AAADAAgAAAAOAAAAAAADAAgAAAAPAP//AAADAAgAAAAPAAAAAAADAAgAAAAEAAEAAAADAAgAAAAEAAIAAAADAAgAAAAEAAMAAAADAAgAAAAFAAMAAAADAAgAAAAFAAIAAAADAAgAAAAFAAEAAAADAAgAAAACAAUAAAADAAgAAAABAAUAAAADAAgAAAAHAAEAAAADAAgAAAAHAAIAAAADAAgAAAAHAAMAAAADAAgAAAAHAAQAAAADAAgAAAAJAAEAAAADAAgAAAAJAAIAAAADAAgAAAAJAAMAAAADAAgAAAAJAAQAAAADAAgAAAANAAUAAAADAAgAAAANAAEAAAADAAgAAAAPAAEAAAAEAAcAAAAPAAIAAAAEAAcAAAAPAAMAAAAEAAcAAAAPAAQAAAAEAAcAAAAPAAUAAAADAAcAAAANAAQAAAADAAcAAAAMAAQAAAADAAcAAAALAAQAAAADAAcAAAAFAAQAAAADAAcAAAAEAAQAAAAEAAMAAAACAAQAAAADAAcAAAABAAQAAAADAAcAAAAEAAUAAAAEAAYAAAAHAAUAAAADAAkAAAAJAAUAAAADAAkAAAAMAAUAAAADAAkAAAAAAAEAAAAEAAUAAAAAAAQAAAAEAAUAAAADAAEAAAAEAAUAAAAGAAEAAAAEAAUAAAAIAAEAAAAEAAUAAAAKAAQAAAAEAAUAAAAIAAQAAAAEAAUAAAAGAAQAAAAEAAUAAAADAAQAAAAEAAUAAAADAAMAAAAEAAUAAAAOAAQAAAAEAAUAAAAOAAYAAAAEAAUAAAAFAAUAAAAEAAkAAAALAAUAAAAEAAkAAAACAAMAAAAEAAQAAAABAAMAAAAEAAQAAAABAAIAAAAEAAQAAAALAAIAAAAEAAQAAAALAAMAAAAEAAQAAAAMAAMAAAAEAAQAAAAKAAIAAAABAAMAAAAKAAMAAAABAAMAAAAKAAEAAAABAAIAAAAOAAEAAAABAAIAAAAOAAIAAAABAAMAAAAOAAMAAAABAAMAAAAOAAUAAAABAAMAAAAKAAUAAAABAAMAAAAIAAUAAAABAAMAAAAGAAUAAAABAAMAAAAIAAMAAAABAAMAAAAIAAIAAAABAAMAAAAAAAIAAAABAAMAAAAAAAMAAAAFAAMAAAAAAAUAAAAFAAMAAAADAAUAAAAFAAMAAAADAAIAAAAFAAMAAAAGAAIAAAAFAAMAAAAGAAMAAAAFAAMAAAABAAYAAAAFAAIAAAACAAYAAAAFAAIAAAADAAYAAAAFAAIAAAAEAAYAAAAFAAIAAAAFAAYAAAAFAAIAAAAGAAYAAAAFAAIAAAAHAAYAAAAFAAIAAAAIAAYAAAAFAAIAAAAJAAYAAAAFAAIAAAAKAAYAAAAFAAIAAAALAAYAAAAFAAIAAAAMAAYAAAAFAAIAAAANAAYAAAAFAAIAAAAPAAYAAAAFAAIAAAACAAEAAAAEAAgAAAAMAAEAAAAEAAgAAAANAAIAAAAEAAgAAAABAAEAAAAEAAIAAAACAAIAAAAEAAIAAAALAAEAAAAEAAIAAAAMAAIAAAAEAAIAAAANAAMAAAAEAAIAAAAAAAYAAAAFAAIAAAA=")
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1205944432]
 
@@ -63,6 +68,42 @@ position = Vector2(497, 89)
 item_1 = ExtResource("6_pi4of")
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("7_anyyk")]
-position = Vector2(61, 121)
+position = Vector2(69, 136)
+
+[node name="Walls" type="Node2D" parent="." unique_id=599581238]
+
+[node name="Lateral Wall" type="StaticBody2D" parent="Walls" unique_id=1755355231]
+position = Vector2(6, 104)
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Lateral Wall" unique_id=1577139668]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_kdr4j")
+
+[node name="Lateral Wall2" type="StaticBody2D" parent="Walls" unique_id=1545551239]
+position = Vector2(508, 115)
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Lateral Wall2" unique_id=1675742394]
+position = Vector2(-0.5, -3)
+shape = SubResource("RectangleShape2D_hemnd")
+
+[node name="Escada Transicao 1" type="Area2D" parent="." unique_id=911451033]
+position = Vector2(33, 42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Escada Transicao 1" unique_id=1396442476]
+shape = SubResource("RectangleShape2D_iodf3")
+
+[node name="Escada Transicao 2" type="Area2D" parent="." unique_id=1273587341]
+position = Vector2(353, 42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Escada Transicao 2" unique_id=1633715832]
+shape = SubResource("RectangleShape2D_iodf3")
+
+[node name="Spawn Escada 1" type="Marker2D" parent="." unique_id=709163934]
+position = Vector2(52, 62)
+
+[node name="Spawn Escada 2" type="Marker2D" parent="." unique_id=170251616]
+position = Vector2(372, 62)
 
 [editable path="Crypt B"]
