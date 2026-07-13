@@ -18,8 +18,8 @@ func activate_switch() -> void:
 	
 	match type:
 		SwitchType.TURN_ON:
-			print("a")
 			target_boss.activate()
+			AudioManager.change_current_music(AudioManager.POISON_MIND_MUSIC)
 		_:
 			pass
 	

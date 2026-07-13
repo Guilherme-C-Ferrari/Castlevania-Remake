@@ -95,4 +95,4 @@ down_area_size = Vector2(16.385, 4.23)
 down_area_offset_x = -8.16
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("9_doosc")]
-position = Vector2(36, 118)
+position = Vector2(524, 197)
