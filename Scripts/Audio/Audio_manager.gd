@@ -2,7 +2,8 @@ extends Node
 
 @onready var bgm_streamer := $BackgroundMusic
 
-const VAMPIRE_KILLER__COURTYARD_MUSIC = preload("uid://b1whcpxd6f0eg")
+const VAMPIRE_KILLER__COURTYARD_MUSIC = preload("uid://bg6o6a5tvclok")
+const POISON_MIND_MUSIC = preload("uid://dhx08qt1nkapp")
 
 var musics := [
 	VAMPIRE_KILLER__COURTYARD_MUSIC
@@ -12,16 +13,13 @@ var current_music_index := 0
 
 func _ready() -> void:
 	bgm_streamer.finished.connect(_on_music_finished)
-
 	#play_current_music()
 
-
 func change_current_music(music: AudioStream):
-	
 	bgm_streamer.stream = music
 	bgm_streamer.bus = "Music"
 	bgm_streamer.play()
-	
+
 #Da play na musica atual da lista, possibilitando uma fila de musicas
 func play_current_music() -> void:
 	bgm_streamer.stream = musics[current_music_index]
@@ -30,12 +28,9 @@ func play_current_music() -> void:
 
 func _on_music_finished() -> void:
 	current_music_index += 1
-
 	if current_music_index >= musics.size():
 		current_music_index = 0
 
-	play_current_music()
-	
 func stop_music():
 	bgm_streamer.stop()
 
