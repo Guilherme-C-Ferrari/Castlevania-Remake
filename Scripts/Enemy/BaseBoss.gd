@@ -11,3 +11,12 @@ func _physics_process(_delta: float) -> void:
 
 func activate() -> void:
 	is_active = true
+
+func on_receive_damage(amount: int) -> void:
+	hp -= amount
+	Ui.remove_enemy_health(amount)
+	if hp <= 0:
+		die()
+
+func drop_item() -> void:
+	pass

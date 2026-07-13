@@ -16,6 +16,16 @@ class_name BaseEnemy
 const enemy_destroyer = preload("res://Audio/SFX/32. SFX - Enemy - Candle Destroyer.mp3")
 const fire_explosion = preload("res://Scenes/Effect/fire_explosion.tscn")
 
+const ITEM_DROP_SCENE = preload("res://Scenes/Environment/item_drop.tscn")
+const HEART_RES = preload("res://Scripts/Items/Hearts/heart.tres")
+const WIP_UPGRADE = preload("res://Scripts/Items/Wip/wip_upgrade.tres")
+const BAG_400_RES = preload("res://Scripts/Items/Point/bag_400.tres")
+const BAG_700_RES = preload("res://Scripts/Items/Point/bag_700.tres")
+const AXE_RES = preload("res://Scripts/Items/Weapons/axe.tres")
+const DAGGER_RES = preload("res://Scripts/Items/Weapons/dagger.tres")
+const WATCH_RES = preload("res://Scripts/Items/Weapons/watch.tres")
+const WATER_RES = preload("res://Scripts/Items/Weapons/water.tres")
+
 func _ready() -> void:
 	hit_box.body_entered.connect(_on_player_damaged)
 
@@ -54,7 +64,6 @@ func _on_player_damaged(_body: Node2D) -> void:
 		stats_controller.receive_damage(damage, walk_direction)
 	else:
 		print("Player not found")
-	
 
 func on_receive_damage(amount: int) -> void:
 	hp -= amount
@@ -84,12 +93,55 @@ func resume_time() -> void:
 	
 	if sprite:
 		sprite.play()
-		
+
+func drop_item() -> void:
+	var roll = randf()
+	if roll < 0.55:
+		return 
+	elif roll < 0.80:
+		drop_heart()     
+	elif roll < 0.95:
+		drop_money()     
+	else:
+		drop_weapon() 
+
+func drop_heart() -> void:
+	if Ui.wip_level != 3 and randf() < 0.8:
+		spawn_drop(WIP_UPGRADE)
+	else:
+		spawn_drop(HEART_RES)
+
+func drop_money() -> void:
+	var money_roll = randf()
+	if money_roll > 0.80:
+		spawn_drop(BAG_700_RES)
+	else:
+		spawn_drop(BAG_400_RES)
+
+func drop_weapon() -> void:
+	var weapon_roll = randf()
+	if weapon_roll > 0.75:
+		spawn_drop(WATER_RES)   
+	elif weapon_roll > 0.50:
+		spawn_drop(WATCH_RES)   
+	elif weapon_roll > 0.25:
+		spawn_drop(DAGGER_RES)  
+	else:
+		spawn_drop(AXE_RES) 
+
+func spawn_drop(item_resource: Resource) -> void:
+	if not item_resource or not ITEM_DROP_SCENE: return
+	var drop_instance = ITEM_DROP_SCENE.instantiate()
+	if "item_resource" in drop_instance:
+		drop_instance.item_resource = item_resource
+	drop_instance.global_position = global_position
+	get_parent().add_child(drop_instance)
+
 func die() -> void:
 	AudioManager.play_sound_effect(enemy_destroyer, "SFX", -12, 0.85)
 	sprite.set_deferred("visible", false)
 	hit_box.get_child(0).set_deferred("disabled", true)
 	Ui.add_score(experience)
 	spawn_explosion()
-	
+	drop_item()
 	queue_free()

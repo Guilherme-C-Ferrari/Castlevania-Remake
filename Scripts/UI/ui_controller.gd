@@ -54,6 +54,17 @@ func add_player_health(heal_health: int):
 		ui.add_player_health(1)
 		await get_tree().create_timer(0.2).timeout
 
+func set_enemy_health(new_enemy_health: int):
+	ui.set_enemy_health(new_enemy_health)
+	
+func remove_enemy_health(damage_health: int):
+	ui.remove_enemy_health(damage_health)
+
+func add_enemy_health(heal_health: int):
+	for i in range(heal_health):
+		ui.add_enemy_health(1)
+		await get_tree().create_timer(0.2).timeout
+
 func set_inital_time(new_time: int):
 	ui.set_time(new_time)
 	
