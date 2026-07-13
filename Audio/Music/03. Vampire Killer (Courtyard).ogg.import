@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bg6o6a5tvclok"
+path="res://.godot/imported/03. Vampire Killer (Courtyard).ogg-c5241401ea1e6a8caf6874225c50c0ad.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Music/03. Vampire Killer (Courtyard).ogg"
+dest_files=["res://.godot/imported/03. Vampire Killer (Courtyard).ogg-c5241401ea1e6a8caf6874225c50c0ad.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
