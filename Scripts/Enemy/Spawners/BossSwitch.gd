@@ -1,9 +1,10 @@
 extends Area2D
 
-enum SwitchType { TURN_ON, TURN_OFF, TURN_ON_AND_OFF }
+enum SwitchType { TURN_ON }
 @export var type: SwitchType = SwitchType.TURN_ON
 @export var single_use: bool = false
 @export var target_boss: BaseBoss
+@export var boss_wall: StaticBody2D
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -20,8 +21,8 @@ func activate_switch() -> void:
 		SwitchType.TURN_ON:
 			target_boss.activate()
 			AudioManager.change_current_music(AudioManager.POISON_MIND_MUSIC)
-		_:
-			pass
-	
+			if boss_wall:
+				var wall_collision = boss_wall.get_node_or_null("CollisionShape2D")
+				wall_collision.set_deferred("disabled", false)
 	if single_use:
 		queue_free()
