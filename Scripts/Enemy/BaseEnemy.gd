@@ -54,7 +54,6 @@ func _on_player_damaged(_body: Node2D) -> void:
 		stats_controller.receive_damage(damage, walk_direction)
 	else:
 		print("Player not found")
-	
 
 func on_receive_damage(amount: int) -> void:
 	hp -= amount
