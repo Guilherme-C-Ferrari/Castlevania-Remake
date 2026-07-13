@@ -75,9 +75,9 @@ func remove_player_life(damage_life: int):
 	var current_lifes = ui.remove_player_life(damage_life)
 	
 	if current_lifes <= 0:
-		print("GAME OVER")
+		SignalManager.game_over.emit()
 	else:
-		print("Level respawn")
+		SignalManager.player_died.emit()
 
 func get_player_wip_level() -> int:
 	return wip_level

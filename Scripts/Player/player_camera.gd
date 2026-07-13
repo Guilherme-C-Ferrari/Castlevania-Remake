@@ -23,7 +23,7 @@ func move_camera_to_right(amount: float):
 	tween.tween_property(self, "position", (self.position + Vector2(amount, 0)), 2)
 
 func _physics_process(_delta: float) -> void:
-	if can_follow_player:
+	if current_player_node and can_follow_player:
 		self.position = current_player_node.position
 
 func increase_camera_limit_right(amount: float):

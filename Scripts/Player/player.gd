@@ -127,13 +127,6 @@ func finish_attack_anim():
 	
 func death():
 	is_dead = true
-	if Ui.player_lifes_count >= 0:
-		#Ui.set_time(200)
-		#Ui.heart_count = 5
-		Ui.remove_player_life(1)
-		SignalManager.player_died.emit()
-	else:
-		SignalManager.game_over.emit()
 	pass
 	
 func turn_player(facing_side: String):

@@ -125,7 +125,7 @@ position = Vector2(238, 224)
 stair_side = 0
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("4_duhgd")]
-position = Vector2(466, 120)
+position = Vector2(48, 127)
 
 [node name="AnimatedSprite Door" type="AnimatedSprite2D" parent="." unique_id=1482982423]
 visible = false
