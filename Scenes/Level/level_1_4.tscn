@@ -7,11 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://x55yl2iijlg7" path="res://Scenes/Enemy/zombie.tscn" id="4_0v6kv"]
 [ext_resource type="Resource" uid="uid://bpr4em6jqdws5" path="res://Scripts/Items/Special/jarro.tres" id="4_3kvc2"]
 [ext_resource type="Resource" uid="uid://c6bh1ewaddwup" path="res://Scripts/Items/Hearts/big_heart.tres" id="5_6f6lr"]
-[ext_resource type="PackedScene" uid="uid://c746ob3ce3m48" path="res://Scenes/Enemy/Bosses/PhantomBat.tscn" id="5_sypq6"]
+[ext_resource type="PackedScene" uid="uid://c746ob3ce3m48" path="res://Scenes/Enemy/Bosses/phantom_bat.tscn" id="5_sypq6"]
 [ext_resource type="PackedScene" uid="uid://dt8aak0pbbf1o" path="res://Scenes/Enemy/Spawners/boss_switch.tscn" id="6_0j1ps"]
 [ext_resource type="Resource" uid="uid://1x6tjxics52" path="res://Scripts/Items/Weapons/axe.tres" id="6_iyhwk"]
 [ext_resource type="PackedScene" uid="uid://d1ltye8i6fbue" path="res://Scenes/Environment/stair.tscn" id="8_iyhwk"]
 [ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="9_doosc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0j1ps"]
+size = Vector2(255, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1bv0"]
+size = Vector2(7.25, 186.25)
 
 [node name="Level1_4" type="Node2D" unique_id=990172240]
 script = ExtResource("1_wsogr")
@@ -29,10 +35,11 @@ max_qty_to_spawn = 3
 [node name="PhantomBat" parent="Enemies" unique_id=253270751 instance=ExtResource("5_sypq6")]
 position = Vector2(623, 92)
 
-[node name="BossSwitch" parent="Enemies" unique_id=711457342 node_paths=PackedStringArray("target_boss") instance=ExtResource("6_0j1ps")]
+[node name="BossSwitch" parent="Enemies" unique_id=711457342 node_paths=PackedStringArray("target_boss", "boss_wall") instance=ExtResource("6_0j1ps")]
 position = Vector2(693, 182)
 single_use = true
 target_boss = NodePath("../PhantomBat")
+boss_wall = NodePath("../../InvisibleWall")
 
 [node name="Environment_Items" type="Node2D" parent="." unique_id=1083294588]
 
@@ -77,6 +84,23 @@ position = Vector2(671, 170)
 position = Vector2(736, 170)
 item_1 = ExtResource("5_6f6lr")
 
+[node name="Ceiling" type="StaticBody2D" parent="." unique_id=855990107]
+position = Vector2(-8, 144)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling" unique_id=2115863913]
+position = Vector2(648.5, -101)
+shape = SubResource("RectangleShape2D_0j1ps")
+
+[node name="InvisibleWall" type="StaticBody2D" parent="." unique_id=1173465309]
+position = Vector2(-8, 144)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall" unique_id=274301901]
+position = Vector2(516.625, -12.125)
+shape = SubResource("RectangleShape2D_s1bv0")
+disabled = true
+
 [node name="Stair" parent="." unique_id=1621566809 instance=ExtResource("8_iyhwk")]
 position = Vector2(144, 160)
 stair_side = 0
@@ -95,4 +119,4 @@ down_area_size = Vector2(16.385, 4.23)
 down_area_offset_x = -8.16
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("9_doosc")]
-position = Vector2(36, 118)
+position = Vector2(524, 197)

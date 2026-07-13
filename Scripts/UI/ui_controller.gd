@@ -20,7 +20,6 @@ const AXE_SFX = preload("uid://b1x36h5p0hjvy")
 
 const WATCH_SFX = preload("uid://dwrd6pbmrsc0e")
 
-
 func _ready() -> void:
 	set_inital_time(300)
 	set_player_life(3)
@@ -42,6 +41,17 @@ func remove_player_health(damage_health: int):
 func add_player_health(heal_health: int):
 	for i in range(heal_health):
 		ui.add_player_health(1)
+		await get_tree().create_timer(0.2).timeout
+
+func set_enemy_health(new_enemy_health: int):
+	ui.set_enemy_health(new_enemy_health)
+	
+func remove_enemy_health(damage_health: int):
+	ui.remove_enemy_health(damage_health)
+
+func add_enemy_health(heal_health: int):
+	for i in range(heal_health):
+		ui.add_enemy_health(1)
 		await get_tree().create_timer(0.2).timeout
 
 func set_inital_time(new_time: int):

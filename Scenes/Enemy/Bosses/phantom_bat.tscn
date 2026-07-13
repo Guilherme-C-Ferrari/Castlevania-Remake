@@ -5,6 +5,9 @@
 [ext_resource type="Script" uid="uid://bgbp6l5x3f6op" path="res://Scripts/FSM/FSM.gd" id="3_0hplx"]
 [ext_resource type="Script" uid="uid://d13ixxexqpsjr" path="res://Scripts/FSM/BossStates/BossIdling.gd" id="4_b81xi"]
 [ext_resource type="Script" uid="uid://7tgdkv2h24d0" path="res://Scripts/FSM/BossStates/PhantomBatMenancing.gd" id="5_bqwb6"]
+[ext_resource type="Script" uid="uid://cmhpa43r80x0q" path="res://Scripts/FSM/BossStates/PhantomBatFloating.gd" id="6_y7gl0"]
+[ext_resource type="Script" uid="uid://cqto6yp318uxp" path="res://Scripts/FSM/BossStates/PhantomBatDive.gd" id="7_tev7n"]
+[ext_resource type="Script" uid="uid://b2ibmb8hv885j" path="res://Scripts/FSM/BossStates/PhantomBatShooting.gd" id="8_fysar"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d4i51"]
 atlas = ExtResource("1_govpi")
@@ -49,7 +52,6 @@ size = Vector2(36, 18)
 [node name="PhantomBat" type="CharacterBody2D" unique_id=253270751 groups=["enemy"]]
 light_mask = 4
 collision_layer = 4
-collision_mask = 0
 script = ExtResource("1_d4i51")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=20817626]
@@ -79,3 +81,12 @@ script = ExtResource("4_b81xi")
 
 [node name="PhantomBatMenancing" type="Node" parent="FSM" unique_id=1592542740]
 script = ExtResource("5_bqwb6")
+
+[node name="PhantomBatFloating" type="Node" parent="FSM" unique_id=1391871102]
+script = ExtResource("6_y7gl0")
+
+[node name="PhantomBatDive" type="Node" parent="FSM" unique_id=1882399199]
+script = ExtResource("7_tev7n")
+
+[node name="PhantomBatShooting" type="Node" parent="FSM" unique_id=634301721]
+script = ExtResource("8_fysar")
