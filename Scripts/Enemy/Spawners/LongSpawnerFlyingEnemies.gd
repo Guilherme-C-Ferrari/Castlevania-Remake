@@ -31,7 +31,7 @@ func spawn_flying_enemy_pos(spawn_x: float, spawn_y: float) -> void:
 	var enemy = enemy_to_spawn.instantiate()
 	
 	# Define a posição inicial com o Y do player
-	enemy.global_position = Vector2(spawn_x, spawn_y)
+	enemy.global_position = Vector2(spawn_x, spawn_y+5)
 	
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
