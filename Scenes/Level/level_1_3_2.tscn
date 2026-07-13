@@ -10,6 +10,10 @@
 [ext_resource type="Resource" uid="uid://dwp8khpxhbrph" path="res://Scripts/Items/Weapons/watch.tres" id="5_anyyk"]
 [ext_resource type="Resource" uid="uid://c6bh1ewaddwup" path="res://Scripts/Items/Hearts/big_heart.tres" id="6_pi4of"]
 [ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="7_anyyk"]
+[ext_resource type="Script" uid="uid://n26qioixkkbg" path="res://Scripts/Environment/Water.gd" id="10_hemnd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdr4j"]
+size = Vector2(510, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdr4j"]
 size = Vector2(9, 80)
@@ -32,8 +36,9 @@ single_use = true
 target_spawner = NodePath("../SpawnerWithSwitch")
 
 [node name="SpawnerWithSwitch" parent="Enemies" unique_id=1987307375 instance=ExtResource("4_hemnd")]
-position = Vector2(256, 227)
-zone_size = Vector2(510, 25)
+visible = false
+position = Vector2(256, 224)
+zone_size = Vector2(510, 32)
 enemy_to_spawn = ExtResource("3_pi4of")
 max_qty_to_spawn = 2
 
@@ -66,6 +71,14 @@ position = Vector2(415, 89)
 [node name="Candle8" parent="Environment_Items" unique_id=957219808 instance=ExtResource("3_0x5ai")]
 position = Vector2(497, 89)
 item_1 = ExtResource("6_pi4of")
+
+[node name="Water" type="Area2D" parent="Environment_Items" unique_id=565777233]
+collision_mask = 7
+script = ExtResource("10_hemnd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment_Items/Water" unique_id=454897633]
+position = Vector2(256, 224)
+shape = SubResource("RectangleShape2D_kdr4j")
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("7_anyyk")]
 position = Vector2(69, 136)

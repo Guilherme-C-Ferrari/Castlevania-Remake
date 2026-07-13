@@ -25,6 +25,10 @@ func add_score(score: int):
 func set_time(new_time: int):
 	time_seconds.text = str(new_time).pad_zeros(4)
 	
+func get_time() -> int:
+	return int(time_seconds.text)
+	
+	
 func decrease_time(decrease_time: int) -> int:
 	var current_time = int(time_seconds.text)
 	if current_time <= 0:
@@ -49,6 +53,9 @@ func remove_extra_point(remove_point: int ) -> bool:
 
 func get_extra_point() -> int:
 	return int(heart_count.text)
+	
+func set_extra_point(point: int):
+	heart_count.text = str(point).pad_zeros(2)
 
 func set_player_life(new_player_life: int):
 	player_lifes_count.text = str(new_player_life).pad_zeros(2)
@@ -69,6 +76,16 @@ func remove_player_health(damage_health: int) -> int:
 	
 func set_player_health(new_player_health: int):
 	player_health_count.value = clampi(new_player_health, 0, 16)
+	
+func add_enemy_health(heal_health: int):
+	enemy_health_count.value = clampi(enemy_health_count.value + heal_health, 0, 16)
+	
+func remove_enemy_health(damage_health: int) -> int:
+	enemy_health_count.value = clampi(enemy_health_count.value - damage_health, 0, 16)
+	return enemy_health_count.value
+	
+func set_enemy_health(new_enemy_health: int):
+	enemy_health_count.value = clampi(new_enemy_health, 0, 16)
 	
 func set_weapon_sprite(weapon_texture: Texture):
 	weapon_sprite.texture = weapon_texture

@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	super._physics_process(_delta)
-	velocity.x = walk_direction	 * move_speed
+	velocity.x = walk_direction * move_speed
 	handle_animation()
 	move_and_slide()
 	
