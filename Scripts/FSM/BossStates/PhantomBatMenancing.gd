@@ -1,7 +1,7 @@
 extends EnemyState
 class_name PhantomBatMenancing
 
-@export var rest_time: float = 5.0
+@export var rest_time: float = 3.5
 @export var target_y: float = 170.0 
 @export var camera_margin_left: float = 40.0
 @export var camera_margin_right: float = 40.0

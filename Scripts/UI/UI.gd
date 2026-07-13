@@ -70,6 +70,16 @@ func remove_player_health(damage_health: int) -> int:
 func set_player_health(new_player_health: int):
 	player_health_count.value = clampi(new_player_health, 0, 16)
 	
+func add_enemy_health(heal_health: int):
+	enemy_health_count.value = clampi(enemy_health_count.value + heal_health, 0, 16)
+	
+func remove_enemy_health(damage_health: int) -> int:
+	enemy_health_count.value = clampi(enemy_health_count.value - damage_health, 0, 16)
+	return enemy_health_count.value
+	
+func set_enemy_health(new_enemy_health: int):
+	enemy_health_count.value = clampi(new_enemy_health, 0, 16)
+	
 func set_weapon_sprite(weapon_texture: Texture):
 	weapon_sprite.texture = weapon_texture
 
