@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://0o5ffwfx4sc4" path="res://Scripts/Level/end.gd" id="1_5bwa4"]
 [ext_resource type="Texture2D" uid="uid://d3saee0wukulc" path="res://Assets/SpriteSheets/Cutscenes.png" id="1_xh3c5"]
+[ext_resource type="PackedScene" uid="uid://cfptssnl1feyh" path="res://Scenes/Level/menu.tscn" id="2_3i0gf"]
 [ext_resource type="PackedScene" uid="uid://j2pvgo125jgq" path="res://Scenes/Player/fake_player.tscn" id="2_j4ffv"]
 [ext_resource type="Texture2D" uid="uid://h6uvou76b7wk" path="res://Assets/SpriteSheets/bat_map.png" id="3_ayktj"]
 [ext_resource type="FontFile" uid="uid://bk431songejc3" path="res://Assets/UI/nintendo-nes-font.ttf" id="5_8fful"]
@@ -290,6 +291,7 @@ base_font = ExtResource("5_8fful")
 
 [node name="End" type="Node2D" unique_id=1243013773]
 script = ExtResource("1_5bwa4")
+menu = ExtResource("2_3i0gf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=323231814]
 libraries/ = SubResource("AnimationLibrary_8fful")

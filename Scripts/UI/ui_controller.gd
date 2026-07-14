@@ -25,12 +25,11 @@ const TIME_SFX = preload("uid://b0f33n0h8l4ad")
 func _ready() -> void:
 	set_inital_time(300)
 	set_player_life(3)
-	run_timer()
 
 func reset_player_stats():
 	stop_timer()
 	set_player_health(16)
-	set_inital_time(300)
+	set_inital_time(200)
 	ui.set_extra_point(5)
 	
 	ui.set_weapon_sprite(null)

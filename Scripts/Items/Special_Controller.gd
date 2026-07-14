@@ -4,6 +4,8 @@ class_name Special_Controller
 const CHANGE_COLOR_SHADER = preload("uid://be7po518l0752")
 const INVENSIBLE_SHADER = preload("uid://d00ygg04g3wai")
 
+const INVINCIBILITY_POTION_STARTS_SFX = preload("uid://cpawvr41tbvpv")
+const INVINCIBILITY_POTION_ENDS_SFX = preload("uid://dcffug7myvtkc")
 
 const WEAPON_OBTAINED_SFX = preload("uid://clswbxpktn0qf")
 const CROSS_FLASHES_SFX = preload("uid://d2plcr0i5p5hl")
@@ -70,6 +72,7 @@ func cruz_effect():
 		
 func jarro_effect():
 	start_invincibility()
+	AudioManager.play_sound_effect(INVINCIBILITY_POTION_STARTS_SFX, "SFX", -12)
 	
 func start_invincibility() -> void:
 	var tree = Engine.get_main_loop()
@@ -94,6 +97,7 @@ func start_invincibility() -> void:
 
 func end_invincibility() -> void:
 	print("ACABOU")
+	AudioManager.play_sound_effect(INVINCIBILITY_POTION_ENDS_SFX, "SFX", -12)
 	var tree = Engine.get_main_loop()
 	
 	var player_sprite = player.get_node("Visual/AnimatedSpritePlayer")

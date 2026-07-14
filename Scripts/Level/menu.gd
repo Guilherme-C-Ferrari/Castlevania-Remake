@@ -11,14 +11,15 @@ const LEVEL_1_1 = preload("uid://c5gs8koxst3jx")
 @onready var intro: Node2D = $Intro
 const PROLOGUE_CASTLE_GATE = preload("uid://bksro4ofyddxx")
 
+var can_play: bool = true
 
 func _ready() -> void:
 	Ui.visible = false
 	AudioManager.stop_music()
 	
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("Enter"):
-		print("ENTROU")
+	if Input.is_action_just_pressed("Enter") and can_play:
+		can_play = false
 		animation_button()
 		
 func finish_animation():

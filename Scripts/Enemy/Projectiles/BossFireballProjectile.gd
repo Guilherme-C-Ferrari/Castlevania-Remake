@@ -28,3 +28,6 @@ func projectile_struck() -> void:
 	if hit_box and hit_box.get_child_count() > 0:
 		hit_box.get_child(0).set_deferred("disabled", true)
 	queue_free()
+	
+func drop_item() -> void:
+	pass

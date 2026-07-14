@@ -13,6 +13,13 @@
 [ext_resource type="Resource" uid="uid://1x6tjxics52" path="res://Scripts/Items/Weapons/axe.tres" id="6_iyhwk"]
 [ext_resource type="PackedScene" uid="uid://d1ltye8i6fbue" path="res://Scenes/Environment/stair.tscn" id="8_iyhwk"]
 [ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="9_doosc"]
+[ext_resource type="Resource" uid="uid://8xs0auhitwid" path="res://Scripts/Items/Heal/orbe.tres" id="12_3k5er"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1bv0"]
+size = Vector2(256, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3k5er"]
+size = Vector2(9, 187)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0j1ps"]
 size = Vector2(14.5, 177)
@@ -38,7 +45,7 @@ position = Vector2(623, 92)
 position = Vector2(693, 182)
 single_use = true
 target_boss = NodePath("../PhantomBat")
-boss_wall = NodePath("../../InvisibleWall")
+boss_wall = NodePath("../../Invisible Wall")
 
 [node name="Environment_Items" type="Node2D" parent="." unique_id=1083294588]
 
@@ -75,6 +82,7 @@ item_1 = ExtResource("5_6f6lr")
 
 [node name="Candle10" parent="Environment_Items" unique_id=2087316853 instance=ExtResource("3_yvkgm")]
 position = Vector2(607, 201)
+item_1 = ExtResource("12_3k5er")
 
 [node name="Candle11" parent="Environment_Items" unique_id=53340494 instance=ExtResource("3_yvkgm")]
 position = Vector2(671, 170)
@@ -84,20 +92,17 @@ position = Vector2(736, 170)
 item_1 = ExtResource("5_6f6lr")
 
 [node name="Ceiling" type="StaticBody2D" parent="." unique_id=855990107]
-position = Vector2(-8, 144)
+position = Vector2(641, 42)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling" unique_id=2115863913]
-position = Vector2(648.5, -101)
-shape = SubResource("RectangleShape2D_0j1ps")
-
-[node name="InvisibleWall" type="StaticBody2D" parent="." unique_id=1173465309]
-position = Vector2(-8, 144)
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall" unique_id=274301901]
-position = Vector2(516.625, -12.125)
 shape = SubResource("RectangleShape2D_s1bv0")
+
+[node name="Invisible Wall" type="StaticBody2D" parent="." unique_id=1873187257]
+position = Vector2(508, 130)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Invisible Wall" unique_id=274268640]
+shape = SubResource("RectangleShape2D_3k5er")
 disabled = true
 
 [node name="Stair" parent="." unique_id=1621566809 instance=ExtResource("8_iyhwk")]

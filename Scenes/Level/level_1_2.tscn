@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://jd5cy5hp8kel" path="res://Scenes/Environment/Tilemap/entrance_hall.tscn" id="1_bhvdk"]
 [ext_resource type="Script" uid="uid://ytjpxq64ptrr" path="res://Scripts/Level/level_1_2.gd" id="1_frmym"]
-[ext_resource type="PackedScene" uid="uid://binnrgn4csteq" path="res://Scenes/Level/level_1_3_1.tscn" id="2_8gwho"]
+[ext_resource type="PackedScene" uid="uid://jdwcbvm762ce" path="res://Scenes/Level/level_1_3.tscn" id="2_0h4wn"]
 [ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="2_dwasc"]
 [ext_resource type="PackedScene" uid="uid://en6qwvm702j4" path="res://Scenes/Environment/candle.tscn" id="3_lgm3a"]
 [ext_resource type="PackedScene" uid="uid://57jlklq2xwd4" path="res://Scenes/Environment/Tilemap/crypt_a.tscn" id="4_i0wd8"]
@@ -18,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://6rlrsd62o62m" path="res://Assets/SpriteSheets/Items-DoorSpriteRepositioned.png" id="11_kl0gm"]
 [ext_resource type="Texture2D" uid="uid://pldfv0mgf6sc" path="res://Assets/Map/NES - Castlevania - Stages - Level 1_ Entrance.png" id="12_i0wd8"]
 [ext_resource type="PackedScene" uid="uid://j2pvgo125jgq" path="res://Scenes/Player/fake_player.tscn" id="13_n0slp"]
-[ext_resource type="Resource" uid="uid://cuxgpw24vtha5" path="res://Scripts/Items/Special/multi_2.tres" id="14_1wig1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xuikv"]
 atlas = ExtResource("11_kl0gm")
@@ -75,7 +74,7 @@ size = Vector2(8, 80)
 
 [node name="Level_1_2" type="Node2D" unique_id=1800594450]
 script = ExtResource("1_frmym")
-next_level = ExtResource("2_8gwho")
+next_level = ExtResource("2_0h4wn")
 
 [node name="Entrance Hall" parent="." unique_id=97999581 instance=ExtResource("1_bhvdk")]
 
@@ -185,14 +184,13 @@ position = Vector2(1375, 169)
 
 [node name="Candle22" parent="Environment_Items" unique_id=1805932497 instance=ExtResource("3_lgm3a")]
 position = Vector2(1439, 105)
-item_1 = ExtResource("14_1wig1")
 
 [node name="Candle23" parent="Environment_Items" unique_id=1293897660 instance=ExtResource("3_lgm3a")]
 position = Vector2(1503, 72)
 item_1 = ExtResource("10_x8sa7")
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
-position = Vector2(48, 224)
+position = Vector2(1483, 120)
 
 [node name="Stair" parent="." unique_id=321336001 instance=ExtResource("8_u5iy2")]
 position = Vector2(624, 224)

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://d1spkvjd6hjvy"]
 
 [ext_resource type="PackedScene" uid="uid://db1gyc2cacplj" path="res://Scenes/Environment/Tilemap/crypt_b.tscn" id="1_qlhgm"]
-[ext_resource type="Script" uid="uid://bgs65io8d0esa" path="res://Scripts/Level/level_1_3_2.gd" id="1_uhvm3"]
 [ext_resource type="PackedScene" uid="uid://en6qwvm702j4" path="res://Scenes/Environment/candle.tscn" id="3_0x5ai"]
 [ext_resource type="PackedScene" uid="uid://dd6xpmlcp1edy" path="res://Scenes/Enemy/Spawners/switch.tscn" id="3_kdr4j"]
 [ext_resource type="PackedScene" uid="uid://cy3mnrqvurbcc" path="res://Scenes/Enemy/fishman.tscn" id="3_pi4of"]
@@ -9,11 +8,10 @@
 [ext_resource type="Resource" uid="uid://bevo8cr5cwqr3" path="res://Scripts/Items/Point/bag_700.tres" id="4_q5gdv"]
 [ext_resource type="Resource" uid="uid://dwp8khpxhbrph" path="res://Scripts/Items/Weapons/watch.tres" id="5_anyyk"]
 [ext_resource type="Resource" uid="uid://c6bh1ewaddwup" path="res://Scripts/Items/Hearts/big_heart.tres" id="6_pi4of"]
-[ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="7_anyyk"]
 [ext_resource type="Script" uid="uid://n26qioixkkbg" path="res://Scripts/Environment/Water.gd" id="10_hemnd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdr4j"]
-size = Vector2(510, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2y6ks"]
+size = Vector2(512, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdr4j"]
 size = Vector2(9, 80)
@@ -21,10 +19,7 @@ size = Vector2(9, 80)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hemnd"]
 size = Vector2(9, 128)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iodf3"]
-
 [node name="Level1_3_2" type="Node2D" unique_id=1438322600]
-script = ExtResource("1_uhvm3")
 
 [node name="Crypt B" parent="." unique_id=1993736589 instance=ExtResource("1_qlhgm")]
 
@@ -77,11 +72,8 @@ collision_mask = 7
 script = ExtResource("10_hemnd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment_Items/Water" unique_id=454897633]
-position = Vector2(256, 224)
-shape = SubResource("RectangleShape2D_kdr4j")
-
-[node name="Player" parent="." unique_id=603095742 instance=ExtResource("7_anyyk")]
-position = Vector2(69, 136)
+position = Vector2(256, 224.5)
+shape = SubResource("RectangleShape2D_2y6ks")
 
 [node name="Walls" type="Node2D" parent="." unique_id=599581238]
 
@@ -100,23 +92,5 @@ collision_mask = 2
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Lateral Wall2" unique_id=1675742394]
 position = Vector2(-0.5, -3)
 shape = SubResource("RectangleShape2D_hemnd")
-
-[node name="Escada Transicao 1" type="Area2D" parent="." unique_id=911451033]
-position = Vector2(33, 42)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Escada Transicao 1" unique_id=1396442476]
-shape = SubResource("RectangleShape2D_iodf3")
-
-[node name="Escada Transicao 2" type="Area2D" parent="." unique_id=1273587341]
-position = Vector2(353, 42)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Escada Transicao 2" unique_id=1633715832]
-shape = SubResource("RectangleShape2D_iodf3")
-
-[node name="Spawn Escada 1" type="Marker2D" parent="." unique_id=709163934]
-position = Vector2(52, 62)
-
-[node name="Spawn Escada 2" type="Marker2D" parent="." unique_id=170251616]
-position = Vector2(372, 62)
 
 [editable path="Crypt B"]

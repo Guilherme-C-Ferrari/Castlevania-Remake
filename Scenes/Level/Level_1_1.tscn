@@ -173,7 +173,7 @@ item_1 = ExtResource("7_2vv70")
 can_drop_wip = false
 
 [node name="Player" parent="." unique_id=2036421342 instance=ExtResource("3_6khmb")]
-position = Vector2(48, 208)
+position = Vector2(660, 195)
 
 [node name="FakePlayer" parent="." unique_id=1962101468 instance=ExtResource("6_kd1p2")]
 position = Vector2(676, 208)

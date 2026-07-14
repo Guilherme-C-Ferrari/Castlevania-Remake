@@ -19,6 +19,7 @@ func activate_switch() -> void:
 	
 	match type:
 		SwitchType.TURN_ON:
+			SignalManager.disable_camera_follow.emit()
 			Ui.set_enemy_health(target_boss.hp)
 			target_boss.activate()
 			AudioManager.change_current_music(AudioManager.POISON_MIND_MUSIC)
