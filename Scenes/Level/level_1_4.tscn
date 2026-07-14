@@ -37,8 +37,9 @@ zone_size = Vector2(450, 150)
 enemy_to_spawn = ExtResource("4_0v6kv")
 max_qty_to_spawn = 3
 
-[node name="PhantomBat" parent="Enemies" unique_id=253270751 instance=ExtResource("5_sypq6")]
+[node name="PhantomBat" parent="Enemies" unique_id=253270751 node_paths=PackedStringArray("drop_position") instance=ExtResource("5_sypq6")]
 position = Vector2(623, 92)
+drop_position = NodePath("../../MarkerOrb")
 
 [node name="BossSwitch" parent="Enemies" unique_id=711457342 node_paths=PackedStringArray("target_boss", "boss_wall") instance=ExtResource("6_0j1ps")]
 position = Vector2(693, 182)
@@ -140,5 +141,8 @@ collision_mask = 2
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Lateral Wall2" unique_id=2005626683]
 position = Vector2(-2.25, -9.5)
 shape = SubResource("RectangleShape2D_0j1ps")
+
+[node name="MarkerOrb" type="Marker2D" parent="." unique_id=996018129]
+position = Vector2(639, 144)
 
 [editable path="Bat Boss Room"]
