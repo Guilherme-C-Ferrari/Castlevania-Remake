@@ -56,7 +56,7 @@ collision_layer = 4
 script = ExtResource("1_d4i51")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=20817626]
-z_index = 2
+z_index = 1
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_pk5wt")
 animation = &"Idling"
