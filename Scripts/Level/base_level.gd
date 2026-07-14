@@ -17,7 +17,6 @@ var stage_value: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("miranha")
 	SignalManager.respond_camera_reference.connect(update_camera_reference)
 	SignalManager.level_loaded.emit(tile_map_layer)
 	SignalManager.player_spawned.emit(player)

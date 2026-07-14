@@ -111,10 +111,11 @@ func set_player_life(new_player_life: int):
 	
 func remove_player_life(damage_life: int):
 	var current_lifes = ui.remove_player_life(damage_life)
-	
+	Ui.stop_timer()
 	if current_lifes <= 0:
 		SignalManager.game_over.emit()
 	else:
+		reset_player_stats()
 		SignalManager.player_died.emit()
 
 func get_player_wip_level() -> int:

@@ -35,7 +35,6 @@ func change_current_level(new_scene: PackedScene):
 	add_child(new_current_level)
 	camera.can_follow_player = true
 	current_level_node = new_current_level
-	Ui.run_timer()
 
 func player_died():
 	if current_level_node:
