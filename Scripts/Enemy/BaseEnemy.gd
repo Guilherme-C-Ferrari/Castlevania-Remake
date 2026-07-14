@@ -96,14 +96,14 @@ func resume_time() -> void:
 
 func drop_item() -> void:
 	var roll = randf()
-	if roll < 0.55:
+	if roll < 0.70:
 		return 
-	elif roll < 0.80:
-		drop_heart()     
+	elif roll < 0.85:
+		drop_heart() 
 	elif roll < 0.95:
-		drop_money()     
+		drop_money()
 	else:
-		drop_weapon() 
+		drop_weapon()
 
 func drop_heart() -> void:
 	if Ui.wip_level != 3 and randf() < 0.8:
@@ -135,7 +135,7 @@ func spawn_drop(item_resource: Resource) -> void:
 	var drop_instance = ITEM_DROP_SCENE.instantiate()
 	if "item_resource" in drop_instance:
 		drop_instance.item_resource = item_resource
-	drop_instance.global_position = global_position
+	drop_instance.global_position = Vector2(global_position.x , global_position.y - 16)
 	get_parent().add_child(drop_instance)
 
 func die() -> void:
