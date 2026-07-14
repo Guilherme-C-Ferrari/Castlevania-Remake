@@ -1,3 +1,4 @@
+@warning_ignore_start("unused_signal")
 extends Node
 
 signal next_level_reached(next_level: PackedScene)

@@ -11,6 +11,8 @@ var current_weapon := ""
 var current_weapon_heart_cost := 0
 var weapon_in_use := 1
 
+var timer: Timer
+
 #WEAPONS
 const DAGGER = preload("uid://gtefgqnoffuc")
 const DAGGER_SFX = preload("uid://fpbry8offwh6")
@@ -23,17 +25,25 @@ const WATCH_SFX = preload("uid://dwrd6pbmrsc0e")
 const TIME_SFX = preload("uid://b0f33n0h8l4ad")
 
 func _ready() -> void:
+	setup_timer()
 	set_inital_time(300)
 	set_player_life(3)
 
 func reset_player_stats():
 	stop_timer()
 	set_player_health(16)
-	set_inital_time(200)
+	set_enemy_health(16)
+	set_inital_time(300)
 	ui.set_extra_point(5)
 	
 	ui.set_weapon_sprite(null)
 	current_weapon = ""
+	
+func restart_ui():
+	reset_player_stats()
+	set_inital_time(300)
+	ui.set_score(0)
+	ui.set_stage(00)
 
 func add_score(score: int):
 	ui.add_score(score)
@@ -45,6 +55,7 @@ func remove_player_health(damage_health: int):
 	var current_health = ui.remove_player_health(damage_health)
 	
 	if current_health <= 0:
+		stop_timer()
 		var player = get_tree().get_first_node_in_group("player")
 		player.death()
 
@@ -64,35 +75,41 @@ func add_enemy_health(heal_health: int):
 		ui.add_enemy_health(1)
 		await get_tree().create_timer(0.2).timeout
 
+func setup_timer():
+	timer = Timer.new()
+	timer.wait_time = 1.0
+	timer.autostart = false
+	timer.timeout.connect(timer_timeout)
+	add_child(timer)
+
+func timer_timeout():
+	var current_time = ui.decrease_time(1)
+			
+	if current_time < 30:
+		AudioManager.play_sound_effect(TIME_SFX, "SFX", -5, 1,1)
+	if current_time <= 0:
+		
+		var player = get_tree().get_first_node_in_group("player")
+		player.death()
+		Ui.stop_timer()
+		 
+		print("TEMPO ACABOU")
+	
 func set_inital_time(new_time: int):
 	ui.set_time(new_time)
 	
 func stop_timer():
-	timer_enable = false
+	timer.stop()
 	
 func run_timer():
-	if !timer_enable:
-		timer_enable = true
-		
-		while timer_enable:
-			await get_tree().create_timer(1.0).timeout
-			var current_time = ui.decrease_time(1)
-			
-			if current_time < 30:
-				AudioManager.play_sound_effect(TIME_SFX, "SFX", -5, 1,1)
-			if current_time <= 0:
-				
-				var player = get_tree().get_first_node_in_group("player")
-				player.death()
-				Ui.stop_timer()
-				 
-				print("TEMPO ACABOU")
+	if timer.is_stopped():
+		timer.start()
 
 func get_timer() -> int:
 	return ui.get_time()
 	
-func decrease_time(decrease_time: int) -> int:
-	return ui.decrease_time(decrease_time)
+func decrease_time(decrease_timer: int) -> int:
+	return ui.decrease_time(decrease_timer)
 	
 func set_stage(new_stage: int):
 	ui.set_stage(new_stage)
@@ -134,17 +151,15 @@ func downgrade_wip_level():
 	
 	wip_level -= 1
 
-func set_current_weapon(name: String, heart_cost: int, weapon_sprite: Texture):
+func set_current_weapon(name_weapon: String, heart_cost: int, weapon_sprite: Texture):
 	ui.set_weapon_sprite(weapon_sprite)
 	
-	current_weapon = name
+	current_weapon = name_weapon
 	current_weapon_heart_cost = heart_cost
 	
 func use_weapon(position: Vector2, direction_right: int):
 	if current_weapon == "" and weapon_in_use != 0:
 		return
-	
-	var player = get_tree().get_first_node_in_group("player")
 	
 	if ui.remove_extra_point(current_weapon_heart_cost):
 		weapon_in_use -= 1

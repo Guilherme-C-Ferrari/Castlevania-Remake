@@ -34,7 +34,6 @@ func upgrade_wip():
 	Ui.upgrade_wip_level()
 	
 	var tree = Engine.get_main_loop()
-	var player = tree.get_first_node_in_group("player")
 	
 	if player:
 		var player_sprite = player.get_node("Visual/AnimatedSpritePlayer")

@@ -17,12 +17,12 @@ func _ready() -> void:
 	heal_controller = Heal_Controller.new()
 	weapon_controller = Weapon_Controller.new()
 
-func item_collected(name: String, heart_cost: int, points: int, item_type: Weapon.Type_Item, item_sprite: Texture, item_global_position: Vector2):
+func item_collected(item_name: String, heart_cost: int, points: int, item_type: Weapon.Type_Item, item_sprite: Texture, item_global_position: Vector2):
 	
 	#WEAPON
 	if Weapon.Type_Item.WEAPON == item_type:
 		AudioManager.play_sound_effect(WEAPON_OBTAINED_SFX, "SFX", -12)
-		weapon_controller.weapon_collected(name, heart_cost, item_sprite)
+		weapon_controller.weapon_collected(item_name, heart_cost, item_sprite)
 	
 	#POINTS
 	elif Weapon.Type_Item.POINTS == item_type:
@@ -43,9 +43,9 @@ func item_collected(name: String, heart_cost: int, points: int, item_type: Weapo
 		AudioManager.play_sound_effect(WEAPON_OBTAINED_SFX, "SFX", -12)
 		
 		if heal_controller:
-			heal_controller.heal_collected(name, points)
+			heal_controller.heal_collected(item_name, points)
 		
 	#SPECIAL
 	elif Weapon.Type_Item.SPECIAL == item_type:
 		if special_controller:
-			special_controller.special_collected(name)
+			special_controller.special_collected(item_name)

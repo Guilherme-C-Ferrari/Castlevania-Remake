@@ -21,6 +21,9 @@ func _ready() -> void:
 func add_score(score: int):
 	var new_score := int(score_points.text) + score
 	score_points.text = str(new_score).pad_zeros(6)
+	
+func set_score(new_score: int):
+	score_points.text = str(new_score).pad_zeros(6)
 
 func set_time(new_time: int):
 	time_seconds.text = str(new_time).pad_zeros(4)
@@ -29,12 +32,12 @@ func get_time() -> int:
 	return int(time_seconds.text)
 	
 	
-func decrease_time(decrease_time: int) -> int:
+func decrease_time(decrease_timer: int) -> int:
 	var current_time = int(time_seconds.text)
 	if current_time <= 0:
 		return current_time
-	time_seconds.text = str(current_time - decrease_time).pad_zeros(4)
-	return current_time - decrease_time
+	time_seconds.text = str(current_time - decrease_timer).pad_zeros(4)
+	return current_time - decrease_timer
 
 func set_stage(new_stage: int):
 	stage_level.text = str(new_stage).pad_zeros(2)
@@ -67,22 +70,22 @@ func remove_player_life(damage_life: int) -> int:
 	return current_lifes
 	
 func add_player_health(heal_health: int):
-	player_health_count.value = clampi(player_health_count.value + heal_health, 0, 16)
+	player_health_count.value = clampf(player_health_count.value + heal_health, 0, 16)
 	
 func remove_player_health(damage_health: int) -> int:
 	print("plauer damage")
-	player_health_count.value = clampi(player_health_count.value - damage_health, 0, 16)
-	return player_health_count.value
+	player_health_count.value = clampf(player_health_count.value - damage_health, 0, 16)
+	return int(player_health_count.value)
 	
 func set_player_health(new_player_health: int):
 	player_health_count.value = clampi(new_player_health, 0, 16)
 	
 func add_enemy_health(heal_health: int):
-	enemy_health_count.value = clampi(enemy_health_count.value + heal_health, 0, 16)
+	enemy_health_count.value = clampf(enemy_health_count.value + heal_health, 0, 16)
 	
 func remove_enemy_health(damage_health: int) -> int:
-	enemy_health_count.value = clampi(enemy_health_count.value - damage_health, 0, 16)
-	return enemy_health_count.value
+	enemy_health_count.value = clampf(enemy_health_count.value - damage_health, 0, 16)
+	return int(enemy_health_count.value)
 	
 func set_enemy_health(new_enemy_health: int):
 	enemy_health_count.value = clampi(new_enemy_health, 0, 16)

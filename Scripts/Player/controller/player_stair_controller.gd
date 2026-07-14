@@ -120,7 +120,14 @@ func using_stair(delta: float):
 	)
 	
 	if player.global_position.distance_to(step_position) <= 1.0:
+		player.global_position = step_position
 		player.is_moving_on_stair = false
+		
+		var total_steps = current_stair.get_step_count()
+		
+		if (stair_mode == STAIR_UP and current_point == total_steps - 1) or (stair_mode == STAIR_DOWN and current_point == 0):
+			not_using_stair()
+			return
 		
 		if !player.is_attacking:
 			var next_point = current_point
@@ -129,7 +136,6 @@ func using_stair(delta: float):
 			elif player_input_direction == STAIR_DOWN:
 				next_point -= 1
 				
-			var total_steps = current_stair.get_step_count()
 			if next_point < 0 or next_point >= total_steps:
 				not_using_stair()
 				return
@@ -146,6 +152,7 @@ func using_stair(delta: float):
 				current_point = next_point
 		
 		apply_facing_fix()
+
 		
 	
 func get_start_point_index() -> int:
@@ -157,9 +164,15 @@ func get_start_point_index() -> int:
 
 func apply_facing_fix():
 	if stair_side == StairSide.RIGHT:
-		player.turn_player("RIGHT") if stair_mode == STAIR_UP else player.turn_player("LEFT")
+		if stair_mode == STAIR_UP:
+			player.turn_player("RIGHT")
+		else:
+			player.turn_player("LEFT")
 	else:
-		player.turn_player("LEFT") if stair_mode == STAIR_UP else player.turn_player("RIGHT")
+		if stair_mode == STAIR_UP:
+			player.turn_player("LEFT")
+		else:
+			player.turn_player("RIGHT")
 
 
 func check_input() -> bool:

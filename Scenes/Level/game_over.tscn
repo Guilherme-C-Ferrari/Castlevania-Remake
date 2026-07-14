@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cgmlv67uea4t8"]
+
+[ext_resource type="Script" uid="uid://dklw0tsb4r852" path="res://Scripts/Level/game_over.gd" id="1_wgmt8"]
+[ext_resource type="FontFile" uid="uid://bk431songejc3" path="res://Assets/UI/nintendo-nes-font.ttf" id="2_jqwa4"]
+[ext_resource type="Texture2D" uid="uid://8mv5ek6wvmll" path="res://Assets/UI/misc.png" id="3_klsvd"]
+
+[sub_resource type="FontVariation" id="FontVariation_rn2ws"]
+base_font = ExtResource("2_jqwa4")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2o33"]
+atlas = ExtResource("3_klsvd")
+region = Rect2(170, 188, 8, 8)
+
+[node name="Game_over" type="Node2D" unique_id=567361110]
+script = ExtResource("1_wgmt8")
+
+[node name="Label" type="Label" parent="." unique_id=1482813924]
+offset_left = 90.0
+offset_right = 256.0
+offset_bottom = 240.0
+theme_override_fonts/font = SubResource("FontVariation_rn2ws")
+theme_override_font_sizes/font_size = 8
+text = "GAME OVER
+
+
+
+  CONTINUE
+
+  END"
+vertical_alignment = 1
+
+[node name="Heart_Continue" type="Sprite2D" parent="." unique_id=1875017408]
+position = Vector2(92, 131)
+texture = SubResource("AtlasTexture_y2o33")
+
+[node name="Heart_End" type="Sprite2D" parent="." unique_id=876698102]
+visible = false
+position = Vector2(92, 153)
+texture = SubResource("AtlasTexture_y2o33")

@@ -17,7 +17,7 @@ func _ready() -> void:
 	Ui.visible = false
 	AudioManager.stop_music()
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Enter") and can_play:
 		can_play = false
 		animation_button()

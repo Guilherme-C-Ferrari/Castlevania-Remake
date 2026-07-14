@@ -31,7 +31,7 @@ func _physics_process(_delta: float) -> void:
 		self.position = current_player_node.position
 
 func increase_camera_limit_right(amount: float):
-	limit_right += amount
+	limit_right += int(amount)
 
 func update_camera_limits(new_tilemap: TileMapLayer):
 	# 1. Pega o retângulo com as bordas do tilemap

@@ -21,9 +21,9 @@ func _ready() -> void:
 	super()
 
 func _on_stair_transition_body_entered(body: Node2D) -> void:
-	var player = get_tree().get_first_node_in_group("player")
-	if body == player:
-		player.is_on_cutscene = true
+	var player_body = get_tree().get_first_node_in_group("player")
+	if body == player_body:
+		player_body.is_on_cutscene = true
 		self.hide()
 		Ui.visible = false
 		swap_levels()
@@ -32,7 +32,7 @@ func _on_stair_transition_body_entered(body: Node2D) -> void:
 		self.show()
 		Ui.visible = true
 		#auto_walk_stairs()
-		player.is_on_cutscene = false
+		player_body.is_on_cutscene = false
 
 #func auto_walk_stairs()
 	#if above
