@@ -7,3 +7,5 @@ signal request_camera_reference
 signal respond_camera_reference(camera: Camera2D)
 signal player_died
 signal game_over
+signal boss_won
+signal disable_camera_follow

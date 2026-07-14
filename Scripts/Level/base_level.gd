@@ -22,6 +22,7 @@ func _ready() -> void:
 	SignalManager.player_spawned.emit(player)
 	SignalManager.request_camera_reference.emit()
 	Ui.set_stage(stage_value)
+	Ui.run_timer()
 
 func update_camera_reference(new_camera_reference: Camera2D):
 	camera_reference = new_camera_reference

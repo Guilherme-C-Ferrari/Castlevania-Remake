@@ -36,6 +36,7 @@ var invincible := false
 @export_group("Animation Triggers")
 @export_subgroup("Movements")
 @export var player_can_control := true
+@export var is_on_cutscene = false
 @export var is_jumping = false
 @export var is_walking := false
 @export var is_ducking:= false

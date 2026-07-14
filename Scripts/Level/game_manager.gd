@@ -1,13 +1,12 @@
 extends Node
 
-const MENU = preload("uid://cfptssnl1feyh")
-
 @onready var level_1_3_spawnpoint: Marker2D = $"Level1_3 spawnpoint"
 @onready var level_1_4_spawnpoint: Marker2D = $"Level1_4 spawnpoint"
 
 @onready var camera: Camera2D = $Camera2D
 
 @export var starting_level: PackedScene
+@export var try_again_scene: PackedScene
 
 var current_level_node: Node2D
 var current_level_packed_scene: PackedScene
@@ -28,7 +27,7 @@ func update_player(new_player: CharacterBody2D):
 func update_tilemap(new_tilemap: TileMapLayer):
 	camera.update_camera_limits(new_tilemap)
 
-func change_current_level(new_scene):
+func change_current_level(new_scene: PackedScene):
 	if current_level_node:
 		current_level_node.queue_free()
 	current_level_packed_scene = new_scene
@@ -46,7 +45,7 @@ func player_died():
 func game_over():
 	if current_level_node:
 		current_level_node.queue_free()
-	var new_current_level = MENU.instantiate(PackedScene.GEN_EDIT_STATE_MAIN_INHERITED)
+	var new_current_level = try_again_scene.instantiate(PackedScene.GEN_EDIT_STATE_MAIN_INHERITED)
 	add_child(new_current_level)
 
 func send_camera_reference():

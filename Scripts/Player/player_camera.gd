@@ -6,9 +6,13 @@ var can_follow_player: bool = false
 var current_player_node: CharacterBody2D
 
 func _ready() -> void:
+	SignalManager.disable_camera_follow.connect(turn_off_follow)
 	SignalManager.level_loaded.connect(update_camera_limits)
 	if current_player_node:
 		can_follow_player = true
+
+func turn_off_follow():
+	can_follow_player = false
 
 func new_scene_loaded(new_tilemap: TileMapLayer, new_player: CharacterBody2D):
 	update_camera_limits(new_tilemap)
@@ -36,6 +40,6 @@ func update_camera_limits(new_tilemap: TileMapLayer):
 	var tile_size: Vector2 = new_tilemap.tile_set.tile_size
 	# 3. Define os limites da câmera
 	limit_left = int((map_rect.position.x) * tile_size.x + new_tilemap.global_position.x)
-	limit_top = y_offset + int(map_rect.position.y * tile_size.y)
+	limit_top = y_offset + int(map_rect.position.y * tile_size.y + new_tilemap.global_position.y)
 	limit_right = int(map_rect.position.x + map_rect.size.x) * int(tile_size.x) + int(new_tilemap.global_position.x)
-	limit_bottom = y_offset + int(map_rect.position.y + map_rect.size.y) * int(tile_size.y)
+	limit_bottom = y_offset + int(map_rect.position.y + map_rect.size.y) * int(tile_size.y) + int(new_tilemap.global_position.y)

@@ -121,7 +121,8 @@ func drop_money() -> void:
 func drop_weapon() -> void:
 	var weapon_roll = randf()
 	if weapon_roll > 0.75:
-		spawn_drop(WATER_RES)   
+		pass
+		#spawn_drop(WATER_RES)   
 	elif weapon_roll > 0.50:
 		spawn_drop(WATCH_RES)   
 	elif weapon_roll > 0.25:

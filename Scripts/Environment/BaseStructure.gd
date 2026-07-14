@@ -21,7 +21,7 @@ func on_receive_damage(amount: int) -> void:
 
 func spawn_explosion() -> void:
 	var explosion = fire_explosion.instantiate()
-	explosion.global_position = sprite.global_position
+	explosion.global_position = self.position
 	get_parent().add_child(explosion)
 	
 func drop_item():
@@ -30,7 +30,7 @@ func drop_item():
 		item_drop_scene.item_resource = wip_upgrade
 	else:
 		item_drop_scene.item_resource = item_1
-	item_drop_scene.global_position = sprite.global_position
+	item_drop_scene.global_position = self.position
 	get_parent().add_child(item_drop_scene)
 
 func be_destroyed() -> void:

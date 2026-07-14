@@ -37,3 +37,6 @@ func projectile_struck() -> void:
 	sprite.set_deferred("visible", false)
 	hit_box.get_child(0).set_deferred("disabled", true)
 	queue_free()
+
+func drop_item() -> void:
+	pass

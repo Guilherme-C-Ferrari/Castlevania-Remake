@@ -42,4 +42,4 @@ func end_level():
 		await tree.create_timer(0.1).timeout
 	
 	await tree.create_timer(1.5).timeout
-	print("ACABOU, PODE IR PARA PROXIMA FASE")
+	SignalManager.boss_won.emit()

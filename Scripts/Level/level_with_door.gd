@@ -6,6 +6,7 @@ class_name LevelWithDoor
 
 func _on_next_level_trigger_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
+		Ui.stop_timer()
 		despawn_level()
 		var map_rect: Rect2 = tile_map_layer.get_used_rect()
 		var tile_size: Vector2 = tile_map_layer.tile_set.tile_size
