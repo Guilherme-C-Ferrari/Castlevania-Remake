@@ -30,8 +30,12 @@ position = Vector2(107, 102)
 single_use = true
 target_spawner = NodePath("../SpawnerWithSwitch")
 
+[node name="Switch2" parent="Enemies" unique_id=1354162895 node_paths=PackedStringArray("target_spawner") instance=ExtResource("3_kdr4j")]
+position = Vector2(460, 134)
+single_use = true
+target_spawner = NodePath("../SpawnerWithSwitch")
+
 [node name="SpawnerWithSwitch" parent="Enemies" unique_id=1987307375 instance=ExtResource("4_hemnd")]
-visible = false
 position = Vector2(256, 224)
 zone_size = Vector2(510, 32)
 enemy_to_spawn = ExtResource("3_pi4of")
