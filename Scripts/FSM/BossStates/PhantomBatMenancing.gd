@@ -40,9 +40,9 @@ func physics_update(delta: float) -> void:
 
 func choose_next_state() -> void:
 	var roll = randf()
-	if roll < 0.50:       
+	if roll < 0.65:       
 		transitioned.emit(self, "PhantomBatDive")
-	elif roll < 0.80:      
+	elif roll < 0.85:      
 		transitioned.emit(self, "PhantomBatFloating")
 	else:                  
 		transitioned.emit(self, "PhantomBatShooting")

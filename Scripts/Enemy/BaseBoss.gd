@@ -13,6 +13,8 @@ func activate() -> void:
 	is_active = true
 
 func on_receive_damage(amount: int) -> void:
+	AudioManager.play_sound_effect(enemy_destroyer, "SFX", -12, 0.85)
+	spawn_explosion()
 	hp -= amount
 	Ui.remove_enemy_health(amount)
 	if hp <= 0:

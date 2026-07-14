@@ -2,7 +2,7 @@ extends EnemyState
 class_name PhantomBatFloating
 
 @export var float_speed: float = 80.0
-@export var float_duration: float = 1.0
+@export var float_duration: float = 2.5
 
 var player: CharacterBody2D = null
 var timer: float = 0.0
