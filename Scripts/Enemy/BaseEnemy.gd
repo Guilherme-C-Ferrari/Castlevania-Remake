@@ -107,28 +107,28 @@ func drop_item() -> void:
 
 func drop_heart() -> void:
 	if Ui.wip_level != 3 and randf() < 0.8:
-		spawn_drop(WIP_UPGRADE)
+		spawn_drop.call_deferred(WIP_UPGRADE)
 	else:
-		spawn_drop(HEART_RES)
+		spawn_drop.call_deferred(HEART_RES)
 
 func drop_money() -> void:
 	var money_roll = randf()
 	if money_roll > 0.80:
-		spawn_drop(BAG_700_RES)
+		spawn_drop.call_deferred(BAG_700_RES)
 	else:
-		spawn_drop(BAG_400_RES)
+		spawn_drop.call_deferred(BAG_400_RES)
 
 func drop_weapon() -> void:
 	var weapon_roll = randf()
 	if weapon_roll > 0.75:
 		pass
-		#spawn_drop(WATER_RES)   
+		#spawn_drop.call_deferred(WATER_RES)   
 	elif weapon_roll > 0.50:
-		spawn_drop(WATCH_RES)   
+		spawn_drop.call_deferred(WATCH_RES)   
 	elif weapon_roll > 0.25:
-		spawn_drop(DAGGER_RES)  
+		spawn_drop.call_deferred(DAGGER_RES)  
 	else:
-		spawn_drop(AXE_RES) 
+		spawn_drop.call_deferred(AXE_RES) 
 
 func spawn_drop(item_resource: Resource) -> void:
 	if not item_resource or not ITEM_DROP_SCENE: return
