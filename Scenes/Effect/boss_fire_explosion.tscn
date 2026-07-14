@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://carrgwiljfcwb"]
+
+[ext_resource type="Script" uid="uid://cxt838bceejn4" path="res://Scripts/Effect/BossFireExplosion.gd" id="1_vndq2"]
+[ext_resource type="Texture2D" uid="uid://jmxuikrw0yj6" path="res://Assets/SpriteSheets/enemies-2.png" id="2_nlaly"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bru8"]
+atlas = ExtResource("2_nlaly")
+region = Rect2(151, 213, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edd8o"]
+atlas = ExtResource("2_nlaly")
+region = Rect2(163, 213, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oj53d"]
+atlas = ExtResource("2_nlaly")
+region = Rect2(177, 213, 8, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rq6ej"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bru8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edd8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oj53d")
+}],
+"loop": false,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="FireExplosion" type="Node2D" unique_id=1048516655]
+z_index = 2
+script = ExtResource("1_vndq2")
+
+[node name="FireBall" type="AnimatedSprite2D" parent="." unique_id=360149971]
+z_index = 2
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_rq6ej")
+
+[node name="FireBall2" type="AnimatedSprite2D" parent="." unique_id=277035932]
+z_index = 2
+position = Vector2(0, 7)
+sprite_frames = SubResource("SpriteFrames_rq6ej")
+
+[node name="FireBall3" type="AnimatedSprite2D" parent="." unique_id=1154582445]
+z_index = 2
+position = Vector2(7, -8)
+sprite_frames = SubResource("SpriteFrames_rq6ej")
+
+[node name="FireBall4" type="AnimatedSprite2D" parent="." unique_id=1084496486]
+z_index = 2
+position = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_rq6ej")
+
+[node name="FireBall5" type="AnimatedSprite2D" parent="." unique_id=1981833118]
+z_index = 2
+position = Vector2(-7, 7)
+sprite_frames = SubResource("SpriteFrames_rq6ej")
+
+[node name="FireBall6" type="AnimatedSprite2D" parent="." unique_id=1511268637]
+z_index = 2
+position = Vector2(-7, -8)
+sprite_frames = SubResource("SpriteFrames_rq6ej")

@@ -18,4 +18,9 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		bat_struck()
 
 func bat_struck() -> void:
-	die()
+	AudioManager.play_sound_effect(enemy_destroyer, "SFX", -12, 0.85)
+	sprite.set_deferred("visible", false)
+	hit_box.get_child(0).set_deferred("disabled", true)
+	Ui.add_score(experience)
+	spawn_explosion()
+	queue_free()

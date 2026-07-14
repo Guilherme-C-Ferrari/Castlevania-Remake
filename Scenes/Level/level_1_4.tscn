@@ -13,7 +13,6 @@
 [ext_resource type="Resource" uid="uid://1x6tjxics52" path="res://Scripts/Items/Weapons/axe.tres" id="6_iyhwk"]
 [ext_resource type="PackedScene" uid="uid://d1ltye8i6fbue" path="res://Scenes/Environment/stair.tscn" id="8_iyhwk"]
 [ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="9_doosc"]
-[ext_resource type="Resource" uid="uid://8xs0auhitwid" path="res://Scripts/Items/Heal/orbe.tres" id="12_3k5er"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1bv0"]
 size = Vector2(256, 9)
@@ -38,8 +37,9 @@ zone_size = Vector2(450, 150)
 enemy_to_spawn = ExtResource("4_0v6kv")
 max_qty_to_spawn = 3
 
-[node name="PhantomBat" parent="Enemies" unique_id=253270751 instance=ExtResource("5_sypq6")]
+[node name="PhantomBat" parent="Enemies" unique_id=253270751 node_paths=PackedStringArray("drop_position") instance=ExtResource("5_sypq6")]
 position = Vector2(623, 92)
+drop_position = NodePath("../../MarkerOrb")
 
 [node name="BossSwitch" parent="Enemies" unique_id=711457342 node_paths=PackedStringArray("target_boss", "boss_wall") instance=ExtResource("6_0j1ps")]
 position = Vector2(693, 182)
@@ -82,7 +82,6 @@ item_1 = ExtResource("5_6f6lr")
 
 [node name="Candle10" parent="Environment_Items" unique_id=2087316853 instance=ExtResource("3_yvkgm")]
 position = Vector2(607, 201)
-item_1 = ExtResource("12_3k5er")
 
 [node name="Candle11" parent="Environment_Items" unique_id=53340494 instance=ExtResource("3_yvkgm")]
 position = Vector2(671, 170)
@@ -142,5 +141,8 @@ collision_mask = 2
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Lateral Wall2" unique_id=2005626683]
 position = Vector2(-2.25, -9.5)
 shape = SubResource("RectangleShape2D_0j1ps")
+
+[node name="MarkerOrb" type="Marker2D" parent="." unique_id=996018129]
+position = Vector2(639, 144)
 
 [editable path="Bat Boss Room"]

@@ -28,5 +28,5 @@ func _on_body_exited(body: Node2D) -> void:
 func spawn_splash(pos: Vector2) -> void:
 	if not splash_effect_scene: return
 	var splash = splash_effect_scene.instantiate()
-	splash.global_position = pos
 	get_parent().add_child(splash)
+	splash.global_position = pos

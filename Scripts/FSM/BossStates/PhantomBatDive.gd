@@ -1,7 +1,7 @@
 extends EnemyState
 class_name PhantomBatDive
 
-@export var dive_speed: float = 100.0 
+@export var dive_speed: float = 120.0 
 @export var dive_duration: float = 2.0 
 
 var direction: Vector2 = Vector2.ZERO

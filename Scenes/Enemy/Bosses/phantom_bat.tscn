@@ -44,18 +44,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdyt7"]
-size = Vector2(48, 22)
+size = Vector2(36, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_govpi"]
 size = Vector2(36, 18)
 
 [node name="PhantomBat" type="CharacterBody2D" unique_id=253270751 groups=["enemy"]]
 light_mask = 4
+z_index = 1
 collision_layer = 4
 script = ExtResource("1_d4i51")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=20817626]
-z_index = 2
+z_index = 1
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_pk5wt")
 animation = &"Idling"

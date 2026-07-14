@@ -14,7 +14,7 @@ var amplitude_onda: float = 90.0
 func _ready() -> void:
 	item_sprite.texture = item_resource.sprite
 	collision.shape.size = item_resource.collision_size
-	var lifespan_timer = get_tree().create_timer(5.0, false)
+	var lifespan_timer = get_tree().create_timer(item_resource.despawn_time, false)
 	lifespan_timer.timeout.connect(func(): self.queue_free())
 
 func _physics_process(delta):

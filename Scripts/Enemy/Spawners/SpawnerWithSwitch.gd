@@ -40,6 +40,7 @@ func spawn_mob_in_camera(spawn_zone: Rect2) -> void:
 	if not enemy_to_spawn:
 		return
 	var enemy = enemy_to_spawn.instantiate()
+	get_parent().add_child(enemy)
 	
 	var random_x = randf_range(spawn_zone.position.x, spawn_zone.end.x)
 	var random_y = randf_range(spawn_zone.position.y, spawn_zone.end.y)
@@ -50,7 +51,6 @@ func spawn_mob_in_camera(spawn_zone: Rect2) -> void:
 		var direction = sign(player.global_position.x - global_position.x)
 		enemy.walk_direction = direction
 	
-	get_parent().add_child(enemy)
 	spawned_enemies.append(enemy)
 
 func turn_spawner_on() -> void:

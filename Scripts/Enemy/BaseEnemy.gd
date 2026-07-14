@@ -16,15 +16,15 @@ class_name BaseEnemy
 const enemy_destroyer = preload("res://Audio/SFX/32. SFX - Enemy - Candle Destroyer.mp3")
 const fire_explosion = preload("res://Scenes/Effect/fire_explosion.tscn")
 
-const ITEM_DROP_SCENE = preload("res://Scenes/Environment/item_drop.tscn")
-const HEART_RES = preload("res://Scripts/Items/Hearts/heart.tres")
-const WIP_UPGRADE = preload("res://Scripts/Items/Wip/wip_upgrade.tres")
-const BAG_400_RES = preload("res://Scripts/Items/Point/bag_400.tres")
-const BAG_700_RES = preload("res://Scripts/Items/Point/bag_700.tres")
-const AXE_RES = preload("res://Scripts/Items/Weapons/axe.tres")
-const DAGGER_RES = preload("res://Scripts/Items/Weapons/dagger.tres")
-const WATCH_RES = preload("res://Scripts/Items/Weapons/watch.tres")
-const WATER_RES = preload("res://Scripts/Items/Weapons/water.tres")
+const ITEM_DROP_SCENE = preload("uid://7jkunyjdw7r2")
+const HEART_RES = preload("uid://chuagtkrnyv38")
+const WIP_UPGRADE = preload("uid://bm1pm16uvf2xc")
+const BAG_400_RES = preload("uid://b5vfffjn5wy6i")
+const BAG_700_RES = preload("uid://bevo8cr5cwqr3")
+const AXE_RES = preload("uid://1x6tjxics52")
+const DAGGER_RES = preload("uid://bp83wjkgu0oii")
+const WATCH_RES = preload("uid://dwp8khpxhbrph")
+const WATER_RES = preload("uid://cf2lxep2be21b")
 
 func _ready() -> void:
 	hit_box.body_entered.connect(_on_player_damaged)
@@ -96,46 +96,46 @@ func resume_time() -> void:
 
 func drop_item() -> void:
 	var roll = randf()
-	if roll < 0.55:
+	if roll < 0.70:
 		return 
-	elif roll < 0.80:
-		drop_heart()     
+	elif roll < 0.85:
+		drop_heart() 
 	elif roll < 0.95:
-		drop_money()     
+		drop_money()
 	else:
-		drop_weapon() 
+		drop_weapon()
 
 func drop_heart() -> void:
 	if Ui.wip_level != 3 and randf() < 0.8:
-		spawn_drop(WIP_UPGRADE)
+		spawn_drop.call_deferred(WIP_UPGRADE)
 	else:
-		spawn_drop(HEART_RES)
+		spawn_drop.call_deferred(HEART_RES)
 
 func drop_money() -> void:
 	var money_roll = randf()
 	if money_roll > 0.80:
-		spawn_drop(BAG_700_RES)
+		spawn_drop.call_deferred(BAG_700_RES)
 	else:
-		spawn_drop(BAG_400_RES)
+		spawn_drop.call_deferred(BAG_400_RES)
 
 func drop_weapon() -> void:
 	var weapon_roll = randf()
 	if weapon_roll > 0.75:
 		pass
-		#spawn_drop(WATER_RES)   
+		#spawn_drop.call_deferred(WATER_RES)   
 	elif weapon_roll > 0.50:
-		spawn_drop(WATCH_RES)   
+		spawn_drop.call_deferred(WATCH_RES)   
 	elif weapon_roll > 0.25:
-		spawn_drop(DAGGER_RES)  
+		spawn_drop.call_deferred(DAGGER_RES)  
 	else:
-		spawn_drop(AXE_RES) 
+		spawn_drop.call_deferred(AXE_RES) 
 
 func spawn_drop(item_resource: Resource) -> void:
 	if not item_resource or not ITEM_DROP_SCENE: return
 	var drop_instance = ITEM_DROP_SCENE.instantiate()
 	if "item_resource" in drop_instance:
 		drop_instance.item_resource = item_resource
-	drop_instance.global_position = global_position
+	drop_instance.global_position = Vector2(global_position.x , global_position.y - 16)
 	get_parent().add_child(drop_instance)
 
 func die() -> void:
