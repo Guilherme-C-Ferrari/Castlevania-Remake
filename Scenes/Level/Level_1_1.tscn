@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://c6bh1ewaddwup" path="res://Scripts/Items/Hearts/big_heart.tres" id="5_f05oy"]
 [ext_resource type="Resource" uid="uid://bm1pm16uvf2xc" path="res://Scripts/Items/Wip/wip_upgrade.tres" id="6_2vv70"]
 [ext_resource type="PackedScene" uid="uid://j2pvgo125jgq" path="res://Scenes/Player/fake_player.tscn" id="6_kd1p2"]
-[ext_resource type="Resource" uid="uid://bp83wjkgu0oii" path="res://Scripts/Items/Weapons/dagger.tres" id="7_2vv70"]
+[ext_resource type="Resource" uid="uid://dwp8khpxhbrph" path="res://Scripts/Items/Weapons/watch.tres" id="7_2vv70"]
 
 [sub_resource type="Animation" id="Animation_a8k43"]
 length = 0.001

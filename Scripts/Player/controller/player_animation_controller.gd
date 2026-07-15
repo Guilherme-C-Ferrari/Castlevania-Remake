@@ -4,6 +4,8 @@ extends Node
 
 const WHIP_SFX = preload("uid://b1x36h5p0hjvy")
 @onready var wip: Node2D = $"../Visual/wip"
+@onready var wip_collision_shape_2d: CollisionShape2D = $"../Player_Combat_Controller/Wip_Attack_Area/CollisionShape2D"
+
 
 func player_animation_control():	
 	move_animation()
@@ -49,11 +51,13 @@ func duck_animation():
 		player.is_walking = false
 
 func attack_animation():
-	if player.ascend_pressed and player.attack_pressed and Ui.can_use_weapon():
+	if player.ascend_pressed and player.attack_pressed and Ui.can_use_weapon() and !player.is_using_special :
 		print("special")
 		wip.visible = false
+		
 		Ui.use_weapon(player.global_position, player.visual.scale.x)
 		player.is_attacking = true
+		player.is_using_special = true
 		return
 	
 	if player.attack_pressed and player.playback.get_current_node() != "Attack_State":
