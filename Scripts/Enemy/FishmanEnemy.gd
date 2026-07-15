@@ -14,6 +14,6 @@ func _ready() -> void:
 
 func spawn_projectile() -> void:
 	var fireball = fireball_projectile.instantiate()
+	get_parent().add_child(fireball)
 	fireball.global_position = Vector2(global_position.x, global_position.y - 25)
 	fireball.walk_direction = walk_direction
-	get_parent().add_child(fireball)

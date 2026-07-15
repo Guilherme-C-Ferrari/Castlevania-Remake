@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://n26qioixkkbg" path="res://Scripts/Environment/Water.gd" id="10_hemnd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2y6ks"]
-size = Vector2(512, 29)
+size = Vector2(512, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdr4j"]
 size = Vector2(9, 80)
@@ -72,17 +72,17 @@ position = Vector2(497, 89)
 item_1 = ExtResource("6_pi4of")
 
 [node name="Water" type="Area2D" parent="Environment_Items" unique_id=565777233]
-collision_mask = 7
+collision_mask = 135
 script = ExtResource("10_hemnd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment_Items/Water" unique_id=454897633]
-position = Vector2(256, 224.5)
+position = Vector2(256, 228)
 shape = SubResource("RectangleShape2D_2y6ks")
 
 [node name="Walls" type="Node2D" parent="." unique_id=599581238]
 
 [node name="Lateral Wall" type="StaticBody2D" parent="Walls" unique_id=1755355231]
-position = Vector2(6, 104)
+position = Vector2(-4, 104)
 collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Lateral Wall" unique_id=1577139668]

@@ -1,8 +1,5 @@
 extends Node
 
-@onready var level_1_3_spawnpoint: Marker2D = $"Level1_3 spawnpoint"
-@onready var level_1_4_spawnpoint: Marker2D = $"Level1_4 spawnpoint"
-
 @onready var camera: Camera2D = $Camera2D
 
 @export var starting_level: PackedScene
@@ -41,12 +38,16 @@ func player_died():
 		current_level_node.queue_free()
 	current_level_node = current_level_packed_scene.instantiate(PackedScene.GEN_EDIT_STATE_MAIN_INHERITED)
 	add_child(current_level_node)
+	AudioManager.play_current_music()
 
 func game_over():
 	if current_level_node:
 		current_level_node.queue_free()
+	camera.free_limits()
+	camera.position = Vector2(128,120)
 	var new_current_level = try_again_scene.instantiate(PackedScene.GEN_EDIT_STATE_MAIN_INHERITED)
 	add_child(new_current_level)
+	current_level_node = new_current_level
 
 func send_camera_reference():
 	SignalManager.respond_camera_reference.emit(camera)

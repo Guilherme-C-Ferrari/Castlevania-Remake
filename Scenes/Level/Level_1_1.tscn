@@ -122,7 +122,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kd1p2"]
-size = Vector2(24, 1)
+size = Vector2(22, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2vv70"]
 size = Vector2(10, 100)
@@ -173,7 +173,7 @@ item_1 = ExtResource("7_2vv70")
 can_drop_wip = false
 
 [node name="Player" parent="." unique_id=2036421342 instance=ExtResource("3_6khmb")]
-position = Vector2(660, 195)
+position = Vector2(48, 208)
 
 [node name="FakePlayer" parent="." unique_id=1962101468 instance=ExtResource("6_kd1p2")]
 position = Vector2(676, 208)
@@ -193,6 +193,8 @@ collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Lateral Wall2" unique_id=1274214435]
 shape = SubResource("RectangleShape2D_2vv70")
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1491614091]
 
 [connection signal="body_entered" from="Castle Entrance/Area2D" to="." method="_on_area_2d_2_body_entered"]
 

@@ -4,6 +4,9 @@ extends LevelWithDoor
 
 @onready var offset_level_1_3_2: Node2D = $"Offset Level1_3_2"
 
+@onready var enemies_child: Node2D = $Level1_3_1/Enemies
+@onready var environment_items_child: Node2D = $Level1_3_1/Environment_Items
+
 const LEVEL_1_3_2 = preload("uid://d1spkvjd6hjvy")
 
 var level_1_3_2: Node2D
@@ -12,6 +15,8 @@ var above: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	enemies = enemies_child
+	environment_items = environment_items_child
 	stage_value = 2
 	tile_map_layer = get_node("Level1_3_1/Crypt A/TileMapLayer")
 	level_1_3_2 = LEVEL_1_3_2.instantiate(PackedScene.GEN_EDIT_STATE_MAIN_INHERITED)

@@ -29,7 +29,7 @@ func physics_update(_delta: float) -> void:
 func jump() -> void:
 	if character:
 		if character.get("is_spawner_jumper"):
-			character.velocity.y = -500.0
+			character.velocity.y = -450.0
 			character.velocity.x = 0.0
 		else:
 			character.velocity.y = -100.0
