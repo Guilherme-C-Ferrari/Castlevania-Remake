@@ -130,10 +130,14 @@ shape = SubResource("RectangleShape2D_7ossr")
 position = Vector2(560, 128)
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("14_j8jq6")]
-position = Vector2(386, 221)
+position = Vector2(48, 128)
 
 [node name="Offset Level1_3_2" type="Node2D" parent="." unique_id=34975813]
 position = Vector2(29, 192)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=556560067]
+
+[node name="Environment_Items" type="Node2D" parent="." unique_id=1409971337]
 
 [connection signal="body_entered" from="Transition Stair/Stair Transition Collision" to="." method="_on_stair_transition_body_entered"]
 [connection signal="body_entered" from="Transition Stair2/Stair Transition Collision" to="." method="_on_stair_transition_body_entered"]

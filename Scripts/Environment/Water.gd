@@ -15,9 +15,12 @@ func _on_body_entered(body: Node2D) -> void:
 		if body.velocity.y > 0.0:
 			spawn_splash(body.global_position)
 			AudioManager.play_sound_effect(splash_sound_enter, "SFX", -12, 0.85)
+			body.hide()
 			if body.is_in_group("player"):
+				get_viewport().get_camera_2d().can_follow_player = false
 				await get_tree().create_timer(0.5).timeout
-				body.death()
+				body.velocity = Vector2.ZERO
+				body.get_node("AnimationPlayer").play("dead")
 
 func _on_body_exited(body: Node2D) -> void:
 	if "velocity" in body:

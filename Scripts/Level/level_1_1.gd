@@ -25,6 +25,7 @@ func move_to_right_of_castle_entrance():
 
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
+		player.process_mode = Node.PROCESS_MODE_DISABLED
 		despawn_level()
 		Ui.stop_timer()
 		var anim: Animation = change_scene_animation_player.get_animation("entering_castle")

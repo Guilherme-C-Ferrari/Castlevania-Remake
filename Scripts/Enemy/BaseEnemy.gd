@@ -72,8 +72,8 @@ func on_receive_damage(amount: int) -> void:
 
 func spawn_explosion() -> void:
 	var explosion = fire_explosion.instantiate()
-	explosion.global_position = sprite.global_position
 	get_parent().add_child(explosion)
+	explosion.global_position = sprite.global_position
 
 func stop_time() -> void:
 	if is_time_stopped: 
@@ -81,6 +81,10 @@ func stop_time() -> void:
 	is_time_stopped = true
 	saved_move_speed  = move_speed 
 	move_speed  = 0.0
+	
+	var timer: Timer = get_node_or_null("Timer")
+	if timer:
+		timer.stop()
 
 	if sprite:
 		sprite.pause()
@@ -90,6 +94,10 @@ func resume_time() -> void:
 		return
 	is_time_stopped = false
 	move_speed = saved_move_speed
+	
+	var timer: Timer = get_node_or_null("Timer")
+	if timer:
+		timer.start()
 	
 	if sprite:
 		sprite.play()

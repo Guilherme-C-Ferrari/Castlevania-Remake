@@ -33,14 +33,17 @@ func reset_player_stats():
 	stop_timer()
 	set_player_health(16)
 	set_enemy_health(16)
-	set_inital_time(300)
+	set_inital_time(200)
 	ui.set_extra_point(5)
+	wip_level = 1
 	
 	ui.set_weapon_sprite(null)
 	current_weapon = ""
+	weapon_in_use = 1
 	
 func restart_ui():
 	reset_player_stats()
+	set_player_life(3)
 	set_inital_time(300)
 	ui.set_score(0)
 	ui.set_stage(00)
@@ -212,6 +215,9 @@ func add_weapon_usage():
 	weapon_in_use += 1
 	
 func can_use_weapon():
+	print(current_weapon)
+	print(current_weapon_heart_cost)
+	print(weapon_in_use)
 	return current_weapon != "" and current_weapon_heart_cost <= ui.get_extra_point() and weapon_in_use != 0
 	
 func restart_status():

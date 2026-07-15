@@ -42,4 +42,10 @@ func update_camera_limits(new_tilemap: TileMapLayer):
 	limit_left = int((map_rect.position.x) * tile_size.x + new_tilemap.global_position.x)
 	limit_top = y_offset + int(map_rect.position.y * tile_size.y + new_tilemap.global_position.y)
 	limit_right = int(map_rect.position.x + map_rect.size.x) * int(tile_size.x) + int(new_tilemap.global_position.x)
-	limit_bottom = y_offset + int(map_rect.position.y + map_rect.size.y) * int(tile_size.y) + int(new_tilemap.global_position.y)
+	limit_bottom = int(map_rect.position.y + map_rect.size.y) * int(tile_size.y) + int(new_tilemap.global_position.y)
+
+func free_limits():
+	limit_left = -9999999999
+	limit_top = -9999999999
+	limit_right = 9999999999
+	limit_bottom = 9999999999

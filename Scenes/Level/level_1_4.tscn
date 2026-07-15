@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://1x6tjxics52" path="res://Scripts/Items/Weapons/axe.tres" id="6_iyhwk"]
 [ext_resource type="PackedScene" uid="uid://d1ltye8i6fbue" path="res://Scenes/Environment/stair.tscn" id="8_iyhwk"]
 [ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="9_doosc"]
+[ext_resource type="PackedScene" uid="uid://j2pvgo125jgq" path="res://Scenes/Player/fake_player.tscn" id="14_3k5er"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1bv0"]
 size = Vector2(256, 9)
@@ -144,5 +145,20 @@ shape = SubResource("RectangleShape2D_0j1ps")
 
 [node name="MarkerOrb" type="Marker2D" parent="." unique_id=996018129]
 position = Vector2(639, 144)
+
+[node name="FakePlayer" parent="." unique_id=1962101468 instance=ExtResource("14_3k5er")]
+z_index = 2
+position = Vector2(512, 0)
+
+[node name="Stair3" parent="." unique_id=685650736 instance=ExtResource("8_iyhwk")]
+position = Vector2(238, 224)
+stair_side = 0
+
+[node name="Stair" parent="Stair3" unique_id=858202354 instance=ExtResource("8_iyhwk")]
+position = Vector2(448, -32)
+step_count = 4
+up_area_size = Vector2(25, 4.185)
+down_area_size = Vector2(15, 3.48)
+down_area_offset_x = 8.265
 
 [editable path="Bat Boss Room"]

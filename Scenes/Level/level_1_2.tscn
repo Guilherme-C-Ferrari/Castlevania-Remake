@@ -190,7 +190,7 @@ position = Vector2(1503, 72)
 item_1 = ExtResource("10_x8sa7")
 
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
-position = Vector2(1483, 120)
+position = Vector2(48, 224)
 
 [node name="Stair" parent="." unique_id=321336001 instance=ExtResource("8_u5iy2")]
 position = Vector2(624, 224)

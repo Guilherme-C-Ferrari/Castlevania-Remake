@@ -1,5 +1,8 @@
 extends Node2D
 
+const LEVEL_1_1 = preload("uid://c5gs8koxst3jx")
+const MENU = preload("uid://cfptssnl1feyh")
+
 @onready var heart_continue: Sprite2D = $Heart_Continue
 @onready var heart_end: Sprite2D = $Heart_End
 
@@ -35,7 +38,7 @@ func end_option():
 	
 	
 func continue_selected():
-	print("CONTINUE")
+	SignalManager.next_level_reached.emit(LEVEL_1_1)
 	
 func end_selected():
-	print("END")
+	SignalManager.next_level_reached.emit(MENU)
