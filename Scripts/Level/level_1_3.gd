@@ -19,7 +19,7 @@ func _ready() -> void:
 	environment_items = environment_items_child
 	stage_value = 2
 	tile_map_layer = get_node("Level1_3_1/Crypt A/TileMapLayer")
-	level_1_3_2 = LEVEL_1_3_2.instantiate(PackedScene.GEN_EDIT_STATE_MAIN_INHERITED)
+	level_1_3_2 = LEVEL_1_3_2.instantiate()
 	level_1_3_2.visible = false
 	level_1_3_2.process_mode = Node.PROCESS_MODE_DISABLED
 	offset_level_1_3_2.add_child(level_1_3_2)

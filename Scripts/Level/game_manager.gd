@@ -64,7 +64,7 @@ func change_current_level(level_name: String):
 	var target_scene = game_leveis[level_name]
 	current_level_packed_scene = target_scene
 	
-	var new_current_level = target_scene.instantiate(PackedScene.GEN_EDIT_STATE_MAIN_INHERITED)
+	var new_current_level = target_scene.instantiate()
 	add_child(new_current_level)
 	camera.can_follow_player = true
 	current_level_node = new_current_level
@@ -72,7 +72,7 @@ func change_current_level(level_name: String):
 func player_died():
 	if current_level_node:
 		current_level_node.queue_free()
-	current_level_node = current_level_packed_scene.instantiate(PackedScene.GEN_EDIT_STATE_MAIN_INHERITED)
+	current_level_node = current_level_packed_scene.instantiate()
 	add_child(current_level_node)
 	AudioManager.play_current_music()
 
@@ -84,7 +84,7 @@ func game_over():
 	
 	if game_leveis.has(try_again_scene_name):
 		var try_again_scene = game_leveis[try_again_scene_name]
-		var new_current_level = try_again_scene.instantiate(PackedScene.GEN_EDIT_STATE_MAIN_INHERITED)
+		var new_current_level = try_again_scene.instantiate()
 		add_child(new_current_level)
 		current_level_node = new_current_level
 	else:
