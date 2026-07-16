@@ -18,14 +18,13 @@ class_name BreakableWall
 @onready var is_broken: bool = false
 
 const ITEM_DROP_SCENE = preload("uid://7jkunyjdw7r2")
+const BREAK_WALL_SFX: AudioStream = preload("uid://cshkqx5g6r7t1")
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 	_update_sizes()
 
 func _update_sizes() -> void:
-	if not is_inside_tree(): return
-	
 	var rect_shape = RectangleShape2D.new()
 	rect_shape.size = wall_size
 	
@@ -64,7 +63,7 @@ func break_wall() -> void:
 
 func rock_explosion() -> void:
 	if rock_explosion_scene:
-		print("a")
+		AudioManager.play_sound_effect(BREAK_WALL_SFX, "SFX", -12, 0.85)
 		var explosion = rock_explosion_scene.instantiate()
 		get_parent().add_child(explosion)
 		explosion.global_position = global_position
