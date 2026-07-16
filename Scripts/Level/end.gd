@@ -1,7 +1,5 @@
 extends Node2D
 
-@export var menu: PackedScene
-
 const FOOTSTEP = preload("uid://cqcc4byoexdbq")
 const ABANDONED_CASTLE = preload("uid://6n6xst4hsxtf")
 
@@ -26,4 +24,5 @@ func play_credits_music():
 	Ui.visible = false
 	AudioManager.change_current_music(ABANDONED_CASTLE)
 	await get_tree().create_timer(30.0).timeout
-	SignalManager.next_level_reached.emit(menu)
+	Ui.restart_ui()
+	SignalManager.next_level_reached.emit("menu")

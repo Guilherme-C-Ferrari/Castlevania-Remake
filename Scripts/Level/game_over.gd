@@ -38,7 +38,7 @@ func end_option():
 	
 	
 func continue_selected():
-	SignalManager.next_level_reached.emit(LEVEL_1_1)
+	SignalManager.next_level_reached.emit("Level_1_1")
 	
 func end_selected():
-	SignalManager.next_level_reached.emit(MENU)
+	SignalManager.next_level_reached.emit("menu")

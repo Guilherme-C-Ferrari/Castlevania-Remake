@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://di360ghymfuv8" path="res://Scripts/Level/level_1_3.gd" id="1_35j4l"]
 [ext_resource type="PackedScene" uid="uid://binnrgn4csteq" path="res://Scenes/Level/level_1_3_1.tscn" id="1_l5asc"]
-[ext_resource type="PackedScene" uid="uid://caaru1k15oibo" path="res://Scenes/Level/level_1_4.tscn" id="2_pggwd"]
 [ext_resource type="PackedScene" uid="uid://d1ltye8i6fbue" path="res://Scenes/Environment/stair.tscn" id="3_11v7h"]
 [ext_resource type="Texture2D" uid="uid://6rlrsd62o62m" path="res://Assets/SpriteSheets/Items-DoorSpriteRepositioned.png" id="5_csns3"]
 [ext_resource type="Texture2D" uid="uid://pldfv0mgf6sc" path="res://Assets/Map/NES - Castlevania - Stages - Level 1_ Entrance.png" id="6_se1mu"]
@@ -58,7 +57,7 @@ size = Vector2(12, 2)
 
 [node name="Level1_3" type="Node2D" unique_id=547667800]
 script = ExtResource("1_35j4l")
-next_level = ExtResource("2_pggwd")
+next_level = "level_1_4"
 
 [node name="Transition Stair" type="Node2D" parent="." unique_id=1357910859]
 
