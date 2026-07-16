@@ -7,9 +7,6 @@
 [ext_resource type="Resource" uid="uid://c6bh1ewaddwup" path="res://Scripts/Items/Hearts/big_heart.tres" id="5_f05oy"]
 [ext_resource type="Resource" uid="uid://bm1pm16uvf2xc" path="res://Scripts/Items/Wip/wip_upgrade.tres" id="6_2vv70"]
 [ext_resource type="PackedScene" uid="uid://j2pvgo125jgq" path="res://Scenes/Player/fake_player.tscn" id="6_kd1p2"]
-[ext_resource type="PackedScene" uid="uid://ds88nbwfoyq3c" path="res://Scenes/Environment/secret_area.tscn" id="7_jnhho"]
-[ext_resource type="TileSet" uid="uid://itu5cca1i2ft" path="res://Assets/Map/level_1_tile_set.tres" id="8_x4o0v"]
-[ext_resource type="Resource" uid="uid://bfvkhs4xf51kk" path="res://Scripts/Items/Point/bag_1000.tres" id="8_xd6wh"]
 [ext_resource type="Resource" uid="uid://bp83wjkgu0oii" path="res://Scripts/Items/Weapons/dagger.tres" id="7_2vv70"]
 
 [sub_resource type="Animation" id="Animation_a8k43"]
@@ -155,48 +152,24 @@ item_1 = ExtResource("5_f05oy")
 can_drop_wip = false
 
 [node name="Candelabras2" parent="Environment_Items" unique_id=715110596 instance=ExtResource("5_6khmb")]
-position = Vector2(224, 192)
+position = Vector2(224, 193)
 item_1 = ExtResource("6_2vv70")
 can_drop_wip = false
 
 [node name="Candelabras3" parent="Environment_Items" unique_id=161307871 instance=ExtResource("5_6khmb")]
-position = Vector2(351, 192)
+position = Vector2(351, 193)
 item_1 = ExtResource("6_2vv70")
 can_drop_wip = false
 
 [node name="Candelabras4" parent="Environment_Items" unique_id=1021252341 instance=ExtResource("5_6khmb")]
-position = Vector2(480, 192)
+position = Vector2(480, 193)
 item_1 = ExtResource("5_f05oy")
 can_drop_wip = false
 
 [node name="Candelabras5" parent="Environment_Items" unique_id=558773086 instance=ExtResource("5_6khmb")]
-position = Vector2(607, 192)
-item_1 = ExtResource("6_f05oy")
+position = Vector2(607, 193)
+item_1 = ExtResource("7_2vv70")
 can_drop_wip = false
-
-[node name="Secret area" parent="Environment_Items" unique_id=294678220 instance=ExtResource("7_jnhho")]
-position = Vector2(719, 198)
-treasure_secret = ExtResource("8_xd6wh")
-needs_player_crouched = null
-
-[node name="CollisionShape2D" parent="Environment_Items/Secret area" index="0" unique_id=763543201]
-position = Vector2(10.5, 9.5)
-
-[node name="Fake Tile" parent="Environment_Items/Secret area" index="1" unique_id=914403976]
-z_index = 5
-position = Vector2(-14, 10)
-tile_map_data = PackedByteArray(0, 0, 253, 255, 0, 0, 0, 0, 7, 0, 5, 0, 0, 0)
-tile_set = ExtResource("8_x4o0v")
-
-[node name="Fake Treasure Spawn" parent="Environment_Items/Secret area" index="2" unique_id=1208473642]
-position = Vector2(-85, 15)
-
-[node name="Fake Treasure Target" parent="Environment_Items/Secret area" index="3" unique_id=965016151]
-position = Vector2(-85, 3)
-
-[node name="NesCastlevaniaStagesLevel1Entrance2" parent="Environment_Items/Secret area" index="5" unique_id=910309846]
-position = Vector2(-86, 17)
-scale = Vector2(0.00436188, 0.034885876)
 
 [node name="Player" parent="." unique_id=2036421342 instance=ExtResource("3_6khmb")]
 position = Vector2(48, 208)
@@ -225,4 +198,3 @@ shape = SubResource("RectangleShape2D_2vv70")
 [connection signal="body_entered" from="Castle Entrance/Area2D" to="." method="_on_area_2d_2_body_entered"]
 
 [editable path="Castle Entrance"]
-[editable path="Environment_Items/Secret area"]

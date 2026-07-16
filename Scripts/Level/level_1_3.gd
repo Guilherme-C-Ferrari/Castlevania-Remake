@@ -7,10 +7,6 @@ extends LevelWithDoor
 @onready var enemies_child: Node2D = $Level1_3_1/Enemies
 @onready var environment_items_child: Node2D = $Level1_3_1/Environment_Items
 
-@onready var breakable_wall: BreakableWall = $Level1_3_1/Environment_Items/BreakableWall
-@onready var breakable_wall_2: BreakableWall = $Level1_3_1/Environment_Items/BreakableWall2
-@onready var movable_collision_shape: CollisionShape2D = $"Level1_3_1/Walls/Secret Collision/CollisionShape2D3"
-
 const LEVEL_1_3_2 = preload("uid://d1spkvjd6hjvy")
 
 var level_1_3_2: Node2D
@@ -43,6 +39,9 @@ func _on_stair_transition_body_entered(body: Node2D) -> void:
 		#auto_walk_stairs()
 		player_body.is_on_cutscene = false
 
+#func auto_walk_stairs()
+	#if above
+
 func swap_levels():
 	if above:
 		level_1_3_1.visible = false
@@ -55,12 +54,6 @@ func swap_levels():
 		player.ascend_pressed = false
 		above = false
 	else:
-		if breakable_wall.is_broken and breakable_wall_2.is_broken:
-			breakable_wall.hide()
-			breakable_wall_2.hide()
-			if movable_collision_shape.position.x == 8:
-				movable_collision_shape.position.x -= 16
-		
 		level_1_3_1.visible = true
 		level_1_3_1.process_mode = Node.PROCESS_MODE_INHERIT
 		level_1_3_2.visible = false
