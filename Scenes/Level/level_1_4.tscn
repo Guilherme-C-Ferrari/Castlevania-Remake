@@ -12,6 +12,8 @@
 [ext_resource type="Resource" uid="uid://1x6tjxics52" path="res://Scripts/Items/Weapons/axe.tres" id="6_iyhwk"]
 [ext_resource type="PackedScene" uid="uid://d1ltye8i6fbue" path="res://Scenes/Environment/stair.tscn" id="8_iyhwk"]
 [ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="9_doosc"]
+[ext_resource type="PackedScene" uid="uid://btpv2hijq8yr4" path="res://Scenes/Environment/breakable_wall.tscn" id="11_g3ka1"]
+[ext_resource type="Resource" uid="uid://cuxgpw24vtha5" path="res://Scripts/Items/Special/multi_2.tres" id="12_0b2el"]
 [ext_resource type="PackedScene" uid="uid://j2pvgo125jgq" path="res://Scenes/Player/fake_player.tscn" id="14_3k5er"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1bv0"]
@@ -90,6 +92,17 @@ position = Vector2(671, 170)
 position = Vector2(736, 170)
 item_1 = ExtResource("5_6f6lr")
 
+[node name="BreakableWall" parent="Environment_Items" unique_id=76705337 instance=ExtResource("11_g3ka1")]
+position = Vector2(696, 200)
+item_secret = ExtResource("12_0b2el")
+
+[node name="Stair" parent="Environment_Items" unique_id=858202354 instance=ExtResource("8_iyhwk")]
+position = Vector2(686, 192)
+step_count = 4
+up_area_size = Vector2(25, 4.185)
+down_area_size = Vector2(15, 3.48)
+down_area_offset_x = 8.265
+
 [node name="Ceiling" type="StaticBody2D" parent="." unique_id=855990107]
 position = Vector2(641, 42)
 collision_mask = 2
@@ -139,7 +152,7 @@ position = Vector2(769, 145)
 collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Lateral Wall2" unique_id=2005626683]
-position = Vector2(-2.25, -9.5)
+position = Vector2(-3.25, -9.5)
 shape = SubResource("RectangleShape2D_0j1ps")
 
 [node name="MarkerOrb" type="Marker2D" parent="." unique_id=996018129]
@@ -148,16 +161,3 @@ position = Vector2(639, 144)
 [node name="FakePlayer" parent="." unique_id=1962101468 instance=ExtResource("14_3k5er")]
 z_index = 2
 position = Vector2(512, 0)
-
-[node name="Stair3" parent="." unique_id=685650736 instance=ExtResource("8_iyhwk")]
-position = Vector2(238, 224)
-stair_side = 0
-
-[node name="Stair" parent="Stair3" unique_id=858202354 instance=ExtResource("8_iyhwk")]
-position = Vector2(448, -32)
-step_count = 4
-up_area_size = Vector2(25, 4.185)
-down_area_size = Vector2(15, 3.48)
-down_area_offset_x = 8.265
-
-[editable path="Bat Boss Room"]
