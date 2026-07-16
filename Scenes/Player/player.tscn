@@ -1601,7 +1601,7 @@ scale = Vector2(-1, 1)
 script = ExtResource("6_dd0ac")
 
 [node name="Wip_Attack_Area" type="Area2D" parent="Player_Combat_Controller" unique_id=757302545]
-collision_layer = 0
+collision_layer = 8
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Combat_Controller/Wip_Attack_Area" unique_id=1972264191]

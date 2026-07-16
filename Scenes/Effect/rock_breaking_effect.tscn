@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://blgst7a1pb6m2"]
+
+[ext_resource type="Texture2D" uid="uid://lcgwumdw4okb" path="res://Assets/SpriteSheets/Tile Misc.png" id="1_7fn7u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvxm7"]
+atlas = ExtResource("1_7fn7u")
+region = Rect2(396, 198, 7, 8)
+
+[node name="RockBreakingEffect" type="CPUParticles2D" unique_id=479385054]
+emitting = false
+amount = 4
+texture = SubResource("AtlasTexture_gvxm7")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+use_fixed_seed = true
+seed = 2323552426
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, 550)
+initial_velocity_min = 220.0
+initial_velocity_max = 220.0
