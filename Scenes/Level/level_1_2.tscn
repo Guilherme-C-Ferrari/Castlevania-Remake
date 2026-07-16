@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://jd5cy5hp8kel" path="res://Scenes/Environment/Tilemap/entrance_hall.tscn" id="1_bhvdk"]
 [ext_resource type="Script" uid="uid://ytjpxq64ptrr" path="res://Scripts/Level/level_1_2.gd" id="1_frmym"]
-[ext_resource type="PackedScene" uid="uid://jdwcbvm762ce" path="res://Scenes/Level/level_1_3.tscn" id="2_0h4wn"]
 [ext_resource type="PackedScene" uid="uid://dk2hca0p446lk" path="res://Scenes/Player/player.tscn" id="2_dwasc"]
 [ext_resource type="PackedScene" uid="uid://en6qwvm702j4" path="res://Scenes/Environment/candle.tscn" id="3_lgm3a"]
 [ext_resource type="PackedScene" uid="uid://57jlklq2xwd4" path="res://Scenes/Environment/Tilemap/crypt_a.tscn" id="4_i0wd8"]
@@ -74,7 +73,7 @@ size = Vector2(8, 80)
 
 [node name="Level_1_2" type="Node2D" unique_id=1800594450]
 script = ExtResource("1_frmym")
-next_level = ExtResource("2_0h4wn")
+next_level = "level_1_3"
 
 [node name="Entrance Hall" parent="." unique_id=97999581 instance=ExtResource("1_bhvdk")]
 

@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://c658lcfjhyhxe" path="res://Scenes/Environment/Tilemap/bat_boss_room.tscn" id="1_0oybr"]
 [ext_resource type="Script" uid="uid://cvilywejbr68t" path="res://Scripts/Level/level_1_4.gd" id="1_wsogr"]
-[ext_resource type="PackedScene" uid="uid://dgcujtiiw3dfs" path="res://Scenes/Level/end.tscn" id="2_s1bv0"]
 [ext_resource type="PackedScene" uid="uid://dcgpj3vm2ibxb" path="res://Scenes/Enemy/Spawners/long_spawner.tscn" id="3_6f6lr"]
 [ext_resource type="PackedScene" uid="uid://en6qwvm702j4" path="res://Scenes/Environment/candle.tscn" id="3_yvkgm"]
 [ext_resource type="PackedScene" uid="uid://x55yl2iijlg7" path="res://Scenes/Enemy/zombie.tscn" id="4_0v6kv"]
@@ -26,7 +25,7 @@ size = Vector2(14.5, 177)
 
 [node name="Level1_4" type="Node2D" unique_id=990172240]
 script = ExtResource("1_wsogr")
-next_level = ExtResource("2_s1bv0")
+next_level = "end"
 
 [node name="Bat Boss Room" parent="." unique_id=2080491100 instance=ExtResource("1_0oybr")]
 

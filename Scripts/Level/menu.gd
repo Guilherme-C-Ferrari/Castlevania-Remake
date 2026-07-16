@@ -49,4 +49,4 @@ func play_intro():
 	
 func next_scene():
 	print("NEXT SCENE")
-	SignalManager.next_level_reached.emit(LEVEL_1_1)
+	SignalManager.next_level_reached.emit("Level_1_1")

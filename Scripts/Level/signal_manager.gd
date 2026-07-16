@@ -1,7 +1,7 @@
 @warning_ignore_start("unused_signal")
 extends Node
 
-signal next_level_reached(next_level: PackedScene)
+signal next_level_reached(next_level: String)
 signal level_loaded(new_tilemap: TileMapLayer)
 signal player_spawned(player: CharacterBody2D)
 signal request_camera_reference

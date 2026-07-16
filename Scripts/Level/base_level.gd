@@ -3,7 +3,7 @@ class_name BaseLevel
 
 const SFX_DOOR = preload("uid://d00jyg5njqw4o")
 
-@export var next_level: PackedScene
+@export_enum("menu", "game_over", "end", "Level_1_1", "level_1_2", "level_1_3", "level_1_3_1", "level_1_3_2", "level_1_4") var next_level: String
 
 @onready var player: CharacterBody2D = $Player
 @onready var fake_player: AnimatedSprite2D = $FakePlayer
