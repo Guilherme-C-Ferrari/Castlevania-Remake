@@ -60,7 +60,6 @@ func attack_animation():
 		return
 	
 	if player.attack_pressed and player.playback.get_current_node() != "Attack_State":
-		print("WIP ATACK")
 		AudioManager.play_sound_effect(WHIP_SFX,"SFX", -13, 0.8, 1.07)
 		wip.visible = true
 		player.is_attacking = true
