@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://dgbbxrbrro17b"]
+
+[ext_resource type="Script" uid="uid://cq64ksxennvd6" path="res://Scripts/Items/Weapons/water.gd" id="1_744gl"]
+[ext_resource type="Texture2D" uid="uid://8mv5ek6wvmll" path="res://Assets/UI/misc.png" id="2_tnpym"]
+[ext_resource type="Texture2D" uid="uid://dd2e8ruxu0kju" path="res://Assets/Items/fire_water.tres" id="3_tnpym"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibcua"]
+size = Vector2(8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e1qg"]
+atlas = ExtResource("2_tnpym")
+region = Rect2(47, 4, 8, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x2lfw"]
+size = Vector2(10, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibcua"]
+atlas = ExtResource("3_tnpym")
+region = Rect2(2, 0, 7, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2lfw"]
+atlas = ExtResource("3_tnpym")
+region = Rect2(11, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebsrr"]
+atlas = ExtResource("3_tnpym")
+region = Rect2(22, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u38m"]
+atlas = ExtResource("3_tnpym")
+region = Rect2(33, 0, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbe5m"]
+atlas = ExtResource("3_tnpym")
+region = Rect2(53, 0, 14, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qv8nw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibcua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2lfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebsrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4u38m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbe5m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.5
+}]
+
+[node name="Water" type="CharacterBody2D" unique_id=44493352]
+collision_layer = 0
+script = ExtResource("1_744gl")
+
+[node name="Water_collision" type="CollisionShape2D" parent="." unique_id=1630075138]
+shape = SubResource("RectangleShape2D_ibcua")
+
+[node name="Water_SPRITE" type="Sprite2D" parent="." unique_id=1407194088]
+texture = SubResource("AtlasTexture_8e1qg")
+
+[node name="Attack_area" type="Area2D" parent="." unique_id=1868540980]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_area" unique_id=829888707]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_x2lfw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1021095624]
+visible = false
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_qv8nw")
+
+[connection signal="body_entered" from="Attack_area" to="." method="_on_body_entered"]
