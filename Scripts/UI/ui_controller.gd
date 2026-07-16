@@ -190,18 +190,25 @@ func use_weapon(position: Vector2, direction_right: int):
 			for enemy in enemies:
 					enemy.stop_time()
 					
+			var spawners = Engine.get_main_loop().get_nodes_in_group("spawner")
+			for spawner in spawners:
+					spawner.turn_spawner_off()
 			await get_tree().create_timer(2.7).timeout
 			
 			var enemies_after = Engine.get_main_loop().get_nodes_in_group("enemy")
 			for enemy in enemies_after:
 					enemy.resume_time()
 					
+			var spawners_after = Engine.get_main_loop().get_nodes_in_group("spawner")
+			for spawner in spawners_after:
+					spawner.turn_spawner_on()
+					
 			weapon_in_use += 1
 			AudioManager.play_current_music()
 			
 		elif current_weapon == "water":
 			print("USE water")
-		
+			weapon_in_use += 1
 	return
 	
 func enable_multi_item():

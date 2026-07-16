@@ -51,6 +51,7 @@ var invincible := false
 @export var is_ascending := false
 @export var is_descending := false
 @export var is_moving_on_stair := false
+@export var is_using_special := false
 #----------------------------------------------------------
 
 func _ready() -> void:
@@ -125,6 +126,7 @@ func take_hit(enemy_facing: Vector2):
 
 func finish_attack_anim():
 	is_attacking = false
+	is_using_special = false
 	
 func death():
 	is_dead = true

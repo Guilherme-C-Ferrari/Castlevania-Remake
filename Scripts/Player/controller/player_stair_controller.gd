@@ -112,6 +112,9 @@ func walk_to_stair(delta: float):
 		apply_facing_fix()
 
 func using_stair(delta: float):
+	if player.is_dead:
+		not_using_stair()
+		
 	player.velocity = Vector2.ZERO
 	var step_position = current_stair.get_step_position(current_point)
 	player.global_position = player.global_position.move_toward(

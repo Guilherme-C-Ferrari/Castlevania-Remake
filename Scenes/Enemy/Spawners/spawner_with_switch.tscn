@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei8q6"]
 size = Vector2(200, 50)
 
-[node name="SpawnerWithSwitch" type="Area2D" unique_id=1987307375]
+[node name="SpawnerWithSwitch" type="Area2D" unique_id=1987307375 groups=["spawner"]]
 collision_mask = 3
 script = ExtResource("1_tr6ax")
 
