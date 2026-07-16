@@ -192,7 +192,7 @@ func use_weapon(position: Vector2, direction_right: int):
 					
 			var spawners = Engine.get_main_loop().get_nodes_in_group("spawner")
 			for spawner in spawners:
-					print("SPAWNER DEVERIA DESLIGAR")
+					spawner.turn_spawner_off()
 			await get_tree().create_timer(2.7).timeout
 			
 			var enemies_after = Engine.get_main_loop().get_nodes_in_group("enemy")
@@ -201,7 +201,7 @@ func use_weapon(position: Vector2, direction_right: int):
 					
 			var spawners_after = Engine.get_main_loop().get_nodes_in_group("spawner")
 			for spawner in spawners_after:
-					print("SPAWNER DEVERIA LIGAR")
+					spawner.turn_spawner_on()
 					
 			weapon_in_use += 1
 			AudioManager.play_current_music()
