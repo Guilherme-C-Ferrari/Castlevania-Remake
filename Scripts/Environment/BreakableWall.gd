@@ -29,10 +29,10 @@ func _update_sizes() -> void:
 	rect_shape.size = wall_size
 	
 	if has_node("CollisionShape2D"):
-		collision_shape.set_deferred("shape", rect_shape)
+		collision_shape.shape = rect_shape
 		
 	if has_node("SolidCollision/CollisionShape2D"):
-		solid_collision.set_deferred("shape", rect_shape)
+		solid_collision.shape = rect_shape
 
 	if has_node("BlackPatch"):
 		black_patch.size = wall_size

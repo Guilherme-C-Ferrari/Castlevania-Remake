@@ -100,9 +100,6 @@ down_area_offset_x = 2.5
 
 [node name="Level1_3_1" parent="." unique_id=1074935416 instance=ExtResource("1_l5asc")]
 
-[node name="CollisionShape2D2" parent="Level1_3_1/Walls/Lateral Wall3" parent_id_path=PackedInt32Array(1074935416, 1097376611) index="0" unique_id=1308058254]
-position = Vector2(1.5, 0)
-
 [node name="AnimatedSprite Door" type="AnimatedSprite2D" parent="." unique_id=2036825222]
 visible = false
 z_index = 1
