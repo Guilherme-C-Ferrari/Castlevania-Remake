@@ -8,6 +8,8 @@
 [ext_resource type="Resource" uid="uid://bevo8cr5cwqr3" path="res://Scripts/Items/Point/bag_700.tres" id="6_thuiw"]
 [ext_resource type="Resource" uid="uid://duyygndubvyr6" path="res://Scripts/Items/Special/cruz.tres" id="7_u50hj"]
 [ext_resource type="PackedScene" uid="uid://d1ltye8i6fbue" path="res://Scenes/Environment/stair.tscn" id="8_v0oqf"]
+[ext_resource type="PackedScene" uid="uid://btpv2hijq8yr4" path="res://Scenes/Environment/breakable_wall.tscn" id="9_thuiw"]
+[ext_resource type="Resource" uid="uid://fsppf8up1imo" path="res://Scripts/Items/Heal/chicken.tres" id="10_u50hj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_odrkp"]
 size = Vector2(10, 46)
@@ -15,12 +17,24 @@ size = Vector2(10, 46)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dobyp"]
 size = Vector2(9, 80)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1aj12"]
+size = Vector2(32, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0oqf"]
+size = Vector2(16, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thuiw"]
+size = Vector2(16, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u50hj"]
+size = Vector2(16, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnjd2"]
+size = Vector2(30, 15)
+
 [node name="Level1_3_1" type="Node2D" unique_id=1074935416]
 
 [node name="Crypt A" parent="." unique_id=703174525 instance=ExtResource("1_or8ao")]
-
-[node name="TileMapLayer" parent="Crypt A" index="0" unique_id=695115024]
-tile_map_data = PackedByteArray("AAAAAP//AAADAAgAAAAAAAAAAAADAAgAAAABAP//AAADAAgAAAABAAAAAAADAAgAAAACAP//AAADAAgAAAACAAAAAAADAAgAAAADAP//AAADAAgAAAADAAAAAAADAAgAAAAEAP//AAADAAgAAAAEAAAAAAADAAgAAAAFAP//AAADAAgAAAAFAAAAAAADAAgAAAAGAP//AAADAAgAAAAGAAAAAAADAAgAAAAHAP//AAADAAgAAAAHAAAAAAADAAgAAAAIAP//AAADAAgAAAAIAAAAAAADAAgAAAAJAP//AAADAAgAAAAJAAAAAAADAAgAAAAKAP//AAADAAgAAAAKAAAAAAADAAgAAAALAP//AAADAAgAAAALAAAAAAADAAgAAAAMAP//AAADAAgAAAAMAAAAAAADAAgAAAANAP//AAADAAgAAAANAAAAAAADAAgAAAAOAP//AAADAAgAAAAOAAAAAAADAAgAAAAPAP//AAADAAgAAAAPAAAAAAADAAgAAAAAAAYAAAAFAAcAAAAAAAMAAAAFAAYAAAAIAAYAAAAGAAkAAAAIAAUAAAAGAAkAAAAIAAQAAAAGAAkAAAAJAAQAAAAGAAkAAAAJAAUAAAAGAAkAAAAJAAYAAAAGAAkAAAABAAUAAAAEAAQAAAACAAUAAAAEAAQAAAABAAEAAAAEAAQAAAACAAEAAAAEAAQAAAACAAIAAAAEAAQAAAAEAAMAAAAEAAQAAAAEAAIAAAAEAAQAAAAEAAEAAAAEAAQAAAAFAAEAAAAEAAQAAAAGAAEAAAAEAAQAAAAHAAEAAAAEAAQAAAAFAAMAAAAEAAQAAAALAAMAAAAEAAQAAAALAAIAAAAEAAQAAAAMAAIAAAAEAAQAAAALAAEAAAAEAAQAAAAMAAEAAAAEAAQAAAANAAEAAAAEAAQAAAAOAAEAAAAEAAQAAAABAAIAAAAFAAgAAAAJAAIAAAAFAAgAAAAMAAMAAAAFAAgAAAAOAAQAAAAFAAgAAAAFAAIAAAAGAAQAAAAGAAIAAAAGAAQAAAAHAAIAAAAGAAQAAAANAAIAAAAGAAQAAAAOAAIAAAAGAAQAAAAPAAUAAAAEAAcAAAAPAAQAAAAEAAcAAAAKAAUAAAAFAAMAAAADAAUAAAAFAAMAAAADAAIAAAAFAAMAAAAIAAIAAAAFAAMAAAAIAAEAAAAFAAMAAAAKAAEAAAAFAAMAAAAMAAUAAAABAAMAAAAFAAUAAAABAAMAAAADAAQAAAABAAMAAAADAAEAAAABAAMAAAAKAAIAAAABAAMAAAAKAAMAAAABAAMAAAAIAAMAAAABAAMAAAAKAAYAAAABAAUAAAADAAYAAAABAAUAAAADAAMAAAABAAUAAAAMAAYAAAABAAUAAAAKAAQAAAAEAAUAAAAAAAEAAAAFAAQAAAACAAQAAAAFAAkAAAABAAQAAAAFAAkAAAAEAAUAAAAFAAkAAAAGAAMAAAAFAAkAAAAHAAMAAAAFAAkAAAAHAAQAAAAFAAkAAAAJAAMAAAAFAAkAAAALAAUAAAAFAAkAAAANAAQAAAAGAAUAAAAOAAUAAAAGAAUAAAAGAAQAAAAGAAUAAAAHAAUAAAAGAAUAAAAHAAYAAAAGAAgAAAAOAAYAAAAGAAgAAAAFAAQAAAAGAAIAAAAMAAQAAAAGAAIAAAANAAUAAAAGAAYAAAAGAAUAAAAGAAYAAAACAAYAAAAGAAMAAAABAAMAAAAGAAMAAAACAAMAAAAGAAMAAAAEAAQAAAAGAAMAAAAEAAYAAAAGAAMAAAALAAQAAAAGAAMAAAANAAMAAAAGAAMAAAAOAAMAAAAGAAMAAAAGAAYAAAAGAAcAAAANAAYAAAAGAAcAAAAFAAYAAAABAAUAAAAJAAEAAAAEAAQAAAAAAAIAAAAFAAUAAAAAAAQAAAAFAAQAAAAAAAUAAAAFAAQAAAAPAAEAAAAGAAMAAAAPAAMAAAACAAgAAAAPAAIAAAACAAcAAAAPAAYAAAAHAAIAAAALAAYAAAAGAAIAAAABAAYAAAAGAAIAAAA=")
 
 [node name="Fake Bat Boss Room" parent="Crypt A" unique_id=220029025 instance=ExtResource("1_or8ao")]
 position = Vector2(512, 0)
@@ -31,7 +45,7 @@ tile_map_data = PackedByteArray("AAAAAP//AAADAAgAAAAAAAAAAAADAAgAAAABAP//AAADAAg
 [node name="Enemies" type="Node2D" parent="." unique_id=240411905]
 
 [node name="LongSpawnerFlyingEnemies" parent="Enemies" unique_id=1987307375 instance=ExtResource("3_1aj12")]
-position = Vector2(255, 120)
+position = Vector2(255, 115)
 zone_size = Vector2(500, 250)
 enemy_to_spawn = ExtResource("4_thuiw")
 max_qty_to_spawn = 1
@@ -74,6 +88,13 @@ stair_side = 0
 position = Vector2(462, 224)
 stair_side = 0
 
+[node name="BreakableWall" parent="Environment_Items" unique_id=76705337 instance=ExtResource("9_thuiw")]
+position = Vector2(264, 216)
+item_secret = ExtResource("10_u50hj")
+
+[node name="BreakableWall2" parent="Environment_Items" unique_id=1472600779 instance=ExtResource("9_thuiw")]
+position = Vector2(264, 200)
+
 [node name="Walls" type="Node2D" parent="." unique_id=190986526]
 
 [node name="Lateral Wall" type="StaticBody2D" parent="Walls" unique_id=1521627441]
@@ -96,7 +117,7 @@ position = Vector2(3, 184)
 collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Lateral Wall3" unique_id=1308058254]
-position = Vector2(0.5, 0)
+position = Vector2(1.5, 0)
 shape = SubResource("RectangleShape2D_dobyp")
 
 [node name="Lateral Wall4" type="StaticBody2D" parent="Walls" unique_id=91238723]
@@ -123,5 +144,36 @@ collision_mask = 2
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_dobyp")
 
-[editable path="Crypt A"]
+[node name="Secret Collision" type="StaticBody2D" parent="Walls" unique_id=955691017]
+position = Vector2(271, 235)
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Secret Collision" unique_id=565205673]
+position = Vector2(1, -3.5)
+shape = SubResource("RectangleShape2D_1aj12")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls/Secret Collision" unique_id=634210422]
+position = Vector2(8, -31.5)
+shape = SubResource("RectangleShape2D_v0oqf")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls/Secret Collision" unique_id=584036669]
+position = Vector2(-7, -47.5)
+shape = SubResource("RectangleShape2D_thuiw")
+
+[node name="Lateral Wall7" type="StaticBody2D" parent="Walls" unique_id=132543514]
+position = Vector2(170, 171)
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Lateral Wall7" unique_id=259656010]
+position = Vector2(-2, 4)
+shape = SubResource("RectangleShape2D_u50hj")
+
+[node name="Lateral Wall8" type="StaticBody2D" parent="Walls" unique_id=1719085654]
+position = Vector2(337, 156)
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Lateral Wall8" unique_id=397272365]
+position = Vector2(-1, -3.5)
+shape = SubResource("RectangleShape2D_jnjd2")
+
 [editable path="Crypt A/Fake Bat Boss Room"]

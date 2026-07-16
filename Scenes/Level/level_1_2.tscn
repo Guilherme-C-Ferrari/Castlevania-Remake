@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://duyygndubvyr6" path="res://Scripts/Items/Special/cruz.tres" id="10_x8sa7"]
 [ext_resource type="Texture2D" uid="uid://6rlrsd62o62m" path="res://Assets/SpriteSheets/Items-DoorSpriteRepositioned.png" id="11_kl0gm"]
 [ext_resource type="Texture2D" uid="uid://pldfv0mgf6sc" path="res://Assets/Map/NES - Castlevania - Stages - Level 1_ Entrance.png" id="12_i0wd8"]
+[ext_resource type="PackedScene" uid="uid://btpv2hijq8yr4" path="res://Scenes/Environment/breakable_wall.tscn" id="13_0h4wn"]
 [ext_resource type="PackedScene" uid="uid://j2pvgo125jgq" path="res://Scenes/Player/fake_player.tscn" id="13_n0slp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xuikv"]
@@ -188,6 +189,10 @@ position = Vector2(1439, 105)
 position = Vector2(1503, 72)
 item_1 = ExtResource("10_x8sa7")
 
+[node name="BreakableWall" parent="Environment_Items" unique_id=76705337 instance=ExtResource("13_0h4wn")]
+position = Vector2(1016, 168)
+item_secret = ExtResource("7_n5qu7")
+
 [node name="Player" parent="." unique_id=603095742 instance=ExtResource("2_dwasc")]
 position = Vector2(48, 224)
 
@@ -284,5 +289,4 @@ shape = SubResource("RectangleShape2D_1wig1")
 
 [connection signal="body_entered" from="Next Level Trigger" to="." method="_on_next_level_trigger_body_entered"]
 
-[editable path="Entrance Hall"]
 [editable path="Entrance Hall/Fake Crypt A"]
