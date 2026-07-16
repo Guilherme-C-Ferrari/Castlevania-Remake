@@ -20,6 +20,9 @@ const DAGGER_SFX = preload("uid://fpbry8offwh6")
 const AXE = preload("uid://bcd48f66fp52h")
 const AXE_SFX = preload("uid://b1x36h5p0hjvy")
 
+const WATER = preload("uid://dgbbxrbrro17b")
+
+
 const WATCH_SFX = preload("uid://dwrd6pbmrsc0e")
 
 const TIME_SFX = preload("uid://b0f33n0h8l4ad")
@@ -207,7 +210,11 @@ func use_weapon(position: Vector2, direction_right: int):
 			AudioManager.play_current_music()
 			
 		elif current_weapon == "water":
-			print("USE water")
+			
+			var water = WATER.instantiate()
+			water.global_position = Vector2(position.x, position.y - 16)
+			water.scale.x = direction_right
+			get_tree().current_scene.add_child(water)
 			weapon_in_use += 1
 	return
 	
@@ -222,9 +229,6 @@ func add_weapon_usage():
 	weapon_in_use += 1
 	
 func can_use_weapon():
-	print(current_weapon)
-	print(current_weapon_heart_cost)
-	print(weapon_in_use)
 	return current_weapon != "" and current_weapon_heart_cost <= ui.get_extra_point() and weapon_in_use != 0
 	
 func restart_status():
