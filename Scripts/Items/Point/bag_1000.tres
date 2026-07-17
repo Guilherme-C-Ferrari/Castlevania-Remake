@@ -1,17 +1,42 @@
 [gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://bfvkhs4xf51kk"]
 
+[ext_resource type="Texture2D" uid="uid://dxg5rn3pmri41" path="res://Assets/Items/bags.tres" id="1_mq03r"]
 [ext_resource type="Script" uid="uid://b1rlianwkonhs" path="res://Scripts/Items/weapon.gd" id="1_x6xgn"]
-[ext_resource type="Texture2D" uid="uid://8mv5ek6wvmll" path="res://Assets/UI/misc.png" id="2_55mtb"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mq03r"]
-atlas = ExtResource("2_55mtb")
-region = Rect2(46, 84, 14, 15)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkc8p"]
+atlas = ExtResource("1_mq03r")
+region = Rect2(0, 0, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne7nj"]
+atlas = ExtResource("1_mq03r")
+region = Rect2(17, 0, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0jm5"]
+atlas = ExtResource("1_mq03r")
+region = Rect2(34, 0, 14, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_55mtb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkc8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne7nj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0jm5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
 
 [resource]
 script = ExtResource("1_x6xgn")
 name = "bag_1000"
 item_points = 1000
 item_type = 2
-sprite = SubResource("AtlasTexture_mq03r")
+animatedSprite = SubResource("SpriteFrames_55mtb")
 collision_size = Vector2(16, 14)
 metadata/_custom_type_script = "uid://b1rlianwkonhs"

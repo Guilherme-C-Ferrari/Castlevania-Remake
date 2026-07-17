@@ -16,6 +16,8 @@ shape = SubResource("RectangleShape2D_frmym")
 
 [node name="Item_Sprite" type="Sprite2D" parent="." unique_id=2120844379]
 
+[node name="Animated_Item" type="AnimatedSprite2D" parent="." unique_id=1172785817]
+
 [node name="Area2D" type="Area2D" parent="." unique_id=1043098947]
 collision_layer = 16
 collision_mask = 130

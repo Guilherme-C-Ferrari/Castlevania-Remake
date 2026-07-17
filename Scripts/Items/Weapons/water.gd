@@ -27,6 +27,7 @@ func _physics_process(delta: float) -> void:
 		burn()
 		
 	elif is_on_wall() or is_on_ceiling():
+		AudioManager.play_sound_effect(HOLY_WATER_SFX, "SFX", -12)
 		destroy_weapon()
 
 func destroy_weapon():

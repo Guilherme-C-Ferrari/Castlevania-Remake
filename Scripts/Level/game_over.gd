@@ -1,7 +1,5 @@
 extends Node2D
 
-const LEVEL_1_1 = preload("uid://c5gs8koxst3jx")
-const MENU = preload("uid://cfptssnl1feyh")
 
 @onready var heart_continue: Sprite2D = $Heart_Continue
 @onready var heart_end: Sprite2D = $Heart_End

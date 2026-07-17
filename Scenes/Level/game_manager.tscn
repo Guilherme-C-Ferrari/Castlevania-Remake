@@ -5,6 +5,7 @@
 
 [node name="Game Manager" type="Node" unique_id=797343871]
 script = ExtResource("1_pwnu3")
+starting_level_name = "level_1_3"
 
 [node name="Camera2D" parent="." unique_id=1714398577 instance=ExtResource("2_fdiwi")]
 position = Vector2(128, 120)

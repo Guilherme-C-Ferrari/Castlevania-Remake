@@ -57,7 +57,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"open",
-"speed": 3.0
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xkrhj"]
@@ -233,8 +233,6 @@ z_index = 1
 position = Vector2(1542, 104)
 sprite_frames = SubResource("SpriteFrames_e413r")
 animation = &"open"
-frame = 1
-frame_progress = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite Door" unique_id=1792868529]
 modulate = Color(0, 0, 0, 1)

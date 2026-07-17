@@ -15,4 +15,5 @@ enum Type_Item {
 @export var despawn_time: int = 5
 @export var item_type: Type_Item
 @export var sprite: Texture
+@export var animatedSprite: SpriteFrames
 @export var collision_size: Vector2 = Vector2(16,16)

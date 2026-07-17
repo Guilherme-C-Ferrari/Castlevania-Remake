@@ -1,7 +1,5 @@
 extends Node2D
 
-const LEVEL_1_1 = preload("uid://c5gs8koxst3jx")
-
 @onready var castle_anim: AnimatedSprite2D = $Menu_Screen/CastleAnim
 @onready var color_rect: ColorRect = $Menu_Screen/ColorRect
 
@@ -45,7 +43,7 @@ func play_intro():
 	Ui.visible = true
 	intro.visible = true
 	animation_player_intro.play("intro")
-	AudioManager.play_sound_effect(PROLOGUE_CASTLE_GATE, "Master", -5)
+	AudioManager.play_sound_effect(PROLOGUE_CASTLE_GATE, "Master", -10)
 	
 func next_scene():
 	print("NEXT SCENE")

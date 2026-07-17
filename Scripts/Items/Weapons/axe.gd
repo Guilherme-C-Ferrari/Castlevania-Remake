@@ -22,7 +22,7 @@ func destroy_weapon():
 func _on_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("enemy") or body.is_in_group("structure")) and body.has_method("on_receive_damage"):
 		destroy_weapon()
-		body.on_receive_damage(1)
+		body.on_receive_damage(2)
 	elif  body.is_in_group("Item"):
 		destroy_weapon()
 		pass

@@ -22,7 +22,6 @@ const AXE_SFX = preload("uid://b1x36h5p0hjvy")
 
 const WATER = preload("uid://dgbbxrbrro17b")
 
-
 const WATCH_SFX = preload("uid://dwrd6pbmrsc0e")
 
 const TIME_SFX = preload("uid://b0f33n0h8l4ad")
@@ -39,6 +38,7 @@ func reset_player_stats():
 	set_inital_time(200)
 	ui.set_extra_point(5)
 	wip_level = 1
+	ui.multi_item_disable()
 	
 	ui.set_weapon_sprite(null)
 	current_weapon = ""

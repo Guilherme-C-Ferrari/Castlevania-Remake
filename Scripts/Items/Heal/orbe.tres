@@ -1,11 +1,29 @@
 [gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://8xs0auhitwid"]
 
 [ext_resource type="Script" uid="uid://b1rlianwkonhs" path="res://Scripts/Items/weapon.gd" id="1_gkn0g"]
-[ext_resource type="Texture2D" uid="uid://8mv5ek6wvmll" path="res://Assets/UI/misc.png" id="2_jbt6l"]
+[ext_resource type="Texture2D" uid="uid://b6yuu5qwsl0b6" path="res://Assets/Items/orbeAnim.tres" id="1_jbt6l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ncnq2"]
-atlas = ExtResource("2_jbt6l")
-region = Rect2(129, 22, 14, 16)
+atlas = ExtResource("1_jbt6l")
+region = Rect2(0, 0, 14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4g37l"]
+atlas = ExtResource("1_jbt6l")
+region = Rect2(17, 0, 14, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1eunw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncnq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4g37l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
 
 [resource]
 script = ExtResource("1_gkn0g")
@@ -14,5 +32,5 @@ heart_cost = 0
 item_points = 100
 despawn_time = 9999
 item_type = 3
-sprite = SubResource("AtlasTexture_ncnq2")
+animatedSprite = SubResource("SpriteFrames_1eunw")
 metadata/_custom_type_script = "uid://b1rlianwkonhs"

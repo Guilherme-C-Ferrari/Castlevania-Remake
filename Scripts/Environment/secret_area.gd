@@ -6,7 +6,7 @@ extends Area2D
 
 @onready var fake_treasure_spawn: Marker2D = $"Fake Treasure Spawn"
 @onready var fake_treasure_target: Marker2D = $"Fake Treasure Target"
-@onready var fake_treasure: Sprite2D = $"Fake Treasure"
+@onready var fake_treasure: AnimatedSprite2D = $"Fake Treasure"
 const SFX_SECRT_ITEM = preload("uid://c076neud58ut1")
 
 const ITEM_DROP_SCENE = preload("uid://7jkunyjdw7r2")
@@ -17,7 +17,8 @@ var player_reference
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	fake_treasure.texture = treasure_secret.sprite
+	fake_treasure.sprite_frames = treasure_secret.animatedSprite
+	fake_treasure.play("default")
 
 func _process(_delta: float) -> void:
 	if entered and not triggered and player_reference.is_ducking:
